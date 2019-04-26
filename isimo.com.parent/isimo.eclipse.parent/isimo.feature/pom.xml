@@ -8,6 +8,7 @@
 	<version>2.0-Sel-3.14.0-SNAPSHOT</version>
 </parent>
 	<artifactId>isimo.feature</artifactId>
+<version>2.0.0-SNAPSHOT</version>
 	<packaging>eclipse-feature</packaging>
 	<build>
 		<plugins>

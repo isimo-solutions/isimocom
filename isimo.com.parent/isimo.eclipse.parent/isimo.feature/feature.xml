@@ -2,7 +2,7 @@
 <feature
       id="isimo.feature"
       label="isimo feature"
-      version="1.0.0.qualifier"
+      version="2.0.0-SNAPSHOT"
       provider-name="SMARTITPROJECT"
       plugin="com.smartwebproject.testframework.ui">
 
