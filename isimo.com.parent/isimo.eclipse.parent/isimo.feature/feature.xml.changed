@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><feature id="isimo.feature" label="isimo feature" version="1.0.0.qualifier" provider-name="SMARTITPROJECT" plugin="com.smartwebproject.testframework.ui">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.ui.editors"/>
+      <import plugin="org.eclipse.wst.xml.ui"/>
+      <import plugin="org.eclipse.wst.sse.ui"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.wst.validation"/>
+      <import plugin="org.eclipse.wst.validation.ui"/>
+      <import plugin="org.eclipse.wst.xml.core"/>
+      <import plugin="org.eclipse.wst.xml.xpath.core"/>
+      <import plugin="org.eclipse.wst.sse.core"/>
+      <import plugin="org.eclipse.debug.core"/>
+      <import plugin="org.eclipse.debug.ui"/>
+      <import plugin="org.eclipse.ui.console"/>
+      <import plugin="org.eclipse.jdt.junit"/>
+      <import plugin="org.eclipse.jdt"/>
+      <import plugin="org.eclipse.jdt.launching"/>
+      <import plugin="org.eclipse.jdt.junit.core"/>
+      <import plugin="org.eclipse.jdt.junit.runtime"/>
+      <import plugin="org.eclipse.jdt.junit4.runtime"/>
+      <import plugin="org.eclipse.pde.junit.runtime"/>
+      <import plugin="org.junit"/>
+      <import plugin="org.eclipse.jdt.core"/>
+      <import plugin="org.eclipse.pde.launching"/>
+      <import plugin="org.eclipse.pde.ui"/>
+      <import plugin="org.eclipse.jdt.ui"/>
+      <import plugin="org.eclipse.jdt.debug"/>
+      <import plugin="org.eclipse.jdt.debug.ui"/>
+      <import plugin="org.eclipse.wst.common.project.facet.core"/>
+      <import plugin="org.eclipse.core.expressions"/>
+      <import plugin="org.eclipse.jst.ws"/>
+      <import plugin="org.eclipse.wst.xsl.launching"/>
+      <import plugin="org.eclipse.wst.xsl.ui"/>
+      <import plugin="org.eclipse.wst.xsl.jaxp.debug.ui"/>
+      <import plugin="org.eclipse.wst.xsl.debug.ui"/>
+      <import plugin="org.apache.commons.lang3"/>
+      <import plugin="org.eclipse.egit"/>
+      <import plugin="org.eclipse.e4.core.commands"/>
+      <import plugin="org.eclipse.e4.core.services"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.swt"/>
+      <import plugin="org.eclipse.jface"/>
+      <import plugin="org.eclipse.ui.workbench"/>
+      <import plugin="org.eclipse.core.expressions"/>
+      <import plugin="org.eclipse.core.filesystem"/>
+      <import plugin="org.eclipse.help"/>
+      <import plugin="org.eclipse.swt"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.ui.workbench"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.equinox.p2.engine"/>
+      <import plugin="org.eclipse.equinox.p2.metadata"/>
+      <import plugin="org.eclipse.equinox.bidi"/>
+      <import plugin="org.eclipse.e4.core.services"/>
+      <import plugin="org.eclipse.e4.core.contexts"/>
+      <import plugin="org.eclipse.e4.ui.workbench"/>
+      <import plugin="org.eclipse.e4.core.commands"/>
+      <import plugin="org.eclipse.e4.ui.model.workbench"/>
+      <import plugin="org.eclipse.e4.core.di"/>
+      <import plugin="org.eclipse.e4.core.di.extensions"/>
+      <import plugin="org.eclipse.osgi.services"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.ui.navigator.resources"/>
+      <import plugin="org.eclipse.core.net"/>
+      <import plugin="org.eclipse.core.filesystem"/>
+      <import plugin="org.eclipse.urischeme"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.equinox.security.ui"/>
+      <import plugin="org.eclipse.jdt.core"/>
+      <import plugin="org.eclipse.text"/>
+      <import plugin="org.eclipse.recommenders.utils"/>
+   </requires>
+
+   <plugin id="com.smartwebproject.testframework.ui" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
+
+   <plugin id="org.eclipse.ui" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
+
+   <plugin id="org.eclipse.ui.ide" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
+
+   <plugin id="org.eclipse.ui.ide.application" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
+
+   <plugin id="org.eclipse.equinox.p2.ui" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
+
+   <plugin id="org.eclipse.recommenders.jdt" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
+
+</feature>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="isimo.feature"
+      label="isimo feature"
+      version="1.0.0.qualifier"
+      provider-name="SMARTITPROJECT"
+      plugin="com.smartwebproject.testframework.ui">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.swt"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.aether.maven"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.ui.editors"/>
+      <import plugin="org.eclipse.wst.xml.ui"/>
+      <import plugin="org.eclipse.wst.sse.ui"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.wst.validation"/>
+      <import plugin="org.eclipse.wst.validation.ui"/>
+      <import plugin="org.eclipse.wst.xml.core"/>
+      <import plugin="org.eclipse.wst.xml.xpath.core"/>
+      <import plugin="org.eclipse.wst.sse.core"/>
+      <import plugin="org.eclipse.debug.core"/>
+      <import plugin="org.eclipse.debug.ui"/>
+      <import plugin="org.eclipse.ui.console"/>
+      <import plugin="org.eclipse.jdt.junit"/>
+      <import plugin="org.eclipse.jdt"/>
+      <import plugin="org.eclipse.jdt.launching"/>
+      <import plugin="org.eclipse.jdt.junit.core"/>
+      <import plugin="org.eclipse.jdt.junit.runtime"/>
+      <import plugin="org.eclipse.jdt.junit4.runtime"/>
+      <import plugin="org.eclipse.pde.junit.runtime"/>
+      <import plugin="org.junit"/>
+      <import plugin="org.eclipse.jdt.core"/>
+      <import plugin="org.eclipse.pde.launching"/>
+      <import plugin="org.eclipse.pde.ui"/>
+      <import plugin="org.eclipse.jdt.ui"/>
+      <import plugin="org.eclipse.jdt.debug"/>
+      <import plugin="org.eclipse.jdt.debug.ui"/>
+      <import plugin="org.eclipse.wst.common.project.facet.core"/>
+      <import plugin="org.eclipse.core.expressions"/>
+      <import plugin="org.eclipse.jst.ws"/>
+      <import plugin="org.eclipse.wst.xsl.launching"/>
+      <import plugin="org.eclipse.wst.xsl.ui"/>
+      <import plugin="org.eclipse.wst.xsl.jaxp.debug.ui"/>
+      <import plugin="org.eclipse.wst.xsl.debug.ui"/>
+      <import plugin="org.apache.commons.lang3"/>
+      <import plugin="org.eclipse.egit"/>
+      <import plugin="org.eclipse.e4.core.commands"/>
+      <import plugin="org.eclipse.e4.core.services"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.emf.ecore.change"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipse.emf.common"/>
+      <import plugin="org.eclipse.ecf"/>
+      <import plugin="org.eclipse.ecf.filetransfer"/>
+      <import plugin="org.eclipse.ecf.provider.filetransfer"/>
+      <import plugin="org.eclipse.draw2d"/>
+      <import plugin="org.eclipse.wst.common.emfworkbench.integration"/>
+      <import plugin="org.eclipse.gef"/>
+      <import plugin="org.eclipse.wst.command.env"/>
+      <import plugin="org.eclipse.wst.command.env.core"/>
+      <import plugin="org.eclipse.wst.common.environment"/>
+      <import plugin="org.eclipse.wst.common.frameworks"/>
+      <import plugin="org.eclipse.wst.server.core"/>
+      <import plugin="org.eclipse.wst.ws"/>
+      <import plugin="org.eclipse.wst.wsdl"/>
+      <import plugin="org.eclipse.pde.build"/>
+      <import plugin="org.eclipse.pde.core"/>
+      <import plugin="org.eclipse.ui.trace"/>
+      <import plugin="com.isimo.eclipse.bundle"/>
+      <import plugin="org.eclipse.wst.xsl.core" version="1.2.0" match="greaterOrEqual"/>
+      <import plugin="org.w3c.css.sac"/>
+   </requires>
+
+   <plugin
+         id="com.smartwebproject.testframework.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

@@ -1,0 +1,1034 @@
+Apache Maven 3.5.3 (3383c37e1f9e9b3bc3df5050c29c8aff9f295297; 2018-02-24T20:49:05+01:00)
+Maven home: C:\java\apache-maven-3.5.3\bin\..
+Java version: 1.8.0_181, vendor: Oracle Corporation
+Java home: C:\Program Files\Java\jre1.8.0_181
+Default locale: de_DE, platform encoding: Cp1252
+OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
+[DEBUG] Created new class realm maven.api
+[DEBUG] Importing foreign packages into class realm maven.api
+[DEBUG]   Imported: javax.annotation.* < plexus.core
+[DEBUG]   Imported: javax.annotation.security.* < plexus.core
+[DEBUG]   Imported: javax.enterprise.inject.* < plexus.core
+[DEBUG]   Imported: javax.enterprise.util.* < plexus.core
+[DEBUG]   Imported: javax.inject.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.artifact < plexus.core
+[DEBUG]   Imported: org.apache.maven.classrealm < plexus.core
+[DEBUG]   Imported: org.apache.maven.cli < plexus.core
+[DEBUG]   Imported: org.apache.maven.configuration < plexus.core
+[DEBUG]   Imported: org.apache.maven.exception < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution.scope < plexus.core
+[DEBUG]   Imported: org.apache.maven.lifecycle < plexus.core
+[DEBUG]   Imported: org.apache.maven.model < plexus.core
+[DEBUG]   Imported: org.apache.maven.monitor < plexus.core
+[DEBUG]   Imported: org.apache.maven.plugin < plexus.core
+[DEBUG]   Imported: org.apache.maven.profiles < plexus.core
+[DEBUG]   Imported: org.apache.maven.project < plexus.core
+[DEBUG]   Imported: org.apache.maven.reporting < plexus.core
+[DEBUG]   Imported: org.apache.maven.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.rtinfo < plexus.core
+[DEBUG]   Imported: org.apache.maven.settings < plexus.core
+[DEBUG]   Imported: org.apache.maven.toolchain < plexus.core
+[DEBUG]   Imported: org.apache.maven.usability < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authentication < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authorization < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.events < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.observers < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.proxy < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.resource < plexus.core
+[DEBUG]   Imported: org.codehaus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.* < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.component < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.configuration < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.container < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.context < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.lifecycle < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.logging < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.personality < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.Xpp3Dom < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParser < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParserException < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlSerializer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.* < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.artifact < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.collection < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.deployment < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.graph < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.installation < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.internal.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.metadata < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.repository < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.resolution < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.spi < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.transfer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.version < plexus.core
+[DEBUG]   Imported: org.fusesource.jansi.* < plexus.core
+[DEBUG]   Imported: org.slf4j.* < plexus.core
+[DEBUG]   Imported: org.slf4j.helpers.* < plexus.core
+[DEBUG]   Imported: org.slf4j.spi.* < plexus.core
+[DEBUG] Populating class realm maven.api
+[INFO] Error stacktraces are turned on.
+[DEBUG] Message scheme: color
+[DEBUG] Message styles: debug info warning error success failure strong mojo project
+[DEBUG] Reading global settings from C:\java\apache-maven-3.5.3\bin\..\conf\settings.xml
+[DEBUG] Reading user settings from C:\Users\ext-dmoch\.m2\settings.xml
+[DEBUG] Reading global toolchains from C:\java\apache-maven-3.5.3\bin\..\conf\toolchains.xml
+[DEBUG] Reading user toolchains from C:\Users\ext-dmoch\.m2\toolchains.xml
+[DEBUG] Using local repository at C:\Users\ext-dmoch\.m2\repository
+[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10.0 for C:\Users\ext-dmoch\.m2\repository
+[INFO] Scanning for projects...
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=2444276, ConflictMarker.markTime=1646766, ConflictMarker.nodeCount=97, ConflictIdSorter.graphTime=1858700, ConflictIdSorter.topsortTime=956174, ConflictIdSorter.conflictIdCount=45, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=22643798, ConflictResolver.conflictItemCount=96, DefaultDependencyCollector.collectTime=858492243, DefaultDependencyCollector.transformTime=35389876}
+[DEBUG] org.eclipse.tycho:tycho-maven-plugin:jar:1.3.0:
+[DEBUG]    org.eclipse.tycho:tycho-core:jar:1.3.0:compile
+[DEBUG]       org.apache.maven:maven-core:jar:3.0:compile
+[DEBUG]          org.apache.maven:maven-model:jar:3.0:compile
+[DEBUG]          org.apache.maven:maven-settings:jar:3.0:compile
+[DEBUG]          org.apache.maven:maven-settings-builder:jar:3.0:compile
+[DEBUG]          org.apache.maven:maven-repository-metadata:jar:3.0:compile
+[DEBUG]          org.apache.maven:maven-artifact:jar:3.0:compile
+[DEBUG]          org.apache.maven:maven-model-builder:jar:3.0:compile
+[DEBUG]          org.apache.maven:maven-aether-provider:jar:3.0:runtime
+[DEBUG]          org.sonatype.aether:aether-impl:jar:1.7:compile
+[DEBUG]             org.sonatype.aether:aether-spi:jar:1.7:compile
+[DEBUG]          org.sonatype.aether:aether-api:jar:1.7:compile
+[DEBUG]          org.sonatype.aether:aether-util:jar:1.7:compile
+[DEBUG]          org.sonatype.sisu:sisu-inject-plexus:jar:1.4.2:compile
+[DEBUG]             org.sonatype.sisu:sisu-inject-bean:jar:1.4.2:compile
+[DEBUG]                org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7:compile
+[DEBUG]          org.codehaus.plexus:plexus-interpolation:jar:1.14:compile
+[DEBUG]          org.codehaus.plexus:plexus-classworlds:jar:2.2.3:compile
+[DEBUG]          org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3:compile
+[DEBUG]             org.sonatype.plexus:plexus-cipher:jar:1.7:compile
+[DEBUG]       org.apache.maven:maven-plugin-api:jar:3.0:compile
+[DEBUG]       org.codehaus.plexus:plexus-utils:jar:3.0.24:compile
+[DEBUG]       org.codehaus.plexus:plexus-archiver:jar:3.4:compile
+[DEBUG]          org.codehaus.plexus:plexus-io:jar:2.7.1:compile
+[DEBUG]          commons-io:commons-io:jar:2.5:compile
+[DEBUG]          org.apache.commons:commons-compress:jar:1.15:compile
+[DEBUG]             org.objenesis:objenesis:jar:2.6:compile
+[DEBUG]          org.iq80.snappy:snappy:jar:0.4:compile
+[DEBUG]          org.tukaani:xz:jar:1.5:runtime
+[DEBUG]       org.eclipse.tycho:org.eclipse.osgi.compatibility.state:jar:1.1.100.v20180131-1413:compile
+[DEBUG]       org.eclipse.tycho:sisu-equinox-embedder:jar:1.3.0:compile
+[DEBUG]          org.eclipse.tycho:org.eclipse.osgi:jar:3.13.0.v20180226-1711:compile
+[DEBUG]          org.eclipse.tycho:sisu-equinox-api:jar:1.3.0:compile
+[DEBUG]       org.eclipse.tycho:tycho-metadata-model:jar:1.3.0:compile
+[DEBUG]          de.pdark:decentxml:jar:1.3:compile
+[DEBUG]       org.eclipse.tycho:tycho-embedder-api:jar:1.3.0:compile
+[DEBUG]          org.eclipse.tycho:org.eclipse.tycho.embedder.shared:jar:1.3.0:compile
+[DEBUG]       org.eclipse.tycho:org.eclipse.tycho.core.shared:jar:1.3.0:compile
+[DEBUG]       org.apache.maven:maven-compat:jar:3.0:compile
+[DEBUG]          org.apache.maven.wagon:wagon-provider-api:jar:1.0-beta-6:compile
+[DEBUG]    org.eclipse.tycho:tycho-p2-facade:jar:1.3.0:compile
+[DEBUG]       org.codehaus.plexus:plexus-component-annotations:jar:1.7.1:compile
+[DEBUG]       org.eclipse.tycho:org.eclipse.tycho.p2.resolver.shared:jar:1.3.0:compile
+[DEBUG]       org.eclipse.tycho:org.eclipse.tycho.p2.tools.shared:jar:1.3.0:compile
+[DEBUG] Created new class realm extension>org.eclipse.tycho:tycho-maven-plugin:1.3.0
+[DEBUG] Importing foreign packages into class realm extension>org.eclipse.tycho:tycho-maven-plugin:1.3.0
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm extension>org.eclipse.tycho:tycho-maven-plugin:1.3.0
+[DEBUG]   Included: org.eclipse.tycho:tycho-maven-plugin:jar:1.3.0
+[DEBUG]   Included: org.eclipse.tycho:tycho-core:jar:1.3.0
+[DEBUG]   Included: org.sonatype.aether:aether-util:jar:1.7
+[DEBUG]   Included: org.sonatype.sisu:sisu-inject-bean:jar:1.4.2
+[DEBUG]   Included: org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.14
+[DEBUG]   Included: org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3
+[DEBUG]   Included: org.sonatype.plexus:plexus-cipher:jar:1.7
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:3.0.24
+[DEBUG]   Included: org.codehaus.plexus:plexus-archiver:jar:3.4
+[DEBUG]   Included: org.codehaus.plexus:plexus-io:jar:2.7.1
+[DEBUG]   Included: commons-io:commons-io:jar:2.5
+[DEBUG]   Included: org.apache.commons:commons-compress:jar:1.15
+[DEBUG]   Included: org.objenesis:objenesis:jar:2.6
+[DEBUG]   Included: org.iq80.snappy:snappy:jar:0.4
+[DEBUG]   Included: org.tukaani:xz:jar:1.5
+[DEBUG]   Included: org.eclipse.tycho:org.eclipse.osgi.compatibility.state:jar:1.1.100.v20180131-1413
+[DEBUG]   Included: org.eclipse.tycho:sisu-equinox-embedder:jar:1.3.0
+[DEBUG]   Included: org.eclipse.tycho:org.eclipse.osgi:jar:3.13.0.v20180226-1711
+[DEBUG]   Included: org.eclipse.tycho:sisu-equinox-api:jar:1.3.0
+[DEBUG]   Included: org.eclipse.tycho:tycho-metadata-model:jar:1.3.0
+[DEBUG]   Included: de.pdark:decentxml:jar:1.3
+[DEBUG]   Included: org.eclipse.tycho:tycho-embedder-api:jar:1.3.0
+[DEBUG]   Included: org.eclipse.tycho:org.eclipse.tycho.embedder.shared:jar:1.3.0
+[DEBUG]   Included: org.eclipse.tycho:org.eclipse.tycho.core.shared:jar:1.3.0
+[DEBUG]   Included: org.eclipse.tycho:tycho-p2-facade:jar:1.3.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-component-annotations:jar:1.7.1
+[DEBUG]   Included: org.eclipse.tycho:org.eclipse.tycho.p2.resolver.shared:jar:1.3.0
+[DEBUG]   Included: org.eclipse.tycho:org.eclipse.tycho.p2.tools.shared:jar:1.3.0
+[DEBUG] Extension realms for project com.smartwebproject.ui:isimo.feature:eclipse-feature:1.0.0-SNAPSHOT: [ClassRealm[extension>org.eclipse.tycho:tycho-maven-plugin:1.3.0, parent: sun.misc.Launcher$AppClassLoader@5c647e05]]
+[DEBUG] Created new class realm project>com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT
+[DEBUG] Populating class realm project>com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT
+[DEBUG] Looking up lifecycle mappings for packaging eclipse-feature from ClassRealm[project>com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT, parent: ClassRealm[maven.api, parent: null]]
+[DEBUG] Extension realms for project com.smartwebproject.ui:testframework-eclipseplugin-parent:pom:1.0.0-SNAPSHOT: [ClassRealm[extension>org.eclipse.tycho:tycho-maven-plugin:1.3.0, parent: sun.misc.Launcher$AppClassLoader@5c647e05]]
+[DEBUG] Looking up lifecycle mappings for packaging pom from ClassRealm[project>com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT, parent: ClassRealm[maven.api, parent: null]]
+[DEBUG] org.eclipse.tycho:tycho-maven-plugin:1.3.0 configured in MavenProject: com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT @ C:\git\isimo.feature\pom.xml
+[DEBUG] org.eclipse.tycho:tycho-packaging-plugin:1.3.0 configured in MavenProject: com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT @ C:\git\isimo.feature\pom.xml
+[DEBUG] org.eclipse.tycho:tycho-p2-plugin:1.3.0 configured in MavenProject: com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT @ C:\git\isimo.feature\pom.xml
+[DEBUG] target-platform-configuration for MavenProject: com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT @ C:\git\isimo.feature\pom.xml:
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <target>
+    <artifact>
+      <groupId>com.smartwebproject.ui</groupId>
+      <artifactId>isimo-target-def</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+    </artifact>
+  </target>
+</configuration>
+[DEBUG] Skipped remote request for com.smartwebproject.ui:isimo-target-def:1.0.0-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
+[DEBUG] Skipped remote request for com.smartwebproject.ui:isimo-target-def:1.0.0-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
+[WARNING] No explicit target runtime environment configuration. Build is platform dependent.
+Debug options:
+    file:/C:/git/isimo.feature/.options not found
+Time to load bundles: 777
+[DEBUG] Clearing proxy settings in OSGi runtime
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=1283778, ConflictMarker.markTime=406365, ConflictMarker.nodeCount=107, ConflictIdSorter.graphTime=542200, ConflictIdSorter.topsortTime=109962, ConflictIdSorter.conflictIdCount=49, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=8586167, ConflictResolver.conflictItemCount=106, DefaultDependencyCollector.collectTime=139158985, DefaultDependencyCollector.transformTime=10982882}
+[DEBUG] org.eclipse.tycho:tycho-p2-plugin:jar:1.3.0:
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-model:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-artifact:jar:3.0:compile
+[DEBUG]       org.sonatype.sisu:sisu-inject-plexus:jar:1.4.2:compile
+[DEBUG]          org.sonatype.sisu:sisu-inject-bean:jar:1.4.2:compile
+[DEBUG]             org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7:compile
+[DEBUG]    org.apache.maven:maven-core:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-settings-builder:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-model-builder:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-aether-provider:jar:3.0:runtime
+[DEBUG]       org.sonatype.aether:aether-impl:jar:1.7:compile
+[DEBUG]          org.sonatype.aether:aether-spi:jar:1.7:compile
+[DEBUG]       org.sonatype.aether:aether-api:jar:1.7:compile
+[DEBUG]       org.sonatype.aether:aether-util:jar:1.7:compile
+[DEBUG]       org.codehaus.plexus:plexus-interpolation:jar:1.14:compile
+[DEBUG]       org.codehaus.plexus:plexus-utils:jar:3.0.24:compile
+[DEBUG]       org.codehaus.plexus:plexus-classworlds:jar:2.2.3:compile
+[DEBUG]       org.codehaus.plexus:plexus-component-annotations:jar:1.7.1:compile
+[DEBUG]       org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3:compile
+[DEBUG]          org.sonatype.plexus:plexus-cipher:jar:1.7:compile
+[DEBUG]    org.eclipse.tycho:sisu-equinox-launching:jar:1.3.0:compile
+[DEBUG]       org.eclipse.tycho:tycho-core:jar:1.3.0:compile
+[DEBUG]          org.codehaus.plexus:plexus-archiver:jar:3.4:compile
+[DEBUG]             org.codehaus.plexus:plexus-io:jar:2.7.1:compile
+[DEBUG]             commons-io:commons-io:jar:2.5:compile
+[DEBUG]             org.apache.commons:commons-compress:jar:1.15:compile
+[DEBUG]                org.objenesis:objenesis:jar:2.6:compile
+[DEBUG]             org.iq80.snappy:snappy:jar:0.4:compile
+[DEBUG]             org.tukaani:xz:jar:1.5:runtime
+[DEBUG]          org.eclipse.tycho:org.eclipse.osgi.compatibility.state:jar:1.1.100.v20180131-1413:compile
+[DEBUG]          org.eclipse.tycho:tycho-metadata-model:jar:1.3.0:compile
+[DEBUG]             de.pdark:decentxml:jar:1.3:compile
+[DEBUG]          org.eclipse.tycho:tycho-embedder-api:jar:1.3.0:compile
+[DEBUG]             org.eclipse.tycho:org.eclipse.tycho.embedder.shared:jar:1.3.0:compile
+[DEBUG]          org.eclipse.tycho:org.eclipse.tycho.core.shared:jar:1.3.0:compile
+[DEBUG]          org.apache.maven:maven-compat:jar:3.0:compile
+[DEBUG]             org.apache.maven.wagon:wagon-provider-api:jar:1.0-beta-6:compile
+[DEBUG]       org.eclipse.tycho:sisu-equinox-api:jar:1.3.0:compile
+[DEBUG]       org.apache.commons:commons-exec:jar:1.2:compile
+[DEBUG]    org.eclipse.tycho:tycho-p2-facade:jar:1.3.0:compile
+[DEBUG]       org.eclipse.tycho:sisu-equinox-embedder:jar:1.3.0:compile
+[DEBUG]          org.eclipse.tycho:org.eclipse.osgi:jar:3.13.0.v20180226-1711:compile
+[DEBUG]       org.eclipse.tycho:org.eclipse.tycho.p2.resolver.shared:jar:1.3.0:compile
+[DEBUG]       org.eclipse.tycho:org.eclipse.tycho.p2.tools.shared:jar:1.3.0:compile
+[DEBUG]    org.eclipse.tycho:tycho-artifactcomparator:jar:1.3.0:compile
+[DEBUG]       org.ow2.asm:asm-debug-all:jar:5.0.3:compile
+[DEBUG] Created new class realm plugin>org.eclipse.tycho:tycho-p2-plugin:1.3.0
+[DEBUG] Importing foreign packages into class realm plugin>org.eclipse.tycho:tycho-p2-plugin:1.3.0
+[DEBUG]   Imported:  < project>com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT
+[DEBUG] Populating class realm plugin>org.eclipse.tycho:tycho-p2-plugin:1.3.0
+[DEBUG]   Included: org.eclipse.tycho:tycho-p2-plugin:jar:1.3.0
+[DEBUG]   Included: org.sonatype.sisu:sisu-inject-bean:jar:1.4.2
+[DEBUG]   Included: org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7
+[DEBUG]   Included: org.sonatype.aether:aether-util:jar:1.7
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.14
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:3.0.24
+[DEBUG]   Included: org.codehaus.plexus:plexus-component-annotations:jar:1.7.1
+[DEBUG]   Included: org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3
+[DEBUG]   Included: org.sonatype.plexus:plexus-cipher:jar:1.7
+[DEBUG]   Included: org.eclipse.tycho:sisu-equinox-launching:jar:1.3.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-archiver:jar:3.4
+[DEBUG]   Included: org.codehaus.plexus:plexus-io:jar:2.7.1
+[DEBUG]   Included: commons-io:commons-io:jar:2.5
+[DEBUG]   Included: org.apache.commons:commons-compress:jar:1.15
+[DEBUG]   Included: org.objenesis:objenesis:jar:2.6
+[DEBUG]   Included: org.iq80.snappy:snappy:jar:0.4
+[DEBUG]   Included: org.tukaani:xz:jar:1.5
+[DEBUG]   Included: org.eclipse.tycho:org.eclipse.osgi.compatibility.state:jar:1.1.100.v20180131-1413
+[DEBUG]   Included: org.apache.commons:commons-exec:jar:1.2
+[DEBUG]   Included: org.eclipse.tycho:tycho-artifactcomparator:jar:1.3.0
+[DEBUG]   Included: org.ow2.asm:asm-debug-all:jar:5.0.3
+[INFO] Computing target platform for MavenProject: com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT @ C:\git\isimo.feature\pom.xml
+[DEBUG] Using default execution environment 'JavaSE-9'
+[DEBUG] Adding target definition file "C:\Users\ext-dmoch\.m2\repository\com\smartwebproject\ui\isimo-target-def\1.0.0-SNAPSHOT\isimo-target-def-1.0.0-SNAPSHOT.target"
+[DEBUG] Resolving target definition content...
+[INFO] Fetching p2.index from http://download.eclipse.org/releases/2019-03/
+[INFO] Adding repository http://download.eclipse.org/releases/2019-03
+[INFO] Fetching p2.index from https://download.eclipse.org/technology/epp/packages/2019-03/
+[INFO] Fetching p2.index from https://download.eclipse.org/technology/epp/packages/2019-03/
+[INFO] Fetching p2.index from http://download.eclipse.org/releases/2019-03/201903201000/
+[INFO] Fetching p2.index from http://download.eclipse.org/releases/2019-03/201903201000/
+[INFO] Fetching p2.index from https://download.eclipse.org/recommenders/updates/head/
+[INFO] Fetching p2.index from https://download.eclipse.org/recommenders/updates/head/
+[INFO] Adding repository https://download.eclipse.org/recommenders/updates/head
+[INFO] Fetching p2.index from http://smartweb.nazwa.pl/jenkins/isimo.p2/
+[INFO] Fetching p2.index from http://smartweb.nazwa.pl/jenkins/isimo.p2/
+[INFO] Adding repository http://smartweb.nazwa.pl/jenkins/isimo.p2
+[INFO] Fetching p2.index from http://download.eclipse.org/eclipse/updates/4.11/
+[INFO] Fetching p2.index from http://download.eclipse.org/eclipse/updates/4.11/
+[INFO] Adding repository http://download.eclipse.org/eclipse/updates/4.11
+[INFO] Fetching p2.index from http://download.eclipse.org/eclipse/updates/4.11/R-4.11-201903070500/
+[INFO] Fetching p2.index from http://download.eclipse.org/eclipse/updates/4.11/R-4.11-201903070500/
+[INFO] Fetching p2.index from http://download.eclipse.org/egit/updates/
+[INFO] Fetching p2.index from http://download.eclipse.org/egit/updates/
+[INFO] Adding repository http://download.eclipse.org/egit/updates
+[INFO] Fetching p2.index from https://download.eclipse.org/technology/m2e/releases/1.11/
+[INFO] Fetching p2.index from https://download.eclipse.org/technology/m2e/releases/1.11/
+[INFO] Adding repository https://download.eclipse.org/technology/m2e/releases/1.11
+[INFO] Fetching p2.index from https://download.eclipse.org/technology/m2e/releases/1.11/1.11.0.20190220-2119/
+[INFO] Fetching p2.index from https://download.eclipse.org/technology/m2e/releases/1.11/1.11.0.20190220-2119/
+[DEBUG] Added 824 units, the content of the target definition file, to the target platform
+[DEBUG] Registered artifact repository org.eclipse.tycho.repository.registry.facade.RepositoryBlackboardKey(uri=file:/resolution-context-artifacts@C%253A%255Cgit%255Cisimo.feature)
+[DEBUG] Added 88 locally built units to the target platform
+[INFO] Resolving dependencies of MavenProject: com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT @ C:\git\isimo.feature\pom.xml
+[WARNING] The following locally built units have been used to resolve project dependencies:
+[WARNING]   com.smartwebproject.testframework.ui/1.0.0.201904031518
+[INFO] Resolving class path of MavenProject: com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT @ C:\git\isimo.feature\pom.xml
+[DEBUG] Bundle-ClassPath entry tools.jar does not exist in C:\Users\ext-dmoch\.m2\repository\p2\osgi\bundle\org.eclipse.jdt.debug\3.12.200.v20190218-2230\org.eclipse.jdt.debug-3.12.200.v20190218-2230.jar
+[DEBUG] Dependency from C:\git\isimo.feature to nested directory classpath entry C:\Users\ext-dmoch\.m2\repository\.cache\tycho\org.apache.axis-1.4.0.v201411182030.jar\lib can not be represented in Maven model and will not be visible to non-OSGi aware Maven plugins
+[DEBUG] === REACTOR BUILD PLAN ================================================
+[DEBUG] Project: com.smartwebproject.ui:isimo.feature:eclipse-feature:1.0.0-SNAPSHOT
+[DEBUG] Tasks:   [install]
+[DEBUG] Style:   Regular
+[DEBUG] =======================================================================
+[INFO] 
+[INFO] ----------------< com.smartwebproject.ui:isimo.feature >----------------
+[INFO] Building isimo.feature 1.0.0-SNAPSHOT
+[INFO] --------------------------[ eclipse-feature ]---------------------------
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] === PROJECT BUILD PLAN ================================================
+[DEBUG] Project:       com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT
+[DEBUG] Dependencies (collect): []
+[DEBUG] Dependencies (resolve): [runtime]
+[DEBUG] Repositories (dependencies): [smartweb (http://smartweb.nazwa.pl:8080/repository/internal, default, releases+snapshots), smartweb-thirdparty (http://smartweb.nazwa.pl:8080/repository/third-party, default, releases+snapshots), central (http://repo1.maven.org/maven2, default, disabled)]
+[DEBUG] Repositories (plugins)     : [central (http://repo1.maven.org/maven2, default, disabled), smartweb (http://smartweb.nazwa.pl:8080/repository/internal, default, releases+snapshots)]
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.eclipse.tycho:tycho-packaging-plugin:1.3.0:build-qualifier-aggregator (default-build-qualifier-aggregator)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <baseDir>${project.basedir}</baseDir>
+  <execution>${mojoExecution}</execution>
+  <forceContextQualifier>${forceContextQualifier}</forceContextQualifier>
+  <format default-value="yyyyMMddHHmm"/>
+  <packaging>${project.packaging}</packaging>
+  <project>${project}</project>
+  <session>${session}</session>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.eclipse.tycho:tycho-packaging-plugin:1.3.0:validate-id (default-validate-id)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <packaging>${project.packaging}</packaging>
+  <project>${project}</project>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.eclipse.tycho:tycho-packaging-plugin:1.3.0:validate-version (default-validate-version)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <packaging>${project.packaging}</packaging>
+  <project>${project}</project>
+  <strictVersions default-value="true"/>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.eclipse.tycho:target-platform-configuration:1.3.0:target-platform (default-target-platform)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <project>${project}</project>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.eclipse.tycho:tycho-packaging-plugin:1.3.0:package-feature (default-package-feature)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <basedir>${project.basedir}</basedir>
+  <deployableFeature default-value="false"/>
+  <finalName>${project.build.finalName}</finalName>
+  <outputDirectory>${project.build.directory}</outputDirectory>
+  <project>${project}</project>
+  <qualifier>${buildQualifier}</qualifier>
+  <session>${session}</session>
+  <strictBinIncludes default-value="true"/>
+  <target default-value="${project.build.directory}/site"/>
+  <useDefaultExcludes default-value="true"/>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.eclipse.tycho:tycho-p2-plugin:1.3.0:p2-metadata-default (default-p2-metadata-default)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <attachP2Metadata default-value="true"/>
+  <baselineMode default-value="warn">${tycho.baseline}</baselineMode>
+  <baselineReplace default-value="all">${tycho.baseline.replace}</baselineReplace>
+  <defaultP2Metadata default-value="true"/>
+  <execution>${mojoExecution}</execution>
+  <generateDownloadStatsProperty default-value="false">${tycho.generateDownloadStatsProperty}</generateDownloadStatsProperty>
+  <project>${project}</project>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.eclipse.tycho:tycho-p2-plugin:1.3.0:feature-p2-metadata (default-feature-p2-metadata)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <artifactRepositoryName default-value="${project.name} Artifacts"/>
+  <compressRepository default-value="true"/>
+  <forkedProcessTimeoutInSeconds>${p2.timeout}</forkedProcessTimeoutInSeconds>
+  <generateP2Metadata default-value="true"/>
+  <metadataRepositoryName default-value="${project.name}"/>
+  <project>${project}</project>
+  <target default-value="${project.build.directory}/site"/>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-install-plugin:2.3.1:install (default-install)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <artifact default-value="${project.artifact}"/>
+  <attachedArtifacts default-value="${project.attachedArtifacts}"/>
+  <createChecksum default-value="false">${createChecksum}</createChecksum>
+  <localRepository>${localRepository}</localRepository>
+  <packaging default-value="${project.packaging}"/>
+  <pomFile default-value="${project.file}"/>
+  <updateReleaseInfo default-value="false">${updateReleaseInfo}</updateReleaseInfo>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.eclipse.tycho:tycho-p2-plugin:1.3.0:update-local-index (default-update-local-index)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <project>${project}</project>
+</configuration>
+[DEBUG] =======================================================================
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=1383467, ConflictMarker.markTime=775821, ConflictMarker.nodeCount=310, ConflictIdSorter.graphTime=255690, ConflictIdSorter.topsortTime=308959, ConflictIdSorter.conflictIdCount=309, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=144931419, ConflictResolver.conflictItemCount=309, DefaultDependencyCollector.collectTime=23210731, DefaultDependencyCollector.transformTime=147684653}
+[DEBUG] com.smartwebproject.ui:isimo.feature:eclipse-feature:1.0.0-SNAPSHOT
+[DEBUG]    p2.eclipse-plugin:com.ibm.icu:jar:63.1.0.v20181030-1705:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:isimo.core-2.0-Sel-3.14.0-SNAPSHOT.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:selenium-java-3.14.0.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:selenium-api-3.14.0.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:selenium-chrome-driver-3.14.0.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:selenium-edge-driver-3.14.0.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:selenium-firefox-driver-3.14.0.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:selenium-ie-driver-3.14.0.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:selenium-opera-driver-3.14.0.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:selenium-remote-driver-3.14.0.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:selenium-safari-driver-3.14.0.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:selenium-support-3.14.0.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:byte-buddy-1.8.15.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:commons-exec-1.3.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:commons-codec-1.10.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:commons-logging-1.2.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:guava-25.0-jre.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:jsr305-1.3.9.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:checker-compat-qual-2.0.0.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:error_prone_annotations-2.1.3.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:j2objc-annotations-1.1.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:animal-sniffer-annotations-1.14.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:httpclient-4.5.5.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:httpcore-4.4.9.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:okhttp-3.10.0.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:okio-1.14.1.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:xml-resolver-1.2.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:dom4j-2.0.0.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:jaxen-1.1.6.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:ant-contrib-1.0b3.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:ant-junit-1.8.2.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:ant-1.8.2.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:ant-launcher-1.8.2.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:commons-jexl3-3.1.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:junit-4.12.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:hamcrest-core-1.3.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:xmltask-1.16.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:commons-lang3-3.5.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:commons-io-2.6.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:jetty-util-9.4.9.v20180320.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:gson-2.8.4.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:spring-core-5.1.4.RELEASE.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:spring-jcl-5.1.4.RELEASE.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:spring-context-5.1.4.RELEASE.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:spring-aop-5.1.4.RELEASE.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:spring-beans-5.1.4.RELEASE.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:spring-expression-5.1.4.RELEASE.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.isimo.eclipse.bundle:jar:isimo.web-2.0-Sel-3.14.0-SNAPSHOT.jar:2.0.0:system
+[DEBUG]    p2.eclipse-plugin:com.smartwebproject.testframework.ui:jar:1.0.0.201904031518:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.core.runtime:jar:3.15.200.v20190301-1641:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ui:jar:3.112.0.v20190205-1313:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jface.text:jar:3.15.100.v20190305-0811:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ui.editors:jar:3.11.400.v20190218-1547:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.xml.ui:jar:1.2.200.v201901071922:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.sse.ui:jar:1.5.100.v201903050402:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.core.resources:jar:3.13.300.v20190218-2054:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ui.ide:jar:3.15.0.v20190301-1127:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.validation:jar:1.2.701.v201810290944:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.validation.ui:jar:1.2.600.v201811122154:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.xml.core:jar:1.2.200.v201901071922:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.xml.xpath.core:jar:1.3.1.v201901071922:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.sse.core:jar:1.2.100.v201901310548:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.debug.core:jar:3.13.200.v20190216-1557:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.debug.ui:jar:3.14.0.v20190301-0916:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ui.console:jar:3.8.400.v20190218-2131:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jdt.junit:jar:3.11.300.v20190130-1425:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jdt:jar:3.17.0.v20190307-0500:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jdt.launching:jar:3.13.0.v20190222-0937:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jdt.junit.core:jar:3.10.200.v20181025-0713:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jdt.junit.runtime:jar:3.4.900.v20181012-1045:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jdt.junit4.runtime:jar:1.1.900.v20181123-0726:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.pde.junit.runtime:jar:3.5.300.v20180827-1331:system
+[DEBUG]    p2.eclipse-plugin:org.junit:jar:junit.jar:4.12.0.v201504281640:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jdt.core:jar:3.17.0.v20190306-2240:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.pde.launching:jar:3.7.400.v20190214-2042:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.pde.ui:jar:3.10.600.v20190222-1655:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jdt.ui:jar:3.17.0.v20190304-0658:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jdt.debug:jar:jdi.jar:3.12.200.v20190218-2230:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jdt.debug:jar:jdimodel.jar:3.12.200.v20190218-2230:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jdt.debug.ui:jar:3.10.200.v20190226-0733:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.common.project.facet.core:jar:1.4.400.v201808012032:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.core.expressions:jar:3.6.300.v20190218-1215:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jst.ws:jar:1.0.800.v201903050508:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.xsl.launching:jar:1.2.0.v201901071922:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.xsl.ui:jar:1.2.0.v201901071922:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.xsl.jaxp.debug.ui:jar:1.1.0.v201901071922:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.xsl.debug.ui:jar:1.1.0.v201901071922:system
+[DEBUG]    p2.eclipse-plugin:org.apache.commons.lang3:jar:3.1.0.v201403281430:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.egit:jar:5.3.0.201903130848-r:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.e4.core.commands:jar:0.12.500.v20190131-1604:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.e4.core.services:jar:2.1.400.v20181215-2145:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.xsl.core:jar:1.2.0.v201901071922:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.swt:jar:3.110.0.v20190305-0602:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.aether.maven:jar:3.1.0.v20140706-2237:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.aether.maven:jar:jars/maven-aether-provider-3.1.0.jar:3.1.0.v20140706-2237:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.aether.maven:jar:jars/maven-model-3.1.0.jar:3.1.0.v20140706-2237:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.aether.maven:jar:jars/maven-model-builder-3.1.0.jar:3.1.0.v20140706-2237:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.aether.maven:jar:jars/plexus-interpolation-1.16.jar:3.1.0.v20140706-2237:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.aether.maven:jar:jars/maven-repository-metadata-3.1.0.jar:3.1.0.v20140706-2237:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.aether.maven:jar:jars/plexus-utils-2.1.jar:3.1.0.v20140706-2237:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.emf.ecore:jar:2.17.0.v20190116-0940:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.emf.ecore.change:jar:2.13.0.v20180706-1146:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.emf.ecore.xmi:jar:2.15.0.v20180706-1146:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.emf.common:jar:2.15.0.v20181220-0846:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ecf:jar:3.9.3.v20181012-2016:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ecf.filetransfer:jar:5.0.100.v20180301-0132:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ecf.provider.filetransfer:jar:3.2.400.v20180306-0429:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.draw2d:jar:3.10.100.201606061308:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.common.emfworkbench.integration:jar:1.2.101.v201802262042:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.gef:jar:3.11.0.201606061308:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.command.env:jar:1.0.500.v201903050508:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.command.env.core:jar:1.0.300.v201903050508:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.common.environment:jar:1.0.400.v201810290944:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.common.frameworks:jar:1.2.201.v201707201954:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.server.core:jar:1.10.0.v201901310132:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.ws:jar:1.1.400.v201903050508:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.wsdl:jar:1.2.500.v201903050508:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.pde.build:jar:pdebuild.jar:3.10.300.v20190305-0856:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.pde.core:jar:3.12.300.v20190214-2042:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ui.trace:jar:1.1.400.v20190214-1655:system
+[DEBUG]    p2.eclipse-plugin:org.w3c.css.sac:jar:1.3.1.v200903091627:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.osgi:jar:3.13.300.v20190218-1622:system
+[DEBUG]    p2.eclipse-plugin:javax.servlet:jar:3.1.0.v201410161800:system
+[DEBUG]    p2.eclipse-plugin:javax.xml:jar:1.3.4.v201005080400:system
+[DEBUG]    p2.eclipse-plugin:javax.xml.rpc:jar:lib/jaxrpc.jar:1.1.0.v201209140446:system
+[DEBUG]    p2.eclipse-plugin:javax.xml.soap:jar:lib/saaj.jar:1.2.0.v201005080501:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant-antlr.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant-apache-bcel.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant-apache-bsf.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant-apache-log4j.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant-apache-oro.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant-apache-regexp.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant-apache-resolver.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant-apache-xalan2.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant-commons-logging.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant-commons-net.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant-jai.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant-javamail.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant-jdepend.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant-jmf.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant-jsch.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant-junit.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant-junit4.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant-junitlauncher.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant-launcher.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant-netrexx.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant-swing.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant-testutil.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant-xz.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.ant:jar:lib/ant.jar:1.10.5.v20180808-0324:system
+[DEBUG]    p2.eclipse-plugin:org.apache.axis:jar:lib/axis.jar:1.4.0.v201411182030:system
+[DEBUG]    p2.eclipse-plugin:org.apache.axis:jar:lib/axis-ant.jar:1.4.0.v201411182030:system
+[DEBUG]    p2.eclipse-plugin:javax.wsdl:jar:1.6.2.v201012040545:system
+[DEBUG]    p2.eclipse-plugin:org.apache.commons.discovery:jar:lib/commons-discovery-0.2.jar:0.2.0.v201004190315:system
+[DEBUG]    p2.eclipse-plugin:org.apache.batik.css:jar:1.10.0.v20180703-1553:system
+[DEBUG]    p2.eclipse-plugin:org.apache.batik.util:jar:1.10.0.v20180703-1553:system
+[DEBUG]    p2.eclipse-plugin:org.apache.batik.constants:jar:1.10.0.v20180703-1553:system
+[DEBUG]    p2.eclipse-plugin:org.apache.batik.i18n:jar:1.10.0.v20180703-1553:system
+[DEBUG]    p2.eclipse-plugin:org.apache.xmlgraphics:jar:2.2.0.v20180809-1640:system
+[DEBUG]    p2.eclipse-plugin:org.w3c.dom.svg:jar:1.1.0.v201011041433:system
+[DEBUG]    p2.eclipse-plugin:org.w3c.dom.events:jar:3.0.0.draft20060413_v201105210656:system
+[DEBUG]    p2.eclipse-plugin:org.apache.commons.codec:jar:1.10.0.v20180409-1845:system
+[DEBUG]    p2.eclipse-plugin:org.apache.commons.logging:jar:1.2.0.v20180409-1502:system
+[DEBUG]    p2.eclipse-plugin:org.apache.felix.scr:jar:2.1.14.v20190123-1619:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.osgi.services:jar:3.8.0.v20190206-2147:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.osgi.util:jar:3.5.200.v20190115-2323:system
+[DEBUG]    p2.eclipse-plugin:org.apache.maven.resolver.impl:jar:1.0.3.v20170405-0725:system
+[DEBUG]    p2.eclipse-plugin:org.apache.maven.resolver.api:jar:1.0.3.v20170405-0725:system
+[DEBUG]    p2.eclipse-plugin:org.apache.maven.resolver.spi:jar:1.0.3.v20170405-0725:system
+[DEBUG]    p2.eclipse-plugin:org.apache.maven.resolver.util:jar:1.0.3.v20170405-0725:system
+[DEBUG]    p2.eclipse-plugin:org.apache.wsil4j:jar:1.0.0.v20180522-1857:system
+[DEBUG]    p2.eclipse-plugin:org.uddi4j:jar:2.0.5.v200805270300:system
+[DEBUG]    p2.eclipse-plugin:org.apache.xalan:jar:2.7.1.v201005080400:system
+[DEBUG]    p2.eclipse-plugin:org.apache.xml.serializer:jar:2.7.1.v201005080400:system
+[DEBUG]    p2.eclipse-plugin:org.apache.xerces:jar:2.9.0.v201101211617:system
+[DEBUG]    p2.eclipse-plugin:org.apache.xml.resolver:jar:1.2.0.v201005080400:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ant.core:jar:3.5.300.v20190213-1305:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.core.variables:jar:3.4.400.v20190214-1545:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ant.launching:jar:1.2.400.v20190205-2142:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.core.externaltools:jar:1.1.200.v20180821-1744:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.text:jar:3.8.100.v20190306-1823:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ant.ui:jar:3.7.400.v20190218-1426:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.core.filesystem:jar:1.7.300.v20190218-2054:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ui.externaltools:jar:3.4.200.v20180821-1744:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.team.core:jar:3.8.500.v20190216-2155:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ltk.core.refactoring:jar:3.10.0.v20190216-1303:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.compare:jar:3.7.500.v20190218-1850:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ui.views:jar:3.9.300.v20190216-1545:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ui.workbench.texteditor:jar:3.11.300.v20190218-2126:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ui.forms:jar:3.7.500.v20190216-1545:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.compare.core:jar:3.6.400.v20190214-2156:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.core.commands:jar:3.9.300.v20190215-1957:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.common:jar:3.10.300.v20190218-2100:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.core.contenttype:jar:3.7.300.v20190215-2048:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.preferences:jar:3.7.300.v20190218-2100:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.registry:jar:3.8.300.v20190218-2100:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.core.databinding:jar:1.7.200.v20190216-1545:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.core.databinding.observable:jar:1.6.400.v20190218-2049:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.core.databinding.property:jar:1.6.400.v20190215-1957:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.core.filebuffers:jar:3.6.500.v20190218-1547:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.core.jobs:jar:3.10.300.v20190215-2048:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.core.net:jar:1.3.400.v20181030-1645:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.security:jar:1.3.100.v20190215-2139:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.app:jar:1.4.100.v20190215-2139:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.help:jar:3.8.300.v20190216-1017:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.e4.core.di:jar:1.7.100.v20180817-1215:system
+[DEBUG]    p2.eclipse-plugin:javax.inject:jar:1.0.0.v20091030:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.e4.core.contexts:jar:1.8.0.v20190214-1713:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.e4.core.di.annotations:jar:1.6.300.v20190214-1713:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.e4.core.di.extensions:jar:0.15.300.v20190213-1308:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.e4.core.di.extensions.supplier:jar:0.15.200.v20180817-1215:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.e4.emf.xpath:jar:0.2.200.v20180828-0227:system
+[DEBUG]    p2.eclipse-plugin:org.apache.commons.jxpath:jar:1.3.0.v200911051830:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.e4.ui.bindings:jar:0.12.400.v20190131-1604:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jface:jar:3.15.100.v20190222-1334:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.e4.ui.css.core:jar:0.12.500.v20190211-2017:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.e4.ui.css.swt:jar:0.13.400.v20190223-1254:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.e4.ui.css.swt.theme:jar:0.12.200.v20190212-2214:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.e4.ui.di:jar:1.2.500.v20190214-1316:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.e4.ui.model.workbench:jar:2.1.300.v20190213-1544:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.e4.ui.services:jar:1.3.400.v20190212-2214:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.event:jar:1.5.0.v20181008-1938:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.e4.ui.widgets:jar:1.2.300.v20180920-1522:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.e4.ui.workbench:jar:1.9.0.v20190220-1356:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.e4.ui.workbench.addons.swt:jar:1.3.400.v20190224-1542:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.e4.ui.workbench.renderers.swt:jar:0.14.500.v20190220-1002:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.e4.ui.workbench.swt:jar:0.14.500.v20190214-0851:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jface.databinding:jar:1.8.500.v20190218-2049:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.e4.ui.workbench3:jar:0.15.0.v20181213-1706:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ecf.identity:jar:3.9.1.v20180810-0833:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.concurrent:jar:1.1.200.v20180827-1235:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.emf.codegen:jar:2.15.0.v20181120-2156:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.emf.ecore.edit:jar:2.12.0.v20190226-1307:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.emf.edit:jar:2.14.0.v20180823-0456:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.bidi:jar:1.1.300.v20190218-1259:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.frameworkadmin:jar:2.1.200.v20190215-2242:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.frameworkadmin.equinox:jar:1.1.100.v20180822-1258:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.p2.artifact.repository:jar:1.3.0.v20190212-1235:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.p2.metadata:jar:2.4.300.v20190215-2242:system
+[DEBUG]    p2.eclipse-plugin:org.tukaani.xz:jar:1.8.0.v20180207-1613:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.p2.core:jar:2.6.0.v20190215-2242:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.p2.jarprocessor:jar:1.1.200.v20180921-1009:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.p2.repository:jar:2.4.300.v20190215-2242:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.p2.director:jar:2.4.300.v20190215-2242:system
+[DEBUG]    p2.eclipse-plugin:org.sat4j.core:jar:2.3.5.v201308161310:system
+[DEBUG]    p2.eclipse-plugin:org.sat4j.pb:jar:2.3.5.v201404071733:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.simpleconfigurator:jar:1.3.200.v20181101-1115:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.p2.engine:jar:2.6.200.v20190215-2242:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.p2.director.app:jar:1.1.200.v20180822-1302:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.p2.metadata.repository:jar:1.3.100.v20180822-1302:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.p2.garbagecollector:jar:1.1.100.v20180822-1302:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.p2.operations:jar:2.5.300.v20190202-1801:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.p2.publisher:jar:1.5.100.v20180822-1302:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.p2.publisher.eclipse:jar:1.3.100.v20180822-1354:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.simpleconfigurator.manipulator:jar:2.1.200.v20181123-1405:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.p2.repository.tools:jar:2.2.200.v20181102-0649:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.p2.touchpoint.eclipse:jar:2.2.300.v20190215-2242:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.p2.ui:jar:2.5.500.v20190220-1158:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.security.ui:jar:1.2.200.v20181108-1420:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.equinox.p2.updatesite:jar:1.1.100.v20180827-1122:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ui.workbench:jar:3.113.0.v20190219-1432:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ui.intro:jar:3.5.500.v20190218-1654:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ui.cheatsheets:jar:3.5.400.v20190218-1039:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jdt.core.manipulation:jar:1.11.100.v20190301-1946:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.search:jar:3.11.500.v20190218-2126:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ltk.ui.refactoring:jar:3.9.300.v20190216-1303:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.team.ui:jar:3.8.400.v20190216-2155:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ui.navigator:jar:3.7.400.v20190218-2049:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ui.navigator.resources:jar:3.6.400.v20190222-1251:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jem:jar:2.0.600.v201802082131:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jem.util:jar:2.1.201.v201707201954:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.common.core:jar:1.3.0.v201811122154:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jem.workbench:jar:2.0.400.v201802082131:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jst.common.annotations.controller:jar:1.1.300.v201710201209:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.common.emf:jar:1.2.600.v201803151712:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jst.common.annotations.core:jar:1.1.300.v201802082131:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jst.common.frameworks:jar:1.1.701.v201710201209:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.common.modulecore:jar:1.3.100.v201811122225:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jst.common.project.facet.core:jar:1.7.0.v201808161734:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jst.j2ee:jar:1.2.301.v201808291842:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jst.j2ee.core:jar:1.4.1.v201803271616:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jst.server.core:jar:1.2.500.v201901310132:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.common.uriresolver:jar:1.2.300.v201802151734:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.web:jar:1.2.100.v201902281912:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jst.j2ee.ejb:jar:1.1.901.v201802201739:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jst.jee:jar:1.0.902.v201802201739:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.jst.j2ee.jca:jar:1.1.901.v201802201739:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.update.configurator:jar:3.4.200.v20190218-1148:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ui.views.log:jar:1.2.500.v20190218-0617:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ui.genericeditor:jar:1.1.300.v20190228-1402:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.swt.win32.win32.x86_64:jar:3.110.0.v20190305-0602:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.ui.views.properties.tabbed:jar:3.8.400.v20190215-1230:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.common.frameworks.ui:jar:1.2.400.v201802151734:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.common.ui:jar:1.1.600.v201811161824:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.internet.monitor.core:jar:1.0.600.v201901310132:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.server.discovery:jar:1.3.100.v201902142141:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.ws.parser:jar:1.0.600.v201903050508:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.xsd:jar:2.16.0.v20181220-0848:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.ws.service.policy:jar:1.0.450.v201903050508:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.xml.xpath2.processor:jar:2.1.101.v201901071922:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.xsd.core:jar:1.2.0.v201901071922:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.xml.xpath.ui:jar:1.1.200.v201901071922:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.xml.xpath2.wtptypes:jar:2.0.0.v201901071922:system
+[DEBUG]    p2.eclipse-plugin:java_cup.runtime:jar:0.10.0.v201005080400:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.xsl.jaxp.debug:jar:1.1.0.v201901071922:system
+[DEBUG]    p2.eclipse-plugin:org.eclipse.wst.xsl.jaxp.launching:jar:1.1.0.v201901071922:system
+[DEBUG]    p2.eclipse-plugin:org.hamcrest.core:jar:1.3.0.v20180420-1519:system
+[DEBUG]    p2.eclipse-plugin:org.w3c.dom.smil:jar:1.0.1.v200903091627:system
+[INFO] 
+[INFO] --- tycho-packaging-plugin:1.3.0:build-qualifier-aggregator (default-build-qualifier-aggregator) @ isimo.feature ---
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=565029, ConflictMarker.markTime=232100, ConflictMarker.nodeCount=153, ConflictIdSorter.graphTime=370218, ConflictIdSorter.topsortTime=69630, ConflictIdSorter.conflictIdCount=43, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=2242616, ConflictResolver.conflictItemCount=99, DefaultDependencyCollector.collectTime=51610601, DefaultDependencyCollector.transformTime=3530959}
+[DEBUG] org.eclipse.tycho:tycho-packaging-plugin:jar:1.3.0:
+[DEBUG]    org.eclipse.tycho:tycho-core:jar:1.3.0:compile
+[DEBUG]       org.eclipse.tycho:org.eclipse.osgi.compatibility.state:jar:1.1.100.v20180131-1413:compile
+[DEBUG]       org.eclipse.tycho:sisu-equinox-embedder:jar:1.3.0:compile
+[DEBUG]          org.eclipse.tycho:org.eclipse.osgi:jar:3.13.0.v20180226-1711:compile
+[DEBUG]          org.eclipse.tycho:sisu-equinox-api:jar:1.3.0:compile
+[DEBUG]       org.eclipse.tycho:tycho-metadata-model:jar:1.3.0:compile
+[DEBUG]          de.pdark:decentxml:jar:1.3:compile
+[DEBUG]       org.eclipse.tycho:tycho-embedder-api:jar:1.3.0:compile
+[DEBUG]          org.eclipse.tycho:org.eclipse.tycho.embedder.shared:jar:1.3.0:compile
+[DEBUG]       org.eclipse.tycho:org.eclipse.tycho.core.shared:jar:1.3.0:compile
+[DEBUG]       org.apache.maven:maven-compat:jar:3.0:compile
+[DEBUG]          org.apache.maven.wagon:wagon-provider-api:jar:1.0-beta-6:compile
+[DEBUG]    org.apache.maven:maven-core:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-model:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-settings-builder:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-artifact:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-model-builder:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-aether-provider:jar:3.0:runtime
+[DEBUG]       org.sonatype.aether:aether-impl:jar:1.7:compile
+[DEBUG]          org.sonatype.aether:aether-spi:jar:1.7:compile
+[DEBUG]       org.sonatype.aether:aether-api:jar:1.7:compile
+[DEBUG]       org.sonatype.aether:aether-util:jar:1.7:compile
+[DEBUG]       org.sonatype.sisu:sisu-inject-plexus:jar:1.4.2:compile
+[DEBUG]          org.sonatype.sisu:sisu-inject-bean:jar:1.4.2:compile
+[DEBUG]             org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7:compile
+[DEBUG]       org.codehaus.plexus:plexus-interpolation:jar:1.14:compile
+[DEBUG]       org.codehaus.plexus:plexus-classworlds:jar:2.2.3:compile
+[DEBUG]       org.codehaus.plexus:plexus-component-annotations:jar:1.7.1:compile
+[DEBUG]       org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3:compile
+[DEBUG]          org.sonatype.plexus:plexus-cipher:jar:1.7:compile
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:3.0:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:3.0.24:compile
+[DEBUG]    org.apache.maven:maven-archiver:jar:2.5:compile
+[DEBUG]    org.codehaus.plexus:plexus-archiver:jar:3.4:compile
+[DEBUG]       org.codehaus.plexus:plexus-io:jar:2.7.1:compile
+[DEBUG]       commons-io:commons-io:jar:2.5:compile
+[DEBUG]       org.apache.commons:commons-compress:jar:1.15:compile
+[DEBUG]          org.objenesis:objenesis:jar:2.6:compile
+[DEBUG]       org.iq80.snappy:snappy:jar:0.4:compile
+[DEBUG]       org.tukaani:xz:jar:1.5:runtime
+[DEBUG] Created new class realm plugin>org.eclipse.tycho:tycho-packaging-plugin:1.3.0
+[DEBUG] Importing foreign packages into class realm plugin>org.eclipse.tycho:tycho-packaging-plugin:1.3.0
+[DEBUG]   Imported:  < project>com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT
+[DEBUG] Populating class realm plugin>org.eclipse.tycho:tycho-packaging-plugin:1.3.0
+[DEBUG]   Included: org.eclipse.tycho:tycho-packaging-plugin:jar:1.3.0
+[DEBUG]   Included: org.eclipse.tycho:org.eclipse.osgi.compatibility.state:jar:1.1.100.v20180131-1413
+[DEBUG]   Included: org.sonatype.aether:aether-util:jar:1.7
+[DEBUG]   Included: org.sonatype.sisu:sisu-inject-bean:jar:1.4.2
+[DEBUG]   Included: org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.14
+[DEBUG]   Included: org.codehaus.plexus:plexus-component-annotations:jar:1.7.1
+[DEBUG]   Included: org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3
+[DEBUG]   Included: org.sonatype.plexus:plexus-cipher:jar:1.7
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:3.0.24
+[DEBUG]   Included: org.apache.maven:maven-archiver:jar:2.5
+[DEBUG]   Included: org.codehaus.plexus:plexus-archiver:jar:3.4
+[DEBUG]   Included: org.codehaus.plexus:plexus-io:jar:2.7.1
+[DEBUG]   Included: commons-io:commons-io:jar:2.5
+[DEBUG]   Included: org.apache.commons:commons-compress:jar:1.15
+[DEBUG]   Included: org.objenesis:objenesis:jar:2.6
+[DEBUG]   Included: org.iq80.snappy:snappy:jar:0.4
+[DEBUG]   Included: org.tukaani:xz:jar:1.5
+[DEBUG] Configuring mojo org.eclipse.tycho:tycho-packaging-plugin:1.3.0:build-qualifier-aggregator from plugin realm ClassRealm[plugin>org.eclipse.tycho:tycho-packaging-plugin:1.3.0, parent: sun.misc.Launcher$AppClassLoader@5c647e05]
+[DEBUG] Configuring mojo 'org.eclipse.tycho:tycho-packaging-plugin:1.3.0:build-qualifier-aggregator' with basic configurator -->
+[DEBUG]   (f) baseDir = C:\git\isimo.feature
+[DEBUG]   (f) execution = org.eclipse.tycho:tycho-packaging-plugin:1.3.0:build-qualifier-aggregator {execution: default-build-qualifier-aggregator}
+[DEBUG]   (s) format = yyyyMMddHHmm
+[DEBUG]   (f) packaging = eclipse-feature
+[DEBUG]   (f) project = MavenProject: com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT @ C:\git\isimo.feature\pom.xml
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@a21c74
+[DEBUG] -- end configuration --
+[INFO] The project's OSGi version is 1.0.0.201904151855
+[INFO] 
+[INFO] --- tycho-packaging-plugin:1.3.0:validate-id (default-validate-id) @ isimo.feature ---
+[DEBUG] Configuring mojo org.eclipse.tycho:tycho-packaging-plugin:1.3.0:validate-id from plugin realm ClassRealm[plugin>org.eclipse.tycho:tycho-packaging-plugin:1.3.0, parent: sun.misc.Launcher$AppClassLoader@5c647e05]
+[DEBUG] Configuring mojo 'org.eclipse.tycho:tycho-packaging-plugin:1.3.0:validate-id' with basic configurator -->
+[DEBUG]   (f) packaging = eclipse-feature
+[DEBUG]   (f) project = MavenProject: com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT @ C:\git\isimo.feature\pom.xml
+[DEBUG] -- end configuration --
+[INFO] 
+[INFO] --- tycho-packaging-plugin:1.3.0:validate-version (default-validate-version) @ isimo.feature ---
+[DEBUG] Configuring mojo org.eclipse.tycho:tycho-packaging-plugin:1.3.0:validate-version from plugin realm ClassRealm[plugin>org.eclipse.tycho:tycho-packaging-plugin:1.3.0, parent: sun.misc.Launcher$AppClassLoader@5c647e05]
+[DEBUG] Configuring mojo 'org.eclipse.tycho:tycho-packaging-plugin:1.3.0:validate-version' with basic configurator -->
+[DEBUG]   (f) packaging = eclipse-feature
+[DEBUG]   (f) project = MavenProject: com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT @ C:\git\isimo.feature\pom.xml
+[DEBUG]   (f) strictVersions = true
+[DEBUG] -- end configuration --
+[INFO] 
+[INFO] --- target-platform-configuration:1.3.0:target-platform (default-target-platform) @ isimo.feature ---
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=153338, ConflictMarker.markTime=97406, ConflictMarker.nodeCount=94, ConflictIdSorter.graphTime=127845, ConflictIdSorter.topsortTime=66967, ConflictIdSorter.conflictIdCount=43, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=3539711, ConflictResolver.conflictItemCount=93, DefaultDependencyCollector.collectTime=13733453, DefaultDependencyCollector.transformTime=4033969}
+[DEBUG] org.eclipse.tycho:target-platform-configuration:jar:1.3.0:
+[DEBUG]    org.apache.maven:maven-core:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-model:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-settings-builder:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-artifact:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-plugin-api:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-model-builder:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-aether-provider:jar:3.0:runtime
+[DEBUG]       org.sonatype.aether:aether-impl:jar:1.7:compile
+[DEBUG]          org.sonatype.aether:aether-spi:jar:1.7:compile
+[DEBUG]       org.sonatype.aether:aether-api:jar:1.7:compile
+[DEBUG]       org.sonatype.aether:aether-util:jar:1.7:compile
+[DEBUG]       org.sonatype.sisu:sisu-inject-plexus:jar:1.4.2:compile
+[DEBUG]          org.sonatype.sisu:sisu-inject-bean:jar:1.4.2:compile
+[DEBUG]             org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7:compile
+[DEBUG]       org.codehaus.plexus:plexus-interpolation:jar:1.14:compile
+[DEBUG]       org.codehaus.plexus:plexus-utils:jar:3.0.24:compile
+[DEBUG]       org.codehaus.plexus:plexus-classworlds:jar:2.2.3:compile
+[DEBUG]       org.codehaus.plexus:plexus-component-annotations:jar:1.7.1:compile
+[DEBUG]       org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3:compile
+[DEBUG]          org.sonatype.plexus:plexus-cipher:jar:1.7:compile
+[DEBUG]    org.eclipse.tycho:sisu-equinox-api:jar:1.3.0:compile
+[DEBUG]    org.eclipse.tycho:org.eclipse.tycho.p2.resolver.shared:jar:1.3.0:compile
+[DEBUG]    org.eclipse.tycho:tycho-core:jar:1.3.0:compile
+[DEBUG]       org.codehaus.plexus:plexus-archiver:jar:3.4:compile
+[DEBUG]          org.codehaus.plexus:plexus-io:jar:2.7.1:compile
+[DEBUG]          commons-io:commons-io:jar:2.5:compile
+[DEBUG]          org.apache.commons:commons-compress:jar:1.15:compile
+[DEBUG]             org.objenesis:objenesis:jar:2.6:compile
+[DEBUG]          org.iq80.snappy:snappy:jar:0.4:compile
+[DEBUG]          org.tukaani:xz:jar:1.5:runtime
+[DEBUG]       org.eclipse.tycho:org.eclipse.osgi.compatibility.state:jar:1.1.100.v20180131-1413:compile
+[DEBUG]       org.eclipse.tycho:sisu-equinox-embedder:jar:1.3.0:compile
+[DEBUG]          org.eclipse.tycho:org.eclipse.osgi:jar:3.13.0.v20180226-1711:compile
+[DEBUG]       org.eclipse.tycho:tycho-metadata-model:jar:1.3.0:compile
+[DEBUG]          de.pdark:decentxml:jar:1.3:compile
+[DEBUG]       org.eclipse.tycho:tycho-embedder-api:jar:1.3.0:compile
+[DEBUG]          org.eclipse.tycho:org.eclipse.tycho.embedder.shared:jar:1.3.0:compile
+[DEBUG]       org.eclipse.tycho:org.eclipse.tycho.core.shared:jar:1.3.0:compile
+[DEBUG]       org.apache.maven:maven-compat:jar:3.0:compile
+[DEBUG]          org.apache.maven.wagon:wagon-provider-api:jar:1.0-beta-6:compile
+[DEBUG] Created new class realm plugin>org.eclipse.tycho:target-platform-configuration:1.3.0
+[DEBUG] Importing foreign packages into class realm plugin>org.eclipse.tycho:target-platform-configuration:1.3.0
+[DEBUG]   Imported:  < project>com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT
+[DEBUG] Populating class realm plugin>org.eclipse.tycho:target-platform-configuration:1.3.0
+[DEBUG]   Included: org.eclipse.tycho:target-platform-configuration:jar:1.3.0
+[DEBUG]   Included: org.sonatype.aether:aether-util:jar:1.7
+[DEBUG]   Included: org.sonatype.sisu:sisu-inject-bean:jar:1.4.2
+[DEBUG]   Included: org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.14
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:3.0.24
+[DEBUG]   Included: org.codehaus.plexus:plexus-component-annotations:jar:1.7.1
+[DEBUG]   Included: org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3
+[DEBUG]   Included: org.sonatype.plexus:plexus-cipher:jar:1.7
+[DEBUG]   Included: org.codehaus.plexus:plexus-archiver:jar:3.4
+[DEBUG]   Included: org.codehaus.plexus:plexus-io:jar:2.7.1
+[DEBUG]   Included: commons-io:commons-io:jar:2.5
+[DEBUG]   Included: org.apache.commons:commons-compress:jar:1.15
+[DEBUG]   Included: org.objenesis:objenesis:jar:2.6
+[DEBUG]   Included: org.iq80.snappy:snappy:jar:0.4
+[DEBUG]   Included: org.tukaani:xz:jar:1.5
+[DEBUG]   Included: org.eclipse.tycho:org.eclipse.osgi.compatibility.state:jar:1.1.100.v20180131-1413
+[DEBUG] Configuring mojo org.eclipse.tycho:target-platform-configuration:1.3.0:target-platform from plugin realm ClassRealm[plugin>org.eclipse.tycho:target-platform-configuration:1.3.0, parent: sun.misc.Launcher$AppClassLoader@5c647e05]
+[DEBUG] Configuring mojo 'org.eclipse.tycho:target-platform-configuration:1.3.0:target-platform' with basic configurator -->
+[DEBUG]   (f) project = MavenProject: com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT @ C:\git\isimo.feature\pom.xml
+[DEBUG] -- end configuration --
+[INFO] 
+[INFO] --- tycho-packaging-plugin:1.3.0:package-feature (default-package-feature) @ isimo.feature ---
+[DEBUG] Configuring mojo org.eclipse.tycho:tycho-packaging-plugin:1.3.0:package-feature from plugin realm ClassRealm[plugin>org.eclipse.tycho:tycho-packaging-plugin:1.3.0, parent: sun.misc.Launcher$AppClassLoader@5c647e05]
+[DEBUG] Configuring mojo 'org.eclipse.tycho:tycho-packaging-plugin:1.3.0:package-feature' with basic configurator -->
+[DEBUG]   (f) basedir = C:\git\isimo.feature
+[DEBUG]   (f) deployableFeature = false
+[DEBUG]   (f) finalName = isimo.feature-1.0.0-SNAPSHOT
+[DEBUG]   (f) outputDirectory = C:\git\isimo.feature\target
+[DEBUG]   (f) project = MavenProject: com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT @ C:\git\isimo.feature\pom.xml
+[DEBUG]   (f) qualifier = 201904151855
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@a21c74
+[DEBUG]   (f) strictBinIncludes = true
+[DEBUG]   (f) target = C:\git\isimo.feature\target\site
+[DEBUG]   (f) useDefaultExcludes = true
+[DEBUG] -- end configuration --
+[INFO] Building jar: C:\git\isimo.feature\target\isimo.feature-1.0.0-SNAPSHOT.jar
+[DEBUG] adding directory META-INF/
+[DEBUG] adding entry META-INF/MANIFEST.MF
+[DEBUG] adding directory img/
+[DEBUG] adding entry img/isimo128.png
+[DEBUG] adding entry img/isimo16x16.png
+[DEBUG] adding entry img/isimo16x16_24.bmp
+[DEBUG] adding entry img/isimo16x16_24_.bmp
+[DEBUG] adding entry img/isimo16x16_32.bmp
+[DEBUG] adding entry img/isimo256.png
+[DEBUG] adding entry img/isimo256x256_24.bmp
+[DEBUG] adding entry img/isimo256x256_32.bmp
+[DEBUG] adding entry img/isimo32x32.png
+[DEBUG] adding entry img/isimo32x32_24.bmp
+[DEBUG] adding entry img/isimo32x32_32.bmp
+[DEBUG] adding entry img/isimo386x386.png
+[DEBUG] adding entry img/isimo48x48.png
+[DEBUG] adding entry img/isimo48x48_24.bmp
+[DEBUG] adding entry img/isimo48x48_32.bmp
+[DEBUG] adding entry img/isimo64.png
+[DEBUG] adding entry img/isimo_logo.jpg
+[DEBUG] adding entry img/isimo_logo.png
+[DEBUG] adding entry feature.xml
+[INFO] 
+[INFO] --- tycho-p2-plugin:1.3.0:p2-metadata-default (default-p2-metadata-default) @ isimo.feature ---
+[DEBUG] Configuring mojo org.eclipse.tycho:tycho-p2-plugin:1.3.0:p2-metadata-default from plugin realm ClassRealm[plugin>org.eclipse.tycho:tycho-p2-plugin:1.3.0, parent: sun.misc.Launcher$AppClassLoader@5c647e05]
+[DEBUG] Configuring mojo 'org.eclipse.tycho:tycho-p2-plugin:1.3.0:p2-metadata-default' with basic configurator -->
+[DEBUG]   (f) attachP2Metadata = true
+[DEBUG]   (f) baselineMode = warn
+[DEBUG]   (f) baselineReplace = all
+[DEBUG]   (f) defaultP2Metadata = true
+[DEBUG]   (f) execution = org.eclipse.tycho:tycho-p2-plugin:1.3.0:p2-metadata-default {execution: default-p2-metadata-default}
+[DEBUG]   (f) generateDownloadStatsProperty = false
+[DEBUG]   (f) project = MavenProject: com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT @ C:\git\isimo.feature\pom.xml
+[DEBUG] -- end configuration --
+[INFO] 
+[INFO] --- tycho-p2-plugin:1.3.0:feature-p2-metadata (default-feature-p2-metadata) @ isimo.feature ---
+[DEBUG] Configuring mojo org.eclipse.tycho:tycho-p2-plugin:1.3.0:feature-p2-metadata from plugin realm ClassRealm[plugin>org.eclipse.tycho:tycho-p2-plugin:1.3.0, parent: sun.misc.Launcher$AppClassLoader@5c647e05]
+[DEBUG] Configuring mojo 'org.eclipse.tycho:tycho-p2-plugin:1.3.0:feature-p2-metadata' with basic configurator -->
+[DEBUG]   (f) artifactRepositoryName = isimo.feature Artifacts
+[DEBUG]   (f) compressRepository = true
+[DEBUG]   (f) generateP2Metadata = true
+[DEBUG]   (f) metadataRepositoryName = isimo.feature
+[DEBUG]   (f) project = MavenProject: com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT @ C:\git\isimo.feature\pom.xml
+[DEBUG]   (f) target = C:\git\isimo.feature\target\site
+[DEBUG] -- end configuration --
+[DEBUG] C:\git\isimo.feature\target\site does not exist or is not a directory
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ isimo.feature ---
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=118713, ConflictMarker.markTime=85611, ConflictMarker.nodeCount=38, ConflictIdSorter.graphTime=47181, ConflictIdSorter.topsortTime=41474, ConflictIdSorter.conflictIdCount=15, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=438326, ConflictResolver.conflictItemCount=35, DefaultDependencyCollector.collectTime=319746624, DefaultDependencyCollector.transformTime=777343}
+[DEBUG] org.apache.maven.plugins:maven-install-plugin:jar:2.3.1:
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-project:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-profile:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-plugin-registry:jar:2.0.6:compile
+[DEBUG]       org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1:compile
+[DEBUG]          junit:junit:jar:3.8.1:compile
+[DEBUG]          classworlds:classworlds:jar:1.1-alpha-2:compile
+[DEBUG]    org.apache.maven:maven-model:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-artifact-manager:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-artifact:jar:2.0.6:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:2.0.5:compile
+[DEBUG]    org.codehaus.plexus:plexus-digest:jar:1.0:compile
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-install-plugin:2.3.1
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-install-plugin:2.3.1
+[DEBUG]   Imported:  < project>com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-install-plugin:2.3.1
+[DEBUG]   Included: org.apache.maven.plugins:maven-install-plugin:jar:2.3.1
+[DEBUG]   Included: junit:junit:jar:3.8.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:2.0.5
+[DEBUG]   Included: org.codehaus.plexus:plexus-digest:jar:1.0
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-install-plugin:2.3.1:install from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-install-plugin:2.3.1, parent: sun.misc.Launcher$AppClassLoader@5c647e05]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-install-plugin:2.3.1:install' with basic configurator -->
+[DEBUG]   (f) artifact = com.smartwebproject.ui:isimo.feature:eclipse-feature:1.0.0-SNAPSHOT
+[DEBUG]   (f) attachedArtifacts = [com.smartwebproject.ui:isimo.feature:xml:p2metadata:1.0.0-SNAPSHOT, com.smartwebproject.ui:isimo.feature:xml:p2artifacts:1.0.0-SNAPSHOT]
+[DEBUG]   (f) createChecksum = false
+[DEBUG]   (f) localRepository =       id: local
+      url: file:///C:/Users/ext-dmoch/.m2/repository/
+   layout: default
+snapshots: [enabled => true, update => always]
+ releases: [enabled => true, update => always]
+
+[DEBUG]   (f) packaging = eclipse-feature
+[DEBUG]   (f) pomFile = C:\git\isimo.feature\pom.xml
+[DEBUG]   (f) updateReleaseInfo = false
+[DEBUG] -- end configuration --
+[INFO] Installing C:\git\isimo.feature\target\isimo.feature-1.0.0-SNAPSHOT.jar to C:\Users\ext-dmoch\.m2\repository\com\smartwebproject\ui\isimo.feature\1.0.0-SNAPSHOT\isimo.feature-1.0.0-SNAPSHOT.jar
+[DEBUG] Writing tracking file C:\Users\ext-dmoch\.m2\repository\com\smartwebproject\ui\isimo.feature\1.0.0-SNAPSHOT\_remote.repositories
+[INFO] Installing C:\git\isimo.feature\pom.xml to C:\Users\ext-dmoch\.m2\repository\com\smartwebproject\ui\isimo.feature\1.0.0-SNAPSHOT\isimo.feature-1.0.0-SNAPSHOT.pom
+[DEBUG] Writing tracking file C:\Users\ext-dmoch\.m2\repository\com\smartwebproject\ui\isimo.feature\1.0.0-SNAPSHOT\_remote.repositories
+[DEBUG] Installing com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT/maven-metadata.xml to C:\Users\ext-dmoch\.m2\repository\com\smartwebproject\ui\isimo.feature\1.0.0-SNAPSHOT\maven-metadata-local.xml
+[DEBUG] Installing com.smartwebproject.ui:isimo.feature/maven-metadata.xml to C:\Users\ext-dmoch\.m2\repository\com\smartwebproject\ui\isimo.feature\maven-metadata-local.xml
+[INFO] Installing C:\git\isimo.feature\target\p2content.xml to C:\Users\ext-dmoch\.m2\repository\com\smartwebproject\ui\isimo.feature\1.0.0-SNAPSHOT\isimo.feature-1.0.0-SNAPSHOT-p2metadata.xml
+[DEBUG] Writing tracking file C:\Users\ext-dmoch\.m2\repository\com\smartwebproject\ui\isimo.feature\1.0.0-SNAPSHOT\_remote.repositories
+[DEBUG] Installing com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT/maven-metadata.xml to C:\Users\ext-dmoch\.m2\repository\com\smartwebproject\ui\isimo.feature\1.0.0-SNAPSHOT\maven-metadata-local.xml
+[DEBUG] Installing com.smartwebproject.ui:isimo.feature/maven-metadata.xml to C:\Users\ext-dmoch\.m2\repository\com\smartwebproject\ui\isimo.feature\maven-metadata-local.xml
+[INFO] Installing C:\git\isimo.feature\target\p2artifacts.xml to C:\Users\ext-dmoch\.m2\repository\com\smartwebproject\ui\isimo.feature\1.0.0-SNAPSHOT\isimo.feature-1.0.0-SNAPSHOT-p2artifacts.xml
+[DEBUG] Writing tracking file C:\Users\ext-dmoch\.m2\repository\com\smartwebproject\ui\isimo.feature\1.0.0-SNAPSHOT\_remote.repositories
+[DEBUG] Installing com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT/maven-metadata.xml to C:\Users\ext-dmoch\.m2\repository\com\smartwebproject\ui\isimo.feature\1.0.0-SNAPSHOT\maven-metadata-local.xml
+[DEBUG] Installing com.smartwebproject.ui:isimo.feature/maven-metadata.xml to C:\Users\ext-dmoch\.m2\repository\com\smartwebproject\ui\isimo.feature\maven-metadata-local.xml
+[INFO] 
+[INFO] --- tycho-p2-plugin:1.3.0:update-local-index (default-update-local-index) @ isimo.feature ---
+[DEBUG] Configuring mojo org.eclipse.tycho:tycho-p2-plugin:1.3.0:update-local-index from plugin realm ClassRealm[plugin>org.eclipse.tycho:tycho-p2-plugin:1.3.0, parent: sun.misc.Launcher$AppClassLoader@5c647e05]
+[DEBUG] Configuring mojo 'org.eclipse.tycho:tycho-p2-plugin:1.3.0:update-local-index' with basic configurator -->
+[DEBUG]   (f) project = MavenProject: com.smartwebproject.ui:isimo.feature:1.0.0-SNAPSHOT @ C:\git\isimo.feature\pom.xml
+[DEBUG] -- end configuration --
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 36.630 s
+[INFO] Finished at: 2019-04-15T20:56:22+02:00
+[INFO] ------------------------------------------------------------------------

@@ -1,0 +1,23 @@
+<project name="downloadandinstall" default="downloadandinstall">
+	<property environment="env"/>
+	<target name="downloadandinstall">
+		<get src="http://smartweb.nazwa.pl/downloads/isimo-current-build.zip" dest="${env.ISIMO_WORKBENCH_HOME}/../isimo-current-build.zip"/>
+		<delete dir="${env.ISIMO_WORKBENCH_HOME}">
+		</delete>
+		<unzip src="${env.ISIMO_WORKBENCH_HOME}/../isimo-current-build.zip" dest="${env.ISIMO_WORKBENCH_HOME}"/>
+	</target>
+	
+	<target name="fixfeature">
+		<xslt style="xsl/fixfeature.xsl" in="../isimo.feature/feature.xml" out="../isimo.feature/feature.xml.changed"/>
+		<copy file="../isimo.feature/feature.xml.changed" tofile="../isimo.feature/feature.xml" overwrite="true"/>
+	</target>
+	
+	<target name="fixproduct">
+		<xslt style="xsl/fixproduct.xsl" in="isimo.workbench-product.product" out="isimo.workbench-product.product.changed"/>
+		<copy file="isimo.workbench-product.product.changed" tofile="isimo.workbench-product.product" overwrite="true"/>
+	</target>
+	
+	<target name="updateisimobundlejar">
+		<get src="http://isimo.solutions/jenkins/isimo.p2/plugins/com.isimo.eclipse.bundle_2.0.0.jar" dest="${env.ISIMOWORKSPACE}/.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins"/>
+	</target>
+</project>

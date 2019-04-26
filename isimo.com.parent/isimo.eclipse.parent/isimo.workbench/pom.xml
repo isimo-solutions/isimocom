@@ -1,0 +1,103 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+  <parent>
+	<groupId>com.isimo</groupId>
+	<artifactId>isimo.eclipse.parent</artifactId>
+	<version>2.0-Sel-3.14.0-SNAPSHOT</version>
+</parent>
+	<artifactId>isimo.workbench</artifactId>
+	<packaging>eclipse-repository</packaging>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-director-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<id>create-product-distributions</id>
+						<goals>
+							<goal>materialize-products</goal>
+							<goal>archive-products</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<products>
+						<product>
+							<id>isimo-workbench</id>
+							<archiveFileName>isimo-workbench-${project.version}</archiveFileName>
+							<attachId>win32</attachId>
+						</product>
+					</products>
+					<source>repository</source>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-repository-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<includeAllDependencies>true</includeAllDependencies>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<phase>deploy</phase>
+						<configuration>
+							<target>
+								<path id="p.classpath">
+									<pathelement path="${mvn.test.classpath}" />
+								</path>
+								<taskdef classpathref="p.classpath" resource="net/sf/antcontrib/antlib.xml" />
+								<echo>file=${project.build.directory}/${project.build.finalName}.zip</echo>
+								<if>
+									<available file="/var/www/downloads" type="dir"/>
+									<then>
+										<for param="file">
+											<fileset dir="${project.build.directory}/products">
+												<include name="*.zip"/>
+											</fileset>
+											<sequential>
+												<copy file="@{file}" tofile="/var/www/downloads/isimo-current-build.zip" overwrite="true"/>
+											</sequential>
+										</for>
+										<for param="file">
+											<fileset dir="/var/lib/jenkins/workspace/isimo-eclipse/testframework-eclipseplugin/target">
+												<include name="com.smartwebproject.testframework.ui-1.0.0-SNAPSHOT.jar"/>
+											</fileset>
+											<sequential>
+												<copy file="@{file}" tofile="/var/www/downloads/com.smartwebproject.testframework.ui-1.0.0-SNAPSHOT.jar" overwrite="true"/>
+											</sequential>
+										</for>										
+									</then>
+								</if>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>ant-contrib</groupId>
+						<artifactId>ant-contrib</artifactId>
+						<version>1.0b3</version>
+						<exclusions>
+							<exclusion>
+								<artifactId>ant</artifactId>
+								<groupId>ant</groupId>
+							</exclusion>
+						</exclusions>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+</project>

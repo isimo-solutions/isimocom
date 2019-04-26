@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+  <parent>
+	<groupId>com.isimo</groupId>
+	<artifactId>isimo.eclipse.parent</artifactId>
+	<version>2.0-Sel-3.14.0-SNAPSHOT</version>
+</parent>
+	<artifactId>isimo.feature</artifactId>
+	<packaging>eclipse-feature</packaging>
+	<build>
+		<plugins>
+			<!-- <plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<id>generate-feature-xml</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<echo>DUPA</echo>
+								<xslt in="feature-source.xml" out="feature.xml"
+									style="xsl/fillfeature.xsl" force="true" />
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin> -->
+		</plugins>
+	</build>
+</project>
