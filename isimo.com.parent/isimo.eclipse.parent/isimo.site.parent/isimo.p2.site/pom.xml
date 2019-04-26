@@ -49,7 +49,7 @@
 						<configuration>
 							<artifacts>
 								<artifact>
-									<id>com.isimo:isimo.eclipse.bundle:2.0.0</id>
+									<id>com.isimo:isimo.eclipse.bundle:2.0.0-SNAPSHOT</id>
 									<transitive>false</transitive>
 								</artifact>
 							</artifacts>
