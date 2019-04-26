@@ -10,7 +10,7 @@
   <name>Parent Pom for Eclipse isimo Components</name>
   <modules>
 	<module>isimo.site.parent</module>
-   	<module>isimo.feature</module>
+   	<!--<module>isimo.feature</module>-->
  	<module>isimo.eclipse.plugin</module>
 	<module>isimo.workbench</module>
   </modules>
