@@ -2,17 +2,15 @@
   <modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.isimo</groupId>
-		<artifactId>isimo.com.parent</artifactId>
+		<artifactId>isimo.eclipse.parent</artifactId>
 		<version>2.0-Sel-3.14.0-SNAPSHOT</version>
 	</parent>
-  <artifactId>isimo.eclipse.parent</artifactId>
+  <artifactId>isimo.site.parent</artifactId>
   <packaging>pom</packaging>
-  <name>Parent Pom for Eclipse isimo Components</name>
+  <name>Parent Pom for Eclipse isimo Site</name>
   <modules>
-	<module>isimo.site.parent</module>
-   	<module>isimo.feature</module>
- 	<module>isimo.eclipse.plugin</module>
-	<module>isimo.workbench</module>
+  	<module>isimo.eclipse.bundle</module>
+  	<module>isimo.p2.site</module>
   </modules>
 
 	<build>
