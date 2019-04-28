@@ -8,6 +8,7 @@
 	<version>2.0-Sel-3.14.0-SNAPSHOT</version>
 </parent>
 	<artifactId>isimo.eclipse.parent</artifactId>
+	<packaging>pom</packaging>
 	<modules>
 		<module>isimo.eclipse.plugin</module>
 		<module>isimo.workbench</module>
