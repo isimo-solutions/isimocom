@@ -18,7 +18,6 @@
  </properties>
   <modules>
  	<module>isimo.site.parent</module>
-	<module>isimo.target.def</module>
    	<!--<module>isimo.feature</module>-->
 	<module>isimo.eclipse.parent</module>
   </modules>
