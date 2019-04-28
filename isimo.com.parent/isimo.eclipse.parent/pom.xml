@@ -43,7 +43,7 @@
 					<resolver>p2</resolver>
 					<target>
 						<artifact>
-							<groupId>com.smartwebproject.ui</groupId>
+							<groupId>com.isimo</groupId>
 							<artifactId>isimo.target.def</artifactId>
 							<version>${isimo.version}</version>
 						</artifact>		
