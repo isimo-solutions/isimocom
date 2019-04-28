@@ -68,14 +68,6 @@
 												<copy file="@{file}" tofile="/var/www/downloads/isimo-current-build.zip" overwrite="true"/>
 											</sequential>
 										</for>
-										<for param="file">
-											<fileset dir="/var/lib/jenkins/workspace/isimo-eclipse/testframework-eclipseplugin/target">
-												<include name="com.smartwebproject.testframework.ui-1.0.0-SNAPSHOT.jar"/>
-											</fileset>
-											<sequential>
-												<copy file="@{file}" tofile="/var/www/downloads/com.smartwebproject.testframework.ui-1.0.0-SNAPSHOT.jar" overwrite="true"/>
-											</sequential>
-										</for>										
 									</then>
 								</if>
 							</target>
