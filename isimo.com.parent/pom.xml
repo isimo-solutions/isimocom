@@ -8,6 +8,14 @@
   <artifactId>isimo.com.parent</artifactId>
   <packaging>pom</packaging>
   <name>Parent Pom for Commercial isimo Components</name>
+  <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<tycho.version>1.3.0</tycho.version>
+		<target-file-name>photon</target-file-name>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<isimo.version>2.0-Sel-3.14.0-SNAPSHOT</isimo.version>
+ </properties>
   <modules>
  	<module>isimo.site.parent</module>
 	<module>isimo.target.def</module>
