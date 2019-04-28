@@ -6,7 +6,7 @@
 	<version>2.0-Sel-3.14.0-SNAPSHOT</version>
 </parent>
   <artifactId>isimo.eclipse.bundle</artifactId>
-  <version>2.0.0.qualifier</version>
+  <version>2.0.0.SNAPSHOT</version>
   <packaging>bundle</packaging>
   <properties>
   	<isimo.version>${project.parent.version}</isimo.version>

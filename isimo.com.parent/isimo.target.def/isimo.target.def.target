@@ -261,7 +261,7 @@
       <repository id="recommenders-stable" location="https://download.eclipse.org/recommenders/updates/head/"/>
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
-      <unit id="com.isimo.eclipse.bundle" version="0.0.0"/>
+      <unit id="com.isimo.eclipse.bundle" version="2.0.0.SNAPSHOT"/>
       <repository id="isimo-p2" location="http://smartweb.nazwa.pl/jenkins/isimo.p2"/>
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
