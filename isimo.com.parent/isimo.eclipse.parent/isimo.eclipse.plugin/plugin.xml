@@ -574,7 +574,7 @@
           name="isimo Workbench">
        <property
              name="windowImages"
-             value="/isimo.workbench/icons/isimo16x16.png,/isimo.workbench/icons/isimo32x32.png,/isimo.workbench/icons/isimo48x48.png,/isimo.workbench/icons/isimo64.png,/isimo.workbench/icons/isimo128.png,/isimo.workbench/icons/isimo256.png">
+             value="icons/isimo16x16.png,icons/isimo32x32.png,icons/isimo48x48.png,icons/isimo64.png,icons/isimo128.png,icons/isimo256.png">
        </property>
        <property
              name="aboutText"

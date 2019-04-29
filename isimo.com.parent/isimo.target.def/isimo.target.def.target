@@ -1,6 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><?pde?><!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl --><target name="Isimo Target" sequenceNumber="1555431676">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde?>
+<!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
+<target name="Isimo Target" sequenceNumber="1556534026">
   <locations>
-    <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+    <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="ch.ethz.iks.slp" version="1.2.0.v20180712-1605"/>
       <unit id="ch.ethz.iks.slp.source" version="1.2.0.v20180712-1605"/>
       <unit id="ch.ethz.iks.r_osgi.remote" version="1.2.200.v20180515-1646"/>
@@ -223,7 +226,7 @@
       <unit id="javax.servlet.source" version="3.1.0.v201410161800"/>
       <repository id="rel2019-03" location="http://download.eclipse.org/releases/2019-03/"/>
     </location>
-    <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+    <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.recommenders.rcp.feature.feature.group" version="2.6.0.v20180909-1124"/>
       <unit id="org.eclipse.recommenders.rcp.feature.feature.jar" version="2.6.0.v20180909-1124"/>
       <unit id="org.apache.commons.pool" version="1.6.0.v201204271246"/>
@@ -260,22 +263,22 @@
       <unit id="javax.inject" version="1.0.0.v20091030"/>
       <repository id="recommenders-stable" location="https://download.eclipse.org/recommenders/updates/head/"/>
     </location>
-    <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
-      <unit id="com.isimo.eclipse.bundle" version="0.0.0"/>
+    <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="com.isimo.eclipse.bundle" version="2.0.0.20190429122549"/>
       <repository id="isimo-p2" location="http://smartweb.nazwa.pl/jenkins/isimo.p2"/>
     </location>
-    <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+    <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.pde" version="3.13.500.v20190307-0500"/>
       <unit id="org.eclipse.pde.launching" version="3.7.400.v20190214-2042"/>
       <unit id="org.eclipse.pde.ui" version="3.10.600.v20190222-1655"/>
       <unit id="org.eclipse.pde.junit.runtime" version="3.5.300.v20180827-1331"/>
       <repository location="http://download.eclipse.org/eclipse/updates/4.11"/>
     </location>
-    <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+    <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.egit" version="5.3.0.201903130848-r"/>
       <repository id="egit" location="http://download.eclipse.org/egit/updates"/>
     </location>
-    <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+    <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.m2e.archetype.common" version="1.11.0.20190220-2117"/>
       <unit id="org.eclipse.m2e.binaryproject" version="1.11.0.20190220-2119"/>
       <unit id="org.eclipse.m2e.binaryproject.ui" version="1.11.0.20190220-2119"/>

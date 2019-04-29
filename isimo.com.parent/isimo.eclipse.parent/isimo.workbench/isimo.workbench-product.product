@@ -4,7 +4,7 @@
 <product name="isimo Workbench" uid="isimo-workbench" id="isimo.eclipse.plugin.workbench" application="org.eclipse.ui.ide.workbench" version="1.0.0.qualifier" useFeatures="false" includeLaunchers="true">
 
    <aboutInfo>
-      <image path="/testframework-eclipseplugin/icons/isimo_logo.png"/>
+      <image path="/isimo.eclipse.plugin/icons/isimo_logo.png"/>
       <text>
          isimo Workbench - UI of the isimo test automation framework
       </text>
