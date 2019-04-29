@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="Isimo Target" sequenceNumber="1556534026">
+<target name="Isimo Target" sequenceNumber="1556557831">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="ch.ethz.iks.slp" version="1.2.0.v20180712-1605"/>
@@ -264,7 +264,7 @@
       <repository id="recommenders-stable" location="https://download.eclipse.org/recommenders/updates/head/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="com.isimo.eclipse.bundle" version="2.0.0.20190429122549"/>
+      <unit id="com.isimo.eclipse.bundle" version="0.0.0"/>
       <repository id="isimo-p2" location="http://smartweb.nazwa.pl/jenkins/isimo.p2"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">

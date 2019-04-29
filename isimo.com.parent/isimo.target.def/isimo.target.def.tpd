@@ -274,7 +274,7 @@ location "https://download.eclipse.org/recommenders/updates/head/" recommenders-
 }
 
 location "http://smartweb.nazwa.pl/jenkins/isimo.p2" isimo-p2 {
- com.isimo.eclipse.bundle
+ com.isimo.eclipse.bundle lazy
 }
 
 location "http://download.eclipse.org/eclipse/updates/4.11" {
