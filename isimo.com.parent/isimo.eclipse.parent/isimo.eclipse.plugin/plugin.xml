@@ -103,14 +103,14 @@
             name="Test Framework"
             class="com.smartwebproject.testframework.ui.preferences.TestFrameworkPropertyPage"
             id="com.smartwebproject.testframework.ui.preferences.TestFrameworkPreferencePage">
-            <keywordReference id="com.smartwebproject.testframework.ui"/>
+            <keywordReference id="isimo.eclipse.plugin"/>
       </page>
 	</extension>
 	<extension
    		point="org.eclipse.ui.keywords">
       <keyword
             label="Test Framework"
-            id="com.smartwebproject.testframework.ui"/>
+            id="isimo.eclipse.plugin"/>
    </extension>
    <extension point="org.eclipse.wst.common.project.facet.core.facets">
 	  <project-facet id="com.smartwebproject.testframework.ui.preferences.TestFrameworkProjectFacet">
@@ -142,7 +142,7 @@
 		        value="com.smartwebproject.testframework.ui.preferences.TestFrameworkProjectFacet"/>
 		    </adapt>
         </enabledWhen>
-        <keywordReference id="com.smartwebproject.testframework.ui"/>
+        <keywordReference id="isimo.eclipse.plugin"/>
     </page>
     </extension>
     <extension point="org.eclipse.wst.sse.ui.semanticHighlighting">
@@ -380,7 +380,7 @@
          <runtimeClasspathEntry pluginId="org.eclipse.jdt.junit4.runtime" />
          <runtimeClasspathEntry pluginId="org.eclipse.jdt.junit.runtime" />
          <runtimeClasspathEntry pluginId="org.eclipse.jdt.junit.core" />        
-         <runtimeClasspathEntry pluginId="com.smartwebproject.testframework.ui"/>    
+         <runtimeClasspathEntry pluginId="isimo.eclipse.plugin"/>    
       </kind>
    </extension>
  <extension
