@@ -21,7 +21,7 @@
 			priority="high"> 
 			<describer 
 				class="com.smartwebproject.testframework.ui.editor.TestScenarioContentDescriber">
-			</describer> 
+			</describer>
 		</content-type> 
 	</extension>
 	<extension
@@ -295,13 +295,13 @@
         label="Test Scenario ..."
         modes="run,debug">
         <contextualLaunch>
-            <enablement>
-                <with
-                    variable="selection">
-                    <count
-                        value="+">
-                    </count>
-                </with>
+           	<enablement>
+                <with variable="selection">
+                    <count value="+" />
+                    <iterate>
+                    	<test property="org.eclipse.debug.ui.matchesContentType" value="com.smartwebproject.testframework.ui.editor.contenttype"/>
+    				</iterate>
+    		</with>
             </enablement>
         </contextualLaunch>
         <configurationType id="com.smartwebproject.testframework.ui.scenario.ScenarioLauncher"/>

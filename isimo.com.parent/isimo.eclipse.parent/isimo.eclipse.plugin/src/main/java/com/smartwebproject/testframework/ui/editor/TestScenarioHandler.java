@@ -8,6 +8,7 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXNotRecognizedException;
 import org.xml.sax.SAXNotSupportedException;
+import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
 
@@ -44,6 +45,8 @@ public class TestScenarioHandler extends DefaultHandler {
 			return isScenario();
 		} catch(StopParsingException e) {
 			return isScenario();
+		} catch(SAXParseException e) {
+			return false;
 		} catch(Exception e) {
 			throw new RuntimeException(e);
 		}
