@@ -180,6 +180,14 @@
   	   </proposalComputer>  
  </extension>
  
+ <extension point="org.eclipse.ui.perspectives">
+   <perspective
+         name="Isimo - Test Perspective"
+         class="com.smartwebproject.testframework.ui.perspective.TestPerspective"
+         id="com.smartwebproject.testframework.ui.perspective">
+   </perspective>
+</extension>
+ 
  <extension point="org.eclipse.debug.core.launchModes">
 	<launchMode
 		label="Run"
@@ -286,7 +294,6 @@
  		class="com.smartwebproject.testframework.ui.launcher.TestCaptureListenerProcessFactory"/>
  </extension>
  
-
 <extension
     point="org.eclipse.debug.ui.launchShortcuts">
     <shortcut
@@ -307,6 +314,7 @@
         <configurationType id="com.smartwebproject.testframework.ui.scenario.ScenarioLauncher"/>
     </shortcut>
 </extension>
+
 
 
 <extension point="org.eclipse.wst.sse.ui.breakpoint">
@@ -677,6 +685,31 @@
        </property>
     </product>
  </extension>
+<extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="com.smartwebproject.testframework.ui.perspective.ToolbarIconTest"
+            id="com.smartwebproject.testframework.ui.perspective.commandtest"
+            name="Test">
+      </command>
+   </extension>
+ <extension
+       point="org.eclipse.ui.menus">
+        <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar">
+        <toolbar id="com.smartwebproject.testframework.ui.perspective.toolbar">
+	         <command
+				  commandId="com.smartwebproject.testframework.ui.perspective.commandtest"
+                  icon="icons/isimo32x32.png"
+                  tooltip="Test Tool tip"
+                  style="push">
+	         	<with variable="activeWorkbenchWindow.activePerspective">
+        			   <equals value="com.smartwebproject.testframework.ui.perspective"/>
+      			</with>
+	         </command>
+	   </toolbar>
+       </menuContribution>
+ </extension>
+ 
  
 	
 <!--   <extension
