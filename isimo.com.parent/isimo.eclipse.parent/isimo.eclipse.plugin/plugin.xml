@@ -182,7 +182,7 @@
  
  <extension point="org.eclipse.ui.perspectives">
    <perspective
-         name="Isimo - Test Perspective"
+         name="IsimoPerspective"
          class="com.smartwebproject.testframework.ui.perspective.TestPerspective"
          id="com.smartwebproject.testframework.ui.perspective">
    </perspective>
@@ -700,11 +700,13 @@
 	         <command
 				  commandId="com.smartwebproject.testframework.ui.perspective.commandtest"
                   icon="icons/isimo32x32.png"
-                  tooltip="Test Tool tip"
+                  tooltip="test"
                   style="push">
+	         	<visibleWhen>
 	         	<with variable="activeWorkbenchWindow.activePerspective">
         			   <equals value="com.smartwebproject.testframework.ui.perspective"/>
       			</with>
+      			</visibleWhen>
 	         </command>
 	   </toolbar>
        </menuContribution>

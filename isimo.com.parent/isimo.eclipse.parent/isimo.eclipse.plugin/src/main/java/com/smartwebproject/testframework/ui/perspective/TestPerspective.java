@@ -9,7 +9,7 @@ public class TestPerspective implements IPerspectiveFactory {
 	
 	@Override
 	public void createInitialLayout(IPageLayout layout) {
-        String editorArea = layout.getEditorArea();
+		String editorArea = layout.getEditorArea();
 
         IFolderLayout leftContener = layout.createFolder("left", IPageLayout.LEFT, (float) 0.26, editorArea);
         leftContener.addView(IPageLayout.ID_PROJECT_EXPLORER);
