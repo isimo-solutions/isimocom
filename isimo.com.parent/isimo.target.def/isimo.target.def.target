@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="Isimo Target" sequenceNumber="1556557831">
+<target name="Isimo Target" sequenceNumber="1562840964">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="ch.ethz.iks.slp" version="1.2.0.v20180712-1605"/>
@@ -275,7 +275,7 @@
       <repository location="http://download.eclipse.org/eclipse/updates/4.11"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.egit" version="5.3.0.201903130848-r"/>
+      <unit id="org.eclipse.egit" version="5.4.0.201906121030-r"/>
       <repository id="egit" location="http://download.eclipse.org/egit/updates"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
