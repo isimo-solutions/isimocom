@@ -726,6 +726,36 @@
        </menuContribution>
  </extension>
  
+ <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="com.smartwebproject.testframework.ui.views.dependencies.RunCommand"
+            id="com.smartwebproject.testframework.ui.views.dependencies.command"
+            name="Search Dependencies">
+      </command>
+   </extension>
+ 
+  <extension
+       point="org.eclipse.ui.menus">
+        <menuContribution locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+	         <command
+				  commandId="com.smartwebproject.testframework.ui.views.dependencies.command"
+                  tooltip="Test Actions"
+                  style="push">
+                  <visibleWhen>
+                	<with variable="activeMenuSelection">
+                		<count value="1"/>
+                    	<iterate ifEmpty="false">
+                    		<adapt type="org.eclipse.core.resources.IResource">
+                    			<test property="org.eclipse.core.resources.contentTypeId" value="com.smartwebproject.testframework.ui.editor.contenttype"/>
+    						</adapt>
+    					</iterate>
+    				</with>
+                  </visibleWhen>
+	         </command>
+       </menuContribution>
+ </extension>
+ 
  
 	
 <!--   <extension

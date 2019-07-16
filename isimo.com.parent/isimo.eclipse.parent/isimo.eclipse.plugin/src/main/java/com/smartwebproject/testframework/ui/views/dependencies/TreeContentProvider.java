@@ -1,33 +1,26 @@
 package com.smartwebproject.testframework.ui.views.dependencies;
 
+
+import org.apache.commons.lang3.ArrayUtils;
 import org.eclipse.jface.viewers.ArrayContentProvider;
-import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.jface.viewers.TreeNode;
+import org.eclipse.jface.viewers.TreeNodeContentProvider;
 
-public class TreeContentProvider implements ITreeContentProvider {
+import com.isimo.dependencies.Dependency;
 
-	@Override
-	public Object[] getElements(Object inputElement) {
-		// TODO Auto-generated method stub
-		return ArrayContentProvider.getInstance().getElements(inputElement);
-		//return null;
-	}
-
+public class TreeContentProvider extends TreeNodeContentProvider {
+	
 	@Override
 	public Object[] getChildren(Object parentElement) {
-		// TODO Auto-generated method stub
-		return null;
+		return super.getChildren(parentElement);
 	}
-
+	
 	@Override
-	public Object getParent(Object element) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean hasChildren(Object element) {
-		// TODO Auto-generated method stub
-		return false;
+	public Object[] getElements(final Object inputElement) {
+		if (inputElement instanceof TreeNode) {
+			return ((TreeNode)inputElement).getChildren();
+		}
+		return new Object[0];
 	}
 
 }

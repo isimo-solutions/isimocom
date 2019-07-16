@@ -3,6 +3,7 @@ package com.smartwebproject.testframework.ui.views.dependencies;
 import java.io.File;
 import java.util.Set;
 
+import org.dom4j.DocumentException;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.jface.layout.TreeColumnLayout;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
@@ -19,29 +20,45 @@ import com.isimo.dependencies.Scenario;
 public class DependencyView extends ViewPart {
 	
 	TreeViewer viewer;
-	String path;
-	String name;
+	String path="";
+	String name="";
+	
+	public void setProperties(String name, String path) {
+		this.name = name;
+		this.path = path;
+		setContents();
+	}
 	
 	@Override
 	public void createPartControl(Composite parent) {
 		// TODO Auto-generated method stub
 		 viewer = new TreeViewer(parent);
 		 viewer.setContentProvider(new TreeContentProvider());
-		
+		 viewer.setLabelProvider(new DependencyLabelProvider());
+		 setContents();
+	}
+	
+	public void setContents() {
+		if(path.equals("") || name.equals(""))
+		 {
+			 //viewer.setInput(new String[] {"There is nothing to show"});
+			 return;
+		 }
 		 DependencyHolder holder = new DependencyHolder(path);
 		 holder.setTestDirectory(new File(path));
-    	 try {
+   	 try {
 			holder.analyzeDependencies();
-			Set<Scenario> rootScenarios = holder.getScenario(name+".xml").getIncludingRootScenarios();
-			//Set<Dependency> including = holder.getScenario(name+".xml").getIncludingScenarios();
-			viewer.setInput(rootScenarios);
-    	 
-    	 } catch (DocumentException e) {
-    		 viewer.setInput("There is nothing to show");
-			//e.printStackTrace();
+			DependencyTreeRoot root = new DependencyTreeRoot(holder, name);
+
+			viewer.setInput(root);
+			
+   	 
+   	 } catch (DocumentException e) {
+   		 //viewer.setInput(new String[] {"There is nothing to show"});
+   		 //e.printStackTrace();
 		}
 	 	 
-        //viewer.getTree().setHeaderVisible(true);
+       //viewer.getTree().setHeaderVisible(true);
 	}
 
 	@Override
