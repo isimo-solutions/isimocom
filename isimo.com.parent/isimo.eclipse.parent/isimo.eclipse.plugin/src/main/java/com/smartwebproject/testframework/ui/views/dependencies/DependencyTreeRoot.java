@@ -13,10 +13,10 @@ public class DependencyTreeRoot extends DependencyTreeNode {
 		super(null);
 		
 		RootScenariosFolderNode scenarioRoots = new RootScenariosFolderNode(holder.getScenario(name).getIncludingRootScenarios(), this, "Root Scenarios"); 
-		IncludingScenariosNode includingFolder = new IncludingScenariosNode(holder.getScenario(name).getIncludingScenarios(), this, "Scenarios Including " + name, null);
+		IncludingScenariosFolder includingFolder = new IncludingScenariosFolder(holder.getScenario(name).getIncludingScenarios(), this, "Scenarios Including", true, true);
+		IncludingScenariosFolder includedFolder = new IncludingScenariosFolder(holder.getScenario(name).getIncludedScenarios(), this, "Scenarios included", false, true);
 		
-		
-		TreeNode[] containers = {scenarioRoots, includingFolder};
+		TreeNode[] containers = {scenarioRoots, includingFolder, includedFolder};
 		
 		this.setParent(null);
 		this.setChildren(containers);

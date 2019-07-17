@@ -1,25 +1,30 @@
 package com.smartwebproject.testframework.ui.views.dependencies;
 
 import java.io.File;
-import java.util.Set;
 
 import org.dom4j.DocumentException;
-import org.eclipse.jface.layout.GridLayoutFactory;
-import org.eclipse.jface.layout.TreeColumnLayout;
-import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.TreeViewer;
-import org.eclipse.jface.viewers.TreeViewerColumn;
+
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.layout.FormAttachment;
+import org.eclipse.swt.layout.FormData;
+import org.eclipse.swt.layout.FormLayout;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.layout.RowData;
+import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
-import com.isimo.dependencies.Dependency;
 import com.isimo.dependencies.DependencyHolder;
-import com.isimo.dependencies.Scenario;
 
 public class DependencyView extends ViewPart {
 	
 	TreeViewer viewer;
+	StyledText title;
+	
+	
 	String path="";
 	String name="";
 	
@@ -32,34 +37,64 @@ public class DependencyView extends ViewPart {
 	@Override
 	public void createPartControl(Composite parent) {
 		// TODO Auto-generated method stub
-		 viewer = new TreeViewer(parent);
-		 viewer.setContentProvider(new TreeContentProvider());
-		 viewer.setLabelProvider(new DependencyLabelProvider());
-		 setContents();
+		FillLayout fillLayout = new FillLayout();
+		parent.setLayout(fillLayout);
+		Composite outer = new Composite(parent, SWT.NONE);
+		
+		FormLayout formLayout = new FormLayout();
+		formLayout.spacing = 5;
+		outer.setLayout(formLayout);
+				
+		Composite innerTitle = new Composite(outer, SWT.NONE);
+		innerTitle.setLayout(fillLayout);
+	
+		FormData fData = new FormData();
+		fData.left = new FormAttachment( 0 );
+		fData.right = new FormAttachment( 100 );
+		innerTitle.setLayoutData( fData );
+		
+		Composite innerTree = new Composite( outer, SWT.NONE );
+		innerTree.setLayout(fillLayout);
+
+		fData = new FormData();
+		fData.top = new FormAttachment( innerTitle );
+		fData.left = new FormAttachment( 0 );
+		fData.right = new FormAttachment( 100 );
+		fData.bottom = new FormAttachment( 100 );
+		innerTree.setLayoutData( fData );
+		
+		
+		title = new StyledText(innerTitle, SWT.NONE);
+		title.setEditable(false);
+		title.setEnabled(false);
+		
+		viewer = new TreeViewer(innerTree);
+		viewer.setContentProvider(new TreeContentProvider());
+		viewer.setLabelProvider(new DependencyLabelProvider());
+		setContents();
 	}
 	
 	public void setContents() {
 		if(path.equals("") || name.equals(""))
 		 {
-			 //viewer.setInput(new String[] {"There is nothing to show"});
+			 title.setText("There is nothing to show");
 			 return;
 		 }
+		 title.setText("Showing depedencies for: "+ name);
 		 DependencyHolder holder = new DependencyHolder(path);
 		 holder.setTestDirectory(new File(path));
    	 try {
 			holder.analyzeDependencies();
 			DependencyTreeRoot root = new DependencyTreeRoot(holder, name);
-
+			
 			viewer.setInput(root);
 			
    	 
    	 } catch (DocumentException e) {
-   		 //viewer.setInput(new String[] {"There is nothing to show"});
-   		 //e.printStackTrace();
+   		title.setText("There is nothing to show");
+   			//e.printStackTrace();
 		}
-	 	 
-       //viewer.getTree().setHeaderVisible(true);
-	}
+	 }
 
 	@Override
 	public void setFocus() {
