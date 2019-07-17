@@ -8,11 +8,11 @@ import org.eclipse.jface.viewers.TreeNode;
 import com.isimo.dependencies.Dependency;
 import com.isimo.dependencies.Scenario;
 
-public class IncludingScenariosFolder extends DependencyTreeNode {
+public class ScenariosFolder extends DependencyTreeNode {
 	
 	boolean including;
 	
-	public IncludingScenariosFolder(Set<Dependency> dependencies, TreeNode root, String label, boolean including, boolean getNext) {
+	public ScenariosFolder(Set<Dependency> dependencies, TreeNode root, String label, boolean including, boolean getNext) {
 		super(dependencies);
 		this.label = label;
 		this.setParent(root);

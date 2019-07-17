@@ -18,7 +18,7 @@ public class DependencyLabelProvider extends LabelProvider{
 				label = including.linenumber +": "+ label; 						
 			}
 			else if(node instanceof RootScenariosFolderNode || 
-			   node instanceof IncludingScenariosFolder )
+			   node instanceof ScenariosFolder )
 			{
 				TreeNode[] childeren = node.getChildren();
 				if(childeren != null) label = label + " (" +childeren.length + " matches)";

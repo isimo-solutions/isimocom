@@ -8,7 +8,7 @@ import org.eclipse.jface.viewers.TreeNode;
 import com.isimo.dependencies.Dependency;
 import com.isimo.dependencies.Scenario;
 
-public class ScenariosNode extends IncludingScenariosFolder {
+public class ScenariosNode extends ScenariosFolder {
 
 	int linenumber;
 	
