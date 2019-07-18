@@ -27,7 +27,7 @@ public class TreeContentProvider extends TreeNodeContentProvider {
 	public boolean hasChildren(Object element) {
 		if(element instanceof ScenariosNode) {
 			ScenariosNode n = (ScenariosNode) element;
-			Set<Dependency> dependencies = (Set<Dependency>)n.getValue();
+			Set<Dependency> dependencies = n.getDependencyies();
 			return dependencies.size() > 0;
 		}
 		return super.hasChildren(element);

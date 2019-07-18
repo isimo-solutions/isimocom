@@ -12,9 +12,13 @@ public class ScenariosNode extends ScenariosFolder {
 
 	int linenumber;
 	
-	public ScenariosNode(Set<Dependency> dependencies, TreeNode root, String label, int linenumber, boolean including) {
-		super(dependencies, root, label, including, false);
+	public ScenariosNode(Scenario s , Set<Dependency> dependencies, TreeNode root, String label, int linenumber, boolean including) {
+		super(s, dependencies, root, label, including, false);
 		this.linenumber = linenumber;
+	}
+	
+	public Set<Dependency> getDependencyies(){
+		return this.dependencies;
 	}
 	
 }

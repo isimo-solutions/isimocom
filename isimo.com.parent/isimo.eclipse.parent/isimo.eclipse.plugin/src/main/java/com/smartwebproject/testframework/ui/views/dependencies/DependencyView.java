@@ -3,6 +3,9 @@ package com.smartwebproject.testframework.ui.views.dependencies;
 import java.io.File;
 
 import org.dom4j.DocumentException;
+import org.eclipse.jface.viewers.DoubleClickEvent;
+import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 
 import org.eclipse.swt.SWT;
@@ -25,12 +28,14 @@ public class DependencyView extends ViewPart {
 	StyledText title;
 	
 	
-	String path="";
+	String pathAbsolute="";
 	String name="";
+	String pathProjectRelative;
 	
-	public void setProperties(String name, String path) {
+	public void setProperties(String name, String path, String pathRelative) {
 		this.name = name;
-		this.path = path;
+		this.pathAbsolute = path;
+		this.pathProjectRelative = pathRelative;
 		setContents();
 	}
 	
@@ -71,18 +76,33 @@ public class DependencyView extends ViewPart {
 		viewer = new TreeViewer(innerTree);
 		viewer.setContentProvider(new TreeContentProvider());
 		viewer.setLabelProvider(new DependencyLabelProvider());
+		
+		viewer.addDoubleClickListener(new IDoubleClickListener() {
+		    @Override
+		    public void doubleClick(DoubleClickEvent event) {
+		        IStructuredSelection thisSelection = (IStructuredSelection) event.getSelection();
+		        Object selectedNode = thisSelection.getFirstElement();
+		        if(selectedNode instanceof ScenariosNode || selectedNode instanceof ScenarioRootNode) {
+		        	DependencyTreeNode node = (DependencyTreeNode) selectedNode;
+		        	node.openFile(pathProjectRelative);
+		        }
+		        
+		     }
+		});
+		
+		
 		setContents();
 	}
 	
 	public void setContents() {
-		if(path.equals("") || name.equals(""))
+		if(pathAbsolute.equals("") || name.equals(""))
 		 {
 			 title.setText("There is nothing to show");
 			 return;
 		 }
 		 title.setText("Showing depedencies for: "+ name);
-		 DependencyHolder holder = new DependencyHolder(path);
-		 holder.setTestDirectory(new File(path));
+		 DependencyHolder holder = new DependencyHolder(pathAbsolute);
+		 holder.setTestDirectory(new File(pathAbsolute));
    	 try {
 			holder.analyzeDependencies();
 			DependencyTreeRoot root = new DependencyTreeRoot(holder, name);

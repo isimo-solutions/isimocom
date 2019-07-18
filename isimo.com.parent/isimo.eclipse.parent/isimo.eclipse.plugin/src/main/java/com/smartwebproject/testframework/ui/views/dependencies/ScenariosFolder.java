@@ -11,9 +11,11 @@ import com.isimo.dependencies.Scenario;
 public class ScenariosFolder extends DependencyTreeNode {
 	
 	boolean including;
+	Set<Dependency> dependencies;
 	
-	public ScenariosFolder(Set<Dependency> dependencies, TreeNode root, String label, boolean including, boolean getNext) {
-		super(dependencies);
+	public ScenariosFolder(Scenario s, Set<Dependency> dependencies, TreeNode root, String label, boolean including, boolean getNext) {
+		super(s);
+		this.dependencies = dependencies;
 		this.label = label;
 		this.setParent(root);
 		this.including = including;
@@ -23,7 +25,6 @@ public class ScenariosFolder extends DependencyTreeNode {
 	}
 	
 	public void calculateChilderen() {
-		Set<Dependency> dependencies = (Set<Dependency>)this.value;
 		TreeNode[] childeren = new TreeNode[dependencies.size()];
 		
 		int i = 0;
@@ -31,11 +32,11 @@ public class ScenariosFolder extends DependencyTreeNode {
 			Scenario s;
 			if(including) {
 				s = dep.getSource();
-				childeren[i] = new ScenariosNode(s.getIncludingScenarios(), this, s.getRelativePath(), dep.getLineNumber(), including);
+				childeren[i] = new ScenariosNode(s, s.getIncludingScenarios(), this, s.getRelativePath(), dep.getLineNumber(), including);
 			}
 			else {
 				s = dep.getTarget();
-				childeren[i] = new ScenariosNode(s.getIncludedScenarios(), this, s.getRelativePath(), dep.getLineNumber(), including);
+				childeren[i] = new ScenariosNode(s, s.getIncludedScenarios(), this, s.getRelativePath(), dep.getLineNumber(), including);
 			}
 			
 			i++;

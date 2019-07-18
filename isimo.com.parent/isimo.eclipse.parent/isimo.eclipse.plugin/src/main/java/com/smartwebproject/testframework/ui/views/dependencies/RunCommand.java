@@ -50,7 +50,7 @@ public class RunCommand extends AbstractHandler {
 	    		String name = filePath.makeRelativeTo(fileRoot.getFullPath()).toString();
 	    		try {
 					IViewPart part = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView("com.smartwebproject.testframework.ui.views.dependencies");
-					((DependencyView)part).setProperties(name, scenariosRootAbsolute);
+					((DependencyView)part).setProperties(name, scenariosRootAbsolute, projectName+ "/" +scenariosRoot);
 					
 	    		} catch (PartInitException e) {
 					throw new RuntimeException();
