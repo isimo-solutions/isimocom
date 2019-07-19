@@ -1,11 +1,20 @@
 package com.smartwebproject.testframework.ui.views.dependencies;
 
-import java.io.File;
 
+import org.eclipse.core.internal.resources.File;
 import org.dom4j.DocumentException;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.jface.action.Action;
+import org.eclipse.jface.action.IMenuListener;
+import org.eclipse.jface.action.IMenuManager;
+import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.TreeNode;
 import org.eclipse.jface.viewers.TreeViewer;
 
 import org.eclipse.swt.SWT;
@@ -21,12 +30,13 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
 import com.isimo.dependencies.DependencyHolder;
+import com.isimo.dependencies.Scenario;
 
 public class DependencyView extends ViewPart {
 	
 	TreeViewer viewer;
 	StyledText title;
-	
+	Composite parent;
 	
 	String pathAbsolute="";
 	String name="";
@@ -41,6 +51,7 @@ public class DependencyView extends ViewPart {
 	
 	@Override
 	public void createPartControl(Composite parent) {
+		this.parent = parent;
 		// TODO Auto-generated method stub
 		FillLayout fillLayout = new FillLayout();
 		parent.setLayout(fillLayout);
@@ -89,8 +100,30 @@ public class DependencyView extends ViewPart {
 		        
 		     }
 		});
-		
-		
+
+		final DependenciesAction a = new DependenciesAction("Search Dependencies");
+		MenuManager mgr = new MenuManager();
+		mgr.setRemoveAllWhenShown(true);
+
+		mgr.addMenuListener(new IMenuListener(){
+
+			@Override
+			public void menuAboutToShow(IMenuManager manager) {
+				IStructuredSelection selection = viewer.getStructuredSelection();
+				if (selection.size() == 1) {
+					TreeNode node = (TreeNode) selection.getFirstElement();
+					if(node instanceof ScenariosNode || node instanceof ScenarioRootNode) {
+						Scenario s = (Scenario)node.getValue();
+						IPath location = Path.fromOSString(pathProjectRelative + Path.SEPARATOR + s.getRelativePath());
+						IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(location);
+						a.setFile((File)file);
+						mgr.add(a);
+					}
+				}
+			}
+		});
+		viewer.getControl().setMenu(mgr.createContextMenu(viewer.getControl()));	
+		viewer.setAutoExpandLevel(2);
 		setContents();
 	}
 	
@@ -100,9 +133,9 @@ public class DependencyView extends ViewPart {
 			 title.setText("There is nothing to show");
 			 return;
 		 }
-		 title.setText("Showing depedencies for: "+ name);
+		 title.setText("Scenario depedencies for: "+ name);
 		 DependencyHolder holder = new DependencyHolder(pathAbsolute);
-		 holder.setTestDirectory(new File(pathAbsolute));
+		 holder.setTestDirectory(new java.io.File(pathAbsolute));
    	 try {
 			holder.analyzeDependencies();
 			DependencyTreeRoot root = new DependencyTreeRoot(holder, name);
@@ -118,6 +151,7 @@ public class DependencyView extends ViewPart {
 
 	@Override
 	public void setFocus() {
+		if(parent != null) parent.setFocus();
 		// TODO Auto-generated method stub
 		
 	}

@@ -36,7 +36,8 @@ public class TestScenarioEditorPart extends XMLMultiPageEditorPart implements Ke
 	
 	@Override
 	public void setFocus() {
-		// TODO Auto-generated method stub
+		
+		super.setFocus();
 		TestFrameworkUIPlugin.getDefault().setLastVisited(this);
 		((StyledText)this.getAdapter(Control.class)).addKeyListener(this);
 		((StyledText)this.getAdapter(Control.class)).addMouseListener(this);

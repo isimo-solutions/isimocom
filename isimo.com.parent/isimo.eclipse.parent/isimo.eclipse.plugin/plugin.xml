@@ -6,7 +6,8 @@
       <editor
             name="Test Scenario Editor"
             class="com.smartwebproject.testframework.ui.editor.TestScenarioEditorPart"
-            id="com.smartwebproject.testframework.ui.editor.TestScenarioEditor">
+            id="com.smartwebproject.testframework.ui.editor.TestScenarioEditor"
+            icon="icons/isimo16x16.png">
             <contentTypeBinding
                contentTypeId="com.smartwebproject.testframework.ui.editor.contenttype"/> 
       </editor>
@@ -184,21 +185,23 @@
    point="org.eclipse.ui.views">
       <category
             id="com.smartwebproject.testframework.ui.views"
-            name="testIsimo">
+            name="Isimo Views">
       </category>
       <view
             category="com.smartwebproject.testframework.ui.views"
             class="com.smartwebproject.testframework.ui.views.dependencies.DependencyView"
             id="com.smartwebproject.testframework.ui.views.dependencies"
-            name="testIsimo1">
+            name="Scenario Dependencies"
+            icon="icons/isimo16x16.png">
       </view>
 </extension>
  
  <extension point="org.eclipse.ui.perspectives">
    <perspective
-         name="IsimoPerspective11111"
+         name="Isimo Test Perspective"
          class="com.smartwebproject.testframework.ui.perspective.TestPerspective"
-         id="com.smartwebproject.testframework.ui.perspective">
+         id="com.smartwebproject.testframework.ui.perspective"
+         icon="icons/isimo16x16.png">
    </perspective>
 </extension>
  
@@ -713,7 +716,7 @@
         <toolbar id="com.smartwebproject.testframework.ui.perspective.toolbar">
 	         <command
 				  commandId="com.smartwebproject.testframework.ui.perspective.commandtest"
-                  icon="icons/isimo32x32.png"
+                  icon="icons/isimo16x16.png"
                   tooltip="test"
                   style="push">
 	         	<visibleWhen>

@@ -74,7 +74,7 @@ public class TestFrameworkUIPlugin extends AbstractUIPlugin implements BundleAct
 	}
 
 	public String getId() {
-		return "com.smartwebproject.testframework.ui";
+		return "isimo.eclipse.plugin";
 	}
 
 	public Shell getShell() {

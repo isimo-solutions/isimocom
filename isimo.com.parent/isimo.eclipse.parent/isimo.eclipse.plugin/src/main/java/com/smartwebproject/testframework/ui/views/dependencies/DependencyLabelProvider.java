@@ -1,12 +1,18 @@
 package com.smartwebproject.testframework.ui.views.dependencies;
 
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.net.URL;
 
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.TreeNode;
 import org.eclipse.swt.graphics.Image;
+import org.osgi.framework.Bundle;
+
+import com.smartwebproject.testframework.ui.TestFrameworkUIPlugin;
 
 public class DependencyLabelProvider extends LabelProvider{
 	
@@ -15,12 +21,15 @@ public class DependencyLabelProvider extends LabelProvider{
 
 	 public DependencyLabelProvider() {
 		 super();
-		 /*try {
-			 scenarioIcon = new Image(null, new FileInputStream("icons/isimo16x16_24.bmp"));
-		      dirIcon = new Image(null, new FileInputStream("icons/sample.gif"));
-		    } catch (FileNotFoundException e) {
+		 try {
+			 Bundle bundle = Platform.getBundle(TestFrameworkUIPlugin.getDefault().getId());
+			 URL sIconURL = bundle.getEntry("icons/isimo16x16.png");
+			 URL dIconURL = bundle.getEntry("icons/folderIcon.png");
+			 scenarioIcon = new Image(null, sIconURL.openStream());
+		     dirIcon = new Image(null, dIconURL.openStream());
+		    } catch (Exception e) {
 		    	throw new RuntimeException(e);
-		    }*/
+		    }
 	 }
 	
 	
@@ -49,8 +58,7 @@ public class DependencyLabelProvider extends LabelProvider{
 	
 	@Override
 	public Image getImage(Object element) {
-		
-		/*
+
 		if(element instanceof ScenariosNode ||
 				element instanceof ScenarioRootNode)
 			return scenarioIcon;
@@ -58,7 +66,7 @@ public class DependencyLabelProvider extends LabelProvider{
 		else if(element instanceof RootScenariosFolderNode || 
 				element instanceof ScenariosFolder) {
 			return dirIcon;
-		}*/
+		}
 		
 		
 		return super.getImage(element);

@@ -13,6 +13,8 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.TreeSelection;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
@@ -25,7 +27,7 @@ import com.smartwebproject.testframework.ui.editor.TestScenarioPluginConstants;
 
 public class RunCommand extends AbstractHandler {
 
-	String getScenariosRoot(IProject project){
+	static String getScenariosRoot(IProject project){
 		try {
 			return TestFrameworkUIPlugin.getProjectProperty(project, TestScenarioPluginConstants.SCENARIO_ROOT);
 		} catch (CoreException e) {
@@ -36,30 +38,36 @@ public class RunCommand extends AbstractHandler {
 	    @Override
 	    public Object execute(ExecutionEvent event) throws ExecutionException {
 	    	ISelection selection = HandlerUtil.getCurrentSelection(event);
-	    	if(selection instanceof TreeSelection ) {
-	    		TreeSelection treeSelection = (TreeSelection) selection; 
-	    		if(treeSelection.size() != 1) return null; 
-	    		File file = (File)treeSelection.getFirstElement();
-	    		IPath filePath = file.getFullPath();
-	    		
-	    		String projectName = file.getFullPath().segment(0);
-	    		IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
-	    		String scenariosRoot = getScenariosRoot(project);
-	    		String scenariosRootAbsolute = project.getLocation()+ "/" + scenariosRoot;
-	    		IFile fileRoot = project.getFile(scenariosRoot);
-	    		String name = filePath.makeRelativeTo(fileRoot.getFullPath()).toString();
-	    		try {
-					IViewPart part = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView("com.smartwebproject.testframework.ui.views.dependencies");
-					((DependencyView)part).setProperties(name, scenariosRootAbsolute, projectName+ "/" +scenariosRoot);
-					
-	    		} catch (PartInitException e) {
-					throw new RuntimeException();
-				}
-	    		
+	    	IEditorInput editor = HandlerUtil.getActiveEditorInput(event);
+    		if(selection instanceof TreeSelection) {
+    			TreeSelection treeSelection = (TreeSelection) selection; 
+    			if(treeSelection.size() != 1) return null; 
+    			File file = (File)treeSelection.getFirstElement();
+    			Search(file);
+    		}else if(editor instanceof IFileEditorInput){
+    			File file = (File)((IFileEditorInput)editor).getFile();
+    			Search(file);
 	    	}
-	    	
-	    	
+
 	        return null;
 	    }
-
+	    
+	    public static void Search(File file) {
+	    	IPath filePath = file.getFullPath();
+    		
+    		String projectName = file.getFullPath().segment(0);
+    		IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+    		String scenariosRoot = getScenariosRoot(project);
+    		String scenariosRootAbsolute = project.getLocation()+ "/" + scenariosRoot;
+    		IFile fileRoot = project.getFile(scenariosRoot);
+    		String name = filePath.makeRelativeTo(fileRoot.getFullPath()).toString();
+    		try {
+				IViewPart part = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView("com.smartwebproject.testframework.ui.views.dependencies");
+				((DependencyView)part).setProperties(name, scenariosRootAbsolute, projectName+ "/" +scenariosRoot);
+				
+    		} catch (PartInitException e) {
+				throw new RuntimeException();
+			}
+	    }
+	    
 	}

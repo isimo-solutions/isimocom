@@ -2,7 +2,7 @@ target "Isimo Target" with source
 
 environment JavaSE-1.8 win32 win32 en_US
 
-location "http://download.eclipse.org/releases/2019-03/" rel2019-03 {
+location "http://download.eclipse.org/releases/2019-06/" rel2019-06 {
 	ch.ethz.iks.slp
 	ch.ethz.iks.slp.source
 	ch.ethz.iks.r_osgi.remote
@@ -125,10 +125,6 @@ org.eclipse.emf.ecore.edit.feature.jar
  org.eclipse.ecf.filetransfer.feature.feature.jar
  org.eclipse.ecf.filetransfer.ssl.feature.feature.group
  org.eclipse.ecf.filetransfer.ssl.feature.feature.jar
- org.eclipse.ecf.filetransfer.httpclient4.feature.feature.group
-org.eclipse.ecf.filetransfer.httpclient4.feature.feature.jar 
-org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.feature.group
-org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.feature.jar
  org.eclipse.ecf.identity
  org.eclipse.ecf.provider.filetransfer
  org.eclipse.ecf.provider.xmpp
@@ -265,7 +261,6 @@ location "https://download.eclipse.org/recommenders/updates/head/" recommenders-
  org.apache.lucene.core
  org.apache.solr.client.solrj
  org.apache.solr.client.solrj.source
- com.google.guava
  com.google.gson.source
  org.eclipse.aether.maven
  com.google.inject
@@ -276,6 +271,7 @@ location "https://download.eclipse.org/recommenders/updates/head/" recommenders-
 location "http://smartweb.nazwa.pl/jenkins/isimo.p2" isimo-p2 {
  com.isimo.eclipse.bundle lazy
 }
+
 
 location "http://download.eclipse.org/eclipse/updates/4.11" {
 	org.eclipse.pde
@@ -319,3 +315,7 @@ location "https://download.eclipse.org/technology/m2e/releases/1.11" m2e {
 	org.eclipse.m2e.workspace.cli
 	org.maven.ide.eclipse
 }
+
+
+
+
