@@ -29,6 +29,12 @@ public class ScenarioEventListener extends Job {
 		super(name);
 		this.target = target;
 	}
+	
+	public ScenarioDebugTarget getTarget() {
+		return target;
+	}
+	
+	
 	@Override
 	protected IStatus run(IProgressMonitor monitor) {
 		try {

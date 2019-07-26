@@ -340,10 +340,6 @@
 		<provider contentTypes="com.smartwebproject.testframework.ui.editor.contenttype"
 			class="com.smartwebproject.testframework.ui.scenario.ScenarioBreakpointProvider"
 			id="com.smartwebproject.testframework.ui.scenario.ScenarioBreakpointProvider" />
-		<!-- TODO add this back in when we can do something with breakpoints on XML files
-		<provider contentTypes="org.eclipse.wst.xml.core.xslsource,org.eclipse.wst.xml.core.xmlsource,org.eclipse.core.runtime.xml"
-			class="org.eclipse.wst.xsl.internal.debug.ui.breakpoint.XSLBreakpointProvider:*xsl,*xslt,*xml"
-			id="org.eclipse.wst.xsl.debug.ui.XSLBreakpointProvider" />  -->
 	</breakpointContribution>
 </extension>
 
@@ -351,7 +347,7 @@
          point="org.eclipse.debug.core.breakpoints">
       <breakpoint
       		id="com.smartwebproject.testframework.ui.scenario.ScenarioBreakpoint"
-            markerType="com.smartwebproject.testframework.ui.scenarioBreakpointMarker"
+            markerType="isimo.eclipse.plugin.scenarioBreakpointMarker"
             class="com.smartwebproject.testframework.ui.scenario.ScenarioBreakpoint">
       </breakpoint>
    </extension>
@@ -367,6 +363,7 @@
       </persistent>
    </extension>
    
+   <!-- OLD not working
    <extension
          point="org.eclipse.ui.editorActions">
       <editorContribution
@@ -380,6 +377,7 @@
          </action>
       </editorContribution>
    </extension>
+   -->
    
    <extension point="org.eclipse.debug.core.watchExpressionDelegates">
    <watchExpressionDelegate
@@ -728,13 +726,18 @@
 	   </toolbar>
        </menuContribution>
  </extension>
- 
+
  <extension
          point="org.eclipse.ui.commands">
       <command
             defaultHandler="com.smartwebproject.testframework.ui.views.dependencies.RunCommand"
             id="com.smartwebproject.testframework.ui.views.dependencies.command"
             name="Search Dependencies">
+      </command>
+      <command
+            defaultHandler="com.smartwebproject.testframework.ui.actionslauncher.RunCommand"
+            id="com.smartwebproject.testframework.ui.actionslauncher.command"
+            name="Run Selected Actions">
       </command>
    </extension>
  
@@ -757,9 +760,34 @@
                   </visibleWhen>
 	         </command>
        </menuContribution>
+               <menuContribution locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+	         <command
+				  commandId="com.smartwebproject.testframework.ui.actionslauncher.command"
+                  tooltip="Run Selected Actions"
+                  style="push">
+                  <visibleWhen>
+                	<and>
+		              <!-- <systemTest
+		                     property="org.eclipse.jdt.debug.ui.debuggerActive"
+		                     value="true">
+		               </systemTest>
+		               <systemTest
+		                     property="org.eclipse.jdt.debug.ui.instanceof.IJavaStackFrame"
+		                     value="true">
+		               </systemTest> -->
+		               <with
+		                     variable="activeMenuSelection">
+		                  <instanceof
+		                        value="org.eclipse.jface.text.ITextSelection">
+		                  </instanceof>
+		               </with>
+	              	</and>
+                  </visibleWhen>
+	         </command>
+       </menuContribution>
  </extension>
  
- 
+
 	
 <!--   <extension
          point="org.eclipse.ui.views">

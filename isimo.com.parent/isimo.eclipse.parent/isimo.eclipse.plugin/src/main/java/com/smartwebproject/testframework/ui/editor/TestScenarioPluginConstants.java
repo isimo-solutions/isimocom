@@ -18,4 +18,5 @@ public class TestScenarioPluginConstants {
 	public final static String TEST_SCENARIO_MODEL_NAMESPACE = "http://isimo.com/scenario/1.0";
 	public final static String PLUGIN_ID = TestFrameworkUIPlugin.getDefault().getId();
 	public final static String SCENARIO_EDITOR_ID = "com.smartwebproject.testframework.ui.editor.TestScenarioEditor";
+	public final static String BREAKPOINT_MARKER_ID = "isimo.eclipse.plugin.scenarioBreakpointMarker";
 }

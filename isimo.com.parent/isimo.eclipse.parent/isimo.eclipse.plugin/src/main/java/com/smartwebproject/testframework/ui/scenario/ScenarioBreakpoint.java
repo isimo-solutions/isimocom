@@ -32,7 +32,7 @@ public class ScenarioBreakpoint extends LineBreakpoint {
 	     IWorkspaceRunnable runnable = new IWorkspaceRunnable() {
 	       public void run(IProgressMonitor monitor) throws CoreException
 	       {
-	         IMarker marker = resource.createMarker("com.smartwebproject.testframework.ui.scenarioBreakpointMarker");
+	         IMarker marker = resource.createMarker(TestScenarioPluginConstants.BREAKPOINT_MARKER_ID);
 	         ScenarioBreakpoint.this.setMarker(marker);
 	         marker.setAttribute(IBreakpoint.ID, ScenarioBreakpoint.this.getModelIdentifier());
 	         marker.setAttribute(IBreakpoint.ENABLED, Boolean.TRUE);
