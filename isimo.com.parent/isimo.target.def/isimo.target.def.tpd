@@ -232,7 +232,7 @@ javax.servlet.source
 
 }
 
-location "https://download.eclipse.org/recommenders/updates/head/" recommenders-stable {
+location "http://smartweb.nazwa.pl/jenkins/recommenders.p2" recommenders-stable {
  org.eclipse.recommenders.rcp.feature.feature.group
  org.eclipse.recommenders.rcp.feature.feature.jar
  org.apache.commons.pool
@@ -266,6 +266,8 @@ location "https://download.eclipse.org/recommenders/updates/head/" recommenders-
  com.google.inject
  com.google.inject.multibindings
  javax.inject
+ com.google.guava [15.0.0,16.0.0)
+ com.google.guava.source [15.0.0,16.0.0)
 }
 
 location "http://smartweb.nazwa.pl/jenkins/isimo.p2" isimo-p2 {
