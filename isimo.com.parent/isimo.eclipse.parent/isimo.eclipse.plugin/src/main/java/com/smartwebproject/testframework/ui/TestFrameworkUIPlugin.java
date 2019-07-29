@@ -24,12 +24,16 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.ui.preferences.ScopedPreferenceStore;
 import org.osgi.framework.BundleActivator;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.w3c.dom.Document;
 
+import com.isimo.core.SpringContext;
 import com.isimo.core.model.Model;
 import com.smartwebproject.testframework.ui.editor.TestScenarioEditorPart;
 import com.smartwebproject.testframework.ui.editor.TestScenarioPluginConstants;
 
+@SpringBootApplication
 public class TestFrameworkUIPlugin extends AbstractUIPlugin implements BundleActivator {
 	private IPreferenceStore preferenceStore;
 	private static TestFrameworkUIPlugin plugin;
@@ -123,4 +127,15 @@ public class TestFrameworkUIPlugin extends AbstractUIPlugin implements BundleAct
 		ProjectScope scope = new ProjectScope(project);
 		return scope.getNode(TestScenarioPluginConstants.PLUGIN_ID).get(key,"");
 	}
+
+	
+	public String getSuspendOnErrorPropertyName() {
+		return "isimo.suspendonerror";
+	}
+	
+	public String getSuspendOnFailurePropertyName() {
+		return "isimo.suspendonfailure";
+	}
+	
+	
 }

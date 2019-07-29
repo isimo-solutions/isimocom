@@ -38,6 +38,8 @@ import org.eclipse.jdt.junit.launcher.JUnitLaunchConfigurationDelegate;
 import org.eclipse.jdt.ui.PreferenceConstants;
 import org.eclipse.jst.ws.internal.common.ResourceUtils;
 
+import com.isimo.core.IsimoProperties;
+import com.isimo.core.SpringContext;
 import com.isimo.core.TestCases;
 import com.isimo.core.properties.PropertiesGenerator;
 import com.isimo.core.properties.XProperties;
@@ -98,8 +100,8 @@ public class ScenarioLauncherDelegate extends JUnitLaunchConfigurationDelegate {
 		props.setProperty("isimo.closebrowseronerror", "false");
 		props.setProperty("isimo.nocommandline", "suspend");
 		props.setProperty("isimo.commandlineonerror", "false");
-		props.setProperty(TestCases.SUSPEND_ON_ERROR_PROPERTY, getProjectProperty(pConfiguration, TestScenarioPluginConstants.SUSPEND_ON_ERROR));
-		props.setProperty(TestCases.SUSPEND_ON_FAILURE_PROPERTY, getProjectProperty(pConfiguration, TestScenarioPluginConstants.SUSPEND_ON_FAILURE));
+		props.setProperty("isimo.suspendonerror", getProjectProperty(pConfiguration, TestFrameworkUIPlugin.getDefault().getSuspendOnErrorPropertyName()));
+		props.setProperty("isimo.suspendonfailure", getProjectProperty(pConfiguration, TestFrameworkUIPlugin.getDefault().getSuspendOnErrorPropertyName()));
 		File testDir = getWorkingDirectoryPath(pConfiguration).toFile();
 		testDir.mkdirs();
 		File inputProperties = new File(testDir.getAbsolutePath()+File.separator+"input.properties");

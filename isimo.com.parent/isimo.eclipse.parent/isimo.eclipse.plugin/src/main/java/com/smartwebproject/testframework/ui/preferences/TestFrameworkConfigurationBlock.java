@@ -32,6 +32,7 @@ import org.eclipse.ui.preferences.IWorkbenchPreferenceContainer;
 import org.eclipse.ui.preferences.IWorkingCopyManager;
 import org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart;
 
+import com.smartwebproject.testframework.ui.TestFrameworkUIPlugin;
 import com.smartwebproject.testframework.ui.editor.TestScenarioPluginConstants;
 
 public class TestFrameworkConfigurationBlock extends OptionsConfigurationBlock  {
@@ -40,8 +41,8 @@ public class TestFrameworkConfigurationBlock extends OptionsConfigurationBlock  
 	static Key SCENARIO_ROOT_KEY = getKey(SCENARIO_ROOT_NAME.getQualifier(), SCENARIO_ROOT_NAME.getLocalName());
 	static Key BROWSER_DIR_KEY = getKey(TestScenarioPluginConstants.PLUGIN_ID, TestScenarioPluginConstants.BROWSERS_DIR);
 	static Key ENV_DIR_KEY = getKey(TestScenarioPluginConstants.PLUGIN_ID, TestScenarioPluginConstants.ENV_DIR);
-	static Key SUSPEND_ON_FAILURE = getKey(TestScenarioPluginConstants.PLUGIN_ID, TestScenarioPluginConstants.SUSPEND_ON_FAILURE);
-	static Key SUSPEND_ON_ERROR = getKey(TestScenarioPluginConstants.PLUGIN_ID, TestScenarioPluginConstants.SUSPEND_ON_ERROR);
+	static Key SUSPEND_ON_FAILURE = getKey(TestScenarioPluginConstants.PLUGIN_ID, TestFrameworkUIPlugin.getDefault().getSuspendOnFailurePropertyName());
+	static Key SUSPEND_ON_ERROR = getKey(TestScenarioPluginConstants.PLUGIN_ID, TestFrameworkUIPlugin.getDefault().getSuspendOnErrorPropertyName());
 	
 	FileFieldEditor editor = null;
 	Composite inputFileComposite = null, dirComposite = null, parent = null;
