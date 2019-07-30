@@ -1,0 +1,324 @@
+target "Isimo Target" with source
+
+environment JavaSE-1.8 win32 win32 en_US
+
+location "http://download.eclipse.org/releases/2019-06/" rel2019-06 {
+	ch.ethz.iks.slp
+	ch.ethz.iks.slp.source
+	ch.ethz.iks.r_osgi.remote
+	ch.ethz.iks.r_osgi.remote.source
+	ch.qos.logback.classic
+	ch.qos.logback.core
+	org.json
+	ch.qos.logback.slf4j
+	org.apache.hadoop.zookeeper
+	org.apache.hadoop.zookeeper.source
+	org.eclipse.ecf.core.feature.feature.jar
+	org.eclipse.ecf.core.feature.feature.group
+	org.eclipse.ecf.discovery.feature.feature.group
+	org.eclipse.ecf.discovery.feature.feature.jar
+	org.eclipse.ecf.discovery.feature.source.feature.group
+	org.eclipse.ecf.discovery.feature.source.feature.jar
+		org.eclipse.ecf.discovery.ui
+				org.eclipse.ecf.discovery.ui.source
+				org.eclipse.ecf.discovery.ui.browser
+				org.eclipse.ecf.discovery.ui.browser.source
+
+				org.eclipse.ecf.remoteservice.rest.feature.feature.group
+				org.eclipse.ecf.remoteservice.rest.feature.feature.jar
+org.eclipse.ecf.discovery.ui.edit
+org.eclipse.ecf.discovery.ui.edit.source
+org.eclipse.ecf.discovery.ui.model
+org.eclipse.ecf.discovery.ui.model.source
+org.eclipse.ecf.discovery.ui.properties
+org.eclipse.ecf.discovery.ui.properties.source
+org.eclipse.ecf.discovery.ui.properties.tabbed.source
+org.eclipse.core.filesystem
+org.eclipse.core.filesystem.win32.x86_64
+org.eclipse.core.net
+org.eclipse.core.net.win32.x86_64
+org.eclipse.core.resources
+org.eclipse.core.resources.win32.x86_64
+org.eclipse.core.runtime
+org.eclipse.equinox.security
+org.eclipse.equinox.security.win32.x86_64
+org.eclipse.ui
+org.eclipse.ui.ide
+org.eclipse.ui.ide.application
+org.eclipse.ui.win32
+org.eclipse.swt
+org.eclipse.swt.win32.win32.x86_64
+com.sun.xml.bind
+ org.apache.commons.lang3
+ org.eclipse.e4.rcp.feature.group
+ org.eclipse.e4.rcp.feature.jar
+ org.eclipse.platform.feature.group
+ org.eclipse.rcp.feature.group
+ org.eclipse.jdt.feature.group
+ org.eclipse.equinox.p2.discovery.feature.feature.group
+org.eclipse.wst.web_ui.feature.feature.group
+org.eclipse.wst.xml_ui.feature.feature.group
+org.eclipse.wst.xsl.feature.feature.group
+org.eclipse.wst.validation
+org.eclipse.wst.validation.ui
+org.eclipse.wst.common.project.facet.core
+org.eclipse.wst.sse.ui
+org.eclipse.wst.xml.ui
+ org.eclipse.wst.xsl.ui
+ org.eclipse.wst.css.core
+ org.eclipse.wst.css.ui
+ org.eclipse.wst.dtd.core
+ org.eclipse.wst.dtd.ui
+ org.eclipse.wst.html.core
+ org.eclipse.wst.html.ui
+ 
+  org.eclipse.wst.jsdt.debug.core
+ org.eclipse.wst.jsdt.core
+ org.eclipse.wst.jsdt.chromium.debug.feature.feature.group
+ org.eclipse.wst.jsdt.chromium.debug.feature.feature.jar
+  org.eclipse.wst.jsdt.manipulation
+  org.eclipse.wst.jsdt.ui
+  org.eclipse.wst.server.discovery
+
+org.eclipse.wst.common.modulecore.ui
+org.eclipse.wst.common.modulecore
+ org.eclipse.equinox.executable.feature.group
+  org.eclipse.jst.ws
+  org.eclipse.jst.common.project.facet.core
+  org.eclipse.jst.jee
+  org.eclipse.jst.j2ee
+  org.eclipse.jst.j2ee.jca
+  org.eclipse.jst.j2ee.core
+  org.eclipse.jst.j2ee.ejb
+  org.eclipse.jst.common.annotations.core
+  org.eclipse.jst.common.annotations.controller
+  org.eclipse.jst.common.frameworks
+  org.eclipse.jst.server.core
+  
+  org.eclipse.jem
+  org.eclipse.jem.util
+  org.eclipse.jem.workbench
+  org.eclipse.emf.feature.group
+  org.eclipse.emf.feature.jar
+  org.eclipse.emf.edit.feature.group
+  org.eclipse.emf.edit.feature.jar
+  org.eclipse.emf.ecore.feature.group
+  org.eclipse.emf.ecore.feature.jar
+org.eclipse.emf.ecore.edit.feature.group
+org.eclipse.emf.ecore.edit.feature.jar
+    org.eclipse.emf.edit.ui
+    org.eclipse.emf.codegen
+    org.eclipse.emf.common.feature.group
+    org.eclipse.emf.common.feature.jar
+    org.eclipse.emf.common.ui.feature.group
+    org.eclipse.emf.common.ui.feature.jar
+ org.eclipse.ecf
+ org.eclipse.ecf.console
+ org.eclipse.ecf.console.feature.feature.group
+ org.eclipse.ecf.console.feature.feature.jar
+ org.eclipse.ecf.core.feature.group
+ org.eclipse.ecf.core.feature.jar
+ org.eclipse.ecf.core.ssl.feature.feature.group
+ org.eclipse.ecf.core.ssl.feature.feature.jar
+ org.eclipse.ecf.datashare
+ org.eclipse.ecf.example.clients
+ org.eclipse.ecf.filetransfer.feature.feature.group
+ org.eclipse.ecf.filetransfer.feature.feature.jar
+ org.eclipse.ecf.filetransfer.ssl.feature.feature.group
+ org.eclipse.ecf.filetransfer.ssl.feature.feature.jar
+ org.eclipse.ecf.identity
+ org.eclipse.ecf.provider.filetransfer
+ org.eclipse.ecf.provider.xmpp
+ org.eclipse.ecf.provider.xmpp.ui
+org.eclipse.ecf.remoteservice.sdk.feature.feature.group
+org.eclipse.ecf.remoteservice.sdk.feature.feature.jar
+org.eclipse.ecf.remoteservice.sdk.examples.feature.feature.group
+org.eclipse.ecf.remoteservice.sdk.examples.feature.feature.jar
+
+ org.eclipse.draw2d
+  org.eclipse.wst.common.emfworkbench.integration
+  org.eclipse.gef
+  org.eclipse.wst.command.env
+  org.eclipse.wst.command.env.core
+    org.eclipse.wst.common.core
+  org.eclipse.wst.common.environment
+  org.eclipse.wst.common.frameworks
+  org.eclipse.wst.common.frameworks.ui
+  org.eclipse.wst.common.emf
+  org.eclipse.wst.common.uriresolver
+  org.eclipse.wst.common.ui
+    org.eclipse.wst.common_core.feature.feature.group
+        org.eclipse.wst.common_core.feature.feature.jar
+        org.eclipse.wst.server_userdoc.feature.feature.group
+                org.eclipse.wst.server_userdoc.feature.feature.jar
+                        org.eclipse.wst.server_core.feature.feature.group
+                        org.eclipse.wst.server_core.feature.feature.jar
+  org.eclipse.wst.common.project.facet.ui
+  org.eclipse.wst.common_ui.feature.feature.group
+  org.eclipse.wst.common_ui.feature.feature.jar
+  org.eclipse.wst.server.core
+  org.eclipse.wst.server_ui.feature.feature.group
+  org.eclipse.wst.server_ui.feature.feature.jar
+  org.eclipse.wst.xml_userdoc.feature.feature.group
+  org.eclipse.wst.xml_userdoc.feature.feature.jar
+  org.eclipse.wst.xml.xpath2.processor.feature.feature.group
+  org.eclipse.wst.xml.xpath2.processor.feature.feature.jar
+  org.eclipse.wst.jsdt.feature.feature.group
+  org.eclipse.wst.jsdt.feature.feature.jar
+  org.eclipse.wst.ws
+  org.eclipse.wst.wsdl
+  org.eclipse.wst.internet.monitor.core
+  org.eclipse.wst.ws.parser
+  org.eclipse.wst.ws.service.policy
+  org.eclipse.wst.xml.xpath2.processor
+  org.eclipse.wst.xml.xpath2.wtptypes
+  org.eclipse.xsd
+    org.eclipse.xsd.edit
+    org.eclipse.mylyn.commons.core
+    org.eclipse.mylyn.commons.identity.core
+    org.eclipse.mylyn.commons.net
+    org.eclipse.mylyn.commons.notifications.core
+    org.eclipse.mylyn.commons.notifications.feed
+    org.eclipse.mylyn.commons.notifications.ui
+    org.eclipse.mylyn.commons.repositories.core
+    org.eclipse.mylyn.commons.repositories.ui
+    org.eclipse.mylyn.commons.ui
+    org.eclipse.mylyn.commons.workbench
+    org.eclipse.mylyn.commons.screenshots
+    org.eclipse.mylyn.context.core
+    org.eclipse.mylyn.monitor.core
+    org.eclipse.mylyn.monitor.ui
+    org.eclipse.mylyn.tasks.core
+    org.eclipse.mylyn.tasks.ui
+    
+
+javax.wsdl
+ org.eclipse.pde.build
+ org.eclipse.pde.core
+ org.eclipse.ui.trace
+
+ com.google.gson [2.8.2,3.0.0)
+com.google.guava [21.0.0,22.0.0)
+com.google.javascript
+com.google.protobuf
+org.apache.wsil4j
+org.apache.xalan
+org.apache.axis
+org.apache.commons.discovery
+org.apache.commons.lang
+org.apache.batik.css
+org.apache.bcel
+org.slf4j.api [1.7.2,1.7.3)
+org.uddi4j
+
+org.apache.commons.httpclient lazy
+
+
+org.jivesoftware.smack
+org.xbill.dns
+
+java_cup.runtime
+javax.activation
+javax.xml.rpc
+javax.xml.soap
+javax.xml.bind
+javax.xml.stream
+com.ibm.icu.source
+com.jcraft.jsch.source
+com.sun.el.source
+javax.annotation.source
+javax.el.source
+javax.inject.source
+javax.servlet.jsp.source
+javax.servlet.source
+
+org.apache.httpcomponents.httpclient lazy 
+
+}
+
+location "http://smartweb.nazwa.pl/jenkins/recommenders.p2" recommenders-stable {
+ org.eclipse.recommenders.rcp.feature.feature.group
+ org.eclipse.recommenders.rcp.feature.feature.jar
+ org.apache.commons.pool
+ org.apache.commons.pool.source
+ org.apache.commons.lang3.source
+ org.apache.commons.io
+ org.apache.commons.logging
+ org.apache.commons.math
+ org.apache.commons.math.source
+ org.apache.maven.resolver.api
+ org.apache.maven.resolver.api.source
+ org.apache.maven.resolver.impl
+ org.apache.maven.resolver.impl.source
+ org.apache.maven.resolver.spi
+ org.apache.maven.resolver.spi.source
+ org.apache.maven.resolver.connector.basic
+ org.apache.maven.resolver.connector.basic.source
+ org.apache.maven.resolver.transport.file
+ org.apache.maven.resolver.transport.file.source
+ org.apache.maven.resolver.transport.http
+ org.apache.maven.resolver.transport.http.source
+ org.apache.maven.resolver.util
+ org.apache.maven.resolver.util.source
+ org.apache.lucene.core
+ org.apache.solr.client.solrj
+ org.apache.solr.client.solrj.source
+ com.google.gson.source
+ com.google.inject
+ com.google.inject.multibindings
+ javax.inject
+ com.google.guava [15.0.0,16.0.0)
+ com.google.guava.source [15.0.0,16.0.0)
+ org.eclipse.aether.maven
+ org.apache.commons.codec [1.9.0,1.10.0)
+ 
+}
+
+
+
+location "http://download.eclipse.org/eclipse/updates/4.11" {
+	org.eclipse.pde
+	org.eclipse.pde.launching
+	org.eclipse.pde.ui
+	org.eclipse.pde.junit.runtime
+}
+
+
+location "http://download.eclipse.org/egit/updates" egit {
+	org.eclipse.egit
+}
+
+location "https://download.eclipse.org/technology/m2e/releases/1.11" m2e {
+	org.eclipse.m2e.archetype.common
+	org.eclipse.m2e.binaryproject
+	org.eclipse.m2e.binaryproject.ui
+	org.eclipse.m2e.core
+	org.eclipse.m2e.core.ui
+	org.eclipse.m2e.discovery
+	org.eclipse.m2e.editor
+	org.eclipse.m2e.editor.xml
+	org.eclipse.m2e.feature.feature.group
+	org.eclipse.m2e.feature.feature.jar
+	org.eclipse.m2e.importer
+	org.eclipse.m2e.jdt
+	org.eclipse.m2e.jdt.ui
+	org.eclipse.m2e.launching
+	org.eclipse.m2e.model.edit
+	org.eclipse.m2e.lifecyclemapping.defaults
+	org.eclipse.m2e.profiles.core
+	org.eclipse.m2e.profiles.ui
+	org.eclipse.m2e.refactoring
+	org.eclipse.m2e.scm
+	org.eclipse.m2e.sdk.feature.feature.group
+	org.eclipse.m2e.sdk.feature.feature.jar
+	org.eclipse.m2e.site
+	org.eclipse.m2e.sourcelookup
+	org.eclipse.m2e.sourcelookup.ui
+	org.eclipse.m2e.tests.common
+	org.eclipse.m2e.workspace.cli
+	org.maven.ide.eclipse
+}
+
+
+
+
