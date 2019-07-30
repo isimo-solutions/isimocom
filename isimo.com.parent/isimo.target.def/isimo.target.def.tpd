@@ -23,6 +23,7 @@ location "http://download.eclipse.org/releases/2019-06/" rel2019-06 {
 				org.eclipse.ecf.discovery.ui.source
 				org.eclipse.ecf.discovery.ui.browser
 				org.eclipse.ecf.discovery.ui.browser.source
+
 				org.eclipse.ecf.remoteservice.rest.feature.feature.group
 				org.eclipse.ecf.remoteservice.rest.feature.feature.jar
 org.eclipse.ecf.discovery.ui.edit
@@ -190,7 +191,6 @@ org.eclipse.ecf.remoteservice.sdk.examples.feature.feature.jar
     org.eclipse.mylyn.tasks.core
     org.eclipse.mylyn.tasks.ui
     
-    
 
 javax.wsdl
  org.eclipse.pde.build
@@ -204,13 +204,15 @@ com.google.protobuf
 org.apache.wsil4j
 org.apache.xalan
 org.apache.axis
-org.apache.commons.codec
 org.apache.commons.discovery
 org.apache.commons.lang
 org.apache.batik.css
 org.apache.bcel
-org.slf4j.api
+org.slf4j.api [1.7.2,1.7.3)
 org.uddi4j
+
+org.apache.commons.httpclient [3.1.0,3.1.1)
+
 
 org.jivesoftware.smack
 org.xbill.dns
@@ -230,6 +232,9 @@ javax.inject.source
 javax.servlet.jsp.source
 javax.servlet.source
 
+org.apache.httpcomponents.httpclient
+org.apache.httpcomponents.httpcore
+
 }
 
 location "http://smartweb.nazwa.pl/jenkins/recommenders.p2" recommenders-stable {
@@ -237,8 +242,6 @@ location "http://smartweb.nazwa.pl/jenkins/recommenders.p2" recommenders-stable 
  org.eclipse.recommenders.rcp.feature.feature.jar
  org.apache.commons.pool
  org.apache.commons.pool.source
- org.apache.commons.httpclient
- org.apache.commons.httpclient.source
  org.apache.commons.lang3.source
  org.apache.commons.io
  org.apache.commons.logging
@@ -262,12 +265,13 @@ location "http://smartweb.nazwa.pl/jenkins/recommenders.p2" recommenders-stable 
  org.apache.solr.client.solrj
  org.apache.solr.client.solrj.source
  com.google.gson.source
- org.eclipse.aether.maven
  com.google.inject
  com.google.inject.multibindings
  javax.inject
  com.google.guava [15.0.0,16.0.0)
  com.google.guava.source [15.0.0,16.0.0)
+ org.eclipse.aether.maven
+ org.apache.commons.codec [1.9.0,1.10.0)
 }
 
 location "http://smartweb.nazwa.pl/jenkins/isimo.p2" isimo-p2 {

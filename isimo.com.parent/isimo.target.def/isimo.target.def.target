@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="Isimo Target" sequenceNumber="1563899520">
+<target name="Isimo Target" sequenceNumber="1564482388">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="ch.ethz.iks.slp" version="1.2.0.v20181107-1631"/>
@@ -197,13 +197,13 @@
       <unit id="org.apache.wsil4j" version="1.0.0.v20180522-1857"/>
       <unit id="org.apache.xalan" version="2.7.1.v201005080400"/>
       <unit id="org.apache.axis" version="1.4.0.v201411182030"/>
-      <unit id="org.apache.commons.codec" version="1.10.0.v20180409-1845"/>
       <unit id="org.apache.commons.discovery" version="0.2.0.v201004190315"/>
       <unit id="org.apache.commons.lang" version="2.6.0.v201404270220"/>
       <unit id="org.apache.batik.css" version="1.11.0.v20190515-0436"/>
       <unit id="org.apache.bcel" version="5.2.0.v201005080400"/>
-      <unit id="org.slf4j.api" version="1.7.10.v20170428-1633"/>
+      <unit id="org.slf4j.api" version="1.7.2.v20121108-1250"/>
       <unit id="org.uddi4j" version="2.0.5.v200805270300"/>
+      <unit id="org.apache.commons.httpclient" version="3.1.0.v201012070820"/>
       <unit id="org.jivesoftware.smack" version="3.3.300.v20180303-0057"/>
       <unit id="org.xbill.dns" version="2.0.8.v201112050911"/>
       <unit id="java_cup.runtime" version="0.10.0.v201005080400"/>
@@ -220,6 +220,8 @@
       <unit id="javax.inject.source" version="1.0.0.v20091030"/>
       <unit id="javax.servlet.jsp.source" version="2.2.0.v201112011158"/>
       <unit id="javax.servlet.source" version="3.1.0.v201410161800"/>
+      <unit id="org.apache.httpcomponents.httpclient" version="4.5.2.v20170210-0925"/>
+      <unit id="org.apache.httpcomponents.httpcore" version="4.4.10.v20190123-2214"/>
       <repository id="rel2019-06" location="http://download.eclipse.org/releases/2019-06/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
@@ -227,8 +229,6 @@
       <unit id="org.eclipse.recommenders.rcp.feature.feature.jar" version="2.5.4.v20180909-1132"/>
       <unit id="org.apache.commons.pool" version="1.6.0.v201204271246"/>
       <unit id="org.apache.commons.pool.source" version="1.6.0.v201204271246"/>
-      <unit id="org.apache.commons.httpclient" version="3.1.0.v201012070820"/>
-      <unit id="org.apache.commons.httpclient.source" version="3.1.0.v201012070820"/>
       <unit id="org.apache.commons.lang3.source" version="3.1.0.v201403281430"/>
       <unit id="org.apache.commons.io" version="2.2.0.v201405211200"/>
       <unit id="org.apache.commons.logging" version="1.1.1.v201101211721"/>
@@ -252,12 +252,13 @@
       <unit id="org.apache.solr.client.solrj" version="3.5.0.v20150506-0844"/>
       <unit id="org.apache.solr.client.solrj.source" version="3.5.0.v20150506-0844"/>
       <unit id="com.google.gson.source" version="2.7.0.v20170129-0911"/>
-      <unit id="org.eclipse.aether.maven" version="3.1.0.v20140706-2237"/>
       <unit id="com.google.inject" version="3.0.0.v201605172100"/>
       <unit id="com.google.inject.multibindings" version="3.0.0.v201605172100"/>
       <unit id="javax.inject" version="1.0.0.v20091030"/>
       <unit id="com.google.guava" version="15.0.0.v201403281430"/>
       <unit id="com.google.guava.source" version="15.0.0.v201403281430"/>
+      <unit id="org.eclipse.aether.maven" version="0.0.0"/>
+      <unit id="org.apache.commons.codec" version="1.9.0.v20170208-1614"/>
       <repository id="recommenders-stable" location="http://smartweb.nazwa.pl/jenkins/recommenders.p2"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
