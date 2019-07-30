@@ -12,6 +12,9 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.internal.jobs.Worker;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.debug.core.DebugPlugin;
+import org.eclipse.debug.core.ILaunchManager;
+import org.eclipse.debug.core.model.IDebugTarget;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.text.TextSelection;
 import org.eclipse.jface.viewers.ISelection;
@@ -38,8 +41,20 @@ public class RunCommand extends AbstractHandler {
 	    			showError(shell, "Selected text does not contains proper actions!");
 	    			return null;
 	    		}
-	    		Collection<Thread> threads = ThreadUtils.getAllThreads();
+	    		ILaunchManager launchManager = DebugPlugin.getDefault().getLaunchManager();
+	    		IDebugTarget[] targets = launchManager.getDebugTargets();
 	    		ArrayList<ScenarioDebugTarget> targetList = new ArrayList<ScenarioDebugTarget>();
+	    		
+	    		for (IDebugTarget t : targets) {
+	    			if(t != null && t instanceof ScenarioDebugTarget) {
+    					ScenarioDebugTarget target = (ScenarioDebugTarget)t;
+    					if(target.isSuspended()) {
+    						targetList.add(target);
+    					}
+	    			}
+				}
+
+	    		/*Collection<Thread> threads = ThreadUtils.getAllThreads();
 	    		for(Thread t : threads) {
     				if(t instanceof Worker) {
     					Worker worker = (Worker)t;
@@ -52,7 +67,8 @@ public class RunCommand extends AbstractHandler {
 	    					}
 		    			}
     				}
-	    		}
+	    		}*/
+	    		
 	    		if(targetList.size() == 1) {
 	    			System.out.println("Executing commands:\n"+text);
 	    			ScenarioDebugTarget target = targetList.get(0);
