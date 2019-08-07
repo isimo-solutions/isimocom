@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="Isimo Target" sequenceNumber="1565174197">
+<target name="Isimo Target" sequenceNumber="1565193202">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="ch.ethz.iks.slp" version="1.2.0.v20181107-1631"/>
@@ -11,7 +11,6 @@
       <unit id="ch.qos.logback.classic" version="1.0.7.v20121108-1250"/>
       <unit id="ch.qos.logback.core" version="1.0.7.v20121108-1250"/>
       <unit id="org.json" version="1.0.0.v201011060100"/>
-      <unit id="ch.qos.logback.slf4j" version="1.0.7.v201505121915"/>
       <unit id="org.apache.hadoop.zookeeper" version="3.3.3.v201105210832"/>
       <unit id="org.apache.hadoop.zookeeper.source" version="3.3.3.v201105210832"/>
       <unit id="org.eclipse.ecf.core.feature.feature.jar" version="1.5.3.v20190423-0625"/>
@@ -201,9 +200,8 @@
       <unit id="org.apache.commons.lang" version="2.6.0.v201404270220"/>
       <unit id="org.apache.batik.css" version="1.11.0.v20190515-0436"/>
       <unit id="org.apache.bcel" version="5.2.0.v201005080400"/>
-      <unit id="org.slf4j.api" version="1.7.2.v20121108-1250"/>
+      <unit id="org.slf4j.api" version="1.7.10.v20170428-1633"/>
       <unit id="org.uddi4j" version="2.0.5.v200805270300"/>
-      <unit id="org.apache.commons.httpclient" version="0.0.0"/>
       <unit id="org.jivesoftware.smack" version="3.3.300.v20180303-0057"/>
       <unit id="org.xbill.dns" version="2.0.8.v201112050911"/>
       <unit id="java_cup.runtime" version="0.10.0.v201005080400"/>
@@ -220,12 +218,26 @@
       <unit id="javax.inject.source" version="1.0.0.v20091030"/>
       <unit id="javax.servlet.jsp.source" version="2.2.0.v201112011158"/>
       <unit id="javax.servlet.source" version="3.1.0.v201410161800"/>
-      <unit id="org.apache.httpcomponents.httpclient" version="0.0.0"/>
       <repository id="rel2019-06" location="http://download.eclipse.org/releases/2019-06/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.recommenders.rcp.feature.feature.group" version="2.5.4.v20180909-1132"/>
       <unit id="org.eclipse.recommenders.rcp.feature.feature.jar" version="2.5.4.v20180909-1132"/>
+      <unit id="org.eclipse.recommenders.3rd.feature.feature.group" version="2.5.4.v20180909-1132"/>
+      <unit id="org.eclipse.recommenders.3rd.feature.feature.jar" version="2.5.4.v20180909-1132"/>
+      <unit id="org.eclipse.recommenders.models.rcp" version="2.5.4.v20180909-1132"/>
+      <unit id="org.eclipse.recommenders.statics.rcp" version="2.5.4.v20180909-1132"/>
+      <unit id="org.eclipse.recommenders.constructors.rcp" version="2.5.4.v20180909-1132"/>
+      <unit id="org.eclipse.recommenders.overrides.rcp" version="2.5.4.v20180909-1132"/>
+      <unit id="org.eclipse.recommenders.apidocs" version="2.5.4.v20180909-1132"/>
+      <unit id="org.eclipse.recommenders.overrides" version="2.5.4.v20180909-1132"/>
+      <unit id="org.eclipse.recommenders.apidocs.rcp" version="2.5.4.v20180909-1132"/>
+      <unit id="org.eclipse.recommenders.calls" version="2.5.4.v20180909-1132"/>
+      <unit id="org.eclipse.recommenders.net" version="2.5.4.v20180909-1132"/>
+      <unit id="org.eclipse.recommenders.calls.rcp" version="2.5.4.v20180909-1132"/>
+      <unit id="org.eclipse.recommenders.models" version="2.5.4.v20180909-1132"/>
+      <unit id="org.eclipse.recommenders.statics" version="2.5.4.v20180909-1132"/>
+      <unit id="org.eclipse.recommenders.constructors" version="2.5.4.v20180909-1132"/>
       <unit id="org.apache.commons.pool" version="1.6.0.v201204271246"/>
       <unit id="org.apache.commons.pool.source" version="1.6.0.v201204271246"/>
       <unit id="org.apache.commons.lang3.source" version="3.1.0.v201403281430"/>
@@ -268,13 +280,8 @@
       <repository location="http://download.eclipse.org/eclipse/updates/4.11"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.egit.feature.group" version="5.4.0.201906121030-r"/>
-      <unit id="org.eclipse.egit.feature.jar" version="5.4.0.201906121030-r"/>
-      <unit id="org.eclipse.egit.core" version="5.4.0.201906121030-r"/>
-      <unit id="org.eclipse.egit.core.source" version="5.4.0.201906121030-r"/>
-      <unit id="org.eclipse.egit.doc" version="5.4.0.201906121030-r"/>
-      <unit id="org.eclipse.egit.ui" version="5.4.0.201906121030-r"/>
-      <unit id="org.eclipse.egit.ui.source" version="5.4.0.201906121030-r"/>
+      <unit id="org.eclipse.egit" version="5.4.0.201906121030-r"/>
+      <unit id="org.eclipse.jgit" version="5.4.0.201906121030-r"/>
       <repository id="egit" location="http://download.eclipse.org/egit/updates"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
@@ -306,11 +313,10 @@
       <unit id="org.eclipse.m2e.tests.common" version="1.11.0.20190220-2119"/>
       <unit id="org.eclipse.m2e.workspace.cli" version="0.3.1"/>
       <unit id="org.maven.ide.eclipse" version="1.11.0.20190220-2119"/>
+      <unit id="org.eclipse.m2e.logback.configuration" version="1.11.0.20190220-2119"/>
       <repository id="m2e" location="https://download.eclipse.org/technology/m2e/releases/1.11"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.cbi.targetplatform-feature.feature.group" version="3.0.0.201902111444"/>
-      <unit id="org.eclipse.cbi.targetplatform-feature.feature.jar" version="3.0.0.201902111444"/>
       <unit id="org.eclipse.cbi.targetplatform" version="3.0.0.201902111444"/>
       <unit id="org.eclipse.cbi.targetplatform.ide" version="3.0.0.201902111444"/>
       <unit id="org.eclipse.cbi.targetplatform.model" version="3.0.0.201902111444"/>

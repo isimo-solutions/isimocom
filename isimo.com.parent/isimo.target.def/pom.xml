@@ -15,6 +15,13 @@
 		<isimo.version>2.0-Sel-3.14.0-SNAPSHOT</isimo.version>
 	</properties>
   <artifactId>isimo.target.def</artifactId>
+  <dependencies>
+<dependency>
+    <groupId>org.apache.httpcomponents</groupId>
+    <artifactId>httpclient-osgi</artifactId>
+    <version>4.5.6</version>
+</dependency>
+  </dependencies>
   	<build>
 		<plugins>
 			<plugin>
@@ -22,6 +29,9 @@
 				<artifactId>tycho-maven-plugin</artifactId>
 				<version>${tycho.version}</version>
 				<extensions>true</extensions>
+				<configuration>
+				<pomDependencies>consider</pomDependencies>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

@@ -10,7 +10,6 @@ location "http://download.eclipse.org/releases/2019-06/" rel2019-06 {
 	ch.qos.logback.classic
 	ch.qos.logback.core
 	org.json
-	ch.qos.logback.slf4j
 	org.apache.hadoop.zookeeper
 	org.apache.hadoop.zookeeper.source
 	org.eclipse.ecf.core.feature.feature.jar
@@ -112,6 +111,7 @@ org.eclipse.emf.ecore.edit.feature.jar
     org.eclipse.emf.common.feature.jar
     org.eclipse.emf.common.ui.feature.group
     org.eclipse.emf.common.ui.feature.jar
+    org.eclipse.emf.ecore.xcore.lib
  org.eclipse.ecf
  org.eclipse.ecf.console
  org.eclipse.ecf.console.feature.feature.group
@@ -208,10 +208,8 @@ org.apache.commons.discovery
 org.apache.commons.lang
 org.apache.batik.css
 org.apache.bcel
-org.slf4j.api [1.7.2,1.7.3)
+org.slf4j.api [1.7.2,1.8.0)
 org.uddi4j
-
-org.apache.commons.httpclient lazy
 
 
 org.jivesoftware.smack
@@ -231,14 +229,42 @@ javax.el.source
 javax.inject.source
 javax.servlet.jsp.source
 javax.servlet.source
+org.eclipse.xtext
+org.eclipse.xtext.ide
+org.eclipse.xtext.ui
+org.eclipse.xtext.ui.shared
+org.eclipse.xtext.ui.codetemplates
+org.eclipse.xtext.ui.codetemplates.ui
+org.eclipse.xtext.ui.codetemplates.ide
+org.eclipse.xtext.builder
+org.eclipse.xtext.xbase.lib
+org.eclipse.xtext.util
+org.eclipse.xtend.lib
+org.eclipse.xtend.lib.macro
+org.eclipse.xtext.smap
+org.antlr.runtime [3.2.0,3.2.1)
 
-org.apache.httpcomponents.httpclient lazy 
 
 }
 
 location "http://smartweb.nazwa.pl/jenkins/recommenders.p2" recommenders-stable {
  org.eclipse.recommenders.rcp.feature.feature.group
  org.eclipse.recommenders.rcp.feature.feature.jar
+ org.eclipse.recommenders.3rd.feature.feature.group
+ org.eclipse.recommenders.3rd.feature.feature.jar
+ org.eclipse.recommenders.models.rcp
+ org.eclipse.recommenders.statics.rcp
+ org.eclipse.recommenders.constructors.rcp
+ org.eclipse.recommenders.overrides.rcp
+ org.eclipse.recommenders.apidocs
+org.eclipse.recommenders.overrides
+org.eclipse.recommenders.apidocs.rcp
+org.eclipse.recommenders.calls
+org.eclipse.recommenders.net
+org.eclipse.recommenders.calls.rcp
+org.eclipse.recommenders.models
+org.eclipse.recommenders.statics
+org.eclipse.recommenders.constructors
  org.apache.commons.pool
  org.apache.commons.pool.source
  org.apache.commons.lang3.source
@@ -271,7 +297,6 @@ location "http://smartweb.nazwa.pl/jenkins/recommenders.p2" recommenders-stable 
  com.google.guava.source [15.0.0,16.0.0)
  org.eclipse.aether.maven
  org.apache.commons.codec [1.9.0,1.10.0)
- 
 }
 
 
@@ -285,13 +310,8 @@ location "http://download.eclipse.org/eclipse/updates/4.11" {
 
 
 location "http://download.eclipse.org/egit/updates" egit {
-	org.eclipse.egit.feature.group
-	org.eclipse.egit.feature.jar
-	org.eclipse.egit.core
-	org.eclipse.egit.core.source
-	org.eclipse.egit.doc
-	org.eclipse.egit.ui
-	org.eclipse.egit.ui.source
+	org.eclipse.egit
+	org.eclipse.jgit
 }
 
 location "https://download.eclipse.org/technology/m2e/releases/1.11" m2e {
@@ -324,14 +344,11 @@ location "https://download.eclipse.org/technology/m2e/releases/1.11" m2e {
 	org.eclipse.m2e.workspace.cli
 	org.maven.ide.eclipse
 }
+
 location "https://download.eclipse.org/cbi/tpd/3.0.0-SNAPSHOT" tpd {
-	org.eclipse.cbi.targetplatform-feature.feature.group
-	org.eclipse.cbi.targetplatform-feature.feature.jar	
 	org.eclipse.cbi.targetplatform
 	org.eclipse.cbi.targetplatform.ide
 	org.eclipse.cbi.targetplatform.model
 	org.eclipse.cbi.targetplatform.ui
 }
-
-
 
