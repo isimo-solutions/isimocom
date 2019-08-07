@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="Isimo Target" sequenceNumber="1565197446">
+<target name="Isimo Target" sequenceNumber="1565201643">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="ch.ethz.iks.slp" version="1.2.0.v20181107-1631"/>
@@ -220,20 +220,21 @@
       <unit id="javax.inject.source" version="1.0.0.v20091030"/>
       <unit id="javax.servlet.jsp.source" version="2.2.0.v201112011158"/>
       <unit id="javax.servlet.source" version="3.1.0.v201410161800"/>
-      <unit id="org.eclipse.xtext" version="2.18.0.v20190528-0021"/>
-      <unit id="org.eclipse.xtext.ide" version="2.18.0.v20190528-0021"/>
-      <unit id="org.eclipse.xtext.ui" version="2.18.0.v20190528-0513"/>
-      <unit id="org.eclipse.xtext.ui.shared" version="2.18.0.v20190528-0513"/>
-      <unit id="org.eclipse.xtext.ui.codetemplates" version="2.18.0.v20190528-0513"/>
-      <unit id="org.eclipse.xtext.ui.codetemplates.ui" version="2.18.0.v20190528-0513"/>
-      <unit id="org.eclipse.xtext.ui.codetemplates.ide" version="2.18.0.v20190528-0513"/>
-      <unit id="org.eclipse.xtext.builder" version="2.18.0.v20190528-0513"/>
-      <unit id="org.eclipse.xtext.xbase.lib" version="2.18.0.v20190528-0016"/>
-      <unit id="org.eclipse.xtext.util" version="2.18.0.v20190528-0021"/>
+      <unit id="org.eclipse.xtext.ui.feature.group" version="2.18.0.v20190528-0716"/>
+      <unit id="org.eclipse.xtext.ui.feature.jar" version="2.18.0.v20190528-0716"/>
+      <unit id="org.eclipse.xtext.xbase.feature.group" version="2.18.0.v20190528-0716"/>
+      <unit id="org.eclipse.xtext.xbase.feature.jar" version="2.18.0.v20190528-0716"/>
+      <unit id="org.antlr.runtime" version="3.2.0.v201101311130"/>
+      <unit id="org.eclipse.xtend.feature.group" version="2.2.0.v201605260315"/>
+      <unit id="org.eclipse.xtend.feature.jar" version="2.2.0.v201605260315"/>
       <unit id="org.eclipse.xtend.lib" version="2.18.0.v20190528-0016"/>
       <unit id="org.eclipse.xtend.lib.macro" version="2.18.0.v20190528-0016"/>
-      <unit id="org.eclipse.xtext.smap" version="2.18.0.v20190528-0033"/>
-      <unit id="org.antlr.runtime" version="3.2.0.v201101311130"/>
+      <unit id="org.eclipse.xpand.feature.group" version="2.2.0.v201605260315"/>
+      <unit id="org.eclipse.xpand.feature.jar" version="2.2.0.v201605260315"/>
+      <unit id="org.eclipse.emf.mwe2.runtime.sdk.feature.group" version="2.10.0"/>
+      <unit id="org.eclipse.emf.mwe2.runtime.sdk.feature.jar" version="2.10.0"/>
+      <unit id="org.eclipse.emf.mwe.core.feature.feature.group" version="1.4.0"/>
+      <unit id="org.eclipse.emf.mwe.core.feature.feature.jar" version="1.4.0"/>
       <repository id="rel2019-06" location="http://download.eclipse.org/releases/2019-06/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
@@ -289,11 +290,11 @@
       <repository id="recommenders-stable" location="http://smartweb.nazwa.pl/jenkins/recommenders.p2"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.pde" version="3.13.500.v20190307-0500"/>
-      <unit id="org.eclipse.pde.launching" version="3.7.400.v20190214-2042"/>
-      <unit id="org.eclipse.pde.ui" version="3.10.600.v20190222-1655"/>
-      <unit id="org.eclipse.pde.junit.runtime" version="3.5.300.v20180827-1331"/>
-      <repository location="http://download.eclipse.org/eclipse/updates/4.11"/>
+      <unit id="org.eclipse.pde" version="3.13.600.v20190605-1800"/>
+      <unit id="org.eclipse.pde.launching" version="3.7.600.v20190513-1223"/>
+      <unit id="org.eclipse.pde.ui" version="3.11.0.v20190520-2013"/>
+      <unit id="org.eclipse.pde.junit.runtime" version="3.5.400.v20190513-1223"/>
+      <repository location="http://download.eclipse.org/eclipse/updates/4.12"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.egit" version="5.4.0.201906121030-r"/>
@@ -332,10 +333,8 @@
       <repository id="m2e" location="https://download.eclipse.org/technology/m2e/releases/1.11"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.cbi.targetplatform" version="3.0.0.201902111444"/>
-      <unit id="org.eclipse.cbi.targetplatform.ide" version="3.0.0.201902111444"/>
-      <unit id="org.eclipse.cbi.targetplatform.model" version="3.0.0.201902111444"/>
-      <unit id="org.eclipse.cbi.targetplatform.ui" version="3.0.0.201902111444"/>
+      <unit id="org.eclipse.cbi.targetplatform-feature.feature.group" version="3.0.0.201902111444"/>
+      <unit id="org.eclipse.cbi.targetplatform-feature.feature.jar" version="3.0.0.201902111444"/>
       <repository id="tpd" location="https://download.eclipse.org/cbi/tpd/3.0.0-SNAPSHOT"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">

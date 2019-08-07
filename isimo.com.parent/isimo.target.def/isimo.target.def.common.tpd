@@ -231,22 +231,21 @@ javax.el.source
 javax.inject.source
 javax.servlet.jsp.source
 javax.servlet.source
-org.eclipse.xtext
-org.eclipse.xtext.ide
-org.eclipse.xtext.ui
-org.eclipse.xtext.ui.shared
-org.eclipse.xtext.ui.codetemplates
-org.eclipse.xtext.ui.codetemplates.ui
-org.eclipse.xtext.ui.codetemplates.ide
-org.eclipse.xtext.builder
-org.eclipse.xtext.xbase.lib
-org.eclipse.xtext.util
+org.eclipse.xtext.ui.feature.group
+org.eclipse.xtext.ui.feature.jar
+org.eclipse.xtext.xbase.feature.group
+org.eclipse.xtext.xbase.feature.jar
+org.antlr.runtime [3.2.0,3.2.1)
+org.eclipse.xtend.feature.group
+org.eclipse.xtend.feature.jar
 org.eclipse.xtend.lib
 org.eclipse.xtend.lib.macro
-org.eclipse.xtext.smap
-org.antlr.runtime [3.2.0,3.2.1)
-
-
+org.eclipse.xpand.feature.group
+org.eclipse.xpand.feature.jar
+org.eclipse.emf.mwe2.runtime.sdk.feature.group
+org.eclipse.emf.mwe2.runtime.sdk.feature.jar
+org.eclipse.emf.mwe.core.feature.feature.group
+org.eclipse.emf.mwe.core.feature.feature.jar
 }
 
 location "http://smartweb.nazwa.pl/jenkins/recommenders.p2" recommenders-stable {
@@ -303,7 +302,7 @@ org.eclipse.recommenders.constructors
 
 
 
-location "http://download.eclipse.org/eclipse/updates/4.11" {
+location "http://download.eclipse.org/eclipse/updates/4.12" {
 	org.eclipse.pde
 	org.eclipse.pde.launching
 	org.eclipse.pde.ui
@@ -348,9 +347,7 @@ location "https://download.eclipse.org/technology/m2e/releases/1.11" m2e {
 }
 
 location "https://download.eclipse.org/cbi/tpd/3.0.0-SNAPSHOT" tpd {
-	org.eclipse.cbi.targetplatform
-	org.eclipse.cbi.targetplatform.ide
-	org.eclipse.cbi.targetplatform.model
-	org.eclipse.cbi.targetplatform.ui
+	org.eclipse.cbi.targetplatform-feature.feature.group
+	org.eclipse.cbi.targetplatform-feature.feature.jar
 }
 
