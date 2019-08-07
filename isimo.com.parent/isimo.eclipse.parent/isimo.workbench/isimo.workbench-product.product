@@ -102,7 +102,6 @@
       <plugin id="org.apache.felix.scr"/>
       <plugin id="org.apache.hadoop.zookeeper"/>
       <plugin id="org.apache.httpcomponents.httpclient"/>
-      <plugin id="org.apache.httpcomponents.httpcore"/>
       <plugin id="org.apache.jasper.glassfish"/>
       <plugin id="org.apache.log4j"/>
       <plugin id="org.apache.lucene.analyzers-common"/>
@@ -127,6 +126,10 @@
       <plugin id="org.eclipse.ant.core"/>
       <plugin id="org.eclipse.ant.launching"/>
       <plugin id="org.eclipse.ant.ui"/>
+      <plugin id="org.eclipse.cbi.targetplatform"/>
+      <plugin id="org.eclipse.cbi.targetplatform.ide"/>
+      <plugin id="org.eclipse.cbi.targetplatform.model"/>
+      <plugin id="org.eclipse.cbi.targetplatform.ui"/>
       <plugin id="org.eclipse.compare"/>
       <plugin id="org.eclipse.compare.core"/>
       <plugin id="org.eclipse.compare.win32"/>
@@ -234,6 +237,11 @@
       <plugin id="org.eclipse.ecf.ui"/>
       <plugin id="org.eclipse.ecf.ui.capabilities"/>
       <plugin id="org.eclipse.egit"/>
+      <plugin id="org.eclipse.egit.core"/>
+      <plugin id="org.eclipse.egit.core.source"/>
+      <plugin id="org.eclipse.egit.doc"/>
+      <plugin id="org.eclipse.egit.ui"/>
+      <plugin id="org.eclipse.egit.ui.source"/>
       <plugin id="org.eclipse.emf"/>
       <plugin id="org.eclipse.emf.ant"/>
       <plugin id="org.eclipse.emf.codegen"/>

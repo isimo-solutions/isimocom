@@ -285,7 +285,8 @@ location "http://download.eclipse.org/eclipse/updates/4.11" {
 
 
 location "http://download.eclipse.org/egit/updates" egit {
-	org.eclipse.egit
+	org.eclipse.egit.feature.group
+	org.eclipse.egit.feature.jar
 }
 
 location "https://download.eclipse.org/technology/m2e/releases/1.11" m2e {
@@ -318,7 +319,10 @@ location "https://download.eclipse.org/technology/m2e/releases/1.11" m2e {
 	org.eclipse.m2e.workspace.cli
 	org.maven.ide.eclipse
 }
-
+location "https://download.eclipse.org/cbi/tpd/3.0.0-SNAPSHOT" tpd {
+	org.eclipse.cbi.targetplatform-feature.feature.group
+	org.eclipse.cbi.targetplatform-feature.feature.jar	
+}
 
 
 
