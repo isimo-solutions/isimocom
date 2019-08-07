@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="Isimo Target" sequenceNumber="1565196400">
+<target name="Isimo Target" sequenceNumber="1565197446">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="ch.ethz.iks.slp" version="1.2.0.v20181107-1631"/>
@@ -10,6 +10,7 @@
       <unit id="ch.ethz.iks.r_osgi.remote.source" version="1.2.200.v20180515-1646"/>
       <unit id="ch.qos.logback.classic" version="1.0.7.v20121108-1250"/>
       <unit id="ch.qos.logback.core" version="1.0.7.v20121108-1250"/>
+      <unit id="org.objectweb.asm" version="7.1.0.v20190412-2143"/>
       <unit id="org.json" version="1.0.0.v201011060100"/>
       <unit id="org.apache.hadoop.zookeeper" version="3.3.3.v201105210832"/>
       <unit id="org.apache.hadoop.zookeeper.source" version="3.3.3.v201105210832"/>

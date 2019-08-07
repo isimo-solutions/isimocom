@@ -9,7 +9,9 @@ location "http://download.eclipse.org/releases/2019-06/" rel2019-06 {
 	ch.ethz.iks.r_osgi.remote.source
 	ch.qos.logback.classic
 	ch.qos.logback.core
+	org.objectweb.asm
 	org.json
+	
 	org.apache.hadoop.zookeeper
 	org.apache.hadoop.zookeeper.source
 	org.eclipse.ecf.core.feature.feature.jar
