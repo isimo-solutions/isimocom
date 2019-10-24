@@ -6,7 +6,7 @@ import org.eclipse.debug.core.model.DebugElement;
 import org.eclipse.debug.core.model.IDebugElement;
 import org.eclipse.debug.core.model.IDebugTarget;
 
-import com.isimo.core.event.DebuggerEvent;
+import com.isimo.debug.DebuggerEvent;
 import com.smartwebproject.testframework.ui.TestFrameworkUIPlugin;
 
 public class ScenarioDebugElement extends DebugElement implements IDebugElement {

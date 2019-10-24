@@ -1,0 +1,9 @@
+target "Isimo Target" with source
+
+environment JavaSE-1.8 win32 win32 en_US
+
+include "isimo.target.def.common.tpd"
+
+location "file:///C:/git/isimocom/isimo.com.parent/isimo.site.parent/isimo.p2.site/target/repository" isimo-p2 {
+ com.isimo.eclipse.bundle lazy
+}

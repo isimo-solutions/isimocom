@@ -1,0 +1,139 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.isimo</groupId>
+    <artifactId>isimo.com.modules</artifactId>
+    <version>2.0-Sel-3.14.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>isimo.debug.test</artifactId>
+  <packaging>jar</packaging>
+  	<properties>
+		<testframework.version>2.0-Sel-3.14.0-SNAPSHOT</testframework.version>
+	</properties>
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<url>https://seproxy.bitmarck-software.de/nexus/repository/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<url>https://seproxy.bitmarck-software.de/nexus/repository/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+	<dependencies>
+		<dependency>
+			<groupId>com.isimo</groupId>
+			<artifactId>isimo.core</artifactId>
+			<version>${testframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.isimo</groupId>
+			<artifactId>isimo.web</artifactId>
+			<version>${testframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.isimo</groupId>
+			<artifactId>isimo.firefox.portable</artifactId>
+			<version>${testframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.isimo</groupId>
+			<artifactId>isimo.debug</artifactId>
+			<version>${testframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.isimo</groupId>
+			<artifactId>isimo.scenariolog</artifactId>
+			<version>${testframework.version}</version>
+		</dependency>
+	</dependencies>
+	<profiles>
+		<profile>
+			<id>testrun</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.8</version>
+						<executions>
+							<execution>
+								<phase>test</phase>
+								<configuration>
+									<target>
+										<path id="p.classpath">
+											<pathelement path="${mvn.test.classpath}" />
+										</path>
+										<dependencyfilesets prefix="mavendeps."/>
+										<property name="firefox.version" value="69.0.1"/>
+										<taskdef classpathref="p.classpath" resource="net/sf/antcontrib/antlib.xml" />
+										<if>
+											<not>
+												<available
+													file="${project.build.directory}/firefox/App/Firefox/firefox.exe" />
+											</not>
+											<then>
+												<ant antfile="unpackfirefox.xml" inheritRefs="true"/>
+											</then>
+											<else>
+												<property file="${project.build.directory}/firefox/App/AppInfo/appinfo.ini"/> 
+												<echo>DisplayVersion=${DisplayVersion}</echo>
+												<if>
+													<not><contains string="${firefox.version}" substring="${DisplayVersion}"/></not>
+													<then>
+														<ant antfile="unpackfirefox.xml" inheritRefs="true"/>
+													</then>
+												</if>
+											</else>
+										</if>
+										<mkdir dir="${project.build.directory}/testframework" />
+										<unzip dest="${project.build.directory}/testframework">
+											<fileset refid="mavendeps.com.isimo:isimo.core:jar" />
+										</unzip>
+										<if>
+											<not><isset property="test.target"/></not>
+											<then><var name="test.target" value="moduletest"/></then>
+										</if>
+										<property name="mvn.test.classpath" refid="maven.test.classpath" />
+										<property name="mvn.runtime.classpath" refid="maven.runtime.classpath" />
+										
+										<echo>mvn.test.classpath=${mvn.test.classpath}</echo>
+										<echo>testframework.model.path=${testframework.model.path}</echo>
+										<echo>isimo.browser=${isimo.browser}</echo>
+										<echo>module=${module}</echo>
+										<echo>browser=${browser}</echo>
+										<ant antfile="build.xml" target="${test.target}"
+											inheritAll="true" />
+										<if><not><equals arg1="${isimo.report}" arg2="false"/></not>
+											<then>
+												<ant antfile="build.xml" target="report" inheritAll="true"/>
+											</then>
+										</if>
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+						<dependencies>
+							<dependency>
+								<groupId>ant-contrib</groupId>
+								<artifactId>ant-contrib</artifactId>
+								<version>1.0b3</version>
+								<exclusions>
+									<exclusion>
+										<artifactId>ant</artifactId>
+										<groupId>ant</groupId>
+									</exclusion>
+								</exclusions>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>

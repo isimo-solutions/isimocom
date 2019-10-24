@@ -41,9 +41,9 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 
 import com.google.gson.Gson;
-import com.isimo.core.event.DebuggerEvent;
-import com.isimo.core.event.DebuggerEvent.DebuggerEventType;
 import com.isimo.core.event.StackTrace;
+import com.isimo.debug.DebuggerEvent;
+import com.isimo.debug.DebuggerEventType;
 import com.smartwebproject.testframework.ui.TestFrameworkUIPlugin;
 import com.smartwebproject.testframework.ui.editor.TestScenarioPluginConstants;
 import com.smartwebproject.testframework.ui.scenario.ScenarioBreakpoint;

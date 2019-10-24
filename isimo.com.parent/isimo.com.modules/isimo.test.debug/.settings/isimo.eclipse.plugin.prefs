@@ -1,0 +1,6 @@
+browsers.dir=config/browser
+eclipse.preferences.version=1
+environments.dir=config/env
+isimo.suspendonerror=true
+isimo.suspendonfailure=true
+scenario.root=src/test/resources

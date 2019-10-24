@@ -4,6 +4,9 @@
 		<exec executable="mvn.cmd" dir="${env.ISIMO_CORE_GIT}/isimo.parent" vmlauncher="false">
 			<arg line="-o install"/>
 		</exec>
+		<exec executable="mvn.cmd" dir="${env.ISIMO_COM_GIT}/isimo.com.parent/isimo.com.modules" vmlauncher="false">
+		     <arg line="-o install"/>
+		</exec>
 		<exec executable="mvn.cmd" dir="${env.ISIMO_COM_GIT}/isimo.com.parent/isimo.site.parent" vmlauncher="false">
 		     <arg line="-o install"/>
 		</exec>

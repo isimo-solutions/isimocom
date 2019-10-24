@@ -246,6 +246,9 @@ org.eclipse.emf.mwe2.runtime.sdk.feature.group
 org.eclipse.emf.mwe2.runtime.sdk.feature.jar
 org.eclipse.emf.mwe.core.feature.feature.group
 org.eclipse.emf.mwe.core.feature.feature.jar
+org.eclipse.emf.mwe.ui
+org.eclipse.xtend.shared.ui
+
 }
 
 location "http://smartweb.nazwa.pl/jenkins/recommenders.p2" recommenders-stable {
@@ -313,6 +316,9 @@ location "http://download.eclipse.org/eclipse/updates/4.12" {
 location "http://download.eclipse.org/egit/updates" egit {
 	org.eclipse.egit
 	org.eclipse.jgit
+	org.bouncycastle.bcpg
+	org.bouncycastle.bcpkix
+	org.bouncycastle.bcprov
 }
 
 location "https://download.eclipse.org/technology/m2e/releases/1.11" m2e {
