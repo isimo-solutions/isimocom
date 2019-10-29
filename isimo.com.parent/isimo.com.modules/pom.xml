@@ -14,7 +14,6 @@
   		<version>${isimo.version}</version>
   	</dependency>
   </dependencies>
-  <packaging>pom</packaging>
     <modules>
  	<module>isimo.debug</module>
 	<module>isimo.scenariolog</module>
