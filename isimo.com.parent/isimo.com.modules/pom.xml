@@ -6,6 +6,7 @@
     <version>2.3-Sel-3.141.59-SNAPSHOT</version>
   </parent>
   <artifactId>isimo.com.modules</artifactId>
+  <packaging>pom</packaging>
   <dependencies>
   	<dependency>
   		<groupId>com.isimo</groupId>
