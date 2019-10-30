@@ -1,0 +1,11 @@
+<scenario xmlns="http://isimo.com/scenario/1.0">
+	<actions>
+	
+	<click xpath="//p-table//button[text()='Dodaj']"/>
+	<input css="input[formcontrolname='produkt']" value="{property(attr:produkt)}" tab="true"/>
+	<input css="input[formcontrolname='jednostka']" value="{property(attr:jednostka)}" tab="true"/>
+	<input css="input[formcontrolname='ilosc']" value="{property(attr:ilosc)}" tab="true"/>
+	<input css="input[formcontrolname='cena']" value="{property(attr:cena)}" tab="true"/>
+	<click xpath="//p-dialog[@header='Pozycja faktury']//button[text()='Zapisz']"/>
+	</actions>
+</scenario>

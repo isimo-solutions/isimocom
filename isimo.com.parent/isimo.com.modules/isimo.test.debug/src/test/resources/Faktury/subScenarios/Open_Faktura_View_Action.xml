@@ -1,0 +1,7 @@
+<scenario xmlns="http://isimo.com/scenario/1.0">
+	<actions>
+	<click css="button[id='faktura_id_{property(attr:fakturaId)}_view_button']"/>
+	</actions>
+</scenario>
+	
+	
