@@ -1,0 +1,15 @@
+<scenario xmlns="http://isimo.com/scenario/1.0">
+	<actions>
+		<include scenario="Faktury/subScenarios/Login"/>
+		<include scenario="Faktury/subScenarios/Open_Dostawca_List"/>
+		<click css="button[id='dostawca_id_1_edit_button']"/>
+		<input css="input[id='field_datawydania']" value='2014-11-21'/>
+		<click css="button[id='save-entity']"/>
+		<click css="button[id='dostawca_id_1_view_button']"/>
+		<assert xpath="//div[@id='dostawca-view-datawydania-field' and .='2014-11-21']" terminate="true"/>
+		<cick css="button[id='entity-close']"/>
+		<include scenario="Faktury/subScenarios/LogOut"/>
+		<closebrowser/>
+	</actions>
+</scenario>
+	
