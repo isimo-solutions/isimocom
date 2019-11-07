@@ -20,5 +20,6 @@
  	<module>isimo.site.parent</module>
    	<module>isimo.target.def</module>
 	<module>isimo.eclipse.parent</module>
+	<module>isimo.com.modules</module>
   </modules>
 </project>
