@@ -14,9 +14,10 @@ import org.eclipse.debug.core.DebugEvent;
 import org.eclipse.debug.core.DebugException;
 
 import com.google.gson.Gson;
-import com.isimo.core.event.DebuggerEvent;
-import com.isimo.core.event.FeedbackEvent;
-import com.isimo.core.event.FeedbackResponse;
+import com.isimo.core.event.EventType;
+import com.isimo.debug.FeedbackEvent;
+import com.isimo.debug.FeedbackEventType;
+import com.isimo.debug.FeedbackResponse;
 import com.smartwebproject.testframework.ui.editor.TestScenarioPluginConstants;
 import com.smartwebproject.testframework.ui.scenario.debug.ScenarioDebugTarget.State;
 
@@ -62,25 +63,25 @@ public class ScenarioEventListener extends Job {
 	
 	
 	void handleEvent(FeedbackEvent fe) {
-		if(fe.getEventType().equals(FeedbackEvent.EventType.Terminated) || fe.getEventType().equals(FeedbackEvent.EventType.StopTestCase)) {
+		if(fe.getEventType().equals(EventType.Terminated) || fe.getEventType().equals(EventType.StopTestCase)) {
 			target.currentState = State.Terminated;
 			target.fireTerminateEvent();
-		} else if(fe.getEventType().equals(FeedbackEvent.EventType.BreakpointHit)) {
+		} else if(fe.getEventType().equals(FeedbackEventType.BreakpointHit)) {
 			target.currentState = State.Suspended;
 			target.fireChangeEvent(DebugEvent.BREAKPOINT);
-		} else if(fe.getEventType().equals(FeedbackEvent.EventType.Suspended)) {
+		} else if(fe.getEventType().equals(FeedbackEventType.Suspended)) {
 			target.currentState = State.Suspended;
 			target.fireChangeEvent(DebugEvent.SUSPEND);
-		} else if(fe.getEventType().equals(FeedbackEvent.EventType.Resumed)) {
+		} else if(fe.getEventType().equals(FeedbackEventType.Resumed)) {
 			target.currentState = State.Running;
 			target.fireChangeEvent(DebugEvent.RESUME);
-		} else if(fe.getEventType().equals(FeedbackEvent.EventType.StepInto)) {
+		} else if(fe.getEventType().equals(FeedbackEventType.StepInto)) {
 			target.currentState = State.Stepping;
 			target.fireChangeEvent(DebugEvent.STEP_INTO);
-		} else if(fe.getEventType().equals(FeedbackEvent.EventType.StepReturn)) {
+		} else if(fe.getEventType().equals(FeedbackEventType.StepReturn)) {
 			target.currentState = State.Stepping;
 			target.fireChangeEvent(DebugEvent.STEP_RETURN);
-		} else if(fe.getEventType().equals(FeedbackEvent.EventType.StepOver)) {
+		} else if(fe.getEventType().equals(FeedbackEventType.StepOver)) {
 			target.currentState = State.Stepping;
 			target.fireChangeEvent(DebugEvent.STEP_OVER);
 		}

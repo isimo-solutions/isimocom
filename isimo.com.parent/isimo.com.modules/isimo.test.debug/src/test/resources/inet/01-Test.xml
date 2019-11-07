@@ -1,0 +1,9 @@
+<scenario xmlns="http://isimo.com/scenario/1.0">
+	<tag name="TEAM">NG</tag>
+	<actions>
+		<open url="http://www.google.com"/>
+		<input css="input[name='q']" value="some test"/>
+		<include scenario="inet/Included"/>
+		<closebrowser/>
+	</actions>
+</scenario>

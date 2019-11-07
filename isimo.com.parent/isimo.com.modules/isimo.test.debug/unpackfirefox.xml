@@ -1,0 +1,9 @@
+<project name="unpackfirefox" default="unpackfirefox">
+	<target name="unpackfirefox">
+				<dependencyfilesets prefix="mavendeps."/>
+				<mkdir dir="${project.build.directory}/firefox" />
+				<unzip dest="${project.build.directory}/firefox">
+					<fileset refid="mavendeps.com.isimo:isimo.firefox.portable:jar" />
+				</unzip>									
+	</target>
+</project>

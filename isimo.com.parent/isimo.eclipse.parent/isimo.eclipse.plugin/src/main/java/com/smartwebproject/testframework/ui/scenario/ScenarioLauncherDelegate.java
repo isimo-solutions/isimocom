@@ -93,13 +93,14 @@ public class ScenarioLauncherDelegate extends JUnitLaunchConfigurationDelegate {
 		System.setProperty("testdir", getWorkingDirectoryPath(pConfiguration).toString());
 		Integer requestPort = -1, eventPort = -1;
 		if(ILaunchManager.DEBUG_MODE.equals(pMode)) {
-			props.setProperty("request.port", (requestPort=getAvailablePort()).toString());
-			props.setProperty("event.port", (eventPort=getAvailablePort()).toString());			
+			props.setProperty("isimo.debug.request.port", (requestPort=getAvailablePort()).toString());
+			props.setProperty("isimo.debug.event.port", (eventPort=getAvailablePort()).toString());			
 			props.setProperty("remote.debug", "true");
 		}
 		props.setProperty("isimo.closebrowseronerror", "false");
 		props.setProperty("isimo.nocommandline", "suspend");
 		props.setProperty("isimo.commandlineonerror", "false");
+		props.setProperty("isimo.debug.mode", Boolean.toString(ILaunchManager.DEBUG_MODE.equals(pMode)));
 		props.setProperty("isimo.suspendonerror", getProjectProperty(pConfiguration, TestFrameworkUIPlugin.getDefault().getSuspendOnErrorPropertyName()));
 		props.setProperty("isimo.suspendonfailure", getProjectProperty(pConfiguration, TestFrameworkUIPlugin.getDefault().getSuspendOnErrorPropertyName()));
 		File testDir = getWorkingDirectoryPath(pConfiguration).toFile();

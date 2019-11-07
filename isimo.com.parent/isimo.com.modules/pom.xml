@@ -1,0 +1,21 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.isimo</groupId>
+    <artifactId>isimo.com.parent</artifactId>
+    <version>2.3-Sel-3.141.59-SNAPSHOT</version>
+  </parent>
+  <artifactId>isimo.com.modules</artifactId>
+  <packaging>pom</packaging>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.isimo</groupId>
+  		<artifactId>isimo.core</artifactId>
+  		<version>${isimo.version}</version>
+  	</dependency>
+  </dependencies>
+    <modules>
+ 	<module>isimo.debug</module>
+	<module>isimo.scenariolog</module>
+  </modules>
+</project>

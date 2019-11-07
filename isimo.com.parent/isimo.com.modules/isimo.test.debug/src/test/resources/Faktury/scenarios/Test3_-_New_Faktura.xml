@@ -1,0 +1,18 @@
+<scenario xmlns="http://isimo.com/scenario/1.0">
+	<actions>
+		<include scenario="Faktury/subScenarios/Login"/>
+		<click css="button[id='jh-create-entity']"/>
+		<include scenario="Faktury/subScenarios/Choose_Dostawca_Autocomplete" searchString="Ros" dostawcaName="Rososzyca"/>
+		<click xpath="//div[@id='dataWystawienia_wrapper']/span/button"/>
+		<click xpath="//div[@id='dataWystawienia_wrapper']/ngb-datepicker//div[@aria-label='poniedziałek, 4 listopada 2019']"/>
+		<input css="input[id='field_dataNabycia']" value="2019-11-04"/>
+		<input css="input[id='field_numer']" value="test-3"/>
+		<include scenario="Faktury/subScenarios/Add_Faktura_Component" produkt="a" ilosc="3" cena="250" jednostka="sztuka"/>
+		<include scenario="Faktury/subScenarios/Add_Faktura_Component" produkt="b" ilosc="20" cena="25.31" jednostka="kg"/>
+		<input css="input[id='field_terminPlatnosci']" value='2019-11-20'/>
+		<click css="button[id='save-entity']"/>
+		<include scenario="Faktury/subScenarios/LogOut"/>
+		<closebrowser/>
+	</actions>
+</scenario>
+	

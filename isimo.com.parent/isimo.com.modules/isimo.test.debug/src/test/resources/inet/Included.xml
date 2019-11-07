@@ -1,0 +1,6 @@
+<scenario xmlns="http://isimo.com/scenario/1.0">
+	<actions>
+		<click xpath="//input[@name='btnK']"/>
+		<!-- <assert xpath="//dupa"/>-->
+	</actions>
+</scenario>

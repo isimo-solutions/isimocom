@@ -12,7 +12,7 @@ import org.eclipse.debug.core.IBreakpointManager;
 import org.eclipse.debug.core.model.LineBreakpoint;
 import org.eclipse.wst.xsl.internal.launching.Messages;
 
-import com.isimo.core.event.Breakpoint;
+import com.isimo.debug.Breakpoint;
 import com.smartwebproject.testframework.ui.TestFrameworkUIPlugin;
 import com.smartwebproject.testframework.ui.editor.TestScenarioPluginConstants;
 

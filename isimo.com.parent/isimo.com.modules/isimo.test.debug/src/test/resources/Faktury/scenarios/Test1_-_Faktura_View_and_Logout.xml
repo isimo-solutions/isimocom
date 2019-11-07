@@ -1,0 +1,11 @@
+<scenario xmlns="http://isimo.com/scenario/1.0">
+	<actions>
+		<include scenario="Faktury/subScenarios/Login"/>
+		<include scenario="Faktury/subScenarios/Open_Faktura_View_Action" fakturaId="1"/>
+		<assert xpath="//input[@id='id']" value="1" terminate="true"/>
+		<click css="button[id='cancel-save']"/>
+		<include scenario="Faktury/subScenarios/LogOut"/>
+		<closebrowser/>
+	</actions>
+</scenario>
+	

@@ -11,10 +11,10 @@ import org.eclipse.debug.core.model.IStackFrame;
 import org.eclipse.debug.core.model.IThread;
 import org.eclipse.debug.core.model.IVariable;
 
-import com.isimo.core.event.DebuggerEvent;
 import com.isimo.core.event.StackTrace;
 import com.isimo.core.event.Variable;
-import com.isimo.core.event.DebuggerEvent.DebuggerEventType;
+import com.isimo.debug.DebuggerEvent;
+import com.isimo.debug.DebuggerEventType;
 
 public class ScenarioStackFrame extends ScenarioDebugElement implements IStackFrame {
 	private IThread thread;

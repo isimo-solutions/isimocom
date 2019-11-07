@@ -1,0 +1,9 @@
+<scenario xmlns="http://isimo.com/scenario/1.0">
+	<actions>
+		<include scenario="Faktury/subScenarios/Login"/>
+		<include scenario="Faktury/subScenarios/Delete_Faktura_Action" fakturaId="2"/>
+		<include scenario="Faktury/subScenarios/LogOut"/>
+		<closebrowser/>
+	</actions>
+</scenario>
+	

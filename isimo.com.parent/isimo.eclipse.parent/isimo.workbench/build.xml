@@ -18,6 +18,6 @@
 	</target>
 	
 	<target name="updateisimobundlejar">
-		<get src="http://isimo.solutions/jenkins/isimo.p2/plugins/com.isimo.eclipse.bundle_2.0.0.jar" dest="${env.ISIMOWORKSPACE}/.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins"/>
+		<get src="http://isimo.solutions/jenkins/isimo.p2/plugins/com.isimo.eclipse.bundle_2.3.0.jar" dest="${env.ISIMOWORKSPACE}/.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins"/>
 	</target>
 </project>

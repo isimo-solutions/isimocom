@@ -1,0 +1,13 @@
+<scenario xmlns="http://isimo.com/scenario/1.0">
+	<actions>
+		<include scenario="Faktury/subScenarios/Login"/>
+		<include scenario="Faktury/subScenarios/Open_Faktura_Edit_Action" fakturaId="4"/>
+		<assert xpath="//input[@id='id']" value="4" terminate="true"/>
+		<include scenario="Faktury/subScenarios/Add_Faktura_Component" produkt="a" ilosc="2" cena="2.5" jednostka="zl"/>
+		<include scenario="Faktury/subScenarios/Delete_Faktura_Component" produkt="a"/>
+		<click css="button[id='save-entity']"/>
+		<include scenario="Faktury/subScenarios/LogOut"/>
+		<closebrowser/>
+	</actions>
+</scenario>
+	 

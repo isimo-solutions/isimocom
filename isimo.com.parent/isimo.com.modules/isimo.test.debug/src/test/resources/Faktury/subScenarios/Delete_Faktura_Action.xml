@@ -1,0 +1,8 @@
+<scenario xmlns="http://isimo.com/scenario/1.0">
+	<actions>
+	<click css="button[id='faktura_id_{property(attr:fakturaId)}_delete_button']"/>
+	<click issue="RR-01" css="button[id='confirm-delete']"/>
+	</actions>
+</scenario>
+	
+	
