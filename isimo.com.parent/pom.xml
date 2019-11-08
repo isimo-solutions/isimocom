@@ -18,9 +18,9 @@
 		<isimo.version>2.3-Sel-3.141.59-SNAPSHOT</isimo.version>
  </properties>
   <modules>
+	<module>isimo.com.modules</module>
  	<module>isimo.site.parent</module>
    	<module>isimo.target.def</module>
 	<module>isimo.eclipse.parent</module>
-	<module>isimo.com.modules</module>
   </modules>
 </project>
