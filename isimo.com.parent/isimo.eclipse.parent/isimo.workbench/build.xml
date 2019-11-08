@@ -1,7 +1,7 @@
 <project name="downloadandinstall" default="downloadandinstall">
 	<property environment="env"/>
 	<target name="downloadandinstall">
-		<get src="http://smartweb.nazwa.pl/downloads/isimo-current-build.zip" dest="${env.ISIMO_WORKBENCH_HOME}/../isimo-current-build.zip"/>
+		<get src="https://isimo.solutions/downloads/isimo-current-build.zip" dest="${env.ISIMO_WORKBENCH_HOME}/../isimo-current-build.zip"/>
 		<delete dir="${env.ISIMO_WORKBENCH_HOME}">
 		</delete>
 		<unzip src="${env.ISIMO_WORKBENCH_HOME}/../isimo-current-build.zip" dest="${env.ISIMO_WORKBENCH_HOME}"/>

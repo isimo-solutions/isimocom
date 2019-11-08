@@ -57,7 +57,7 @@
 											<pathelement path="${mvn.test.classpath}" />
 										</path>
 										<dependencyfilesets prefix="mavendeps."/>
-										<property name="firefox.version" value="69.0.1"/>
+										<property name="firefox.version" value="70.0.1"/>
 										<taskdef classpathref="p.classpath" resource="net/sf/antcontrib/antlib.xml" />
 										<if>
 											<not>
@@ -96,11 +96,6 @@
 										<echo>browser=${browser}</echo>
 										<ant antfile="build.xml" target="${test.target}"
 											inheritAll="true" />
-										<if><not><equals arg1="${isimo.report}" arg2="false"/></not>
-											<then>
-												<ant antfile="build.xml" target="report" inheritAll="true"/>
-											</then>
-										</if>
 									</target>
 								</configuration>
 								<goals>
