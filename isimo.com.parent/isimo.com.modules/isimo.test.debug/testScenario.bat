@@ -1,1 +1,1 @@
-mvn -e -Disimo.waitforremotedebug=y -Disimo.closebrowseronerror=false -Denv=%2 -Dscenario=%1 -Disimo.nocommandline=false -Disimo.commandlineonerror=true -Dtest.target=test -Disimo.browser=%3 -Disimo.report=false -Dtout=100000000  test
+mvn -e -Disimo.waitforremotedebug=n -Disimo.closebrowseronerror=false -Denv=%2 -Dscenario=%1 -Disimo.nocommandline=false -Disimo.commandlineonerror=true -Dtest.target=test -Disimo.browser=%3 -Disimo.report=false -Dtout=100000000  test
