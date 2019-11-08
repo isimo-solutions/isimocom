@@ -2,7 +2,7 @@
 	<tag name="TEAM">NG</tag>
 	<actions>
 		<open url="http://www.google.com"/>
-		<input value="Bitmarck" xpath="//input[@name='q']" tab="true"/>
+		<input value="Isimo" xpath="//input[@name='q']" tab="true"/>
 		<click xpath="//input[@name='btnK']"/>
 		<closebrowser/>
 	</actions>
