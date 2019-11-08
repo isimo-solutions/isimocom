@@ -1,0 +1,8 @@
+<scenario xmlns="http://isimo.com/scenario/1.0">
+	<actions>
+		<click css="a[id='entity-menu']"/>
+		<click css="a[id='dostawca-navbar-link']"/>
+	</actions>
+</scenario>
+	
+	

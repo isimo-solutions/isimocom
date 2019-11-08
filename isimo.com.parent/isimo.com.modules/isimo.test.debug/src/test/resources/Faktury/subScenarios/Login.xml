@@ -1,0 +1,8 @@
+<scenario xmlns="http://isimo.com/scenario/1.0">
+	<actions>
+		<open url="http://{property(faktury.url)}:{property(faktury.port)}"/>
+		<input css="input[id='username']" value="{property(faktury.user)}"/>
+		<input css="input[id='password']" value="{property(faktury.password)}"/>
+		<click css="button[id='login_button']"/>
+	</actions>
+</scenario>

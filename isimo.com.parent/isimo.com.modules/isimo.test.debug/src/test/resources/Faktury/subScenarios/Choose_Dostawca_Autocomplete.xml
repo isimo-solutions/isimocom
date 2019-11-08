@@ -1,0 +1,8 @@
+<scenario xmlns="http://isimo.com/scenario/1.0">
+	<actions>
+		<input xpath="//p-autocomplete[@id='dostawca-autocomplete']/span/input" value="{property(attr:searchString)}" />
+		<click xpath="//p-autocomplete[@id='dostawca-autocomplete']/span/div/ul/li[./span[.='{property(attr:dostawcaName)}']]"/>
+	</actions>
+</scenario>
+	
+	

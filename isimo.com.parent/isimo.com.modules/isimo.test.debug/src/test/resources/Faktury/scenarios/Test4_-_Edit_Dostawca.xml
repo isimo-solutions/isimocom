@@ -1,0 +1,18 @@
+<scenario xmlns="http://isimo.com/scenario/1.0">
+	<actions>
+		<include scenario="Faktury/subScenarios/Login"/>
+		<include scenario="Faktury/subScenarios/Open_Faktura_Edit_Action" fakturaId="4"/>
+		<assert xpath="//input[@id='id']" value="4" terminate="true"/>
+		<click xpath="//button[@id='dostawca-edit-button']"/>
+		<input css="input[id='field_nazwisko']" value="test4"/>
+		<click css="button[id='save-entity']"/>
+		<assert xpath="//div[@id='dostawca-nazwisko-value' and .='test4']" terminate="true"/>
+		<click xpath="//button[@id='dostawca-edit-button']"/>		
+		<input css="input[id='field_nazwisko']" value="Mertko"/>
+		<click css="button[id='save-entity']"/>
+		<click css="button[id='cancel-save']"/>
+		<include scenario="Faktury/subScenarios/LogOut"/>
+		<closebrowser/>
+	</actions>
+</scenario>
+	
