@@ -47,45 +47,49 @@
 				<plugins>
 					<plugin>
 						<artifactId>maven-antrun-plugin</artifactId>
-						<version>1.8</version>
+						<version>3.0.0-SNAPSHOT</version>
 						<executions>
 							<execution>
 								<phase>test</phase>
 								<configuration>
 									<target>
 										<path id="p.classpath">
-											<pathelement path="${mvn.test.classpath}" />
+											<pathelement path="mvn.test.classpath" />
 										</path>
 										<dependencyfilesets prefix="mavendeps."/>
 										<property name="firefox.version" value="69.0.1"/>
 										<taskdef classpathref="p.classpath" resource="net/sf/antcontrib/antlib.xml" />
-										<if>
-											<not>
-												<available
-													file="${project.build.directory}/firefox/App/Firefox/firefox.exe" />
-											</not>
-											<then>
-												<ant antfile="unpackfirefox.xml" inheritRefs="true"/>
-											</then>
-											<else>
-												<property file="${project.build.directory}/firefox/App/AppInfo/appinfo.ini"/> 
-												<echo>DisplayVersion=${DisplayVersion}</echo>
+										<pathconvert refid="mavendeps.maven.project.dependencies" property="mavendeps"/>
+										<echoproperties destfile="echoproperties.txt"/>
+										<echo>mvn.test.classpath=${mvn.test.classpath}</echo>
+										<for param="dep" list="${mavendeps}" delimiter="${path.separator}">
+											<sequential>
+												<unzip dest="${project.build.directory}" src="@{dep}" overwrite="true">
+													<patternset>
+														<include name="isimoresources/**"/>
+													</patternset>
+												</unzip>
 												<if>
-													<not><contains string="${firefox.version}" substring="${DisplayVersion}"/></not>
+													<not><isset property="isimo.buildsequence"/></not>
 													<then>
-														<ant antfile="unpackfirefox.xml" inheritRefs="true"/>
+														<mkdir dir="${project.build.directory}/tempbuilds"/>
+														<echo file="${project.build.directory}/tempbuilds/buildsequence.properties">isimo.buildsequence=</echo>
+														<unzip dest="${project.build.directory}/tempbuilds" src="@{dep}" overwrite="true">
+															<patternset>
+																<include name="isimoresources/**/isimobuild.xml"/>
+															</patternset>
+														</unzip>
+														<for param="buildxml">
+															<fileset dir="${project.build.directory}/tempbuilds"/>
+															<sequential>
+																<echo file="${project.build.directory}/tempbuilds/buildsequence.properties" append="true">@{buildxml}</echo>
+															</sequential>
+														</for>
+														<property file="${project.build.directory}/tempbuilds/buildsequence.properties"/>
 													</then>
 												</if>
-											</else>
-										</if>
-										<mkdir dir="${project.build.directory}/testframework" />
-										<unzip dest="${project.build.directory}/testframework">
-											<fileset refid="mavendeps.com.isimo:isimo.core:jar" />
-										</unzip>
-										<if>
-											<not><isset property="test.target"/></not>
-											<then><var name="test.target" value="moduletest"/></then>
-										</if>
+											</sequential>
+										</for>
 										<property name="mvn.test.classpath" refid="maven.test.classpath" />
 										<property name="mvn.runtime.classpath" refid="maven.runtime.classpath" />
 										
@@ -95,12 +99,12 @@
 										<echo>module=${module}</echo>
 										<echo>browser=${browser}</echo>
 										<ant antfile="build.xml" target="${test.target}"
-											inheritAll="true" />
-										<if><not><equals arg1="${isimo.report}" arg2="false"/></not>
-											<then>
-												<ant antfile="build.xml" target="report" inheritAll="true"/>
-											</then>
-										</if>
+												inheritAll="true" />
+										<for param="buildxml" list="${isimo.buildsequence}">
+											<sequential>
+												<ant antfile="@{buildxml}" inheritAll="true" />
+											</sequential>
+										</for>
 									</target>
 								</configuration>
 								<goals>

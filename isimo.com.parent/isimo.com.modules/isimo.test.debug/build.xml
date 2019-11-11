@@ -14,7 +14,7 @@
 		<property name="com.isimo.scenarios" value="${project.build.directory}/test-classes"/>
 		<echo>mvn.test.classpath=${mvn.test.classpath}</echo>
 		<echo>scenario=${scenario}</echo>
-		<ant target="testScenario" dir="${project.build.directory}/testframework" inheritall="true"/>
+		<ant target="testScenario" dir="${project.build.directory}/isimoresources" inheritall="true"/>
 	</target>
 
 	<target name="moduletest">
