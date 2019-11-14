@@ -20,12 +20,12 @@
 	<target name="moduletest">
 		<property name="com.isimo.scenarios" value="${project.build.directory}/test-classes"/>
 		<fileset id="isimo.scenarios" dir="${com.isimo.scenarios}">
-			<include name="${module}/**/*.xml"/>
+			<include name="${module}/scenarios/**/*.xml"/>
 		</fileset>
 		<property name="configdir" value="${basedir}/config"/>
 		<echo>mvn.test.classpath=${mvn.test.classpath}</echo>
 		<echo>project.build.directory=${project.build.directory}</echo>
-		<ant target="testManyScenarios" dir="${project.build.directory}/testframework" inheritall="true" inheritrefs="true"/>
+		<ant target="testManyScenarios" dir="${project.build.directory}/isimoresources" inheritall="true" inheritrefs="true"/>
 	</target>
 	
 	<target name="skiptests">

@@ -9,6 +9,10 @@
   <packaging>jar</packaging>
   	<properties>
 		<testframework.version>2.3-Sel-3.141.59-SNAPSHOT</testframework.version>
+		<test.target>moduletest</test.target>
+		<module>Faktury</module>
+		<env>faktury</env>
+		<isimo.browser>firefox</isimo.browser>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -34,6 +38,11 @@
 		<dependency>
 			<groupId>com.isimo</groupId>
 			<artifactId>isimo.scenariolog</artifactId>
+			<version>${testframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.isimo</groupId>
+			<artifactId>isimo.report.summary</artifactId>
 			<version>${testframework.version}</version>
 		</dependency>
 	</dependencies>
