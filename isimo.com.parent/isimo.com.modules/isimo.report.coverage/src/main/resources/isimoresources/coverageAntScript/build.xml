@@ -1,0 +1,54 @@
+<project name="reportSummary" default="generate">
+	<path id="project.classpath">
+		<fileset dir="./">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+	
+	<taskdef classpathref="project.classpath" resource="net/sf/antcontrib/antlib.xml" />
+	<property name="project.build.directory" value="../../"/>
+	<property name="summaryall.dir" value="${project.build.directory}/summaryall"/>
+	
+	<target name="generate">
+		<taskdef name="postprocesscoverage" classname="PostprocessCoverage" classpathref="project.classpath"/>
+		<for param="summaryxml">
+			<fileset dir="${project.build.directory}">
+				<include name="**/summary.xml" />
+				<include name="summary.xml" />
+			</fileset>
+			<sequential>
+				<var name="moduledir" unset="true"/>
+				<dirname file="@{summaryxml}" property="moduledir"/>
+				<echo file="${moduledir}/coveragemodule.xml" message="&lt;coverage&gt;"/>
+				<for param="scenariolog">
+					<fileset dir="${moduledir}">
+						<include name="**/scenariolog.xml"/>
+					</fileset>
+					<sequential>
+						<var name="scenariodir" unset="true"/>
+						<dirname file="@{scenariolog}" property="scenariodir"/>	
+						<postprocesscoverage in="${scenariodir}/scenariolog.xml" out="${scenariodir}/coverage_out.xml" name="${scenariodir}" summaries="false"/>
+					</sequential>
+				</for>
+				<concat destfile="${moduledir}/coveragemodule.xml" append="true">
+					<fileset dir="${moduledir}">
+						<include name="**/coverage_out.xml"/>
+					</fileset>
+				</concat>
+				<echo file="${moduledir}/coveragemodule.xml" message="&lt;/coverage&gt;" append="true"/>
+				<postprocesscoverage in="${moduledir}/coveragemodule.xml" out="${moduledir}/coveragemodule_out.xml" name="${moduledir}" summaries="true"/>
+			</sequential>
+		</for>
+
+		<echo file="${kngreportslast}/summary/coverageall.xml" message="&lt;coverageall&gt;" />
+		<concat destfile="${kngreportslast}/summary/coverageall.xml" append="true">
+			<fileset dir="${kngreportslast}">
+				<include name="**/coveragemodule_out.xml" />
+			</fileset>
+		</concat>
+		<echo file="${summaryall.dir}/coverageall.xml" message="&lt;/coverageall&gt;" append="true" />
+		<postprocesscoverage in="${summaryall.dir}/coverageall.xml" out="${summaryall.dir}/coverageall_out.xml" summaries="true" name="testsuite"/>
+		<copy file="../js/treeTable.js" todir="${summaryall.dir}"></copy>
+		<xslt in="${summaryall.dir}/coverageall_out.xml" out="$${summaryall.dir}/coverageall_out.html" style="../xsl/coverageall_out.xsl" force="true" />
+	</target>
+</project>

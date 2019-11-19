@@ -1,0 +1,88 @@
+<project name="reportSummary" default="generate">
+	<path id="project.classpath">		
+		<pathelement path="${mvn.test.classpath}"/>
+	</path>
+	<path id="runtime.classpath">		
+		<pathelement path="${mvn.runtime.classpath}"/>
+	</path>
+	<taskdef classpathref="project.classpath" resource="net/sf/antcontrib/antlib.xml" />
+		
+	<property name="project.build.directory" value="../../"/>
+	<property name="isimoresources.dir" value="${project.build.directory}/isimoresources"/>
+	
+	<target name="generate">
+		<for param="scenariolog">
+			<fileset dir="${project.build.directory}">
+				<include name="tests/**/scenariolog.xml"/>
+			</fileset>
+			<sequential>
+				<var name="scenariodir" unset="true"/>
+				<dirname file="@{scenariolog}" property="scenariodir"/>	
+				<xslt in="@{scenariolog}" out="${scenariodir}/scenariolog.html" style="${isimoresources.dir}/xsl/testcaselog.xsl" force="true" />
+			</sequential>
+		</for>
+		<echo file="${project.build.directory}/summary_concat.xml" append="true" message="&lt;summary&gt;"/>
+		<for param="logJunit">
+			<fileset dir="${project.build.directory}">
+			    <include name="tests/**/*_junit.xml"/>
+			</fileset>
+			<sequential>
+				<echo file="${project.build.directory}/summary_concat.xml" append="true" message="&lt;testcase&gt;"/>
+				
+				<var unset="true" name="xmlreport"/>
+				<var unset="true" name="testdir"/>
+				<var unset="true" name="txtreportfile"/>
+				<var unset="true" name="sname"/>
+				<var unset="true" name="testdirname"/>
+				<var unset="true" name="testsdirname"/>
+				
+				<loadfile property="xmlreport" srcfile="@{logJunit}"/>
+				<propertyregex input="${xmlreport}" override="true" property="xmlreportnoheader" regexp="&lt;\?xml version=&quot;1\.0&quot; encoding=&quot;UTF-8&quot; \?&gt;" replace=""></propertyregex>
+				<echo file="${project.build.directory}/summary_concat.xml" message="${xmlreportnoheader}" append="true"/>
+				
+				<dirname file="@{logJunit}" property="testdir"/>
+				<dirname file="${testdir}" property="testsdir"/>
+				<basename file="@{logJunit}" property="sname" suffix=".xml"/>
+				<basename file="${testdir}" property="testdirname"/>
+				<basename file="${testsdir}" property="testsdirname"/>
+				<echo file="${project.build.directory}/summary_concat.xml" message="&lt;xmllog&gt;${testsdirname}/${testdirname}/${testdirname}/scenariolog.xml&lt;/xmllog&gt;" append="true"/>
+				<echo file="${project.build.directory}/summary_concat.xml" message="&lt;htmllog&gt;${testsdirname}/${testdirname}/${testdirname}/scenariolog.html&lt;/htmllog&gt;" append="true"/>
+				<echo file="${project.build.directory}/summary_concat.xml" message="&lt;detailreport&gt;${testsdirname}/${testdirname}/${sname}.xml&lt;/detailreport&gt;" append="true"/>
+				<echo file="${project.build.directory}/summary_concat.xml" message="&lt;detailreporttxt&gt;${testsdirname}/${testdirname}/${sname}.txt&lt;/detailreporttxt&gt;" append="true"/>				
+				<if>
+					<available file="${testdir}/errorScreenshot.png"/>
+					<then>
+						<echo file="${target.dir}/summary_concat.xml" message="&lt;errorscreenshot&gt;${testsdirname}/${testdirname}/errorScreenshot.png&lt;/errorscreenshot&gt;" append="true"/>
+					</then>
+				</if>
+				
+				<echo file="${project.build.directory}/summary_concat.xml" append="true" message="&lt;/testcase&gt;"/>
+			</sequential>
+		</for>
+		<echo file="${project.build.directory}/summary_concat.xml" message="&lt;/summary&gt;" append="true"/>
+		
+		<xslt in="${project.build.directory}/summary_concat.xml" out="${project.build.directory}/summary.xml" style="${isimoresources.dir}/xsl/summarymetadata.xsl"/>
+		
+		<replace file="${project.build.directory}/summary.xml">
+			<replacefilter>
+				<replacetoken>ERROR-START(</replacetoken>
+				<replacevalue>&#60;failure&#62;</replacevalue>
+			</replacefilter>
+			<replacefilter>
+				<replacetoken>)ERROR-END</replacetoken>
+				<replacevalue>&#60;/failure&#62;</replacevalue>
+			</replacefilter>
+			<replacefilter>
+				<replacetoken>ISSUE-NUMBER-START(</replacetoken>
+				<replacevalue>&#60;issue&#62;</replacevalue>
+			</replacefilter>
+			<replacefilter>
+				<replacetoken>)ISSUE-NUMBER-END</replacetoken>
+				<replacevalue>&#60;/issue&#62;</replacevalue>
+			</replacefilter>
+		</replace>
+		<xslt in="${project.build.directory}/summary.xml" out="${project.build.directory}/summary.html" style="${isimoresources.dir}/xsl/summary.xsl" classpathref="project.classpath">
+			<param name="name" expression="test"/>
+		</xslt>
+	</target>
+</project>
