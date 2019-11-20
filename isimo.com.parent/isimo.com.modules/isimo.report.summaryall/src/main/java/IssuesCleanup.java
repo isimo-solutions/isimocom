@@ -96,12 +96,6 @@ public class IssuesCleanup {
 		JAXB.marshal( this, System.out );
 	}
 	
-	public static String getPathForReport(File file) {
-		String path = file.getParentFile().getParentFile().getParent();
-		
-		path = path.substring(path.indexOf("result_"));
-		
-		return path;
-	}
+
 	
 }
