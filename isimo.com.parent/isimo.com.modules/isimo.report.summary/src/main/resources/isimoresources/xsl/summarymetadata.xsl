@@ -7,10 +7,9 @@
 <xsl:template match="summary">
 <xsl:copy>
 <suiteproperties>
-	<browser><xsl:value-of select="$firsttestsuite/properties/property[@name='ENVIRONMENT.browser']/@value"/></browser>
-	<environment><xsl:value-of select="$firsttestsuite/properties/property[@name='ENVIRONMENT.envname']/@value"/></environment>
-	<module><xsl:value-of select="$firsttestsuite/properties/property[@name='ENVIRONMENT.module']/@value"/></module>
-	<branchortrunk><xsl:value-of select="$firsttestsuite/properties/property[@name='ENVIRONMENT.branchortrunk']/@value"/></branchortrunk>
+	<browser><xsl:value-of select="$firsttestsuite/properties/property[@name='isimo.browser']/@value"/></browser>
+	<environment><xsl:value-of select="$firsttestsuite/properties/property[@name='env']/@value"/></environment>
+	<module><xsl:value-of select="$firsttestsuite/properties/property[@name='module']/@value"/></module>
 	<hostname><xsl:value-of select="$firsttestsuite/@hostname"/></hostname>
 </suiteproperties>
 <failures>

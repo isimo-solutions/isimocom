@@ -41,16 +41,17 @@
 			<arg value="${project.build.directory}"/>
 		</java>
 		
-		<available classname="jiraconnect" property="jiraconnect.present"/>
-		
 		<if>
-			<equals arg1="${jiraconnect.present}" arg2="true"/>
+			<isreference refid="mavendeps.com.isimo:isimo.report.jiraconnect:jar"/>
 			<then>
-				<taskdef name="jiragetissuesinfo" classpathref="project.classpath" classname="jiraconnect"/>
+				<taskdef name="createuniqueissuesdoc" classpathref="project.classpath" classname="CreateUniqueIssuesDoc"/>
+				<createuniqueissuesdoc rootdir="${project.build.directory}" />
+				
+				<!--<taskdef name="jiragetissuesinfo" classpathref="project.classpath" classname="jiraconnect"/>
 				<taskdef name="decryptpasswords" classpathref="project.classpath" classname="DecryptPasswords"></taskdef>
 				<decryptpasswords/>
 				
-				<jiragetissuesinfo JIRA_USERNAME="${jira.username}" JIRA_PASSWORD="${jira.decrypted.password}" rootDir="${project.build.directory}" failFromPriority="${testfaliurepriority}"/>
+				<jiragetissuesinfo JIRA_USERNAME="${jira.username}" JIRA_PASSWORD="${jira.decrypted.password}" rootDir="${project.build.directory}" failFromPriority="${testfaliurepriority}"/>-->
 			</then>
 		</if>
 		

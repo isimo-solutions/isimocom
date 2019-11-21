@@ -12,13 +12,6 @@
   	  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   	</properties>
   	
-  	<repositories>
-    	<repository>
-        	<id>atlassian-repo</id>
-       	 	<url>https://packages.atlassian.com/maven-public/</url>
-   	 	</repository>
-	</repositories>
-  	
   	<dependencies>
 	   <dependency>
 	       <groupId>com.atlassian.jira</groupId>

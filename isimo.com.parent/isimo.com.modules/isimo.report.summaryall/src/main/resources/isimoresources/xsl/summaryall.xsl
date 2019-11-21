@@ -206,9 +206,11 @@ table th {
 	<div id="canvas-holder" style="flex-grow:1; max-width:40%;">
 		<canvas id="chart-area-tests"></canvas>
 	</div>
-	<div id="canvas-holder" style="flex-grow:1;max-width:40%;">
-		<canvas id="chart-area-issues"></canvas>
-	</div>
+	<xsl:if test="//issuesInfo">
+		<div id="canvas-holder" style="flex-grow:1;max-width:40%;">
+			<canvas id="chart-area-issues"></canvas>
+		</div>
+	</xsl:if>
 </div>
 <div class="row"><div class="block"><button id="reset">Kriterien zurücksetzen</button></div><div class="block" style="min-width: 50px; height:30px;"></div><div class="block"><input id="changeconfig" type="checkbox" checked="off"/></div><div class="block">Detailansicht</div></div>
 <table id="results">
@@ -240,7 +242,7 @@ table th {
 <td><a href="{$href}">result_<xsl:value-of select="./testcase/teststart"/>_<xsl:value-of select="./suiteproperties/environment"/>_<xsl:value-of select="./suiteproperties/browser"/></a></td>
 <td><a href="{$href}"><xsl:value-of select="./suiteproperties/browser"/></a></td>
 <td><a href="{$href}"><xsl:value-of select="./suiteproperties/environment"/></a></td>
-<td><a href="{$href}"><xsl:value-of select="./envproperties/env.title"/></a></td>
+<td><a href="{$href}"><xsl:value-of select="./suiteproperties/environment"/></a></td>
 <td><a href="{$href}"><xsl:value-of select="./suiteproperties/module"/></a></td>
 <td class="aright"><xsl:value-of select="sum(.//testcase/testsuite/@tests)-sum(.//testcase/testsuite/@errors)-sum(.//testcase/testsuite/@failures)"/></td>
 <td class="aright"><xsl:value-of select="sum(.//testcase/testsuite/@failures)"/></td>
@@ -311,51 +313,51 @@ In meinsten Fällen sind im Fall von 'error' auch die Screenshots mit letztem Br
 <p><i><b>Fehlschlag</b> - ist eine Ausfürung der Testszenario, die mit einem erwarteten Problem/Ereignis endet - die Probleme werden in Jira als Tickets erfasst. 
 Es dürfen mehrere Failures wärend der Ausfürung einer Testszenario gemeldet werden.</i></p>
 <p>Die Liste mit Issues (PK-Nummer) ohne Fehlschlag (Kandidaten zur manuellen Bereinigung) befindet sich hier: <a href="issuesall.html">Issues ohne Fehlschlag</a></p>
-
-<h2>Issues List:</h2>
-<div style=" text-align: right;"><button id="detailedTestsButton" onclick="ShowDetaliedTests()" style="display: inline-block;">Mehr</button> </div>
-<table id="issuesDetails" class="issuesDetails">
-	<tr>
-		<th class="issuesDetailsId">Id</th>
-		<th class="issuesDetailsSummary">Summary</th>
-		<th class="issuesDetailsPriority">Priority</th>
-		<th class="issuesDetailsStatus">Status</th>
-		<th class="issuesDetailsSprint">Sprint</th>
-		<th class="issuesDetailsOccurenceCount">Count</th>
-		<th class="issuesDetailsTests">Tests</th>
-	</tr>
-	<xsl:for-each select="//issuesInfo/issuesList/issue">
+<xsl:if test="//issuesInfo">
+	<h2>Issues List:</h2>
+	<div style=" text-align: right;"><button id="detailedTestsButton" onclick="ShowDetaliedTests()" style="display: inline-block;">Mehr</button> </div>
+	<table id="issuesDetails" class="issuesDetails">
 		<tr>
-			<td><a href="https://seproxy.bitmarck-software.de/jira/browse/{@key}"><xsl:value-of select="@key"/></a></td>
-			<td class="summary"><xsl:value-of select="@summary"/></td>
-			<td><xsl:value-of select="@priority"/></td>
-			<td><xsl:value-of select="@status"/></td>
-			<td><div style="word-wrap:break-word;"><xsl:value-of select="@sprint"/></div></td>
-			<td><xsl:value-of select="./testlist/@testsnumber"/></td>
-			<td>
-				<table id="innerIssuesDetails" class="innerIssuesDetails">
-				<xsl:for-each select="./testlist/module">
-					<tr>
-					<xsl:variable name="modulehref">../<xsl:value-of select="./@path"/>/summary.html?issue=<xsl:value-of select="../../@key"/></xsl:variable>
-					
-						<td class="moduletd"><div style="word-wrap:break-word;"><a href="{$modulehref}"><xsl:value-of select="@name"/></a></div></td>
-						<td class="counttd"><div class="countdiv"><xsl:value-of select="@testnumber"/></div></td>
-						<td class="teststd" style="display:none;"><div class="testsdiv">
-								<ul>
-								 <xsl:for-each select="./test">
-								 	<li><xsl:value-of select="."/></li>
-								 </xsl:for-each>
-								</ul>
-							</div>
-						</td>
-					</tr>
-				</xsl:for-each>
-				</table>
-			</td>
+			<th class="issuesDetailsId">Id</th>
+			<th class="issuesDetailsSummary">Summary</th>
+			<th class="issuesDetailsPriority">Priority</th>
+			<th class="issuesDetailsStatus">Status</th>
+			<th class="issuesDetailsSprint">Sprint</th>
+			<th class="issuesDetailsOccurenceCount">Count</th>
+			<th class="issuesDetailsTests">Tests</th>
 		</tr>
-	</xsl:for-each>
-</table>
-
+		<xsl:for-each select="//issuesInfo/issuesList/issue">
+			<tr>
+				<td><a href="https://seproxy.bitmarck-software.de/jira/browse/{@key}"><xsl:value-of select="@key"/></a></td>
+				<td class="summary"><xsl:value-of select="@summary"/></td>
+				<td><xsl:value-of select="@priority"/></td>
+				<td><xsl:value-of select="@status"/></td>
+				<td><div style="word-wrap:break-word;"><xsl:value-of select="@sprint"/></div></td>
+				<td><xsl:value-of select="./testlist/@testsnumber"/></td>
+				<td>
+					<table id="innerIssuesDetails" class="innerIssuesDetails">
+					<xsl:for-each select="./testlist/module">
+						<tr>
+						<xsl:variable name="modulehref">../<xsl:value-of select="./@path"/>/summary.html?issue=<xsl:value-of select="../../@key"/></xsl:variable>
+						
+							<td class="moduletd"><div style="word-wrap:break-word;"><a href="{$modulehref}"><xsl:value-of select="@name"/></a></div></td>
+							<td class="counttd"><div class="countdiv"><xsl:value-of select="@testnumber"/></div></td>
+							<td class="teststd" style="display:none;"><div class="testsdiv">
+									<ul>
+									 <xsl:for-each select="./test">
+									 	<li><xsl:value-of select="."/></li>
+									 </xsl:for-each>
+									</ul>
+								</div>
+							</td>
+						</tr>
+					</xsl:for-each>
+					</table>
+				</td>
+			</tr>
+		</xsl:for-each>
+	</table>
+</xsl:if>
 
 
 <table id="issues" class="hidden">

@@ -55,6 +55,11 @@
 			<artifactId>isimo.report.coverage</artifactId>
 			<version>${testframework.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.isimo</groupId>
+			<artifactId>isimo.report.jiraconnect</artifactId>
+			<version>${testframework.version}</version>
+		</dependency>
 	</dependencies>
 	<profiles>
 		<profile>
@@ -119,7 +124,8 @@
 										<echo>browser=${browser}</echo>
 										<ant antfile="build.xml" target="${test.target}" inheritAll="true" />
 										<ant antfile="${project.build.directory}/isimoresources/summaryAntScript/build.xml" inheritAll="true" />
-										<ant antfile="${project.build.directory}/isimoresources/summaryallAntScript/build.xml" inheritAll="true" />
+										<ant antfile="${project.build.directory}/isimoresources/summaryallAntScript/build.xml" inheritAll="true" inheritRefs="true" />
+										<ant antfile="${project.build.directory}/isimoresources/coverageAntScript/build.xml" inheritAll="true" />
 										<!--  <for param="buildxml" list="${isimo.buildsequence}">
 											<sequential>
 												<ant antfile="@{buildxml}" inheritAll="true" />

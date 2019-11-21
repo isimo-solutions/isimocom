@@ -37,14 +37,9 @@ public class CreateUniqueIssuesDoc extends Task {
 				{
 					if(n.selectNodes(".//*[name()='failure']").size()==0) {
 						Element el = (Element)n;
-						String[] testInfo = doc.selectSingleNode("//testcase").valueOf("@scenario").split("/", 2);
-						String testmodule = "";
-						String testcase = "";
+						String testcase = doc.selectSingleNode("//testcase").valueOf("@scenario");
+						String testmodule = doc.selectSingleNode("//testcase").valueOf("@module");
 						String path = "";//getPathForReport(file); <-- Potrzeba ścierzek względnych w plikach xml
-						if(testInfo.length == 2) {
-							testmodule = testInfo[0]; 
-							testcase = testInfo[1];
-						}else testcase = testInfo[0]; 
 						Issue issue;
 						if(!uniqueIssues.containsKey(el.attributeValue("issue"))) {
 							issue = new Issue(el.attributeValue("issue"));
@@ -81,7 +76,7 @@ public class CreateUniqueIssuesDoc extends Task {
 		}
 		
 		OutputFormat format = OutputFormat.createPrettyPrint();
-		OutputStream os = new FileOutputStream(rootDir + "/summary/UniqueIssues.xml");
+		OutputStream os = new FileOutputStream(rootDir + "/summaryall/UniqueIssues.xml");
 		XMLWriter writer = new XMLWriter( os, format );
         writer.write(uniqueIssuesDoc);
 		

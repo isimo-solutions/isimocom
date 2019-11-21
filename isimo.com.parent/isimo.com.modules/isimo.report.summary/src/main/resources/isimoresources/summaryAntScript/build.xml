@@ -21,6 +21,12 @@
 				<xslt in="@{scenariolog}" out="${scenariodir}/scenariolog.html" style="${isimoresources.dir}/xsl/testcaselog.xsl" force="true" />
 			</sequential>
 		</for>
+		<if>
+			<available file="${project.build.directory}/summary_concat.xml"/>
+			<then>
+				<delete file="${project.build.directory}/summary_concat.xml"/>
+			</then>
+		</if>
 		<echo file="${project.build.directory}/summary_concat.xml" append="true" message="&lt;summary&gt;"/>
 		<for param="logJunit">
 			<fileset dir="${project.build.directory}">
