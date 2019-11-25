@@ -1,0 +1,76 @@
+<project name="reportSummaryall" default="generate">
+	<path id="project.classpath">		
+		<pathelement path="${mvn.test.classpath}"/>
+	</path>
+	<path id="runtime.classpath">		
+		<pathelement path="${mvn.runtime.classpath}"/>
+	</path>
+	<taskdef classpathref="project.classpath" resource="net/sf/antcontrib/antlib.xml" />
+	
+	
+	<property name="project.build.directory" value="../../"/>
+	<property name="isimoresources.dir" value="${project.build.directory}/isimoresources"/>
+	<property name="summaryall.dir" value="${project.build.directory}/summaryall"/>
+	<property name="testproject.name" value="test"/>
+	<property name="testfaliurepercent" value="10"/>
+	<property name="jira.encrypted.password" value=""/>
+	<property name="jira.username" value=""/>
+	<property name="testfaliurepriority" value=""/>
+	
+	<target name="generate">
+		<tstamp>
+			<format property="NOW" pattern="yyyyMMdd_HHmmss" />
+		</tstamp>
+		<if>
+			<available file="${summaryall.dir}"/>
+			<then>
+				<delete dir="${summaryall.dir}"/>
+			</then>
+		</if>
+		<mkdir dir="${summaryall.dir}"/>
+		<echo file="${summaryall.dir}/summaryall.xml" message="&lt;summaryall&gt;" />
+		<concat destfile="${summaryall.dir}/summaryall.xml" append="true">
+			<fileset dir="${project.build.directory}">
+				<include name="/summary.xml"/>
+				<include name="/**/summary.xml"/>
+			</fileset>
+		</concat>
+		<echo file="${summaryall.dir}/summaryall.xml" message="&lt;/summaryall&gt;" append="true" />
+			
+		<java classname="IssuesCleanup" classpathref="project.classpath">
+			<arg value="${project.build.directory}"/>
+		</java>
+		
+		<if>
+			<isreference refid="mavendeps.com.isimo:isimo.report.jiraconnect:jar"/>
+			<then>
+				<taskdef name="createuniqueissuesdoc" classpathref="project.classpath" classname="CreateUniqueIssuesDoc"/>
+				<createuniqueissuesdoc rootdir="${project.build.directory}" />
+				
+				<!--<taskdef name="jiragetissuesinfo" classpathref="project.classpath" classname="jiraconnect"/>
+				<taskdef name="decryptpasswords" classpathref="project.classpath" classname="DecryptPasswords"></taskdef>
+				<decryptpasswords/>
+				
+				<jiragetissuesinfo JIRA_USERNAME="${jira.username}" JIRA_PASSWORD="${jira.decrypted.password}" rootDir="${project.build.directory}" failFromPriority="${testfaliurepriority}"/>-->
+			</then>
+		</if>
+		
+		<xslt in="${summaryall.dir}/summaryall.xml" out="${summaryall.dir}/summaryall.html.xml" style="${isimoresources.dir}/xsl/summaryall.xsl" force="true">
+			<param name="name" expression="Tests ${NOW}" />
+			<param name="project" expression="${testproject.name}"/>
+			<param name="TSTAMP" expression="${NOW}" />
+			<param name="faliurePercent" expression="${testfaliurepercent}"/>
+		</xslt>
+		<xslt in="${summaryall.dir}/summaryall.html.xml" out="${summaryall.dir}/summaryall2.html.xml" style="${isimoresources.dir}/xsl/summaryall2.xsl" force="true">
+		</xslt>
+		<xslt in="${summaryall.dir}/summaryall2.html.xml" out="${summaryall.dir}/summaryall.html" style="${isimoresources.dir}/xsl/summaryall3.xsl" force="true">
+		</xslt>
+		<xslt in="${summaryall.dir}/IssuesCleanup.xml" out="${summaryall.dir}/issuesall.html" style="${isimoresources.dir}/xsl/issuesCleanup.xsl" force="true">
+		</xslt>
+		<copy todir="${summaryall.dir}">
+			<fileset dir="${isimoresources.dir}/js">
+				<include name="*.js"/>
+			</fileset>
+		</copy>
+	</target>
+</project>

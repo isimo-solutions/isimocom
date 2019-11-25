@@ -9,8 +9,15 @@
   <packaging>jar</packaging>
   	<properties>
 		<testframework.version>2.3-Sel-3.141.59-SNAPSHOT</testframework.version>
+<<<<<<< HEAD
 		<isimo.execution.phases>preparation,moduletest</isimo.execution.phases>
 		<module>inet</module>
+=======
+		<test.target>moduletest</test.target>
+		<module>Faktury</module>
+		<env>faktury</env>
+		<isimo.browser>firefox</isimo.browser>
+>>>>>>> 049504fba6828cfc77cfd2a7388f788cb76624c0
 	</properties>
 	<dependencies>
 		<dependency>
@@ -36,6 +43,26 @@
 		<dependency>
 			<groupId>com.isimo</groupId>
 			<artifactId>isimo.scenariolog</artifactId>
+			<version>${testframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.isimo</groupId>
+			<artifactId>isimo.report.summary</artifactId>
+			<version>${testframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.isimo</groupId>
+			<artifactId>isimo.report.summaryall</artifactId>
+			<version>${testframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.isimo</groupId>
+			<artifactId>isimo.report.coverage</artifactId>
+			<version>${testframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.isimo</groupId>
+			<artifactId>isimo.report.jiraconnect</artifactId>
 			<version>${testframework.version}</version>
 		</dependency>
 	</dependencies>
@@ -94,13 +121,15 @@
 										<echo>isimo.browser=${isimo.browser}</echo>
 										<echo>module=${module}</echo>
 										<echo>browser=${browser}</echo>
-										<ant antfile="build.xml" target="${test.target}"
-												inheritAll="true" />
-										<for param="buildxml" list="${isimo.buildsequence}">
+										<ant antfile="build.xml" target="${test.target}" inheritAll="true" />
+										<ant antfile="${project.build.directory}/isimoresources/summaryAntScript/build.xml" inheritAll="true" />
+										<ant antfile="${project.build.directory}/isimoresources/summaryallAntScript/build.xml" inheritAll="true" inheritRefs="true" />
+										<ant antfile="${project.build.directory}/isimoresources/coverageAntScript/build.xml" inheritAll="true" />
+										<!--  <for param="buildxml" list="${isimo.buildsequence}">
 											<sequential>
 												<ant antfile="@{buildxml}" inheritAll="true" />
 											</sequential>
-										</for>
+										</for>-->
 									</target>
 								</configuration>
 								<goals>

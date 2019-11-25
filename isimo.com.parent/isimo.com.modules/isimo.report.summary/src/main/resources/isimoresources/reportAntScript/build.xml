@@ -1,7 +1,0 @@
-<project name="reportSummary" default="generate">
-	
-	<target name="generate">
-	
-	</target>
-	
-</project>

@@ -16,6 +16,7 @@ import com.isimo.core.TestExecutionManager;
 import com.isimo.core.event.Event;
 import com.isimo.core.event.EventType;
 import com.isimo.core.event.ExecutionListener;
+import com.isimo.core.xml.LocationAwareElement;
 
 @Component
 public class ScenarioLogExecutionListener implements ExecutionListener<Event> {
@@ -43,8 +44,14 @@ public class ScenarioLogExecutionListener implements ExecutionListener<Event> {
 	
 	public void flushXmlLog() {
 		if(testcaseLog.getRootElement()!=null) {
+			String scenarioname = testExecutionManager.getScenarioName().substring(testExecutionManager.getScenarioName().lastIndexOf("/")+1);
+			String module = "";
+			if(testExecutionManager.getProperties().getProperty("module") != null) module = testExecutionManager.getProperties().getProperty("module");
+			
 			testcaseLog.getRootElement().addAttribute("status", testExecutionManager.testStatus.toString());
 			testcaseLog.getRootElement().addAttribute("execution", testExecutionManager.testExecution.toString());
+			testcaseLog.getRootElement().addAttribute("scenario", scenarioname);
+			testcaseLog.getRootElement().addAttribute("module", module);
 		}
 		saveTestResultFile("scenariolog.xml", testcaseLog.asXML());
 	}
@@ -55,14 +62,15 @@ public class ScenarioLogExecutionListener implements ExecutionListener<Event> {
 	
 	void addActionToLog(Action action) {
 		if (action != null && action.getLog() != null) {
+			int linenumber = ((LocationAwareElement)action.getDefinition()).getLineNumber();
 			action.getLog().setParent(null);
-			getCurrentParent().add(action.getLog());
+			getCurrentParent().add(action.getLog().addAttribute("linenumber", linenumber + ""));
 		}
 	}
 	
 	public void saveTestResultFile(String filename, String content) {
 		try {
-			FileWriterWithEncoding xmllog = new FileWriterWithEncoding(testExecutionManager.getReportDir()+File.separator+filename, "UTF-8");
+			FileWriterWithEncoding xmllog = new FileWriterWithEncoding(filename, "UTF-8");
 			xmllog.write(content);
 			xmllog.flush();
 			xmllog.close();
