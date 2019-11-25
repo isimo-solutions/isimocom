@@ -1,2 +1,3 @@
 /isimo.com.parent/isimo.com.modules/isimo.test.debug/junit*.properties
 target
+/isimo.com.parent/isimo.com.modules/isimo.test.debug/echoproperties.txt

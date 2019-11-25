@@ -9,15 +9,10 @@
   <packaging>jar</packaging>
   	<properties>
 		<testframework.version>2.3-Sel-3.141.59-SNAPSHOT</testframework.version>
-<<<<<<< HEAD
-		<isimo.execution.phases>preparation,moduletest</isimo.execution.phases>
+		<isimo.execution.phases>preparation,moduletest,postprocess</isimo.execution.phases>
+		<!-- <isimo.execution.phases>postprocess</isimo.execution.phases>-->
 		<module>inet</module>
-=======
 		<test.target>moduletest</test.target>
-		<module>Faktury</module>
-		<env>faktury</env>
-		<isimo.browser>firefox</isimo.browser>
->>>>>>> 049504fba6828cfc77cfd2a7388f788cb76624c0
 	</properties>
 	<dependencies>
 		<dependency>
@@ -68,89 +63,6 @@
 	</dependencies>
 			<build>
 				<plugins>
-<!-- 					<plugin>
-						<artifactId>maven-antrun-plugin</artifactId>
-						<version>3.0.0-SNAPSHOT</version>
-						<executions>
-							<execution>
-								<phase>test</phase>
-								<configuration>
-									<target>
-										<path id="p.classpath">
-											<pathelement path="mvn.test.classpath" />
-										</path>
-										<dependencyfilesets prefix="mavendeps."/>
-										<property name="firefox.version" value="69.0.1"/>
-										<taskdef classpathref="p.classpath" resource="net/sf/antcontrib/antlib.xml" />
-										<pathconvert refid="mavendeps.maven.project.dependencies" property="mavendeps"/>
-										<echoproperties destfile="echoproperties.txt"/>
-										<echo>mvn.test.classpath=${mvn.test.classpath}</echo>
-										<for param="dep" list="${mavendeps}" delimiter="${path.separator}">
-											<sequential>
-												<unzip dest="${project.build.directory}" src="@{dep}" overwrite="true">
-													<patternset>
-														<include name="isimoresources/**"/>
-													</patternset>
-												</unzip>
-												<if>
-													<not><isset property="isimo.buildsequence"/></not>
-													<then>
-														<mkdir dir="${project.build.directory}/tempbuilds"/>
-														<echo file="${project.build.directory}/tempbuilds/buildsequence.properties">isimo.buildsequence=</echo>
-														<unzip dest="${project.build.directory}/tempbuilds" src="@{dep}" overwrite="true">
-															<patternset>
-																<include name="isimoresources/**/isimobuild.xml"/>
-															</patternset>
-														</unzip>
-														<for param="buildxml">
-															<fileset dir="${project.build.directory}/tempbuilds"/>
-															<sequential>
-																<echo file="${project.build.directory}/tempbuilds/buildsequence.properties" append="true">@{buildxml}</echo>
-															</sequential>
-														</for>
-														<property file="${project.build.directory}/tempbuilds/buildsequence.properties"/>
-													</then>
-												</if>
-											</sequential>
-										</for>
-										<property name="mvn.test.classpath" refid="maven.test.classpath" />
-										<property name="mvn.runtime.classpath" refid="maven.runtime.classpath" />
-										
-										<echo>mvn.test.classpath=${mvn.test.classpath}</echo>
-										<echo>testframework.model.path=${testframework.model.path}</echo>
-										<echo>isimo.browser=${isimo.browser}</echo>
-										<echo>module=${module}</echo>
-										<echo>browser=${browser}</echo>
-										<ant antfile="build.xml" target="${test.target}" inheritAll="true" />
-										<ant antfile="${project.build.directory}/isimoresources/summaryAntScript/build.xml" inheritAll="true" />
-										<ant antfile="${project.build.directory}/isimoresources/summaryallAntScript/build.xml" inheritAll="true" inheritRefs="true" />
-										<ant antfile="${project.build.directory}/isimoresources/coverageAntScript/build.xml" inheritAll="true" />
-										<!--  <for param="buildxml" list="${isimo.buildsequence}">
-											<sequential>
-												<ant antfile="@{buildxml}" inheritAll="true" />
-											</sequential>
-										</for>-->
-									</target>
-								</configuration>
-								<goals>
-									<goal>run</goal>
-								</goals>
-							</execution>
-						</executions>
-						<dependencies>
-							<dependency>
-								<groupId>ant-contrib</groupId>
-								<artifactId>ant-contrib</artifactId>
-								<version>1.0b3</version>
-								<exclusions>
-									<exclusion>
-										<artifactId>ant</artifactId>
-										<groupId>ant</groupId>
-									</exclusion>
-								</exclusions>
-							</dependency>
-						</dependencies>
-					</plugin> -->
 					<plugin>
 <groupId>com.isimo</groupId>
   <artifactId>isimo.maven.plugin</artifactId>
@@ -158,8 +70,6 @@
   <executions>
   	<execution>
   		<phase>test</phase>
-  		<configuration>
-  		</configuration>
   		<goals>
   			<goal>isimo</goal>
   		</goals>
