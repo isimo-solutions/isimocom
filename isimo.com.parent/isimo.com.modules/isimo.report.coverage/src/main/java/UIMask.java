@@ -12,9 +12,6 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import org.dom4j.Element;
 
-import javafx.collections.transformation.SortedList;
-
-
 public class UIMask {
 	@XmlAttribute
 	int totalActions;
