@@ -29,6 +29,7 @@
 					<sequential>
 						<var name="scenariodir" unset="true"/>
 						<dirname file="@{scenariolog}" property="scenariodir"/>	
+						<xslt in="@{scenariolog}" out="${scenariodir}/scenariolog.html" style="isimoresources/xsl/testcaselog.xsl" />
 						<postprocesscoverage in="${scenariodir}/scenariolog.xml" out="${scenariodir}/coverage_out.xml" name="${scenariodir}" summaries="false"/>
 					</sequential>
 				</for>

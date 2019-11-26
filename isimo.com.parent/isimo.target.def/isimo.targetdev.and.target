@@ -289,7 +289,7 @@
       <unit id="com.google.guava.source" version="15.0.0.v201403281430"/>
       <unit id="org.eclipse.aether.maven" version="3.1.0.v20140706-2237"/>
       <unit id="org.apache.commons.codec" version="1.9.0.v20170208-1614"/>
-      <repository id="recommenders-stable" location="http://smartweb.nazwa.pl/jenkins/recommenders.p2"/>
+      <repository id="recommenders-stable" location="https:///isimo.solutions/jenkins/recommenders.p2"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.pde" version="3.13.600.v20190605-1800"/>

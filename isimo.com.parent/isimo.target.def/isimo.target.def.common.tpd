@@ -251,7 +251,7 @@ org.eclipse.xtend.shared.ui
 
 }
 
-location "http://smartweb.nazwa.pl/jenkins/recommenders.p2" recommenders-stable {
+location "https:///isimo.solutions/jenkins/recommenders.p2" recommenders-stable {
  org.eclipse.recommenders.rcp.feature.feature.group
  org.eclipse.recommenders.rcp.feature.feature.jar
  org.eclipse.recommenders.3rd.feature.feature.group
