@@ -1,8 +1,7 @@
 window.columns1 =  {green : 6, red: 7, grey: 8};
 window.columns2 =  {Blocker : 1, Kritisch: 2, Wichtig: 3, Standard: 4, Gering: 5, Trivial: 6};
 window.criteria = ["Testsuite","Browser","Umgebung","Modul","Mandant ID"];
-window.defaultshowcolumns = ["Browser","Umgebung","Modul","Erfolge","Fehlschläge","Testfehler","Gesamt"];
-window.defaultforcolumns = {"Browser": "internetExplorer", "Umgebung": "Testauto_trunk_ohne_ZAS"};
+window.defaultforcolumns = {"Browser": "internetExplorer"};
 window.columnMetadata = {};
 window.criteriaMetadata = {};
 Chart.defaults.global.legend.position = 'right';
@@ -30,12 +29,10 @@ window.issuesColors = {
 
 
 		window.onload = function() {
-			$('input#changeconfig').prop('checked', false);
+			calcMetadata()
 			createCriteria();
 			resetCriteria();
-			$("#reset").click(resetCriteria);
 			$("select.criteria").change(updateChart);
-			$("input#changeconfig").change(updateChart);
 			updateChart();
 			calcIssuesConfig(window.columns2);
 		};
@@ -155,7 +152,6 @@ window.issuesColors = {
 						envname = columnValue;
 					visible = visible && (reqValue===columnValue);
 				});
-				var envname = tr.find("td:nth-child("+window.criteriaMetadata['Umgebung'].pos+")").text();
 				if(visible) {
 					tr.addClass("datarow");
 					tr.removeClass("hidden");
@@ -207,12 +203,6 @@ window.issuesColors = {
 				}					
 			});
 		});
-		$('table#results tr th').each(function(i) {
-			var name = $(this).text();
-			window.columnMetadata[i+1] = { name: name,
-				showbydefault: ($.inArray(name, window.defaultshowcolumns) >= 0)
-			}
-		});
 	}
 	
 	function createSingleDropdown(criteriaidx) {
@@ -240,7 +230,7 @@ window.issuesColors = {
 		$("table#results tr:not(.sumrow) td:nth-child("+rownumber+")").each(function(){
 			valuesset[$(this).text()] = $(this).text();
 		});
-		var alle = $("<option id=\"__alle__\">--Alle--</option>");
+		var alle = $("<option id=\"__all__\">--All--</option>");
 		$(select).append(alle);
 		$.each(valuesset, function(value) {
 			var def = "";

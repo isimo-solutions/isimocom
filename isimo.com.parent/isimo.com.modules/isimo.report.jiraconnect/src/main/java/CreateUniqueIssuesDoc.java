@@ -35,7 +35,7 @@ public class CreateUniqueIssuesDoc extends Task {
 				List<Node> issues = doc.selectNodes("//*[@issue]");
 				for(Node n : issues)
 				{
-					if(n.selectNodes(".//*[name()='failure']").size()==0) {
+					if(n.selectNodes(".//*[name()='failure']").size()>0) {
 						Element el = (Element)n;
 						String testcase = doc.selectSingleNode("//testcase").valueOf("@scenario");
 						String testmodule = doc.selectSingleNode("//testcase").valueOf("@module");
