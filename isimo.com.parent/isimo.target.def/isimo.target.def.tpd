@@ -4,6 +4,6 @@ environment JavaSE-1.8 win32 win32 en_US
 
 include "isimo.target.def.common.tpd"
 
-location "http://smartweb.nazwa.pl/jenkins/isimo.p2" isimo-p2 {
+location "https://isimo.solutions/jenkins/isimo.p2" isimo-p2 {
  com.isimo.eclipse.bundle lazy
 }
