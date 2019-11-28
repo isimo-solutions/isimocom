@@ -1,3 +1,8 @@
 /isimo.com.parent/isimo.com.modules/isimo.test.debug/junit*.properties
 target
 /isimo.com.parent/isimo.com.modules/isimo.test.debug/echoproperties.txt
+/isimo.com.parent/isimo.com.modules/isimo.report.coverage/.settings
+/isimo.com.parent/isimo.com.modules/isimo.report.jiraconnect/.settings
+/isimo.com.parent/isimo.com.modules/isimo.report.summary/.settings
+/isimo.com.parent/isimo.com.modules/isimo.report.summaryall/.settings
+/isimo.com.parent/isimo.site.parent/isimo.eclipse.bundle/.settings
