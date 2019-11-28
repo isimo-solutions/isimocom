@@ -1,4 +1,4 @@
-<project name="reportSummary" default="generate">
+<project name="reportCoverage" default="generate">
 	<path id="project.classpath">		
 		<pathelement path="${mvn.test.classpath}"/>
 	</path>

@@ -1,6 +1,6 @@
-window.columns1 =  {green : 6, red: 7, grey: 8};
+window.columns1 =  {green : 4, red: 5, grey: 6};
 window.columns2 =  {Blocker : 1, Kritisch: 2, Wichtig: 3, Standard: 4, Gering: 5, Trivial: 6};
-window.criteria = ["Testsuite","Browser","Umgebung","Modul","Mandant ID"];
+window.criteria = ["Browser","Environment","Module"];
 window.defaultforcolumns = {"Browser": "internetExplorer"};
 window.columnMetadata = {};
 window.criteriaMetadata = {};
@@ -34,7 +34,7 @@ window.issuesColors = {
 			resetCriteria();
 			$("select.criteria").change(updateChart);
 			updateChart();
-			calcIssuesConfig(window.columns2);
+			//calcIssuesConfig(window.columns2);
 		};
 		
 		function initData() {
@@ -98,7 +98,7 @@ window.issuesColors = {
 			dropdown.find("option").each(function(option) {
 				var o = $(this);
 				var value = o.text();
-				if((window.defaultforcolumns[dropdown.attr('criteriaName')] == value) && !detailansicht()) {
+				if(window.defaultforcolumns[dropdown.attr('criteriaName')] == value) {
 					o.attr('selected','true');
 				} else {
 					o.removeAttr('selected');
@@ -148,9 +148,7 @@ window.issuesColors = {
 				$.each(window.chartCriteria,function(criteriaName) {
 					var reqValue = this.toString();
 					var columnValue = tr.find("td:nth-child("+window.criteriaMetadata[criteriaName].pos+")").text();
-					if(criteriaName == 'Env (technisch)')
-						envname = columnValue;
-					visible = visible && (reqValue===columnValue);
+					visible = visible && (reqValue === "--All--" ||reqValue===columnValue);
 				});
 				if(visible) {
 					tr.addClass("datarow");
@@ -162,31 +160,11 @@ window.issuesColors = {
 			});
 		}
 		
-		function detailansicht() {
-			return $('input#changeconfig').is(':checked');
-		}
-		
-		function configureColumn(i) {
-			var showbydefault = window.columnMetadata[i]['showbydefault'];
-			var show = showbydefault || detailansicht();
-			var allcellsselector = 'table#results td:nth-child('+i+'), table#results th:nth-child('+i+')';
-			if(show) {
-				$(allcellsselector).show();
-			} else {
-				$(allcellsselector).hide();
-			}
-		}
-		
-		function configureColumns() {
-			$('table#results tr th').each(function(i) {configureColumn(i+1)});
-		}
-		
 		function updateChart() {
 			readChartCriteria();
 			updateRowsBasedOnChartCriteria();
 			calcSums();
 			calcConfig(window.columns1);
-			configureColumns();
 			var ctx = document.getElementById('chart-area-tests').getContext('2d');
 			window.myPie = new Chart(ctx, window.config);
 		}
@@ -303,7 +281,7 @@ window.issuesColors = {
 					responsive: true,
 					title:{
 						display: true,
-						text: 'Verteilung der Fehlerprioritäten'
+						text: 'Verteilung der FehlerprioritÃ¤ten'
 					 },
 					 layout: {
 				            padding: {
@@ -388,4 +366,3 @@ window.issuesColors = {
 		}
 	
 	}
-	
