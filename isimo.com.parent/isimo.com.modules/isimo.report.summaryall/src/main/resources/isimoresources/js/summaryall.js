@@ -34,7 +34,7 @@ window.issuesColors = {
 			resetCriteria();
 			$("select.criteria").change(updateChart);
 			updateChart();
-			//calcIssuesConfig(window.columns2);
+			if($("#chart-area-issues").length) calcIssuesConfig(window.columns2);
 		};
 		
 		function initData() {
