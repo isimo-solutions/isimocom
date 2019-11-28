@@ -223,7 +223,7 @@ table th {
 <th>Sum</th>
 </tr>
 <xsl:for-each select="/summaryall/summary">
-<xsl:variable name="href">../result_<xsl:value-of select="./testcase/teststart"/>_<xsl:value-of select="./suiteproperties/environment"/>_<xsl:value-of select="./suiteproperties/browser"/>_<xsl:value-of select="./suiteproperties/module"/>/<xsl:value-of select="$project"/>/target/summary.html</xsl:variable>
+<xsl:variable name="href"><xsl:value-of select="@concatDir"/>/summary.html</xsl:variable>
 <tr>
 <td><a href="{$href}"><xsl:value-of select="./suiteproperties/browser"/></a></td>
 <td><a href="{$href}"><xsl:value-of select="./suiteproperties/environment"/></a></td>
