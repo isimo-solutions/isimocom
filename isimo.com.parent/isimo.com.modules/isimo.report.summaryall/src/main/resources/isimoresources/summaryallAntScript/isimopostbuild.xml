@@ -23,12 +23,6 @@
 		<tstamp>
 			<format property="NOW" pattern="yyyyMMdd_HHmmss" />
 		</tstamp>
-		<if>
-			<available file="${summaryall.dir}"/>
-			<then>
-				<delete dir="${summaryall.dir}"/>
-			</then>
-		</if>
 		<mkdir dir="${summaryall.dir}"/>
 		
 		<reportconcat out="${summaryall.dir}/summaryall.xml" rootElement="summaryall">
