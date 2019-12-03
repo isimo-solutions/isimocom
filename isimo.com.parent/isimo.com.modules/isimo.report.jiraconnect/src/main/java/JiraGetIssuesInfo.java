@@ -67,21 +67,21 @@ public class JiraGetIssuesInfo extends Task {
 	 }
 	 
 	 public void addToSummaryAll(Element el) throws Exception {
-		 File summaryFile = new File(rootDir + "/summary/summaryall.xml");
+		 File summaryFile = new File(rootDir + "/summaryall/summaryall.xml");
 		 SAXReader reader = new SAXReader();
 		 Document summaryDoc = reader.read(summaryFile);
 		 Node n = summaryDoc.selectSingleNode(summaryNodeXpath);
 		 ((Element)n).add(el);
 		 
 		OutputFormat format = OutputFormat.createPrettyPrint();
-		OutputStream os = new FileOutputStream(rootDir + "/summary/summaryall.xml");
+		OutputStream os = new FileOutputStream(rootDir + "/summaryall/summaryall.xml");
 		XMLWriter writer = new XMLWriter( os, format );
         writer.write(summaryDoc);
 	 }
 	 
 	 public void execute() throws BuildException{
 		 try { 
-			File issuesFile = new File(rootDir + "/summary/UniqueIssues.xml");
+			File issuesFile = new File(rootDir + "/summaryall/UniqueIssues.xml");
 			SAXReader reader = new SAXReader();
 			Document issuesDoc = reader.read(issuesFile);
 			Document outDoc = DocumentHelper.createDocument();

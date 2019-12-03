@@ -1,4 +1,4 @@
-<project name="reportSummary" default="generate">
+<project name="reportCoverage" default="generate">
 	<path id="project.classpath">		
 		<pathelement path="${mvn.test.classpath}"/>
 	</path>
@@ -13,43 +13,42 @@
 	
 	<target name="generate">
 		<taskdef name="postprocesscoverage" classname="PostprocessCoverage" classpathref="project.classpath"/>
-		<for param="summaryxml">
-			<fileset dir="${project.build.directory}">
-				<include name="**/summary.xml" />
-				<include name="summary.xml" />
-			</fileset>
+		<taskdef name="reportconcat" classname="ReportConcat" classpathref="project.classpath" />
+		
+		<for param="moduledir">
+			<dirset dir="${project.build.directory}">
+				<include name="**/tests" />
+				<include name="tests" />
+			</dirset>
 			<sequential>
-				<var name="moduledir" unset="true"/>
-				<dirname file="@{summaryxml}" property="moduledir"/>
-				<echo file="${moduledir}/coveragemodule.xml" message="&lt;coverage&gt;"/>
 				<for param="scenariolog">
-					<fileset dir="${moduledir}">
+					<fileset dir="@{moduledir}">
 						<include name="**/scenariolog.xml"/>
 					</fileset>
 					<sequential>
 						<var name="scenariodir" unset="true"/>
 						<dirname file="@{scenariolog}" property="scenariodir"/>	
-						<xslt in="@{scenariolog}" out="${scenariodir}/scenariolog.html" style="isimoresources/xsl/testcaselog.xsl" />
+	
 						<postprocesscoverage in="${scenariodir}/scenariolog.xml" out="${scenariodir}/coverage_out.xml" name="${scenariodir}" summaries="false"/>
 					</sequential>
 				</for>
-				<concat destfile="${moduledir}/coveragemodule.xml" append="true">
-					<fileset dir="${moduledir}">
+				
+				<reportconcat out="@{moduledir}/coveragemodule.xml" rootElement="coverage">
+					<fileset dir="@{moduledir}">
 						<include name="**/coverage_out.xml"/>
 					</fileset>
-				</concat>
-				<echo file="${moduledir}/coveragemodule.xml" message="&lt;/coverage&gt;" append="true"/>
-				<postprocesscoverage in="${moduledir}/coveragemodule.xml" out="${moduledir}/coveragemodule_out.xml" name="${moduledir}" summaries="true"/>
+				</reportconcat>
+				<postprocesscoverage in="@{moduledir}/coveragemodule.xml" out="@{moduledir}/coveragemodule_out.xml" name="@{moduledir}" summaries="true"/>
 			</sequential>
 		</for>
 
-		<echo file="${summaryall.dir}/coverageall.xml" message="&lt;coverageall&gt;" />
-		<concat destfile="${summaryall.dir}/coverageall.xml" append="true">
+		<mkdir dir="${summaryall.dir}"/>
+		<reportconcat out="${summaryall.dir}/coverageall.xml" rootElement="coverageall">
 			<fileset dir="${project.build.directory}">
 				<include name="**/coveragemodule_out.xml" />
 			</fileset>
-		</concat>
-		<echo file="${summaryall.dir}/coverageall.xml" message="&lt;/coverageall&gt;" append="true" />
+		</reportconcat>
+
 		<postprocesscoverage in="${summaryall.dir}/coverageall.xml" out="${summaryall.dir}/coverageall_out.xml" summaries="true" name="testsuite"/>
 		<copy file="${isimoresources.dir}/js/treeTable.js" todir="${summaryall.dir}"></copy>
 		<xslt in="${summaryall.dir}/coverageall_out.xml" out="${summaryall.dir}/coverageall_out.html" style="${isimoresources.dir}/xsl/coverageall_out.xsl" force="true" />

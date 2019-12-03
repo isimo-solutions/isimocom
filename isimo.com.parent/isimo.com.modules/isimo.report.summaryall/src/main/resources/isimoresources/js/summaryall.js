@@ -1,8 +1,7 @@
-window.columns1 =  {green : 6, red: 7, grey: 8};
+window.columns1 =  {green : 4, red: 5, grey: 6};
 window.columns2 =  {Blocker : 1, Kritisch: 2, Wichtig: 3, Standard: 4, Gering: 5, Trivial: 6};
-window.criteria = ["Testsuite","Browser","Umgebung","Modul","Mandant ID"];
-window.defaultshowcolumns = ["Browser","Umgebung","Modul","Erfolge","Fehlschläge","Testfehler","Gesamt"];
-window.defaultforcolumns = {"Browser": "internetExplorer", "Umgebung": "Testauto_trunk_ohne_ZAS"};
+window.criteria = ["Browser","Environment","Module"];
+window.defaultforcolumns = {"Browser": "internetExplorer"};
 window.columnMetadata = {};
 window.criteriaMetadata = {};
 Chart.defaults.global.legend.position = 'right';
@@ -30,14 +29,12 @@ window.issuesColors = {
 
 
 		window.onload = function() {
-			$('input#changeconfig').prop('checked', false);
+			calcMetadata()
 			createCriteria();
 			resetCriteria();
-			$("#reset").click(resetCriteria);
 			$("select.criteria").change(updateChart);
-			$("input#changeconfig").change(updateChart);
 			updateChart();
-			calcIssuesConfig(window.columns2);
+			if($("#chart-area-issues").length) calcIssuesConfig(window.columns2);
 		};
 		
 		function initData() {
@@ -101,7 +98,7 @@ window.issuesColors = {
 			dropdown.find("option").each(function(option) {
 				var o = $(this);
 				var value = o.text();
-				if((window.defaultforcolumns[dropdown.attr('criteriaName')] == value) && !detailansicht()) {
+				if(window.defaultforcolumns[dropdown.attr('criteriaName')] == value) {
 					o.attr('selected','true');
 				} else {
 					o.removeAttr('selected');
@@ -151,11 +148,8 @@ window.issuesColors = {
 				$.each(window.chartCriteria,function(criteriaName) {
 					var reqValue = this.toString();
 					var columnValue = tr.find("td:nth-child("+window.criteriaMetadata[criteriaName].pos+")").text();
-					if(criteriaName == 'Env (technisch)')
-						envname = columnValue;
-					visible = visible && (reqValue===columnValue);
+					visible = visible && (reqValue === "--All--" ||reqValue===columnValue);
 				});
-				var envname = tr.find("td:nth-child("+window.criteriaMetadata['Umgebung'].pos+")").text();
 				if(visible) {
 					tr.addClass("datarow");
 					tr.removeClass("hidden");
@@ -166,31 +160,11 @@ window.issuesColors = {
 			});
 		}
 		
-		function detailansicht() {
-			return $('input#changeconfig').is(':checked');
-		}
-		
-		function configureColumn(i) {
-			var showbydefault = window.columnMetadata[i]['showbydefault'];
-			var show = showbydefault || detailansicht();
-			var allcellsselector = 'table#results td:nth-child('+i+'), table#results th:nth-child('+i+')';
-			if(show) {
-				$(allcellsselector).show();
-			} else {
-				$(allcellsselector).hide();
-			}
-		}
-		
-		function configureColumns() {
-			$('table#results tr th').each(function(i) {configureColumn(i+1)});
-		}
-		
 		function updateChart() {
 			readChartCriteria();
 			updateRowsBasedOnChartCriteria();
 			calcSums();
 			calcConfig(window.columns1);
-			configureColumns();
 			var ctx = document.getElementById('chart-area-tests').getContext('2d');
 			window.myPie = new Chart(ctx, window.config);
 		}
@@ -206,12 +180,6 @@ window.issuesColors = {
 					window.criteriaMetadata[name] = { pos : i };
 				}					
 			});
-		});
-		$('table#results tr th').each(function(i) {
-			var name = $(this).text();
-			window.columnMetadata[i+1] = { name: name,
-				showbydefault: ($.inArray(name, window.defaultshowcolumns) >= 0)
-			}
 		});
 	}
 	
@@ -240,7 +208,7 @@ window.issuesColors = {
 		$("table#results tr:not(.sumrow) td:nth-child("+rownumber+")").each(function(){
 			valuesset[$(this).text()] = $(this).text();
 		});
-		var alle = $("<option id=\"__alle__\">--Alle--</option>");
+		var alle = $("<option id=\"__all__\">--All--</option>");
 		$(select).append(alle);
 		$.each(valuesset, function(value) {
 			var def = "";
@@ -313,7 +281,7 @@ window.issuesColors = {
 					responsive: true,
 					title:{
 						display: true,
-						text: 'Verteilung der Fehlerprioritäten'
+						text: 'Verteilung der FehlerprioritÃ¤ten'
 					 },
 					 layout: {
 				            padding: {
@@ -398,4 +366,3 @@ window.issuesColors = {
 		}
 	
 	}
-	

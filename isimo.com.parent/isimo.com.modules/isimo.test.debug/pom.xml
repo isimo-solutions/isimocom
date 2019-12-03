@@ -11,7 +11,7 @@
 		<testframework.version>2.3-Sel-3.141.59-SNAPSHOT</testframework.version>
 		<isimo.execution.phases>preparation,moduletest,postprocess</isimo.execution.phases>
 		<!-- <isimo.execution.phases>postprocess</isimo.execution.phases>-->
-		<module>inet</module>
+		<module>Faktury/scenarios</module>
 		<test.target>moduletest</test.target>
 	</properties>
 	<dependencies>

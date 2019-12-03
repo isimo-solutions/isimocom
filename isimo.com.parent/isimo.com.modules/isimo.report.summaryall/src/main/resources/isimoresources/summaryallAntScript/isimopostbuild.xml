@@ -18,24 +18,19 @@
 	<property name="testfaliurepriority" value=""/>
 	
 	<target name="generate">
+		<taskdef name="reportconcat" classname="ReportConcat" classpathref="project.classpath" />
+		
 		<tstamp>
 			<format property="NOW" pattern="yyyyMMdd_HHmmss" />
 		</tstamp>
-		<if>
-			<available file="${summaryall.dir}"/>
-			<then>
-				<delete dir="${summaryall.dir}"/>
-			</then>
-		</if>
 		<mkdir dir="${summaryall.dir}"/>
-		<echo file="${summaryall.dir}/summaryall.xml" message="&lt;summaryall&gt;" />
-		<concat destfile="${summaryall.dir}/summaryall.xml" append="true">
+		
+		<reportconcat out="${summaryall.dir}/summaryall.xml" rootElement="summaryall">
 			<fileset dir="${project.build.directory}">
 				<include name="/summary.xml"/>
 				<include name="/**/summary.xml"/>
 			</fileset>
-		</concat>
-		<echo file="${summaryall.dir}/summaryall.xml" message="&lt;/summaryall&gt;" append="true" />
+		</reportconcat>
 			
 		<java classname="IssuesCleanup" classpathref="project.classpath">
 			<arg value="${project.build.directory}"/>

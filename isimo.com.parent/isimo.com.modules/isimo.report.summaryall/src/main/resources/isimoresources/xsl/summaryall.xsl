@@ -176,7 +176,7 @@ table th {
 <div class="header">
 	<div><xsl:value-of select="$name"/> - Summary</div>
 	<div class="inner_felxbox" style="padding-left:30px;">
-		<div>Endergebnis: </div>
+		<div>Result: </div>
 		
 		<xsl:variable name="allTests"><xsl:value-of select="sum(.//testcase/testsuite/@tests)"/></xsl:variable>
 		<xsl:variable name="allErrors"><xsl:value-of select="sum(//testcase/testsuite/@errors)"/></xsl:variable>
@@ -185,19 +185,19 @@ table th {
 		<xsl:choose>
 			<xsl:when test="//issuesInfo[@issuesFailed='true'] or $errorsFailed='true'">
 				<div class="inner_felxbox test_fail">
-					<div class="status_fail">fehlgeschlagen</div>
+					<div class="status_fail">Failed</div>
 					<div class="inner_felxbox fail_reasons">
 						<xsl:if test="//issuesInfo[@issuesFailed='true']">
-							<div>KPI verletzt: Testfälle enthalten Issues mit höheren Priorität als: <xsl:value-of select="//issuesInfo/@failPriority"></xsl:value-of> </div>
+							<div>KPI: Testcases contain issues with higher priority than: <xsl:value-of select="//issuesInfo/@failPriority"></xsl:value-of> </div>
 						</xsl:if>
 						<xsl:if test="$errorsFailed='true'">
-							<div>KPI verletzt: Mehr als <xsl:value-of select="$faliurePercent"/>% Testfallfehler</div>
+							<div>KPI: More than: <xsl:value-of select="$faliurePercent"/>% test errors</div>
 						</xsl:if>
 					</div>
 				</div>
 			</xsl:when>
 			<xsl:otherwise>
-				<div class="status_succes">akzeptabel</div>
+				<div class="status_succes">Acceptable</div>
 			</xsl:otherwise>
 		</xsl:choose>
 	</div>
@@ -212,101 +212,39 @@ table th {
 		</div>
 	</xsl:if>
 </div>
-<div class="row"><div class="block"><button id="reset">Kriterien zurücksetzen</button></div><div class="block" style="min-width: 50px; height:30px;"></div><div class="block"><input id="changeconfig" type="checkbox" checked="off"/></div><div class="block">Detailansicht</div></div>
 <table id="results">
 <tr>
-<th>Testsuite</th>
 <th>Browser</th>
-<th>Env (technisch)</th>
-<th>Umgebung</th>
-<th>Modul</th>
-<th>Erfolge</th>
-<th>Fehlschläge</th>
-<th>Testfehler</th>
-<th>Gesamt</th>
-
-<th>Anzahl gemeldeten Probleme</th>
-<th>Anzahl unbekannen Probleme</th>
-<th>Einzelne Failures</th>
-<th>Gemeldete Errors</th>
-<th>Nicht gemeldete Errors</th>
-
-<th>Version Kern</th>
-<th>Version Core</th>
-<th>Version Wm</th>
-<th>Mandant ID</th>
+<th>Environment</th>
+<th>Module</th>
+<th>Succes</th>
+<th>Faliure</th>
+<th>Error</th>
+<th>Sum</th>
 </tr>
 <xsl:for-each select="/summaryall/summary">
-<xsl:variable name="href">../result_<xsl:value-of select="./testcase/teststart"/>_<xsl:value-of select="./suiteproperties/environment"/>_<xsl:value-of select="./suiteproperties/browser"/>_<xsl:value-of select="./suiteproperties/module"/>/<xsl:value-of select="$project"/>/target/summary.html</xsl:variable>
+<xsl:variable name="href"><xsl:value-of select="@concatDir"/>/summary.html</xsl:variable>
 <tr>
-<td><a href="{$href}">result_<xsl:value-of select="./testcase/teststart"/>_<xsl:value-of select="./suiteproperties/environment"/>_<xsl:value-of select="./suiteproperties/browser"/></a></td>
 <td><a href="{$href}"><xsl:value-of select="./suiteproperties/browser"/></a></td>
-<td><a href="{$href}"><xsl:value-of select="./suiteproperties/environment"/></a></td>
 <td><a href="{$href}"><xsl:value-of select="./suiteproperties/environment"/></a></td>
 <td><a href="{$href}"><xsl:value-of select="./suiteproperties/module"/></a></td>
 <td class="aright"><xsl:value-of select="sum(.//testcase/testsuite/@tests)-sum(.//testcase/testsuite/@errors)-sum(.//testcase/testsuite/@failures)"/></td>
 <td class="aright"><xsl:value-of select="sum(.//testcase/testsuite/@failures)"/></td>
 <td class="aright"><xsl:value-of select="sum(.//testcase/testsuite/@errors)"/></td>
 <td class="aright"><xsl:value-of select="sum(.//testcase/testsuite/@tests)"/></td>
-<td class="aright"><xsl:value-of select="count(.//testcase//failure[.//issue])"/></td>
-<td class="aright" critical="yes"><xsl:value-of select="count(.//testcase//failure[not(.//issue) and not(parent::testcase)])"/></td>
-<td class="aright"><xsl:value-of select="count(.//testcase//failure[not(parent::testcase)])"/></td>
-<td class="aright"><xsl:value-of select="count(.//testcase/testsuite[(@errors = 1) and .//issue[not(ancestor-or-self::failure)]])"/></td>
-<td class="aright" critical="yes"><xsl:value-of select="count(.//testcase/testsuite[(@errors = 1) and not(.//issue[not(ancestor-or-self::failure)])])"/></td>
-
-<td><xsl:value-of select="./envproperties/properties/property[name='version.txtKernVersion']/value"/></td>
-<td><xsl:value-of select="./envproperties/properties/property[name='version.txtCoreVersion']/value"/></td>
-<td><xsl:value-of select="./envproperties/properties/property[name='version.txtWmVersion']/value"/></td>
-<td><xsl:value-of select="./envproperties/properties/property[name='version.txtMandantId']/value"/></td>
-</tr>
-</xsl:for-each>
-<xsl:for-each select="//qftest/testsuites">
-<xsl:message>qftest!</xsl:message>
-<xsl:variable name="href">../result_<xsl:value-of select="./testcase/teststart"/>_<xsl:value-of select="./suiteproperties/environment"/>_<xsl:value-of select="./suiteproperties/browser"/>_<xsl:value-of select="./suiteproperties/module"/>/<xsl:value-of select="$project"/>/target/summary.html</xsl:variable>
-<tr>
-<td><!-- <a href="{$href}">result_<xsl:value-of select="./testcase/teststart"/>_<xsl:value-of select="./suiteproperties/environment"/>_<xsl:value-of select="./suiteproperties/browser"/></a> --></td>
-<td><a href="{$href}">internetExplorer</a></td>
-<td><a href="{$href}"><xsl:value-of select="../@env"/></a></td>
-<td><a href="{$href}"><xsl:value-of select="../@env"/></a></td>
-<td><a href="{$href}"><xsl:value-of select="../@module"/></a></td>
-<td class="aright"><xsl:value-of select="count(.//testcase[@vstate=1])"/></td>
-<td class="aright"><xsl:value-of select="count(.//testcase[@vstate=2])"/></td>
-<td class="aright"><xsl:value-of select="count(.//testcase[@vstate=3])"/></td>
-<td class="aright"><xsl:value-of select="count(.//testcase)"/></td>
-<td class="aright">0</td>
-<td class="aright">0</td>
-<td class="aright">0</td>
-<td class="aright">0</td>
-<td class="aright">0</td>
-
-<td><xsl:value-of select="./envproperties/properties/property[name='version.txtKernVersion']/value"/></td>
-<td><xsl:value-of select="./envproperties/properties/property[name='version.txtCoreVersion']/value"/></td>
-<td><xsl:value-of select="./envproperties/properties/property[name='version.txtWmVersion']/value"/></td>
-<td><xsl:value-of select="./envproperties/properties/property[name='version.txtMandantId']/value"/></td>
 </tr>
 </xsl:for-each>
 <tr class="sumrow">
 <td>Gesamt:</td>
-<td/>
-<td/>
-<td/>
-<td/>
+<td></td>
+<td></td>
+<td class="aright"><sum col="4"/></td>
+<td class="aright"><sum col="5"/></td>
 <td class="aright"><sum col="6"/></td>
 <td class="aright"><sum col="7"/></td>
-<td class="aright"><sum col="8"/></td>
-<td class="aright"><sum col="9"/></td>
-<td class="aright"><sum col="10"/></td>
-<td class="aright" critical="yes"><sum col="11"/></td>
-<td class="aright"><sum col="12"/></td>
-<td class="aright"><sum col="13"/></td>
-<td class="aright" critical="yes"><sum col="14"/></td>
-<td/>
-<td/>
-<td/>
-<td/>
 </tr>
 </table>
-<a href="coverageall_out.html">Testabdeckungsbericht</a>
+<a href="coverageall_out.html">Coverage report</a>
 
 <p><i><b>Testfehler</b> - ist eine Ausfürung der Testszenario, die mit einem nicht erwarteten Ereignis endet (Abbruch oder eine nicht erwartete fehlschlagende Bedingung). 
 In meinsten Fällen sind im Fall von 'error' auch die Screenshots mit letztem Browserzustand verfügbar und die detaillierte Stacktraces mit Exception-Details.</i></p> 
@@ -359,7 +297,7 @@ Es dürfen mehrere Failures wärend der Ausfürung einer Testszenario gemeldet w
 	</table>
 </xsl:if>
 
-
+<!--  TODO parametryzacja priorytetów -->
 <table id="issues" class="hidden">
 <tr>
 <th>Blocker</th>

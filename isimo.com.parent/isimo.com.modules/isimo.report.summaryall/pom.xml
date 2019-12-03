@@ -9,9 +9,15 @@
   <packaging>jar</packaging>
 
   <properties>
+	<testframework.version>2.3-Sel-3.141.59-SNAPSHOT</testframework.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
+  	<dependency>
+		<groupId>com.isimo</groupId>
+		<artifactId>isimo.report.common</artifactId>
+		<version>${testframework.version}</version>
+	</dependency>
 	<dependency>
 	    <groupId>com.sun.xml.bind</groupId>
 	    <artifactId>jaxb-core</artifactId>

@@ -256,12 +256,12 @@ float: right;
 						<xsl:apply-templates
 							select=".//property[@name='scenarioname']/@value" />
 					</div>
-					<div class="testnamediv">
+					<!-- <div class="testnamediv">
 						<a
 							href="/jenkins/job/21c_ng_TestScenario/parambuild/?delay=0sec&amp;scenario={.//property[@name='scenarioname']/@value}&amp;envname={//envproperties/properties/property[name='environment']/value}&amp;browser={//envproperties/properties/property[name='browser']/value}&amp;browser={//envproperties/properties/property[name='browser']/value}&amp;hostname={//envproperties/properties/property[name='hostname']/value}&amp;branchortrunk={//envproperties/properties/property[name='branchortrunk']/value}">
 							<img src="../../../summary/rerun.png"></img>
 						</a>
-					</div>
+					</div> -->
 				</div>
 			</td>
 			<td>
