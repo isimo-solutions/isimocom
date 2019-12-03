@@ -5,8 +5,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
+import org.apache.maven.shared.invoker.DefaultInvocationRequest;
+import org.apache.maven.shared.invoker.DefaultInvoker;
+import org.apache.maven.shared.invoker.InvocationRequest;
+import org.apache.maven.shared.invoker.Invoker;
+import org.apache.maven.shared.invoker.MavenInvocationException;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -97,27 +103,47 @@ public class ScenarioLauncherDelegate extends JUnitLaunchConfigurationDelegate {
 			props.setProperty("isimo.debug.event.port", (eventPort=getAvailablePort()).toString());			
 			props.setProperty("remote.debug", "true");
 		}
+		
 		props.setProperty("isimo.closebrowseronerror", "false");
 		props.setProperty("isimo.nocommandline", "suspend");
 		props.setProperty("isimo.commandlineonerror", "false");
 		props.setProperty("isimo.debug.mode", Boolean.toString(ILaunchManager.DEBUG_MODE.equals(pMode)));
 		props.setProperty("isimo.suspendonerror", getProjectProperty(pConfiguration, TestFrameworkUIPlugin.getDefault().getSuspendOnErrorPropertyName()));
 		props.setProperty("isimo.suspendonfailure", getProjectProperty(pConfiguration, TestFrameworkUIPlugin.getDefault().getSuspendOnErrorPropertyName()));
+		props.setProperty("isimo.skip.junit", "true");
+		props.setProperty("isimo.execution.phases", "preparation,testScenario");
+		props.setProperty("scenario", getScenario(pConfiguration));
+		props.setProperty("browser", getBrowser(pConfiguration));
+		props.setProperty("env", getEnvironmentName(pConfiguration));
+		props.setProperty("com.isimo.scenarios", calculateScenariosRoot(pConfiguration));
+		
 		File testDir = getWorkingDirectoryPath(pConfiguration).toFile();
+		props.setProperty("testdir", testDir.getAbsolutePath());
 		testDir.mkdirs();
 		File inputProperties = new File(testDir.getAbsolutePath()+File.separator+"input.properties");
-		File resultProperties = new File(testDir.getAbsolutePath()+File.separator+"test.properties");
 		try {
 			props.store(new FileWriter(inputProperties),"");
 		} catch(IOException e) {
 			throw new RuntimeException(e);
 		}
+		InvocationRequest ir = new DefaultInvocationRequest();
+		ir.setPomFile(new File(getProject(pConfiguration).getLocation().toFile()+File.separator+"pom.xml"));
+		ir.setProperties(props);
+		ir.setGoals(Collections.singletonList("install"));
+		Invoker invoker = new DefaultInvoker();
+		invoker.setMavenHome(new File("C:\\java\\apache-maven-3.6.1"));
+		try {
+			invoker.execute(ir);
+		} catch(MavenInvocationException e) {
+			throw new RuntimeException(e);
+		}
+		/*
 		PropertiesGenerator gen = new PropertiesGenerator();
 		gen.setResultProperties(resultProperties);
 		gen.setInputProperties(inputProperties);
 		gen.setProperty("project.build.directory", getProject(pConfiguration).getLocation().toFile()+File.separator+"target");
 		gen.setProperty("project.build.testSourceDirectory", getProject(pConfiguration).getLocation().toFile()+File.separator+"src"+File.separator+"test"+File.separator+"java");
-		gen.generateProperties();
+		gen.generateProperties();*/
 		//Properties props = config.getProperties(configdir.getAbsolutePath()+File.separator+"browser"+File.separator+"browser".properties", props);
 		pLaunch.setAttribute(TestScenarioPluginConstants.SCENARIO_ROOT, getProject(pConfiguration).getFullPath()+"/"+getProjectProperty(pConfiguration, TestScenarioPluginConstants.SCENARIO_ROOT));
 		//pLaunch.setAttribute(JUnitLaunchConfigurationConstants.ATTR_TEST_RUNNER_KIND, "com.smartwebproject.testframework.ui.scenario.kind");
