@@ -9,6 +9,7 @@
 		
 	<property name="project.build.directory" value="../../"/>
 	<property name="isimoresources.dir" value="${project.build.directory}/isimoresources"/>
+	<property name="jira.url" value=""/>
 	
 	<target name="generate">
 		<for param="scenariolog">
@@ -89,6 +90,7 @@
 		</replace>
 		<xslt in="${project.build.directory}/summary.xml" out="${project.build.directory}/summary.html" style="${isimoresources.dir}/xsl/summary.xsl" classpathref="project.classpath">
 			<param name="name" expression="test"/>
+			<param name="jira.url" expression="${jira.url}"/>
 		</xslt>
 	</target>
 </project>

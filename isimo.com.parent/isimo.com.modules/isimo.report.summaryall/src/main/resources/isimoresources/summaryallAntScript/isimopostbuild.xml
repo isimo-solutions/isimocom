@@ -15,6 +15,7 @@
 	<property name="testfaliurepercent" value="10"/>
 	<property name="jira.encrypted.password" value=""/>
 	<property name="jira.username" value=""/>
+	<property name="jira.url" value=""/>
 	<property name="testfaliurepriority" value=""/>
 	
 	<target name="generate">
@@ -55,6 +56,7 @@
 			<param name="project" expression="${testproject.name}"/>
 			<param name="TSTAMP" expression="${NOW}" />
 			<param name="faliurePercent" expression="${testfaliurepercent}"/>
+			<param name="jira.url" expression="${jira.url}"/>
 		</xslt>
 		<xslt in="${summaryall.dir}/summaryall.html.xml" out="${summaryall.dir}/summaryall2.html.xml" style="${isimoresources.dir}/xsl/summaryall2.xsl" force="true">
 		</xslt>

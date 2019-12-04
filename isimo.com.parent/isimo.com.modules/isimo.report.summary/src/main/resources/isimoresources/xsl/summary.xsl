@@ -2,6 +2,7 @@
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:param name="name" />
+	<xsl:param name="jira.url"/>
 	<xsl:variable name="firsttestsuite"
 		select="/summary/testcase[1]/testsuite" />
 	<xsl:output method="html"></xsl:output>
@@ -342,7 +343,7 @@ float: right;
 	</xsl:template>
 
 	<xsl:template match="issue">
-		<a href="https://seproxy.bitmarck-software.de/jira/browse/{.}">
+		<a href="{jira.url}/{.}">
 			<xsl:value-of select="." />
 		</a>
 	</xsl:template>
