@@ -342,7 +342,7 @@
       <repository id="tpd" location="https://download.eclipse.org/cbi/tpd/3.0.0-SNAPSHOT"/>
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
-      <unit id="com.isimo.eclipse.bundle" version="0.0.0"/>
+      <unit id="com.isimo.eclipse.bundle" version="2.3.0.qualifier"/>
       <repository id="isimo-p2" location="file:///C:/git/isimocom/isimo.com.parent/isimo.site.parent/isimo.p2.site/target/repository"/>
     </location>
   </locations>
