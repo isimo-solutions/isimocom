@@ -34,7 +34,6 @@
 			    <include name="tests/**/*_junit.xml"/>
 			</fileset>
 			<sequential>
-				<echo file="${project.build.directory}/summary_concat.xml" append="true" message="&lt;testcase&gt;"/>
 				
 				<var unset="true" name="xmlreport"/>
 				<var unset="true" name="testdir"/>
@@ -42,16 +41,22 @@
 				<var unset="true" name="sname"/>
 				<var unset="true" name="testdirname"/>
 				<var unset="true" name="testsdirname"/>
+				<var unset="true" name="snamenojunit"/>
+				
+				<dirname file="@{logJunit}" property="testdir"/>
+				<dirname file="${testdir}" property="testsdir"/>
+				<basename file="@{logJunit}" property="sname" suffix=".xml"/>
+				<basename file="@{logJunit}" property="snamenojunit" suffix="_junit.xml"/>
+				<basename file="${testdir}" property="testdirname"/>
+				<basename file="${testsdir}" property="testsdirname"/>
+				<echo file="${project.build.directory}/summary_concat.xml" append="true" message="&lt;testcase name=&quot;${snamenojunit}&quot;&gt;"/>
+								
 				
 				<loadfile property="xmlreport" srcfile="@{logJunit}"/>
 				<propertyregex input="${xmlreport}" override="true" property="xmlreportnoheader" regexp="&lt;\?xml version=&quot;1\.0&quot; encoding=&quot;UTF-8&quot; \?&gt;" replace=""></propertyregex>
 				<echo file="${project.build.directory}/summary_concat.xml" message="${xmlreportnoheader}" append="true"/>
 				
-				<dirname file="@{logJunit}" property="testdir"/>
-				<dirname file="${testdir}" property="testsdir"/>
-				<basename file="@{logJunit}" property="sname" suffix=".xml"/>
-				<basename file="${testdir}" property="testdirname"/>
-				<basename file="${testsdir}" property="testsdirname"/>
+				
 				<echo file="${project.build.directory}/summary_concat.xml" message="&lt;xmllog&gt;${testsdirname}/${testdirname}/scenariolog.xml&lt;/xmllog&gt;" append="true"/>
 				<echo file="${project.build.directory}/summary_concat.xml" message="&lt;htmllog&gt;${testsdirname}/${testdirname}/scenariolog.html&lt;/htmllog&gt;" append="true"/>
 				<echo file="${project.build.directory}/summary_concat.xml" message="&lt;detailreport&gt;${testsdirname}/${testdirname}/${sname}.xml&lt;/detailreport&gt;" append="true"/>
@@ -89,7 +94,7 @@
 			</replacefilter>
 		</replace>
 		<xslt in="${project.build.directory}/summary.xml" out="${project.build.directory}/summary.html" style="${isimoresources.dir}/xsl/summary.xsl" classpathref="project.classpath">
-			<param name="name" expression="test"/>
+			<param name="name" expression="${module}"/>
 			<param name="jira.url" expression="${jira.url}"/>
 		</xslt>
 	</target>

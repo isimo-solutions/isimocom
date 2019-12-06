@@ -4,8 +4,6 @@
 <xsl:param name="project"/>
 <xsl:param name="TSTAMP"/>
 <xsl:param name="faliurePercent"/>
-<xsl:param name="generate.coverage"/>
-<xsl:param name="generate.issuescleanup"/>
 <xsl:output method="xml"/>
 <xsl:template match="summaryall">
 <html>
@@ -178,7 +176,7 @@ table th {
 <div class="header">
 	<div><xsl:value-of select="$name"/> - Summary</div>
 	<div class="inner_felxbox" style="padding-left:30px;">
-		<div>Result: </div>
+		<div>Endergebnis: </div>
 		
 		<xsl:variable name="allTests"><xsl:value-of select="sum(.//testcase/testsuite/@tests)"/></xsl:variable>
 		<xsl:variable name="allErrors"><xsl:value-of select="sum(//testcase/testsuite/@errors)"/></xsl:variable>
@@ -187,19 +185,19 @@ table th {
 		<xsl:choose>
 			<xsl:when test="//issuesInfo[@issuesFailed='true'] or $errorsFailed='true'">
 				<div class="inner_felxbox test_fail">
-					<div class="status_fail">Failed</div>
+					<div class="status_fail">Fehlgeschlagen</div>
 					<div class="inner_felxbox fail_reasons">
 						<xsl:if test="//issuesInfo[@issuesFailed='true']">
-							<div>KPI: Testcases contain issues with higher priority than: <xsl:value-of select="//issuesInfo/@failPriority"></xsl:value-of> </div>
+							<div>KPI verletzt: Testfälle enthalten Issues mit höheren Priorität als: <xsl:value-of select="//issuesInfo/@failPriority"></xsl:value-of> </div>
 						</xsl:if>
 						<xsl:if test="$errorsFailed='true'">
-							<div>KPI: More than: <xsl:value-of select="$faliurePercent"/>% test errors</div>
+							<div>KPI verletzt: Mehr als <xsl:value-of select="$faliurePercent"/>% Testfallfehler</div>
 						</xsl:if>
 					</div>
 				</div>
 			</xsl:when>
 			<xsl:otherwise>
-				<div class="status_succes">Acceptable</div>
+				<div class="status_succes">Akzeptabel</div>
 			</xsl:otherwise>
 		</xsl:choose>
 	</div>
@@ -217,12 +215,12 @@ table th {
 <table id="results">
 <tr>
 <th>Browser</th>
-<th>Environment</th>
-<th>Module</th>
-<th>Succes</th>
-<th>Faliure</th>
-<th>Error</th>
-<th>Sum</th>
+<th>Umgebung</th>
+<th>Modul</th>
+<th>Erfolge</th>
+<th>Fehlschläge</th>
+<th>Testfehler</th>
+<th>Gesamt</th>
 </tr>
 <xsl:for-each select="/summaryall/summary">
 <xsl:variable name="href"><xsl:value-of select="@concatDir"/>/summary.html</xsl:variable>
@@ -246,16 +244,13 @@ table th {
 <td class="aright"><sum col="7"/></td>
 </tr>
 </table>
-<xsl:if test="$generate.coverage = 'true'">
-	<a href="coverageall_out.html">Coverage report</a>
-</xsl:if>
+<a href="coverageall_out.html">Testabdeckungsbericht</a>
+
 <p><i><b>Testfehler</b> - ist eine Ausfürung der Testszenario, die mit einem nicht erwarteten Ereignis endet (Abbruch oder eine nicht erwartete fehlschlagende Bedingung). 
 In meinsten Fällen sind im Fall von 'error' auch die Screenshots mit letztem Browserzustand verfügbar und die detaillierte Stacktraces mit Exception-Details.</i></p> 
 <p><i><b>Fehlschlag</b> - ist eine Ausfürung der Testszenario, die mit einem erwarteten Problem/Ereignis endet - die Probleme werden in Jira als Tickets erfasst. 
 Es dürfen mehrere Failures wärend der Ausfürung einer Testszenario gemeldet werden.</i></p>
-<xsl:if test="$generate.issuescleanup = 'true'">
-	<p>Die Liste mit Issues (PK-Nummer) ohne Fehlschlag (Kandidaten zur manuellen Bereinigung) befindet sich hier: <a href="issuesall.html">Issues ohne Fehlschlag</a></p>
-</xsl:if>
+<p>Die Liste mit Issues (PK-Nummer) ohne Fehlschlag (Kandidaten zur manuellen Bereinigung) befindet sich hier: <a href="issuesall.html">Issues ohne Fehlschlag</a></p>
 <xsl:if test="//issuesInfo">
 	<h2>Issues List:</h2>
 	<div style=" text-align: right;"><button id="detailedTestsButton" onclick="ShowDetaliedTests()" style="display: inline-block;">Mehr</button> </div>
@@ -302,17 +297,23 @@ Es dürfen mehrere Failures wärend der Ausfürung einer Testszenario gemeldet w
 	</table>
 </xsl:if>
 
-<!--  TODO parametryzacja priorytetów -->
+
 <table id="issues" class="hidden">
 <tr>
-<xsl:for-each select="//issuesInfo/stats/priorities/*">
-<th><xsl:value-of select="local-name()"/></th>
-</xsl:for-each>
+<th>Blocker</th>
+<th>Kritisch</th>
+<th>Wichtig</th>
+<th>Standard</th>
+<th>Gering</th>
+<th>Trivial</th>
 </tr>
 <tr class="datarow">
-<xsl:for-each select="//issuesInfo/stats/priorities/*">
-<td class="aright"><xsl:value-of select="."/></td>
-</xsl:for-each>
+<td class="aright"><xsl:value-of select="//issuesInfo/stats/priorities/Blocker"/></td>
+<td class="aright"><xsl:value-of select="//issuesInfo/stats/priorities/Kritisch"/></td>
+<td class="aright"><xsl:value-of select="//issuesInfo/stats/priorities/Wichtig"/></td>
+<td class="aright"><xsl:value-of select="//issuesInfo/stats/priorities/Standard"/></td>
+<td class="aright"><xsl:value-of select="//issuesInfo/stats/priorities/Gering"/></td>
+<td class="aright"><xsl:value-of select="//issuesInfo/stats/priorities/Trivial"/></td>
 </tr>
 </table>
 

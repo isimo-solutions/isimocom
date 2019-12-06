@@ -13,6 +13,8 @@
 		<!-- <isimo.execution.phases>postprocess</isimo.execution.phases>-->
 		<module>Faktury/scenarios</module>
 		<test.target>moduletest</test.target>
+		<prioritiesList>Trivial;Normal;High</prioritiesList>
+		<mockup>true</mockup>
 	</properties>
 	<dependencies>
 		<dependency>

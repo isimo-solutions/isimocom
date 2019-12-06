@@ -17,6 +17,10 @@
 	<property name="jira.username" value=""/>
 	<property name="jira.url" value=""/>
 	<property name="testfaliurepriority" value=""/>
+	<property name="generate.issuescleanup" value="true"/>
+	<property name="prioritiesList" value=""/>
+	<property name="mockup" value="false"/>
+		
 	
 	<target name="generate">
 		<taskdef name="reportconcat" classname="ReportConcat" classpathref="project.classpath" />
@@ -32,31 +36,39 @@
 				<include name="/**/summary.xml"/>
 			</fileset>
 		</reportconcat>
-			
-		<java classname="IssuesCleanup" classpathref="project.classpath">
-			<arg value="${project.build.directory}"/>
-		</java>
 		
+		<if>
+			<equals arg1="${generate.issuescleanup}" arg2="true"/>
+			<then>
+				<java classname="IssuesCleanup" classpathref="project.classpath">
+					<arg value="${project.build.directory}"/>
+				</java>
+			</then>
+		</if>
 		<if>
 			<isreference refid="mavendeps.com.isimo:isimo.report.jiraconnect:jar"/>
 			<then>
 				<taskdef name="createuniqueissuesdoc" classpathref="project.classpath" classname="CreateUniqueIssuesDoc"/>
 				<createuniqueissuesdoc rootdir="${project.build.directory}" />
 				
-				<!--<taskdef name="jiragetissuesinfo" classpathref="project.classpath" classname="jiraconnect"/>
-				<taskdef name="decryptpasswords" classpathref="project.classpath" classname="DecryptPasswords"></taskdef>
-				<decryptpasswords/>
+				<taskdef name="jiragetissuesinfo" classpathref="project.classpath" classname="JiraGetIssuesInfo"/>
+				<!--<taskdef name="decryptpasswords" classpathref="project.classpath" classname="DecryptPasswords"/>
+				<decryptpasswords/>-->
 				
-				<jiragetissuesinfo JIRA_USERNAME="${jira.username}" JIRA_PASSWORD="${jira.decrypted.password}" rootDir="${project.build.directory}" failFromPriority="${testfaliurepriority}"/>-->
+				<jiragetissuesinfo JIRA_USERNAME="${jira.username}" JIRA_PASSWORD="${jira.decrypted.password}" rootDir="${project.build.directory}" prioritiesTab="${prioritiesList}" mockup="${mockup}" failFromPriority="${testfaliurepriority}"/>
 			</then>
 		</if>
-		
+		<condition property="generate.coverage">
+			<isreference refid="mavendeps.com.isimo:isimo.report.coverage:jar"/>
+		</condition>
 		<xslt in="${summaryall.dir}/summaryall.xml" out="${summaryall.dir}/summaryall.html.xml" style="${isimoresources.dir}/xsl/summaryall.xsl" force="true">
 			<param name="name" expression="Tests ${NOW}" />
 			<param name="project" expression="${testproject.name}"/>
 			<param name="TSTAMP" expression="${NOW}" />
 			<param name="faliurePercent" expression="${testfaliurepercent}"/>
 			<param name="jira.url" expression="${jira.url}"/>
+			<param name="generate.issuescleanup" expression="${generate.issuescleanup}"/>
+			<param name="generate.coverage" expression="${generate.coverage}"/>
 		</xslt>
 		<xslt in="${summaryall.dir}/summaryall.html.xml" out="${summaryall.dir}/summaryall2.html.xml" style="${isimoresources.dir}/xsl/summaryall2.xsl" force="true">
 		</xslt>

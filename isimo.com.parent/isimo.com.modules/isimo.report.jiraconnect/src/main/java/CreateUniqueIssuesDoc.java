@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -17,6 +19,8 @@ import org.dom4j.Node;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
+
+
 public class CreateUniqueIssuesDoc extends Task {
 
 	
@@ -28,7 +32,8 @@ public class CreateUniqueIssuesDoc extends Task {
 			List<File> logsList = FindLogs(files);
 			SAXReader reader = new SAXReader();
 			HashMap<String , Issue> uniqueIssues = new HashMap<String, Issue>();
-			
+			File summaryAll = new File(rootDir + "/summaryall/summaryall.xml");
+			Document summaryAllDoc = reader.read(summaryAll);
 			for (File file : logsList)
 			{
 				Document doc = reader.read(file);
@@ -39,7 +44,8 @@ public class CreateUniqueIssuesDoc extends Task {
 						Element el = (Element)n;
 						String testcase = doc.selectSingleNode("//testcase").valueOf("@scenario");
 						String testmodule = doc.selectSingleNode("//testcase").valueOf("@module");
-						String path = "";//getPathForReport(file); <-- Potrzeba ścierzek względnych w plikach xml
+						Element summaryEl = (Element)summaryAllDoc.selectSingleNode("//summaryall/summary[./testcase[contains(@name, '"+testcase+"')]]");
+						String path = summaryEl.attributeValue("concatDir");
 						Issue issue;
 						if(!uniqueIssues.containsKey(el.attributeValue("issue"))) {
 							issue = new Issue(el.attributeValue("issue"));

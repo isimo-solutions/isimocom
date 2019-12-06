@@ -1,5 +1,4 @@
 window.columns1 =  {green : 4, red: 5, grey: 6};
-window.columns2 =  {Blocker : 1, Kritisch: 2, Wichtig: 3, Standard: 4, Gering: 5, Trivial: 6};
 window.criteria = ["Browser","Environment","Module"];
 window.defaultforcolumns = {"Browser": "internetExplorer"};
 window.columnMetadata = {};
@@ -19,12 +18,12 @@ window.chartColors = {
 	grey: 'rgb(100, 100, 100)'
 };
 window.issuesColors = {
-		Blocker: '#000000',
-		Kritisch: '#581845',
-		Wichtig: '#900C3F',
-		Standard: '#C70039',
-		Gering: '#FF5733',
-		Trivial: '#FFC300'
+		0: '#000000',
+		1: '#581845',
+		2: '#900C3F',
+		3: '#C70039',
+		4: '#FF5733',
+		5: '#FFC300'
 };
 
 
@@ -62,7 +61,7 @@ window.issuesColors = {
 						responsive: true,
 						title: {
 							display: true,
-							text: 'Verteilung der Testfallergebnissen'
+							text: 'Distribution of testcase results'
 						 },
 						 layout: {
 					            padding: {
@@ -281,7 +280,7 @@ window.issuesColors = {
 					responsive: true,
 					title:{
 						display: true,
-						text: 'Verteilung der FehlerprioritÃ¤ten'
+						text: 'Distribution of error priorities'
 					 },
 					 layout: {
 				            padding: {
@@ -313,14 +312,15 @@ window.issuesColors = {
 		var datas = [];
 		var labels = [];
 		
-		
-		$.each( columns, function(color) {
-			var index = columns[color];
-			var title = $("#issues tr th:nth-child("+index+")").html();
-			bColors.push(window.issuesColors[color]);
+		var i = 0
+		$.each( $("#issues tr th"), function(color) {
+			var index = i + 1;
+			var title = $("#issues tr th:nth-child("+index+")").text();
+			bColors.push(window.issuesColors[i]);
 			var sumforcolor = Number($("#issues tr.datarow td:nth-child("+index+")").text());
 			datas.push(sumforcolor);
 			labels.push(title+" "+sumforcolor);
+			i = i + 1;
 		});
 		window.issuesConfig.data = {
 			datasets: [{

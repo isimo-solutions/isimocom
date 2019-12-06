@@ -29,41 +29,30 @@ import com.atlassian.jira.rest.client.internal.async.AsynchronousJiraRestClientF
 
 public class JiraGetIssuesInfo extends Task {
 
-	public String failFromPriority = "Wichtig";
-	public int failFromPriorityId = 3;
+	public String failFromPriority = "";
+	public int failFromPriorityId = -1;
+	public String[] prioritiesTab;
+	
 
 	public Boolean addToSummary = true;
 	public String summaryNodeXpath = "//summaryall/summary";
+	public Boolean mockup = false;
 
-	public HashMap<String, Integer> priorityMap; 
-	{
-		priorityMap = new HashMap<String, Integer>();
-		priorityMap.put("Trivial", 0);
-		priorityMap.put("Gering", 1);
-		priorityMap.put("Standard", 2);
-		priorityMap.put("Wichtig", 3);
-		priorityMap.put("Kritisch", 4);
-		priorityMap.put("Blocker", 5);
-	}
 
-	 private URI JIRA_URL = URI.create("https://seproxy.bitmarck-software.de/jira");
-	 private String JIRA_USERNAME = "ue30532";
+	private URI JIRA_URL = URI.create("");
+	 private String JIRA_USERNAME = "";
 	 private String JIRA_PASSWORD = "";
 	 public String rootDir="";
-	 
-	 private JiraRestClient restClient;
+	 	 
+	 private int getPrioityId(String priority) {
+		 for (int i = 0; i < prioritiesTab.length; i++) {
+			if(priority.equals(prioritiesTab[i])) return i;
+		}
+		 return -1;
+	 }
 	 
 	 private JiraRestClient JiraConnect() {
 		 return new AsynchronousJiraRestClientFactory().createWithBasicHttpAuthentication(JIRA_URL, JIRA_USERNAME, JIRA_PASSWORD);
-	 }
-	 
-	 public Issue getIsssueByKey(String key) {
-		 try {
-			 return restClient.getIssueClient().getIssue(key).claim();
-		 }catch (RestClientException e) {
-			 System.out.println("Issue '"+ key +"' does not exist!");
-			 throw e;
-		}
 	 }
 	 
 	 public void addToSummaryAll(Element el) throws Exception {
@@ -88,36 +77,28 @@ public class JiraGetIssuesInfo extends Task {
 			Element root = outDoc.addElement( "issuesInfo" );
 			Element stats = root.addElement("stats");
 			Element issuesListWrapper = root.addElement("issuesList");
-			int prioritiesNumbers[] = new int [6];
+			int prioritiesNumbers[] = new int [prioritiesTab.length];
 			List<Node> nodes = issuesDoc.selectNodes("//issue");
-			restClient = JiraConnect();
+			
+			IssueWrapper.setMockup(mockup);
+			if (!mockup) {
+				IssueWrapper.setRestClient(JiraConnect());
+			}
+			
 			ArrayList<JiraIssue> issuesList = new ArrayList<>();
 			for (Node node : nodes) {
 				String issueKey = ((Element)node).attributeValue("id");
-				Issue issue = getIsssueByKey(issueKey);
+				IssueWrapper issue = new IssueWrapper(issueKey);
 				Element testlistEl = (Element)node.selectSingleNode("./testlist").clone();
-				String priority = issue.getPriority().getName();
+				String priority = issue.getPriority();
 				String summary = issue.getSummary();
-				String sprint = "";
-				String status = issue.getStatus().getName();
+				String sprint = issue.getFieldByName("Sprint");
+				String status = issue.getStatus();
 				
-				if(issue.getFieldByName("Sprint").getValue() != null) {
-					JSONArray jsonArray = (JSONArray)issue.getFieldByName("Sprint").getValue();
-					for (int i = 0; i < jsonArray.length(); i++) {
-						String sprintJson = jsonArray.get(i).toString();
-						sprintJson = sprintJson.substring(sprintJson.indexOf("["));
-						String[] sprintFields = sprintJson.split(",");
-						for (String field : sprintFields) {
-							if(field.startsWith("name=")) {
-								if(!sprint.equals("")) sprint+=", ";
-								sprint += field.replace("name=", "");
-							}
-						}
-					}				
-				}
-				System.out.println("Key: "+ issueKey + " priority: " + priority + " id: " + priorityMap.get(priority) +" sprint: " + sprint);
-				issuesList.add( new JiraIssue(issueKey, summary,priorityMap.get(priority), priority , status, sprint, testlistEl));				
-				prioritiesNumbers[priorityMap.get(priority)] += 1;
+				
+				System.out.println("Key: "+ issueKey + " priority: " + priority + " id: " + getPrioityId(priority) +" sprint: " + sprint);
+				issuesList.add( new JiraIssue(issueKey, summary,getPrioityId(priority), priority , status, sprint, testlistEl));				
+				prioritiesNumbers[getPrioityId(priority)] += 1;
 			}
 			
 			Collections.sort(issuesList);
@@ -129,25 +110,25 @@ public class JiraGetIssuesInfo extends Task {
 			
 			stats.addAttribute("uniqueIssues", nodes.size()+"");
 			Element priorities = stats.addElement("priorities");
-			priorities.addElement("Blocker").addAttribute("id", 5+"").setText(prioritiesNumbers[5]+"");
-			priorities.addElement("Kritisch").addAttribute("id", 4+"").setText(prioritiesNumbers[4]+"");
-			priorities.addElement("Wichtig").addAttribute("id", 3+"").setText(prioritiesNumbers[3]+"");
-			priorities.addElement("Standard").addAttribute("id", 2+"").setText(prioritiesNumbers[2]+"");
-			priorities.addElement("Gering").addAttribute("id", 1+"").setText(prioritiesNumbers[1]+"");
-			priorities.addElement("Trivial").addAttribute("id", 0+"").setText(prioritiesNumbers[0]+"");
-			
-			failFromPriorityId = priorityMap.get(failFromPriority);
-			
-			int sum = 0;
-			for(int i = failFromPriorityId; i < 6; i++) {
-				sum += prioritiesNumbers[i];
+			for (int i = 0; i < prioritiesNumbers.length; i++) {
+				priorities.addElement(prioritiesTab[i]).addAttribute("id", i+"").setText(prioritiesNumbers[i]+"");
 			}
-			if(sum > 0) root.addAttribute("issuesFailed", "true").addAttribute("failPriority", failFromPriority);
 			
+			if(!failFromPriority.equals(""))
+				failFromPriorityId = getPrioityId(failFromPriority);
+			
+			if(failFromPriorityId >= 0) {
+				
+				int sum = 0;
+				for(int i = failFromPriorityId; i < 6; i++) {
+					sum += prioritiesNumbers[i];
+				}
+				if(sum > 0) root.addAttribute("issuesFailed", "true").addAttribute("failPriority", failFromPriority);
+			}
 			addToSummaryAll(root);
 			
 			OutputFormat format = OutputFormat.createPrettyPrint();
-			OutputStream os = new FileOutputStream(rootDir + "/summary/UniqueIssues.xml");
+			OutputStream os = new FileOutputStream(rootDir + "/summaryall/UniqueIssues.xml");
 			XMLWriter writer = new XMLWriter( os, format );
 	        writer.write(outDoc);
 		}catch (Exception e) {
@@ -214,6 +195,21 @@ public class JiraGetIssuesInfo extends Task {
 
 	public void setSummaryNodeXpath(String summaryNodeXpath) {
 		this.summaryNodeXpath = summaryNodeXpath;
+	}
+	public String[] getPrioritiesTab() {
+		return prioritiesTab;
+	}
+
+	public void setPrioritiesTab(String prioritiesTab) {
+		this.prioritiesTab = prioritiesTab.split(";");
+	}
+
+	public Boolean getMockup() {
+		return mockup;
+	}
+
+	public void setMockup(Boolean mockup) {
+		this.mockup = mockup;
 	}
 
 }
