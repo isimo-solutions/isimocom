@@ -32,7 +32,7 @@ public class JiraGetIssuesInfo extends Task {
 	public String failFromPriority = "";
 	public int failFromPriorityId = -1;
 	public String[] prioritiesTab;
-	
+	public String[] colorsTab;
 
 	public Boolean addToSummary = true;
 	public String summaryNodeXpath = "//summaryall/summary";
@@ -111,7 +111,7 @@ public class JiraGetIssuesInfo extends Task {
 			stats.addAttribute("uniqueIssues", nodes.size()+"");
 			Element priorities = stats.addElement("priorities");
 			for (int i = 0; i < prioritiesNumbers.length; i++) {
-				priorities.addElement(prioritiesTab[i]).addAttribute("id", i+"").setText(prioritiesNumbers[i]+"");
+				priorities.addElement(prioritiesTab[i]).addAttribute("id", i+"").addAttribute("color", colorsTab[i]).setText(prioritiesNumbers[i]+"");
 			}
 			
 			if(!failFromPriority.equals(""))
@@ -202,6 +202,14 @@ public class JiraGetIssuesInfo extends Task {
 
 	public void setPrioritiesTab(String prioritiesTab) {
 		this.prioritiesTab = prioritiesTab.split(";");
+	}
+	
+	public String[] getColorsTab() {
+		return colorsTab;
+	}
+
+	public void setColorsTab(String colorsTab) {
+		this.colorsTab = colorsTab.split(";");
 	}
 
 	public Boolean getMockup() {

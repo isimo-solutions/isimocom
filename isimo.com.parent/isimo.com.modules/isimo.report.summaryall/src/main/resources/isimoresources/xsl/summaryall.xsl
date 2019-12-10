@@ -4,6 +4,7 @@
 <xsl:param name="project"/>
 <xsl:param name="TSTAMP"/>
 <xsl:param name="faliurePercent"/>
+<xsl:param name="jira.url"/>
 <xsl:param name="generate.coverage"/>
 <xsl:param name="generate.issuescleanup"/>
 <xsl:output method="xml"/>
@@ -271,7 +272,7 @@ Es dürfen mehrere Failures wärend der Ausfürung einer Testszenario gemeldet w
 		</tr>
 		<xsl:for-each select="//issuesInfo/issuesList/issue">
 			<tr>
-				<td><a href="https://seproxy.bitmarck-software.de/jira/browse/{@key}"><xsl:value-of select="@key"/></a></td>
+				<td><a href="{jira.url}/{@key}"><xsl:value-of select="@key"/></a></td>
 				<td class="summary"><xsl:value-of select="@summary"/></td>
 				<td><xsl:value-of select="@priority"/></td>
 				<td><xsl:value-of select="@status"/></td>
@@ -281,7 +282,7 @@ Es dürfen mehrere Failures wärend der Ausfürung einer Testszenario gemeldet w
 					<table id="innerIssuesDetails" class="innerIssuesDetails">
 					<xsl:for-each select="./testlist/module">
 						<tr>
-						<xsl:variable name="modulehref">../<xsl:value-of select="./@path"/>/summary.html?issue=<xsl:value-of select="../../@key"/></xsl:variable>
+						<xsl:variable name="modulehref"><xsl:value-of select="./@path"/>/summary.html?issue=<xsl:value-of select="../../@key"/></xsl:variable>
 						
 							<td class="moduletd"><div style="word-wrap:break-word;"><a href="{$modulehref}"><xsl:value-of select="@name"/></a></div></td>
 							<td class="counttd"><div class="countdiv"><xsl:value-of select="@testnumber"/></div></td>
@@ -307,6 +308,11 @@ Es dürfen mehrere Failures wärend der Ausfürung einer Testszenario gemeldet w
 <tr>
 <xsl:for-each select="//issuesInfo/stats/priorities/*">
 <th><xsl:value-of select="local-name()"/></th>
+</xsl:for-each>
+</tr>
+<tr class="colorrow">
+<xsl:for-each select="//issuesInfo/stats/priorities/*">
+<td class="aright"><xsl:value-of select="@color"/></td>
 </xsl:for-each>
 </tr>
 <tr class="datarow">

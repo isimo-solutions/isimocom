@@ -18,12 +18,12 @@ window.chartColors = {
 	grey: 'rgb(100, 100, 100)'
 };
 window.issuesColors = {
-		0: '#000000',
-		1: '#581845',
-		2: '#900C3F',
-		3: '#C70039',
-		4: '#FF5733',
-		5: '#FFC300'
+		5: '#000000',
+		4: '#581845',
+		3: '#900C3F',
+		2: '#C70039',
+		1: '#FF5733',
+		0: '#FFC300'
 };
 
 
@@ -316,7 +316,7 @@ window.issuesColors = {
 		$.each( $("#issues tr th"), function(color) {
 			var index = i + 1;
 			var title = $("#issues tr th:nth-child("+index+")").text();
-			bColors.push(window.issuesColors[i]);
+			bColors.push($("#issues tr.colorrow td:nth-child("+index+")").text());
 			var sumforcolor = Number($("#issues tr.datarow td:nth-child("+index+")").text());
 			datas.push(sumforcolor);
 			labels.push(title+" "+sumforcolor);
