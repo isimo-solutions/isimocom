@@ -62,6 +62,11 @@
 			<artifactId>isimo.report.jiraconnect</artifactId>
 			<version>${testframework.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.isimo</groupId>
+			<artifactId>isimo.report.language.de</artifactId>
+			<version>${testframework.version}</version>
+		</dependency>
 	</dependencies>
 			<build>
 				<plugins>

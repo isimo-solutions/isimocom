@@ -71,7 +71,9 @@
 			<param name="generate.issuescleanup" expression="${generate.issuescleanup}"/>
 			<param name="generate.coverage" expression="${generate.coverage}"/>
 		</xslt>
-		<xslt in="${summaryall.dir}/summaryall.html.xml" out="${summaryall.dir}/summaryall2.html.xml" style="${isimoresources.dir}/xsl/summaryall2.xsl" force="true">
+		<xslt in="${summaryall.dir}/summaryall.html.xml" out="${summaryall.dir}/summaryall-translated.html.xml" style="${isimoresources.dir}/xsl/translatesummaryall.xsl" force="true">
+		</xslt>
+		<xslt in="${summaryall.dir}/summaryall-translated.html.xml" out="${summaryall.dir}/summaryall2.html.xml" style="${isimoresources.dir}/xsl/summaryall2.xsl" force="true">
 		</xslt>
 		<xslt in="${summaryall.dir}/summaryall2.html.xml" out="${summaryall.dir}/summaryall.html" style="${isimoresources.dir}/xsl/summaryall3.xsl" force="true">
 		</xslt>

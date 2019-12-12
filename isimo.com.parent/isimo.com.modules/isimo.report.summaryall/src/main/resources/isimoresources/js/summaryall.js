@@ -235,10 +235,10 @@ window.issuesColors = {
 
 		$.each( columns, function(color) {
 			var index = columns[color];
-			var title = $("tr th:nth-child("+index+")").html();
+			var title = $("#results tr th:nth-child("+index+")").text();
 			bColors.push(window.chartColors[color]);
 			var sumforcolor = 0;
-			$("tr.datarow td:nth-child("+index+")").each(function(cnt) {
+			$("#results tr.datarow td:nth-child("+index+")").each(function(cnt) {
 				sumforcolor += Number($( this ).text());
 			});
 			datas.push(sumforcolor);

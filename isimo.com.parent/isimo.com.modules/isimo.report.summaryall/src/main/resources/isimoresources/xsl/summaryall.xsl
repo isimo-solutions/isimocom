@@ -179,7 +179,7 @@ table th {
 <div class="header">
 	<div><xsl:value-of select="$name"/> - Summary</div>
 	<div class="inner_felxbox" style="padding-left:30px;">
-		<div>Result: </div>
+		<div><span id="resultTextSpan">Result</span>:</div>
 		
 		<xsl:variable name="allTests"><xsl:value-of select="sum(.//testcase/testsuite/@tests)"/></xsl:variable>
 		<xsl:variable name="allErrors"><xsl:value-of select="sum(//testcase/testsuite/@errors)"/></xsl:variable>
@@ -188,19 +188,19 @@ table th {
 		<xsl:choose>
 			<xsl:when test="//issuesInfo[@issuesFailed='true'] or $errorsFailed='true'">
 				<div class="inner_felxbox test_fail">
-					<div class="status_fail">Failed</div>
+					<div class="status_fail"><span id="failedTextSpan">Failed</span></div>
 					<div class="inner_felxbox fail_reasons">
 						<xsl:if test="//issuesInfo[@issuesFailed='true']">
-							<div>KPI: Testcases contain issues with higher priority than: <xsl:value-of select="//issuesInfo/@failPriority"></xsl:value-of> </div>
+							<div><span id="kpiPriorityTextSpan">KPI: Testcases contain issues with higher priority than</span>: <xsl:value-of select="//issuesInfo/@failPriority"></xsl:value-of> </div>
 						</xsl:if>
 						<xsl:if test="$errorsFailed='true'">
-							<div>KPI: More than: <xsl:value-of select="$faliurePercent"/>% test errors</div>
+							<div><span id="kpiFailure1TextSpan">KPI: More than</span>: <xsl:value-of select="$faliurePercent"/>% <span id="kpiFailure2TextSpan">test errors</span></div>
 						</xsl:if>
 					</div>
 				</div>
 			</xsl:when>
 			<xsl:otherwise>
-				<div class="status_succes">Acceptable</div>
+				<div class="status_succes"><span id="acceptableTextSpan">Acceptable</span></div>
 			</xsl:otherwise>
 		</xsl:choose>
 	</div>
@@ -217,13 +217,13 @@ table th {
 </div>
 <table id="results">
 <tr>
-<th>Browser</th>
-<th>Environment</th>
-<th>Module</th>
-<th>Succes</th>
-<th>Faliure</th>
-<th>Error</th>
-<th>Sum</th>
+<th><span id="tablethBrowserSpan">Browser</span></th>
+<th><span id="tablethEnviromentSpan">Environment</span></th>
+<th><span id="tablethModuleSpan">Module</span></th>
+<th><span id="tablethSuccesSpan">Succes</span></th>
+<th><span id="tablethFailureSpan">Failure</span></th>
+<th><span id="tablethErrorSpan">Error</span></th>
+<th><span id="tablethSumSpan">Sum</span></th>
 </tr>
 <xsl:for-each select="/summaryall/summary">
 <xsl:variable name="href"><xsl:value-of select="@concatDir"/>/summary.html</xsl:variable>
@@ -238,7 +238,7 @@ table th {
 </tr>
 </xsl:for-each>
 <tr class="sumrow">
-<td>Gesamt:</td>
+<td><span id="tableSumRowSpan">Sum:</span></td>
 <td></td>
 <td></td>
 <td class="aright"><sum col="4"/></td>
@@ -248,27 +248,27 @@ table th {
 </tr>
 </table>
 <xsl:if test="$generate.coverage = 'true'">
-	<a href="coverageall_out.html">Coverage report</a>
+	<a href="coverageall_out.html"><span id="coverageReportLinkSpan">Coverage report</span></a>
 </xsl:if>
-<p><i><b>Testfehler</b> - ist eine Ausfürung der Testszenario, die mit einem nicht erwarteten Ereignis endet (Abbruch oder eine nicht erwartete fehlschlagende Bedingung). 
-In meinsten Fällen sind im Fall von 'error' auch die Screenshots mit letztem Browserzustand verfügbar und die detaillierte Stacktraces mit Exception-Details.</i></p> 
-<p><i><b>Fehlschlag</b> - ist eine Ausfürung der Testszenario, die mit einem erwarteten Problem/Ereignis endet - die Probleme werden in Jira als Tickets erfasst. 
-Es dürfen mehrere Failures wärend der Ausfürung einer Testszenario gemeldet werden.</i></p>
+<p><i><b><span id="errorHeaderParagraphSpan">Testfehler</span></b> - <span id="errorParagraphSpan">ist eine Ausfürung der Testszenario, die mit einem nicht erwarteten Ereignis endet (Abbruch oder eine nicht erwartete fehlschlagende Bedingung). 
+In meinsten Fällen sind im Fall von 'error' auch die Screenshots mit letztem Browserzustand verfügbar und die detaillierte Stacktraces mit Exception-Details.</span></i></p> 
+<p><i><b><span id="failureHeaderParagraphSpan">Fehlschlag</span></b> - <span id="failureParagraphSpan">ist eine Ausfürung der Testszenario, die mit einem erwarteten Problem/Ereignis endet - die Probleme werden in Jira als Tickets erfasst. 
+Es dürfen mehrere Failures wärend der Ausfürung einer Testszenario gemeldet werden.</span></i></p>
 <xsl:if test="$generate.issuescleanup = 'true'">
-	<p>Die Liste mit Issues (PK-Nummer) ohne Fehlschlag (Kandidaten zur manuellen Bereinigung) befindet sich hier: <a href="issuesall.html">Issues ohne Fehlschlag</a></p>
+	<p><span id="issuesCleanupTextSpan">Die Liste mit Issues (PK-Nummer) ohne Fehlschlag (Kandidaten zur manuellen Bereinigung) befindet sich hier</span>: <a href="issuesall.html"><span id="issuesCleanupLinkSpan">Issues ohne Fehlschlag</span></a></p>
 </xsl:if>
 <xsl:if test="//issuesInfo">
-	<h2>Issues List:</h2>
+	<h2><span id="issuesListTextSpan">Issues List:</span></h2>
 	<div style=" text-align: right;"><button id="detailedTestsButton" onclick="ShowDetaliedTests()" style="display: inline-block;">Mehr</button> </div>
 	<table id="issuesDetails" class="issuesDetails">
 		<tr>
-			<th class="issuesDetailsId">Id</th>
-			<th class="issuesDetailsSummary">Summary</th>
-			<th class="issuesDetailsPriority">Priority</th>
-			<th class="issuesDetailsStatus">Status</th>
-			<th class="issuesDetailsSprint">Sprint</th>
-			<th class="issuesDetailsOccurenceCount">Count</th>
-			<th class="issuesDetailsTests">Tests</th>
+			<th class="issuesDetailsId"><span id="issuesDetailsIdThSpan">Id</span></th>
+			<th class="issuesDetailsSummary"><span id="issuesDetailsSummaryThSpan">Summary</span></th>
+			<th class="issuesDetailsPriority"><span id="issuesDetailsPriorityThSpan">Priority</span></th>
+			<th class="issuesDetailsStatus"><span id="issuesDetailsStatusThSpan">Status</span></th>
+			<th class="issuesDetailsSprint"><span id="issuesDetailsSprintThSpan">Sprint</span></th>
+			<th class="issuesDetailsOccurenceCount"><span id="issuesDetailsCountThSpan">Count</span></th>
+			<th class="issuesDetailsTests"><span id="issuesDetailsTestThSpan">Tests</span></th>
 		</tr>
 		<xsl:for-each select="//issuesInfo/issuesList/issue">
 			<tr>
@@ -303,7 +303,6 @@ Es dürfen mehrere Failures wärend der Ausfürung einer Testszenario gemeldet w
 	</table>
 </xsl:if>
 
-<!--  TODO parametryzacja priorytetów -->
 <table id="issues" class="hidden">
 <tr>
 <xsl:for-each select="//issuesInfo/stats/priorities/*">
