@@ -1,6 +1,6 @@
 window.columns1 =  {green : 4, red: 5, grey: 6};
-window.criteria = ["Browser","Environment","Module"];
-window.defaultforcolumns = {"Browser": "internetExplorer"};
+window.criteriaIndex = [1,2,3]
+window.criteria = [];
 window.columnMetadata = {};
 window.criteriaMetadata = {};
 Chart.defaults.global.legend.position = 'right';
@@ -28,7 +28,8 @@ window.issuesColors = {
 
 
 		window.onload = function() {
-			calcMetadata()
+			calcCriteria();
+			calcMetadata();
 			createCriteria();
 			resetCriteria();
 			$("select.criteria").change(updateChart);
@@ -36,6 +37,11 @@ window.issuesColors = {
 			if($("#chart-area-issues").length) calcIssuesConfig(window.columns2);
 		};
 		
+		function calcCriteria(){
+				$.each(window.criteriaIndex, function(index){
+					window.criteria.push($("table#results tr th:nth-child("+window.criteriaIndex[index]+")").text())
+				});
+		}
 		function initData() {
 			window.config = {
 					type: 'pie',
@@ -96,12 +102,7 @@ window.issuesColors = {
 			var resetTo = "--Alle--";
 			dropdown.find("option").each(function(option) {
 				var o = $(this);
-				var value = o.text();
-				if(window.defaultforcolumns[dropdown.attr('criteriaName')] == value) {
-					o.attr('selected','true');
-				} else {
-					o.removeAttr('selected');
-				}
+				o.removeAttr('selected');
 			});
 		}
 		
@@ -211,8 +212,6 @@ window.issuesColors = {
 		$(select).append(alle);
 		$.each(valuesset, function(value) {
 			var def = "";
-			if((window.defaultforcolumns[criteriaName] == value) && !detailansicht())
-				def = "selected=\"true\"";
 			var option = $("<option id=\""+value+"\" "+def+">"+this+"</option>");
 			/*var option = document.createElement("option");
 			option.setAttribute("id",value);

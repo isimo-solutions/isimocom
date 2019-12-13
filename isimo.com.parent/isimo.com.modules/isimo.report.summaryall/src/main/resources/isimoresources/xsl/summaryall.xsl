@@ -223,7 +223,7 @@ table th {
 <th><span id="tablethSuccesSpan">Succes</span></th>
 <th><span id="tablethFailureSpan">Failure</span></th>
 <th><span id="tablethErrorSpan">Error</span></th>
-<th><span id="tablethSumSpan">Sum</span></th>
+<th><span id="tableSumSpan">Sum</span></th>
 </tr>
 <xsl:for-each select="/summaryall/summary">
 <xsl:variable name="href"><xsl:value-of select="@concatDir"/>/summary.html</xsl:variable>
@@ -238,7 +238,7 @@ table th {
 </tr>
 </xsl:for-each>
 <tr class="sumrow">
-<td><span id="tableSumRowSpan">Sum:</span></td>
+<td><span id="tableSumSpan">Sum</span>:</td>
 <td></td>
 <td></td>
 <td class="aright"><sum col="4"/></td>
@@ -259,7 +259,7 @@ Es dürfen mehrere Failures wärend der Ausfürung einer Testszenario gemeldet w
 </xsl:if>
 <xsl:if test="//issuesInfo">
 	<h2><span id="issuesListTextSpan">Issues List:</span></h2>
-	<div style=" text-align: right;"><button id="detailedTestsButton" onclick="ShowDetaliedTests()" style="display: inline-block;">Mehr</button> </div>
+	<div style=" text-align: right;"><button id="detailedTestsButton" onclick="ShowDetaliedTests()" style="display: inline-block;"><span id="detailedIssuesListButtonSpan">Mehr</span></button> </div>
 	<table id="issuesDetails" class="issuesDetails">
 		<tr>
 			<th class="issuesDetailsId"><span id="issuesDetailsIdThSpan">Id</span></th>
