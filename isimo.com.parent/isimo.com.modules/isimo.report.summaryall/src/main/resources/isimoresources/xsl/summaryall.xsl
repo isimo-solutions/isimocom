@@ -180,7 +180,7 @@ table th {
 	<div><xsl:value-of select="$name"/> - Summary</div>
 	<div class="inner_felxbox" style="padding-left:30px;">
 		<div><span id="resultTextSpan">Result</span>:</div>
-		
+		<div class="hidden"><span id="testsChartTitleSpan">Distribution of testcase results</span><span id="issuesChartTitleSpan">Distribution of error priorities</span></div>
 		<xsl:variable name="allTests"><xsl:value-of select="sum(.//testcase/testsuite/@tests)"/></xsl:variable>
 		<xsl:variable name="allErrors"><xsl:value-of select="sum(//testcase/testsuite/@errors)"/></xsl:variable>
 		<xsl:variable name="errorsFailed"><xsl:value-of select="(($allErrors * 100) div $allTests) >= $faliurePercent"/></xsl:variable>
@@ -221,8 +221,8 @@ table th {
 <th><span id="tablethEnviromentSpan">Environment</span></th>
 <th><span id="tablethModuleSpan">Module</span></th>
 <th><span id="tablethSuccesSpan">Succes</span></th>
-<th><span id="tablethFailureSpan">Failure</span></th>
-<th><span id="tablethErrorSpan">Error</span></th>
+<th><span id="failureSpan">Failure</span></th>
+<th><span id="errorSpan">Error</span></th>
 <th><span id="tableSumSpan">Sum</span></th>
 </tr>
 <xsl:for-each select="/summaryall/summary">
@@ -250,16 +250,15 @@ table th {
 <xsl:if test="$generate.coverage = 'true'">
 	<a href="coverageall_out.html"><span id="coverageReportLinkSpan">Coverage report</span></a>
 </xsl:if>
-<p><i><b><span id="errorHeaderParagraphSpan">Testfehler</span></b> - <span id="errorParagraphSpan">ist eine Ausfürung der Testszenario, die mit einem nicht erwarteten Ereignis endet (Abbruch oder eine nicht erwartete fehlschlagende Bedingung). 
-In meinsten Fällen sind im Fall von 'error' auch die Screenshots mit letztem Browserzustand verfügbar und die detaillierte Stacktraces mit Exception-Details.</span></i></p> 
-<p><i><b><span id="failureHeaderParagraphSpan">Fehlschlag</span></b> - <span id="failureParagraphSpan">ist eine Ausfürung der Testszenario, die mit einem erwarteten Problem/Ereignis endet - die Probleme werden in Jira als Tickets erfasst. 
-Es dürfen mehrere Failures wärend der Ausfürung einer Testszenario gemeldet werden.</span></i></p>
+<p><i><b><span id="errorSpan">Error</span></b> - <span id="errorParagraphSpan">is an execution of the test scenario that ends with an unexpected event (termination or an unexpected failed condition). In most cases, the screenshots with the latest browser status and the detailed stack traces with exception details are also available.</span></i></p> 
+<p><i><b><span id="failureSpan">Failure</span></b> - <span id="failureParagraphSpan">is an execution of the test scenario that ends with an expected problem / event - the problems are recorded in Jira as tickets. Multiple failures may be reported while executing a test scenario.</span></i></p>
 <xsl:if test="$generate.issuescleanup = 'true'">
-	<p><span id="issuesCleanupTextSpan">Die Liste mit Issues (PK-Nummer) ohne Fehlschlag (Kandidaten zur manuellen Bereinigung) befindet sich hier</span>: <a href="issuesall.html"><span id="issuesCleanupLinkSpan">Issues ohne Fehlschlag</span></a></p>
+	<p><span id="issuesCleanupTextSpan">The list of issues without test failure (candidates for manual cleanup) is here</span>: <a href="issuesall.html"><span id="issuesCleanupLinkSpan">Issues status report</span></a></p>
 </xsl:if>
 <xsl:if test="//issuesInfo">
-	<h2><span id="issuesListTextSpan">Issues List:</span></h2>
-	<div style=" text-align: right;"><button id="detailedTestsButton" onclick="ShowDetaliedTests()" style="display: inline-block;"><span id="detailedIssuesListButtonSpan">Mehr</span></button> </div>
+	<h2><span id="issuesListTextSpan">Issues List</span>:</h2>
+	<div class="hidden"><span id="detailedIssuesListMoreButtonSpan">More</span><span id="detailedIssuesListLessButtonSpan">Less</span></div>
+	<div style=" text-align: right;"><button id="detailedTestsButton" onclick="ShowDetaliedTests()" style="display: inline-block;"><span id="detailedIssuesListMoreButtonSpan">More</span></button> </div>
 	<table id="issuesDetails" class="issuesDetails">
 		<tr>
 			<th class="issuesDetailsId"><span id="issuesDetailsIdThSpan">Id</span></th>

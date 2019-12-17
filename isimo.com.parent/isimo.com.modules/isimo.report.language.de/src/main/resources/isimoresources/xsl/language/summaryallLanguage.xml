@@ -6,31 +6,33 @@
 	<span id="kpiFailure1TextSpan">KPI verletzt: Mehr als</span>
 	<span id="kpiFailure2TextSpan">Testfallfehler</span>
 	<span id="acceptableTextSpan">Akzeptabel</span>
+	
+	<span id="testsChartTitleSpan">Verteilung der Testfallergebnissen</span>
+	<span id="issuesChartTitleSpan">Verteilung der Fehlerprioritäten</span>
+	
 	<span id="tablethBrowserSpan">Browser</span>
 	<span id="tablethEnviromentSpan">Umgebung</span>
 	<span id="tablethModuleSpan">Modul</span>
 	<span id="tablethSuccesSpan">Erfolge</span>
-	<span id="tablethFailureSpan">Fehlschläge</span>
-	<span id="tablethErrorSpan">Testfehler</span>
+	<span id="failureSpan">Fehlschläge</span>
+	<span id="errorSpan">Testfehler</span>
 	<span id="tableSumSpan">Gesamt</span>
 	<span id="coverageReportLinkSpan">Testabdeckungsbericht</span>
-	<span id="errorHeaderParagraphSpan">Testfehler</span>
-	<span id="errorParagraphSpan">ist eine Ausfürung der Testszenario, die mit einem nicht erwarteten Ereignis endet (Abbruch oder eine nicht erwartete fehlschlagende Bedingung).
-In meinsten Fällen sind im Fall von 'error' auch die Screenshots mit letztem Browserzustand verfügbar und die detaillierte Stacktraces mit Exception-Details.</span>
-	<span id="failureHeaderParagraphSpan">Fehlschlag</span>
-	<span id="failureParagraphSpan">ist eine Ausfürung der Testszenario, die mit einem erwarteten Problem/Ereignis endet - die Probleme werden in Jira als Tickets erfasst. 
-Es dürfen mehrere Failures wärend der Ausfürung einer Testszenario gemeldet werden.</span>
-	<span id="issuesCleanupTextSpan">Die Liste mit Issues (PK-Nummer) ohne Fehlschlag (Kandidaten zur manuellen Bereinigung) befindet sich hier</span>
-	<span id="issuesCleanupLinkSpan">Issues ohne Fehlschlag</span>
+	<span id="errorParagraphSpan">ist eine Ausfürung der Testszenario, die mit einem nicht erwarteten Ereignis endet (Abbruch oder eine nicht erwartete fehlschlagende Bedingung). In meinsten Fällen sind im Fall von 'error' auch die Screenshots mit letztem Browserzustand verfügbar und die detaillierte Stacktraces mit Exception-Details.</span>
+	<span id="failureParagraphSpan">ist eine Ausfürung der Testszenario, die mit einem erwarteten Problem/Ereignis endet - die Probleme werden in Jira als Tickets erfasst. Es dürfen mehrere Failures wärend der Ausfürung einer Testszenario gemeldet werden.</span>
+	<span id="issuesCleanupTextSpan">Die Liste mit Issues ohne Fehlschlag (Kandidaten zur manuellen Bereinigung) befindet sich hier</span>
+	<span id="issuesCleanupLinkSpan">Issues Statusbericht</span>
 	
-	<!-- Do Przetłumaczenia -->
-	<span id="issuesListTextSpan">Issues List:</span>
-	<span id="detailedIssuesListButtonSpan">Mehr</span>
+
+	
+	<span id="issuesListTextSpan">Liste der Jira-Probleme</span>
+	<span id="detailedIssuesListMoreButtonSpan">Mehr</span>
+	<span id="detailedIssuesListLessButtonSpan">Weniger</span>
 	<span id="issuesDetailsIdThSpan">Id</span>
-	<span id="issuesDetailsSummaryThSpan">Summary</span>
-	<span id="issuesDetailsPriorityThSpan">Priority</span>
+	<span id="issuesDetailsSummaryThSpan">Zusammenfassung</span>
+	<span id="issuesDetailsPriorityThSpan">Priorität</span>
 	<span id="issuesDetailsStatusThSpan">Status</span>
 	<span id="issuesDetailsSprintThSpan">Sprint</span>
-	<span id="issuesDetailsCountThSpan">Count</span>
-	<span id="issuesDetailsTestThSpan">Tests</span>
+	<span id="issuesDetailsCountThSpan">Anzahl</span>
+	<span id="issuesDetailsTestThSpan">Testszenarien</span>
 </languageDe>
