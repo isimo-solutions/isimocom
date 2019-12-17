@@ -161,5 +161,5 @@
 		
 	</xsl:template>
 	
-	<xsl:template match="testcases"><xsl:apply-templates/><xsl:if test="following-sibling::testcases">,</xsl:if></xsl:template>
+	<xsl:template match="testcases"><xsl:apply-templates/><xsl:if test="following-sibling::testcases">, </xsl:if></xsl:template>
 </xsl:stylesheet>

@@ -67,7 +67,7 @@ window.issuesColors = {
 						responsive: true,
 						title: {
 							display: true,
-							text: 'Distribution of testcase results'
+							text: $("#testsChartTitleSpan").text()
 						 },
 						 layout: {
 					            padding: {
@@ -279,7 +279,7 @@ window.issuesColors = {
 					responsive: true,
 					title:{
 						display: true,
-						text: 'Distribution of error priorities'
+						text:  $("#issuesChartTitleSpan").text()
 					 },
 					 layout: {
 				            padding: {
@@ -345,14 +345,14 @@ window.issuesColors = {
 		
 		var button = document.getElementById("detailedTestsButton");
 		var style = "";
-		if(button.innerText =="Mehr"){
-			button.innerText = "Weniger";
+		if(button.innerText == $("#detailedIssuesListMoreButtonSpan").text()){
+			button.innerText = $("#detailedIssuesListLessButtonSpan").text()
 			thIssuesDetailsSummary.style.width = "30%";
 			thIssuesDetailsTests.style.width = "70%";
 			style = "";		
 		}
 		else{
-			button.innerText = "Mehr";
+			button.innerText = $("#detailedIssuesListMoreButtonSpan").text();
 			thIssuesDetailsSummary.style.width = "70%";
 			thIssuesDetailsTests.style.width = "30%";
 			style = "none";
