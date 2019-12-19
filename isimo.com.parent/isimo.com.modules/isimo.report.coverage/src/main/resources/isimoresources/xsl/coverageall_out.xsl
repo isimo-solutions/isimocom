@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-	<xsl:output method="html" />
+	<xsl:output method="xml" />
 	<xsl:template match="/">
 		<html>
-		<head><title>Testautomatiserung Kernclient - Abdeckungsbericht</title>
+		<head><title>Coverage Report</title>
 		<script src="jquery-3.3.1.js"></script>
 		<script src="treeTable.js"></script>
 		
@@ -99,24 +99,35 @@
 			  text-align: center;
 			  color: black;
 			}
+			.hidden {
+				display: none;
+			} 
 				
 			
 		</style>
 		</head>
 		<body>
-		<h2>Testabdeckungsbericht</h2>
-		<p>Summe einzelnen Actions in <xsl:value-of select="wrapper/@name"/>: <xsl:value-of select="wrapper/stats/@totalActions"/></p>
-		<p>Anzahl Fehler gesamt: <xsl:value-of select="wrapper/stats/@totalErrors"/></p>
-		<p>Anzahl betroffenen Masken (ohne Tabreiters): <xsl:value-of select="count(wrapper//uimasks/entry)"/></p>
-		<p>Anzahl betroffenen Masken (mit Tabreiters): <xsl:value-of select="count(wrapper//*[self::uimasks or self::submasks]/entry)"/></p>
+		<h2><span id="headerSpan">Coverage report</span></h2>
+		<p><span id="actionsSumSpan">Sum of individual actions in</span> <xsl:value-of select="wrapper/@name"/>: <xsl:value-of select="wrapper/stats/@totalActions"/></p>
+		<p><span id="errorSumSpan">Total number of errors</span>: <xsl:value-of select="wrapper/stats/@totalErrors"/></p>
+		<p><span id="masksSumSpan">Number of masks affected (without submasks)</span>: <xsl:value-of select="count(wrapper//uimasks/entry)"/></p>
+		<p><span id="masksAndSubmasksSumSpan">Number of masks affected (with submasks)</span>: <xsl:value-of select="count(wrapper//*[self::uimasks or self::submasks]/entry)"/></p>
+		
+		<div class="hidden">
+			<span id="titleSpan">Title</span>
+			<span id="totalActionsSpan">Actions Count</span>
+			<span id="errorsSpan">Errors</span>
+			<span id="testcasesSpan">Testcases</span>
+		</div>
+		
 		<script>
 		com_github_culmat_jsTreeTable.register(this)
 		var options = {
 			renderedAttr : {
-				id : 'Titel',
-				Total_Actions: 'Actions Gesamt',
-				Errors: 'Fehler',
-				Testcases: 'Testcases'
+				id : $("#titleSpan").text(),
+				Total_Actions: $("#totalActionsSpan").text(),
+				Errors: $("#errorsSpan").text(),
+				Testcases: $("#testcasesSpan").text()
 			},
 			
 			tableAttributes :{

@@ -44,6 +44,15 @@
 				<java classname="IssuesCleanup" classpathref="project.classpath">
 					<arg value="${project.build.directory}"/>
 				</java>
+				
+				<xslt in="${summaryall.dir}/IssuesCleanup.xml" out="${summaryall.dir}/issuesall.html.xml" style="${isimoresources.dir}/xsl/issuesCleanup.xsl" force="true">
+					<param name="jira.url" expression="${jira.url}"/>
+				</xslt>
+				<available file="${isimoresources.dir}/xsl/language/issuesCleanupLanguage.xml" property="translate"/>
+				<echo message="Translate issuescleanup: ${translate}"/>
+				<xslt in="${summaryall.dir}/issuesall.html.xml" out="${summaryall.dir}/issuesall.html" style="${isimoresources.dir}/xsl/translateissuesCleanup.xsl" force="true">
+					<param name="translate" expression="${translate}" />
+				</xslt>
 			</then>
 		</if>
 		<if>
@@ -84,8 +93,6 @@
 		<xslt in="${summaryFile}" out="${summaryall.dir}/summaryall2.html.xml" style="${isimoresources.dir}/xsl/summaryall2.xsl" force="true">
 		</xslt>						
 		<xslt in="${summaryall.dir}/summaryall2.html.xml" out="${summaryall.dir}/summaryall.html" style="${isimoresources.dir}/xsl/summaryall3.xsl" force="true">
-		</xslt>
-		<xslt in="${summaryall.dir}/IssuesCleanup.xml" out="${summaryall.dir}/issuesall.html" style="${isimoresources.dir}/xsl/issuesCleanup.xsl" force="true">
 		</xslt>
 		<copy todir="${summaryall.dir}">
 			<fileset dir="${isimoresources.dir}/js">

@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:output method="html"/>
+<xsl:param name="jira.url"/>
+<xsl:output method="xml"/>
 <xsl:template match="/">
 <html>
-<head><title>Ausgeführte Actions mit JIRA-Nummer ohne Fehlschlag</title>
+<head><title>Issues status report</title>
 <script>
 <![CDATA[
 
@@ -31,8 +32,8 @@ window.onload=function() {
 			}
 		}
 		if(tdStatus){
-			if(!OptionExist(selectStatus, tdStatus.innerHTML)){
-				selectStatus.appendChild(new Option(tdStatus.innerHTML,tdStatus.innerHTML));
+			if(!OptionExist(selectStatus, tdStatus.innerText)){
+				selectStatus.appendChild(new Option(tdStatus.innerText,tdStatus.innerText));
 			}
 		}
 		if(tdStatus.innerHTML=="Resolved") tdStatus.style.backgroundColor = '#00ff0022';
@@ -51,7 +52,7 @@ function Filter(){
 		var tdJiraNr = tr.cells[1];
 		var tdStatus = tr.cells[3];
 	
-		if((filterJiraNr == "all" || tdJiraNr.innerText == filterJiraNr) && (filterStatus == "all" ||tdStatus.innerHTML == filterStatus)){
+		if((filterJiraNr == "all" || tdJiraNr.innerText == filterJiraNr) && (filterStatus == "all" ||tdStatus.innerText == filterStatus)){
 			tr.style.display ="";
 			if(color){
 				tr.style.backgroundColor = '#f2f2f2';
@@ -92,35 +93,35 @@ td {
 </style>
 </head>
 <body>
-<h2>Ausgeführte Actions mit JIRA-Nummer ohne Fehlschlag:</h2>
+<h2><span id="headerSpan">Executed actions with JIRA issue without failure</span>:</h2>
 <table style="border-width: 1px; table-layout:fixed;">
 <tr>
-	<td>Resolved: </td>
+	<td><span id="resolvedSpan">Resolved</span>: </td>
 	<td><xsl:value-of select="count(//occs[@status='Resolved'])"/></td>
 </tr>
 <tr>
-	<td>Need verification: </td>
+	<td><span id="verificationSpan">Need verification</span>: </td>
 	<td><xsl:value-of select="count(//occs[@status='Need verification'])"/></td>
 </tr>											
 <tr>
-	<td>Unresolved: </td>
+	<td><span id="unresolvedSpan">Unresolved</span>: </td>
 	<td><xsl:value-of select="count(//occs[@status='Unresolved'])"/></td>
 </tr>
 <tr>
-	<td>Sum: </td>
+	<td><span id="infoTableSumSpan">Sum</span>: </td>
 	<td><xsl:value-of select="count(//occs)"/></td>
 </tr>
 <tr>
-<td>Unique issues: </td>
+<td><span id="infoTableUniqueSpan">Unique issues</span>: </td>
 <td><xsl:value-of select="//issuesnumber"/></td>
 </tr>
 </table>
 <table id="td2">
 <tr>
-<th style="min-width: 70%;">Scenariodatei</th>
-<th><div>JIRA-Nummer</div><select id="selectJiraNr" onchange="Filter()"/></th>
-<th>Zeilennummer</th>
-<th><div>Status</div><select id="selectStatus" onchange="Filter()"/></th>
+<th style="min-width: 70%;"><span id="issuesTableScenarioSpan">Scenario</span></th>
+<th><div><span id="issuesTableIdSpan">Jira-Id</span></div><select id="selectJiraNr" onchange="Filter()"/></th>
+<th><span id="issuesTableLineNummerSpan">Line Number</span></th>
+<th><div><span id="issuesTableStatusSpan">Status</span></div><select id="selectStatus" onchange="Filter()"/></th>
 </tr>
 <xsl:apply-templates select="//occs"/>
 </table>
@@ -132,11 +133,12 @@ td {
 
 <xsl:template match="//occs">
 
+
 <tr>
 <td><xsl:value-of select="@scenario"/></td>
-<td><a href="https://seproxy.bitmarck-software.de/jira/browse/{@issue}"><xsl:value-of select="@issue"/></a></td>
+<td><a href="{jira.url}/{@issue}"><xsl:value-of select="@issue"/></a></td>
 <td><xsl:value-of select="@linenumber"/></td>
-<td><xsl:value-of select="@status"/></td>
+<td><span id="{@statusTranslateId}"><xsl:value-of select="@status"/></span></td>
 </tr>
 </xsl:template>
 </xsl:stylesheet>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<languageDe>
+	<span id="headerSpan">Testabdeckungsbericht</span>
+	<span id="actionsSumSpan">Summe einzelnen Actions in</span>
+	<span id="errorSumSpan">Anzahl Fehler gesamt</span>
+	<span id="masksSumSpan">Anzahl betroffenen Masken (ohne Tabreiters)</span>
+	<span id="masksAndSubmasksSumSpan">Anzahl betroffenen Masken (mit Tabreiters)</span>
+	
+	<span id="titleSpan">Titel</span>
+	<span id="totalActionsSpan">Actions Gesamt</span>
+	<span id="errorsSpan">Fehler</span>
+	<span id="testcasesSpan">Testcases</span>
+
+</languageDe>

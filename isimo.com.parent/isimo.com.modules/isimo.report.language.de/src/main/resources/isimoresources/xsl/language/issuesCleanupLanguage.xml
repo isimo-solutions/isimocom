@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<languageDe>
+	<span id="headerSpan">Ausgeführte Actions mit JIRA-Issue ohne Fehlschlag</span>
+
+	<span id="infoTableSumSpan">Gesamt</span>
+	<span id="infoTableUniqueSpan">Einzigartige Issues</span>
+	
+	<span id="issuesTableScenarioSpan">Scenariodatei</span>
+	<span id="issuesTableIdSpan">JIRA-Nummer</span>
+	<span id="issuesTableLineNummerSpan">Zeilennummer</span>
+	<span id="issuesTableStatusSpan">Status</span>
+	
+	<span id="resolvedSpan">Behoben</span>
+	<span id="verificationSpan">brauche Überprüfung</span>
+	<span id="unresolvedSpan">Ungelöst</span>
+	
+</languageDe>

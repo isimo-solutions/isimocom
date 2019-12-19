@@ -56,9 +56,18 @@ public class IssuesCleanup {
 				if(occ.scenario.lastIndexOf("_") > 0) occ.scenario = occ.scenario.substring(0, occ.scenario.lastIndexOf("_"));
 				
 				
-				if("SUCCESS".equals(status)) occ.status = "Resolved";
-				else if("FAILED".equals(status) && n.selectNodes(".//*[name()='failure']").size()==0) occ.status = "Need verification";
-				else occ.status = "Unresolved";
+				if("SUCCESS".equals(status)) {
+					occ.status = "Resolved";
+					occ.statusTranslateId = "resolvedSpan";
+				}
+				else if("FAILED".equals(status) && n.selectNodes(".//*[name()='failure']").size()==0) {
+					occ.status = "Need verification";
+					occ.statusTranslateId = "verificationSpan";
+				}
+				else {
+					occ.status = "Unresolved";
+					occ.statusTranslateId = "unresolvedSpan";
+				}
 				
 				if(ht.containsKey(occ))
 				{

@@ -18,6 +18,10 @@ public class Occurrence implements Comparable<Occurrence> {
 	@XmlAttribute
 	String status;
 	
+	@XmlAttribute
+	String statusTranslateId;
+	
+	
 	public Occurrence() {
 		// TODO Auto-generated constructor stub
 	}
