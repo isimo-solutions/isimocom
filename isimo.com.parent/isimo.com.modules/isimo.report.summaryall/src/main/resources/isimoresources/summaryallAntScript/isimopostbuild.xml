@@ -49,7 +49,6 @@
 					<param name="jira.url" expression="${jira.url}"/>
 				</xslt>
 				<available file="${isimoresources.dir}/xsl/language/issuesCleanupLanguage.xml" property="translate"/>
-				<echo message="Translate issuescleanup: ${translate}"/>
 				<xslt in="${summaryall.dir}/issuesall.html.xml" out="${summaryall.dir}/issuesall.html" style="${isimoresources.dir}/xsl/translateissuesCleanup.xsl" force="true">
 					<param name="translate" expression="${translate}" />
 				</xslt>

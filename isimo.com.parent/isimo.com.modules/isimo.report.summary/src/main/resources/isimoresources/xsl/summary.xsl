@@ -5,7 +5,7 @@
 	<xsl:param name="jira.url"/>
 	<xsl:variable name="firsttestsuite"
 		select="/summary/testcase[1]/testsuite" />
-	<xsl:output method="html"></xsl:output>
+	<xsl:output method="xml"></xsl:output>
 	<xsl:template match="/">
 		<html>
 			<head>
@@ -18,8 +18,8 @@
 <![CDATA[
 function ViewMore(x){
 	x.parentElement.classList.toggle("showmorediv");
-	if(x.innerHTML == "More" )x.innerHTML = "Less";
-	else x.innerHTML = "More";
+	if(x.innerText == "More" )x.innerText = "Less";
+	else x.innerText = "More";
 }
 
 
@@ -44,13 +44,13 @@ window.onload=function() {
 		var tdResult = tr.cells[1];
 		var tdErrType = tr.cells[6];
 		if(tdResult){
-			if(!OptionExist(selectResult, tdResult.innerHTML)){ 
-			selectResult.appendChild(new Option(tdResult.innerHTML,tdResult.innerHTML));
+			if(!OptionExist(selectResult, tdResult.innerText)){ 
+			selectResult.appendChild(new Option(tdResult.innerText,tdResult.innerText));
 			}
 		}
-		if(tdErrType && tdErrType.innerHTML!=""){
-			if(!OptionExist(selectErrType, tdErrType.innerHTML)){
-				selectErrType.appendChild(new Option(tdErrType.innerHTML,tdErrType.innerHTML));
+		if(tdErrType && tdErrType.innerText!=""){
+			if(!OptionExist(selectErrType, tdErrType.innerText)){
+				selectErrType.appendChild(new Option(tdErrType.innerText,tdErrType.innerText));
 			}
 		}
 		var trErrNum = tr.cells[7].getElementsByTagName('table');
@@ -114,7 +114,7 @@ function Filter(){
 			}
 		}		
 	
-		if((filterResult == "all" || tdResult.innerHTML == filterResult) && (filterErrType == "all" ||tdErrType.innerHTML == filterErrType) && (filterErrNum == "all" ||ErrNumFound) ){
+		if((filterResult == "all" || tdResult.innerText == filterResult) && (filterErrType == "all" ||tdErrType.innerText == filterErrType) && (filterErrNum == "all" ||ErrNumFound) ){
 		tr.style.display ="";
 		} else tr.style.display = "none";
 		
@@ -183,14 +183,13 @@ float: right;
 			</style>
 			<body>
 				<h2>
-					Testsuite results
-					<xsl:value-of select="$name" />
-					, Browser:
-					<xsl:value-of select="//suiteproperties/browser" />
-					, Environment:
+					<span id="headerSpan">Testsuite results</span>: <xsl:value-of select="$name" />, 
+					 <span id="headerBrowserSpan">Browser</span>:
+					<xsl:value-of select="//suiteproperties/browser" />, 
+					 <span id="headerEnvSpan">Environment</span>:
 					<xsl:value-of select="//suiteproperties/environment" />
 				</h2>
-				<h3>Environment details:</h3>
+				<h3><span id="subHeaderDetailsSpan">Environment details</span>:</h3>
 				<table class="results">
 					<xsl:for-each
 						select="//envproperties/properties/property">
@@ -214,34 +213,34 @@ float: right;
 						</tr>
 					</xsl:for-each>
 						<tr>
-							<td>Successes: </td>
+							<td><span id="successesDetailsSpan">Successes</span>: </td>
 							<td><xsl:value-of select="sum(.//testcase/testsuite/@tests)-sum(.//testcase/testsuite/@errors)-sum(.//testcase/testsuite/@failures)"/></td>
 						</tr>
 						<tr>
-							<td>Failures: </td>
+							<td><span id="failuresDetailsSpan">Failures</span>: </td>
 							<td><xsl:value-of select="sum(.//testcase/testsuite/@failures)"/></td>
 						</tr>											
 						<tr>
-							<td>Errors: </td>
+							<td><span id="errorsDetailsSpan">Errors</span>: </td>
 							<td><xsl:value-of select="sum(.//testcase/testsuite/@errors)"/></td>
 						</tr>
 						<tr>
-							<td>Sum: </td>
+							<td><span id="sumDetailsSpan">Sum</span>: </td>
 							<td><xsl:value-of select="sum(.//testcase/testsuite/@tests)"/></td>
 						</tr>								
 				</table>
 				<table id="td2" style="border-style:solid;border-width: medium;"
 					class="results">
 					<tr>
-						<th>Scenario name</th>
-						<th>Result<select id="selectResult" onchange="Filter()"/></th>
-						<th>Time</th>
-						<th>Details</th>
-						<th>Exec Log</th>
-						<th>Timestamp</th>
-						<th>Error type<select id="ErrorType" onchange="Filter()"/></th>
-						<th>Error message<select id="ErrorNumber" onchange="Filter()"/></th>
-						<th>Error Screenshot</th>
+						<th><span id="scenarioNameResultsSpan">Scenario name</span></th>
+						<th><span id="resultResultsSpan">Result</span><br/><select id="selectResult" onchange="Filter()"/></th>
+						<th><span id="timeResultsSpan">Time</span></th>
+						<th><span id="detailsResultsSpan">Details</span></th>
+						<th><span id="logResultsSpan">Exec Log</span></th>
+						<th><span id="timestampResultsSpan">Timestamp</span></th>
+						<th><span id="errorTypeResultsSpan">Error type</span><br/><select id="ErrorType" onchange="Filter()"/></th>
+						<th><span id="errorMessageResultsSpan">Error message</span><br/><select id="ErrorNumber" onchange="Filter()"/></th>
+						<th><span id="screenshotResultsSpan">Error Screenshot</span></th>
 					</tr>
 					<xsl:apply-templates select="/summary/testcase" />
 				</table>
@@ -257,24 +256,18 @@ float: right;
 						<xsl:apply-templates
 							select=".//property[@name='scenarioname']/@value" />
 					</div>
-					<!-- <div class="testnamediv">
-						<a
-							href="/jenkins/job/21c_ng_TestScenario/parambuild/?delay=0sec&amp;scenario={.//property[@name='scenarioname']/@value}&amp;envname={//envproperties/properties/property[name='environment']/value}&amp;browser={//envproperties/properties/property[name='browser']/value}&amp;browser={//envproperties/properties/property[name='browser']/value}&amp;hostname={//envproperties/properties/property[name='hostname']/value}&amp;branchortrunk={//envproperties/properties/property[name='branchortrunk']/value}">
-							<img src="../../../summary/rerun.png"></img>
-						</a>
-					</div> -->
 				</div>
 			</td>
 			<td>
 				<xsl:choose>
 					<xsl:when test="testsuite/@failures!=0">
-						Failure
+						<span id="failureSpan">Failure</span>
 					</xsl:when>
 					<xsl:when test="testsuite/@errors!=0">
 						<xsl:call-template name="error" />
 					</xsl:when>
 					<xsl:otherwise>
-						Success
+						<span id="successSpan">Success</span>
 					</xsl:otherwise>
 				</xsl:choose>
 			</td>
@@ -315,7 +308,7 @@ float: right;
 	</xsl:template>
 
 	<xsl:template match="errorscreenshot">
-			<a href="{.}">Error Screenshot</a>
+			<a href="{.}"><span id="screenshotResultsSpan">Error Screenshot</span></a>
 	</xsl:template>
 
 	<xsl:template match="system-out" mode="failure">
@@ -338,7 +331,7 @@ float: right;
 	</xsl:template>
 
 	<xsl:template name="error">
-		Error
+		<span id="errorSpan">Error</span>
 		<xsl:apply-templates select=".//system-out/issue" />
 	</xsl:template>
 
