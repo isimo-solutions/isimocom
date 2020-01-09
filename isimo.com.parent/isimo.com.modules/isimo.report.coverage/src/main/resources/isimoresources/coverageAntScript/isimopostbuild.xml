@@ -51,6 +51,13 @@
 
 		<postprocesscoverage in="${summaryall.dir}/coverageall.xml" out="${summaryall.dir}/coverageall_out.xml" summaries="true" name="testsuite"/>
 		<copy file="${isimoresources.dir}/js/treeTable.js" todir="${summaryall.dir}"></copy>
-		<xslt in="${summaryall.dir}/coverageall_out.xml" out="${summaryall.dir}/coverageall_out.html" style="${isimoresources.dir}/xsl/coverageall_out.xsl" force="true" />
+		
+		<xslt in="${summaryall.dir}/coverageall_out.xml" out="${summaryall.dir}/coverageall_out.html.xml" style="${isimoresources.dir}/xsl/coverageall_out.xsl" force="true" />
+		
+		<available file="${isimoresources.dir}/xsl/language/coverageLanguage.xml" property="translate"/>
+
+		<xslt in="${summaryall.dir}/coverageall_out.html.xml" out="${summaryall.dir}/coverageall_out.html" style="${isimoresources.dir}/xsl/translateCoverage.xsl" force="true">
+			<param name="translate" expression="${translate}" />
+		</xslt>
 	</target>
 </project>

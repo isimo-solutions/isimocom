@@ -42,13 +42,13 @@ public class ReportConcat extends Task{
 					}
 					String concatDir = out.getParentFile().toPath().relativize(file.getParentFile().toPath()).toString();
 					parent.add(doc.getRootElement().createCopy().addAttribute("concatDir", concatDir).addAttribute("concatName", file.getName()));
-					
-					OutputFormat format = OutputFormat.createPrettyPrint();
-					OutputStream os = new FileOutputStream(out);
-					XMLWriter writer = new XMLWriter( os, format );
-			        writer.write(outDoc);
+
 				}
 			}
+			OutputFormat format = OutputFormat.createPrettyPrint();
+			OutputStream os = new FileOutputStream(out);
+			XMLWriter writer = new XMLWriter( os, format );
+	        writer.write(outDoc);
 		
 		}catch(Exception e) {
 			e.printStackTrace();

@@ -93,9 +93,15 @@
 				<replacevalue>&#60;/issue&#62;</replacevalue>
 			</replacefilter>
 		</replace>
-		<xslt in="${project.build.directory}/summary.xml" out="${project.build.directory}/summary.html" style="${isimoresources.dir}/xsl/summary.xsl" classpathref="project.classpath">
+		<xslt in="${project.build.directory}/summary.xml" out="${project.build.directory}/summary.html.xml" style="${isimoresources.dir}/xsl/summary.xsl" classpathref="project.classpath">
 			<param name="name" expression="${module}"/>
 			<param name="jira.url" expression="${jira.url}"/>
 		</xslt>
+		
+		<available file="${isimoresources.dir}/xsl/language/summaryLanguage.xml" property="translate"/>
+		<xslt in="${project.build.directory}/summary.html.xml" out="${project.build.directory}/summary.html" style="${isimoresources.dir}/xsl/translateSummary.xsl" force="true">
+			<param name="translate" expression="${translate}" />
+		</xslt>
+		
 	</target>
 </project>

@@ -9,12 +9,12 @@
   <packaging>jar</packaging>
   	<properties>
 		<testframework.version>2.3-Sel-3.141.59-SNAPSHOT</testframework.version>
-		<!--<isimo.execution.phases>preparation,moduletest,postprocess</isimo.execution.phases-->
-		<isimo.execution.phases>postprocess</isimo.execution.phases>
+		<isimo.execution.phases>preparation,moduletest,postprocess</isimo.execution.phases> 
+		<!-- <isimo.execution.phases>postprocess</isimo.execution.phases>-->
 		<module>Faktury/scenarios</module>
 		<test.target>moduletest</test.target>
 		<prioritiesList>Trivial;Normal;High</prioritiesList>
-		<isimo.resources.overwrite>false</isimo.resources.overwrite>
+<isimo.resources.overwrite>false</isimo.resources.overwrite>
 		<mockup>true</mockup>
 	</properties>
 	<dependencies>
@@ -45,6 +45,11 @@
 		</dependency>
 		<dependency>
 			<groupId>com.isimo</groupId>
+			<artifactId>isimo.report.language.de</artifactId>
+			<version>${testframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.isimo</groupId>
 			<artifactId>isimo.report.summary</artifactId>
 			<version>${testframework.version}</version>
 		</dependency>
@@ -61,11 +66,6 @@
 		<dependency>
 			<groupId>com.isimo</groupId>
 			<artifactId>isimo.report.jiraconnect</artifactId>
-			<version>${testframework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.isimo</groupId>
-			<artifactId>isimo.report.language.de</artifactId>
 			<version>${testframework.version}</version>
 		</dependency>
 	</dependencies>
