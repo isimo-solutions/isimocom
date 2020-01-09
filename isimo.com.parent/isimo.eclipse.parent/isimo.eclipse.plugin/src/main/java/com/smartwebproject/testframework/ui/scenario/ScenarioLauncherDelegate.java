@@ -94,9 +94,9 @@ public class ScenarioLauncherDelegate extends JUnitLaunchConfigurationDelegate {
 		props.setProperty("env", environment);
 		props.setProperty("browser", browser);
 		props.setProperty("isimo.browser", browser);
-		props.setProperty("testdir", getWorkingDirectoryPath(pConfiguration).toString());
+		props.setProperty("testdir", getScenarioWorkingDir(pConfiguration).toString());
 		props.setProperty("user.dir", getWorkingDirectoryPath(pConfiguration).toString());
-		System.setProperty("testdir", getWorkingDirectoryPath(pConfiguration).toString());
+		System.setProperty("testdir", getScenarioWorkingDir(pConfiguration).toString());
 		Integer requestPort = -1, eventPort = -1;
 		if(ILaunchManager.DEBUG_MODE.equals(pMode)) {
 			props.setProperty("isimo.debug.request.port", (requestPort=getAvailablePort()).toString());
@@ -117,7 +117,7 @@ public class ScenarioLauncherDelegate extends JUnitLaunchConfigurationDelegate {
 		props.setProperty("env", getEnvironmentName(pConfiguration));
 		props.setProperty("com.isimo.scenarios", calculateScenariosRoot(pConfiguration));
 		
-		File testDir = getWorkingDirectoryPath(pConfiguration).toFile();
+		File testDir = getScenarioWorkingDir(pConfiguration).toFile();
 		props.setProperty("testdir", testDir.getAbsolutePath());
 		testDir.mkdirs();
 		File inputProperties = new File(testDir.getAbsolutePath()+File.separator+"input.properties");
@@ -202,6 +202,10 @@ public class ScenarioLauncherDelegate extends JUnitLaunchConfigurationDelegate {
 		return getConfigProperty(config, ScenarioLauncherConstants.SCENARIO_ATTR, "");
 	};
 	
+	static String getScenarioDir(ILaunchConfiguration config) {
+		return getScenario(config).replace('/', '_');
+	};
+	
 	static boolean getUseJavaDebugger(ILaunchConfiguration config) {
 		return getBooleanConfigProperty(config, ScenarioLauncherConstants.USE_JAVA_DEBUGGER_ATTR, false);
 	};
@@ -263,6 +267,12 @@ public class ScenarioLauncherDelegate extends JUnitLaunchConfigurationDelegate {
 	@Override
 	public IPath getWorkingDirectoryPath(ILaunchConfiguration pConfiguration) throws CoreException {
 		// TODO Auto-generated method stub
+		return new Path(super.getDefaultWorkingDirectory(pConfiguration)+File.separator+ScenarioLauncherConstants.SCENARIO_DEFAULT_WORKING_SUBDIR+File.separator+getScenarioDir(pConfiguration));
+	}
+
+	public IPath getScenarioWorkingDir(ILaunchConfiguration pConfiguration) throws CoreException {
+		// TODO Auto-generated method stub
 		return new Path(super.getDefaultWorkingDirectory(pConfiguration)+File.separator+ScenarioLauncherConstants.SCENARIO_DEFAULT_WORKING_SUBDIR);
 	}
+
 }
