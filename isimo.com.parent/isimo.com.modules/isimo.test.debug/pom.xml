@@ -15,7 +15,6 @@
 		<test.target>moduletest</test.target>
 		<prioritiesList>Trivial;Normal;High</prioritiesList>
 <isimo.resources.overwrite>false</isimo.resources.overwrite>
-<isimo.skip.junit>true</isimo.skip.junit>
 		<mockup>true</mockup>
 	</properties>
 	<dependencies>
