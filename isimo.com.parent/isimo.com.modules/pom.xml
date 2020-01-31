@@ -17,12 +17,12 @@
     <modules>
  	<module>isimo.debug</module>
 	<module>isimo.scenariolog</module>
+	<module>isimo.report.common</module>
 	<module>isimo.report.language.de</module>
 	<module>isimo.report.summary</module>
 	<module>isimo.report.summaryall</module>
 	<module>isimo.report.coverage</module>
 	<module>isimo.report.jiraconnect</module>
-	<module>isimo.report.common</module>
   </modules>
   
   	<scm>
