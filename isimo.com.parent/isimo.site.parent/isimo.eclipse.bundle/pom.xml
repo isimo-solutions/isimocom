@@ -8,9 +8,6 @@
   <artifactId>isimo.eclipse.bundle</artifactId>
   <version>2.3.0.qualifier</version>
   <packaging>bundle</packaging>
-  <properties>
-  	<isimo.version>${project.parent.version}</isimo.version>
-  </properties>
   <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
