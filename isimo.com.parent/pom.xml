@@ -15,7 +15,7 @@
 		<target-file-name>photon</target-file-name>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<isimo.version>2.3-Sel-3.141.59-SNAPSHOT</isimo.version>
+		<isimo.version>${project.version}</isimo.version>
  </properties>
   <modules>
 	<module>isimo.com.modules</module>
@@ -23,4 +23,40 @@
    	<module>isimo.target.def</module>
 	<module>isimo.eclipse.parent</module>
   </modules>
+  
+  <scm>
+		<developerConnection>scm:git:https://isimo.solutions/git/isimocom.git</developerConnection>
+  </scm>
+  
+  <build>
+	<plugins>
+  			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>3.0.0-M1</version>
+				<configuration>
+					<dryRun>true</dryRun>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+					<tagNameFormat>@{project.version}</tagNameFormat>
+					<developmentVersion>2.3-Sel-3.141.59-SNAPSHOT</developmentVersion>
+				</configuration>
+			</plugin>
+		</plugins>
+  	</build>
+		<profiles>
+		<profile>
+			<id>smartweb-com</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<distributionManagement>
+				<repository>
+					<id>releases</id>
+					<url>http://smartweb.nazwa.pl:8080/repository/releases-com</url>
+				</repository>
+			</distributionManagement>
+		</profile>
+  	</profiles>
+  
 </project>
