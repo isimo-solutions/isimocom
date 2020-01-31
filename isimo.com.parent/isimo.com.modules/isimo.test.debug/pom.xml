@@ -43,11 +43,11 @@
 			<artifactId>isimo.scenariolog</artifactId>
 			<version>${testframework.version}</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.isimo</groupId>
 			<artifactId>isimo.report.language.de</artifactId>
 			<version>${testframework.version}</version>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>com.isimo</groupId>
 			<artifactId>isimo.report.summary</artifactId>
