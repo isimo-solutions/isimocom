@@ -15,7 +15,7 @@
 		<target-file-name>photon</target-file-name>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<isimo.version>${project.version}</isimo.version>
+		<isimo.version>2.3-Sel-3.141.59-SNAPSHOT</isimo.version>
  </properties>
   <modules>
 	<module>isimo.com.modules</module>
