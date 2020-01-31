@@ -45,7 +45,7 @@
 						<artifact>
 							<groupId>com.isimo</groupId>
 							<artifactId>isimo.target.def</artifactId>
-							<version>${isimo.version}</version>
+							<version>${project.version}</version>
 						</artifact>		
 					</target>
 					<environments>
