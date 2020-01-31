@@ -11,7 +11,7 @@
   	<dependency>
   		<groupId>com.isimo</groupId>
   		<artifactId>isimo.core</artifactId>
-  		<version>${isimo.version}</version>
+  		<version>${project.version}</version>
   	</dependency>
   </dependencies>
     <modules>
