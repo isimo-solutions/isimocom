@@ -39,6 +39,7 @@
 					<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
 					<tagNameFormat>@{project.version}</tagNameFormat>
 					<developmentVersion>2.3-Sel-3.141.59-SNAPSHOT</developmentVersion>
+					<project.dev.com.isimo:isimo.eclipse.plugin>2.3.1-SNAPSHOT</project.dev.com.isimo:isimo.eclipse.plugin>
 				</configuration>
 			</plugin>
 		</plugins>
