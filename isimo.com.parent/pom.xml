@@ -25,6 +25,7 @@
   
   <scm>
 		<developerConnection>scm:git:https://isimo.solutions/git/isimocom.git</developerConnection>
+    <tag>HEAD</tag>
   </scm>
   
   <build>

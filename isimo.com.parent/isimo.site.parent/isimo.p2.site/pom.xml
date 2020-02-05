@@ -1,6 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
   <parent>
 	<groupId>com.isimo</groupId>
@@ -68,18 +66,16 @@
 						<phase>install</phase>
 						<configuration>
 							<target>
-								<exec executable="hostname" outputproperty="hostname"/>
+								<exec executable="hostname" outputproperty="hostname" />
 								<echo>ANTRUNPLUGIN ${hostname}</echo>
 								<path id="p.classpath">
 									<pathelement path="${mvn.test.classpath}" />
 								</path>
-								<taskdef classpathref="p.classpath"
-									resource="net/sf/antcontrib/antlib.xml" />
+								<taskdef classpathref="p.classpath" resource="net/sf/antcontrib/antlib.xml" />
 								<if>
 									<equals arg1="${hostname}" arg2="smartweb.nazwa.pl" />
 									<then>
-										<property name="isimo.target.repo"
-											value="/var/www/html/jenkins/isimo.p2" />
+										<property name="isimo.target.repo" value="/var/www/html/jenkins/isimo.p2" />
 										<delete dir="${isimo.target.repo}" />
 										<mkdir dir="${isimo.target.repo}" />
 										<copy todir="${isimo.target.repo}">
