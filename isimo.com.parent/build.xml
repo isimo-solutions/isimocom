@@ -48,7 +48,7 @@
 			<entry  key="project.dev.com.isimo:isimo.eclipse.plugin" value="2.3.1-SNAPSHOT"/>
 		</propertyfile>
 		<antcall target="run-mvn-goals">
-			<param name="p_goals" value="-DreleaseVersion=${timestamped.version} -Dusername=${git.username} -Dpassword=${git.password} release:prepare"/>
+			<param name="p_goals" value="-B -DreleaseVersion=${timestamped.version} -Dproject.dev.com.isimo:isimo.eclipse.plugin=2.3.1-SNAPSHOT -Dusername=${git.username} -Dpassword=${git.password} release:prepare"/>
 		</antcall>
 	</target>
 	
