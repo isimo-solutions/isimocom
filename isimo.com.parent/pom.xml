@@ -29,12 +29,6 @@
   
   <build>
 	<plugins>
-		   <plugin>
-               <groupId>org.eclipse.tycho</groupId>
-               <artifactId>tycho-maven-plugin</artifactId>
-               <version>${tycho-version}</version>
-               <extensions>true</extensions>
-           </plugin>
   			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
@@ -42,8 +36,8 @@
 				<configuration>
 					<dryRun>true</dryRun>
 					<autoVersionSubmodules>true</autoVersionSubmodules>
-					<preparationGoals>org.eclipse.tycho:tycho-versions-plugin:${tycho-version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin</preparationGoals>
-					<completionGoals>org.eclipse.tycho:tycho-versions-plugin:${tycho-version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin</completionGoals>
+					<preparationGoals>org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin</preparationGoals>
+					<completionGoals>org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin</completionGoals>
 					<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
 					<tagNameFormat>@{project.version}</tagNameFormat>
 					<developmentVersion>2.3-Sel-3.141.59-SNAPSHOT</developmentVersion>
