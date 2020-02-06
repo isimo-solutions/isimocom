@@ -45,7 +45,7 @@
 		<property file="antrelease.properties"/>
 		<echo> Preparing release with version: ${timestamped.version}</echo>
 		<antcall target="run-mvn-goals">
-			<param name="p_goals" value="-B -DreleaseVersion=${timestamped.version} -Dproject.rel.com.isimo:isimo.workbench=2.3.0.1 -Dproject.dev.com.isimo:isimo.eclipse.plugin=2.3.0-SNAPSHOT -Dproject.rel.com.isimo:isimo.eclipse.plugin=2.3.0.1 -Dusername=${git.username} -Dpassword=${git.password} release:prepare"/>
+			<param name="p_goals" value="-B -DreleaseVersion=${timestamped.version} -Dusername=${git.username} -Dpassword=${git.password} release:prepare"/>
 		</antcall>
 	</target>
 	
