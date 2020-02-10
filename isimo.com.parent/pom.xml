@@ -75,7 +75,7 @@
 				   </goals>
 				   <configuration>
 					<newVersion>${eclipse.rel}</newVersion>
-					<artifacts>isimo.eclipse.plugin,isimo.workbench,isimo.eclipse.bundle</artifacts>
+					<artifacts>isimo.eclipse.plugin,isimo.workbench,isimo.eclipse.bundle,isimo.p2.site</artifacts>
 				   </configuration>
 				 </execution>
 				 <execution>
@@ -85,7 +85,7 @@
 				   </goals>
 				   <configuration>
 					<newVersion>${eclipse.dev}-SNAPSHOT</newVersion>
-					<artifacts>isimo.eclipse.plugin</artifacts>
+					<artifacts>isimo.eclipse.plugin,isimo.p2.site</artifacts>
 				   </configuration>
 				 </execution>
 				  <execution>
