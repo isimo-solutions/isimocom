@@ -104,11 +104,11 @@
 		<profile>
 			<id>smartweb-com</id>
 			<activation>
-				<activeByDefault>false</activeByDefault>
+				<activeByDefault>true</activeByDefault>
 			</activation>
 			<distributionManagement>
 				<repository>
-					<id>releases</id>
+					<id>releases-com</id>
 					<url>http://smartweb.nazwa.pl:8080/repository/releases-com</url>
 				</repository>
 			</distributionManagement>
