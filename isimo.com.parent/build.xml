@@ -2,6 +2,8 @@
 	
 	<property name="release.version" value="2.3-Sel-3.141.59"/>
 	<property name="new.dev.version" value="2.3-Sel-3.141.59"/>
+	<property name="plugin.version.rel" value="2.3.0"/>
+	<property name="plugin.version.dev" value="2.3.1"/>
 	<property name="git.username" value=""/>
 	<property name="git.password" value=""/>
 	
@@ -47,7 +49,10 @@
 		<property file="antrelease.properties"/>
 		<echo> Preparing release with version: ${timestamped.version}</echo>
 		<antcall target="run-mvn-goals">
-			<param name="p_goals" value="-B -DdevelopmentVersion=${new.dev.version}-SNAPSHOT -DreleaseVersion=${timestamped.version} -Darguments=&quot;-Declipse.rel=2.3.0.${timestamp} -Declipse.dev=2.3.1&quot; -Dusername=${git.username} -Dpassword=${git.password} release:prepare"/>
+			<param name="p_goals" value="org.eclipse.tycho:tycho-versions-plugin:1.3.0:set-version@run -pl isimo.eclipse.parent/isimo.eclipse.plugin,isimo.eclipse.parent/isimo.workbench,isimo.site.parent/isimo.eclipse.bundle -DnewVersion=${plugin.version.rel}.${timestamp}"/>
+		</antcall>
+		<antcall target="run-mvn-goals">
+			<param name="p_goals" value="-B -DdevelopmentVersion=${new.dev.version}-SNAPSHOT -DreleaseVersion=${timestamped.version} -Darguments=&quot;-Declipse.rel=${plugin.version.rel}.${timestamp} -Declipse.dev=${plugin.version.rel}&quot; -Dusername=${git.username} -Dpassword=${git.password} release:prepare"/>
 		</antcall>
 	</target>
 	
