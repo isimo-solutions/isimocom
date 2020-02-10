@@ -76,7 +76,6 @@
 				   <configuration>
 					<newVersion>${eclipse.rel}</newVersion>
 					<artifacts>isimo.eclipse.plugin,isimo.workbench,isimo.eclipse.bundle</artifacts>
-					<message>Changing versions</message>
 				   </configuration>
 				 </execution>
 				 <execution>
@@ -87,7 +86,6 @@
 				   <configuration>
 					<newVersion>${eclipse.dev}-SNAPSHOT</newVersion>
 					<artifacts>isimo.eclipse.plugin</artifacts>
-					<message>Changing versions</message>
 				   </configuration>
 				 </execution>
 				  <execution>
@@ -98,7 +96,6 @@
 				   <configuration>
 					<newVersion>${eclipse.dev}.qualifier</newVersion>
 					<artifacts>isimo.workbench,isimo.eclipse.bundle</artifacts>
-					<message>Changing versions</message>
 				   </configuration>
 				 </execution>
 			   </executions>
