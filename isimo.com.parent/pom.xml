@@ -116,7 +116,7 @@
 			  </goals>
 				<configuration>
 				  <target>
-					<taskdef classpathref="project.classpath" name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask"/>
+					<taskdef name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask"/>
 					<xmltask source="./pom.xml" dest="./pomtest.xml">
 					</xmltask>
 				  </target>
