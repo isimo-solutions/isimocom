@@ -122,7 +122,7 @@
 						<pathelement path="${mvn.test.classpath}"/>
 					</path>
 				  
-					<taskdef name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask"/>
+					<taskdef classpathref="project.classpath" name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask"/>
 					<xmltask source="./pom.xml" dest="./pomtest.xml">
 					</xmltask>
 				  </target>
