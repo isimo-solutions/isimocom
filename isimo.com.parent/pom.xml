@@ -29,7 +29,13 @@
 		<developerConnection>scm:git:https://isimo.solutions/git/isimocom.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
-  
+  <dependencies>
+	<dependency>
+		<groupId>com.oopsconsultancy</groupId>
+		<artifactId>xmltask</artifactId>
+		<version>1.16</version>
+	</dependency>
+  </dependencies>
   <build>
 	<plugins>
   			<plugin>
@@ -110,7 +116,7 @@
 			  </goals>
 				<configuration>
 				  <target>
-					<taskdef name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask"/>
+					<taskdef classpathref="project.classpath" name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask"/>
 					<xmltask source="./pom.xml" dest="./pomtest.xml">
 					</xmltask>
 				  </target>
