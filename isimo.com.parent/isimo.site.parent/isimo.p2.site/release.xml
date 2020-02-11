@@ -7,12 +7,15 @@
 	<taskdef classpathref="project.classpath" resource="net/sf/antcontrib/antlib.xml" />
 	
 	<target name="rel">
-		<xmltask source="./pom.xml" dest="./pomtes1t.xml">
+		<xmltask source="./pom.xml" failWithoutMatch="true" omitHeader="true" dest="./pom.xml">
+			<replace path="//*[name()='plugin' and ./*[name()='artifactId']/text()='p2-maven-plugin']//*[name()='configuration']/*[name()='artifacts']/*[name()='artifact']/*[name()='id']/text()" withText="com.isimo:isimo.eclipse.bundle:${eclipse.rel}"/>
 		</xmltask>
 	</target>
 	
 	<target name="dev">
-		<echo message="dev"/>
+		<xmltask source="./pom.xml" failWithoutMatch="true" omitHeader="true" dest="./pom.xml">
+			<replace path="//*[name()='plugin' and ./*[name()='artifactId']/text()='p2-maven-plugin']//*[name()='configuration']/*[name()='artifacts']/*[name()='artifact']/*[name()='id']/text()" withText="com.isimo:isimo.eclipse.bundle:${eclipse.dev}.qualifier"/>
+		</xmltask>
 	</target>
 	
 </project>

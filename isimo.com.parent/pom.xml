@@ -130,6 +130,7 @@
 					<path id="project.classpath">
 						<pathelement path="${mvn.test.classpath}"/>
 					</path>
+					<echo message="${releaseVersion}"/>
 					<taskdef classpathref="project.classpath" resource="net/sf/antcontrib/antlib.xml"/>
 					<if>
 						<available file="./release.xml"/>
@@ -153,7 +154,7 @@
 						<pathelement path="${mvn.test.classpath}"/>
 					</path>
 					<taskdef classpathref="project.classpath" resource="net/sf/antcontrib/antlib.xml"/>
-					<echo message="${releaseVersion}"/>
+					
 					<if>
 						<available file="./release.xml"/>
 						<then>
