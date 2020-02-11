@@ -116,6 +116,12 @@
 			  </goals>
 				<configuration>
 				  <target>
+					<property name="mvn.test.classpath" refid="maven.test.classpath" />
+					<property name="mvn.runtime.classpath" refid="maven.runtime.classpath" />
+					<path id="project.classpath">
+						<pathelement path="${mvn.test.classpath}"/>
+					</path>
+				  
 					<taskdef name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask"/>
 					<xmltask source="./pom.xml" dest="./pomtest.xml">
 					</xmltask>
