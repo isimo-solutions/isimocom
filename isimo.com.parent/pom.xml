@@ -54,8 +54,8 @@
 				<configuration>
 					<pushChanges>false</pushChanges>
 					<autoVersionSubmodules>true</autoVersionSubmodules>
-					<preparationGoals>org.apache.maven.plugins:maven-antrun-plugin:1.8:run@set-rel org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-rel org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add <!--org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin--></preparationGoals>
-					<completionGoals>org.apache.maven.plugins:maven-antrun-plugin:1.8:run@set-dev org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-dev org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-qual org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add <!--org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin--></completionGoals>
+					<preparationGoals>org.apache.maven.plugins:maven-antrun-plugin:1.8:help@set-rel org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-rel org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add <!--org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin--></preparationGoals>
+					<completionGoals>org.apache.maven.plugins:maven-antrun-plugin:1.8:help@set-dev org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-dev org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-qual org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add <!--org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin--></completionGoals>
 					<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
 					<tagNameFormat>@{project.version}</tagNameFormat>
 				</configuration>
@@ -121,7 +121,7 @@
 			  <execution>
 			  <id>set-rel</id>
 			  <goals>
-				  <goal>run</goal>
+				  <goal>help</goal>
 			  </goals>
 				<configuration>
 				  <target>
@@ -143,7 +143,7 @@
 			   <execution>
 			  <id>set-dev</id>
 			  <goals>
-				  <goal>run</goal>
+				  <goal>help</goal>
 			  </goals>
 				<configuration>
 				  <target>
@@ -153,6 +153,7 @@
 						<pathelement path="${mvn.test.classpath}"/>
 					</path>
 					<taskdef classpathref="project.classpath" resource="net/sf/antcontrib/antlib.xml"/>
+					<echo message="${releaseVersion}"/>
 					<if>
 						<available file="./release.xml"/>
 						<then>
