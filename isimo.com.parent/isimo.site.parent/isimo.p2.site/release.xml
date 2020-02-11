@@ -1,0 +1,18 @@
+<project name="release">
+	<path id="project.classpath">
+		<pathelement path="${mvn.test.classpath}"/>
+	</path>
+	
+	<taskdef classpathref="project.classpath" name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask"/>
+	<taskdef classpathref="project.classpath" resource="net/sf/antcontrib/antlib.xml" />
+	
+	<target name="rel">
+		<xmltask source="./pom.xml" dest="./pomtes1t.xml">
+		</xmltask>
+	</target>
+	
+	<target name="dev">
+		<echo message="dev"/>
+	</target>
+	
+</project>

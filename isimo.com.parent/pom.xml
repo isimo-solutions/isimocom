@@ -15,8 +15,6 @@
 		<target-file-name>photon</target-file-name>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<eclipse.dev>1.1</eclipse.dev>
-		<eclipse.rel>1.0</eclipse.rel>
  </properties>
   <modules>
 	<module>isimo.com.modules</module>
@@ -30,6 +28,17 @@
     <tag>HEAD</tag>
   </scm>
   <dependencies>
+  		<dependency>
+			<groupId>ant-contrib</groupId>
+			<artifactId>ant-contrib</artifactId>
+			<version>1.0b3</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>ant</artifactId>
+					<groupId>ant</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 	<dependency>
 		<groupId>com.oopsconsultancy</groupId>
 		<artifactId>xmltask</artifactId>
@@ -45,8 +54,8 @@
 				<configuration>
 					<pushChanges>false</pushChanges>
 					<autoVersionSubmodules>true</autoVersionSubmodules>
-					<preparationGoals>org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-rel org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add <!--org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin--></preparationGoals>
-					<completionGoals>org.apache.maven.plugins:maven-antrun-plugin:1.8:run@set-rel org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-dev org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-qual org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add <!--org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin--></completionGoals>
+					<preparationGoals>org.apache.maven.plugins:maven-antrun-plugin:1.8:run@set-rel org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-rel org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add <!--org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin--></preparationGoals>
+					<completionGoals>org.apache.maven.plugins:maven-antrun-plugin:1.8:run@set-dev org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-dev org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-qual org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add <!--org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin--></completionGoals>
 					<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
 					<tagNameFormat>@{project.version}</tagNameFormat>
 				</configuration>
@@ -116,15 +125,40 @@
 			  </goals>
 				<configuration>
 				  <target>
-					<property name="mvn.test.classpath" refid="maven.test.classpath" />
-					<property name="mvn.runtime.classpath" refid="maven.runtime.classpath" />
+					<property name="mvn.test.classpath" refid="maven.test.classpath"/>
+					<property name="mvn.runtime.classpath" refid="maven.runtime.classpath"/>
 					<path id="project.classpath">
 						<pathelement path="${mvn.test.classpath}"/>
 					</path>
-				  
-					<taskdef classpathref="project.classpath" name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask"/>
-					<xmltask source="./pom.xml" dest="./pomtest.xml">
-					</xmltask>
+					<taskdef classpathref="project.classpath" resource="net/sf/antcontrib/antlib.xml"/>
+					<if>
+						<available file="./release.xml"/>
+						<then>
+							<ant antfile="release.xml" target="rel"/>
+						</then>
+					</if>
+				  </target>
+				</configuration>
+			  </execution>
+			   <execution>
+			  <id>set-dev</id>
+			  <goals>
+				  <goal>run</goal>
+			  </goals>
+				<configuration>
+				  <target>
+					<property name="mvn.test.classpath" refid="maven.test.classpath"/>
+					<property name="mvn.runtime.classpath" refid="maven.runtime.classpath"/>
+					<path id="project.classpath">
+						<pathelement path="${mvn.test.classpath}"/>
+					</path>
+					<taskdef classpathref="project.classpath" resource="net/sf/antcontrib/antlib.xml"/>
+					<if>
+						<available file="./release.xml"/>
+						<then>
+							<ant antfile="release.xml" target="dev"/>
+						</then>
+					</if>
 				  </target>
 				</configuration>
 			  </execution>
