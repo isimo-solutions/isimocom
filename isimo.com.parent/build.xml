@@ -41,9 +41,9 @@
 		</exec>
 	</target>
 
-	<target name="releaseAll" depends="releaseProperties, releasePrepare, releasePerform">
-	
+	<target name="releaseAll" depends="antPrepare, releasePrepare, antComplete, releasePerform">
 	</target>
+
 	
 	<target name="releasePrepare">
 		<property file="antrelease.properties"/>
