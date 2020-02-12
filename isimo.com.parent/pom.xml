@@ -54,8 +54,8 @@
 				<configuration>
 					<pushChanges>false</pushChanges>
 					<autoVersionSubmodules>true</autoVersionSubmodules>
-					<preparationGoals>org.apache.maven.plugins:maven-antrun-plugin:1.8:run@set-rel org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-rel org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add <!--org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin--></preparationGoals>
-					<completionGoals>org.apache.maven.plugins:maven-antrun-plugin:1.8:run@set-dev org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-dev org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-qual org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add <!--org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin--></completionGoals>
+					<preparationGoals><!--org.apache.maven.plugins:maven-antrun-plugin:1.8:run@set-rel--> org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-rel org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add <!--org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin--></preparationGoals>
+					<completionGoals><!--org.apache.maven.plugins:maven-antrun-plugin:1.8:run@set-dev--> org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-dev org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-qual org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add <!--org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin--></completionGoals>
 					<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
 					<tagNameFormat>@{project.version}</tagNameFormat>
 				</configuration>
@@ -114,7 +114,7 @@
 				 </execution>
 			   </executions>
 		 </plugin>
-		 <plugin>
+		 <!--<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-antrun-plugin</artifactId>
 			<executions>
@@ -165,7 +165,7 @@
 				</configuration>
 			  </execution>
 			</executions>
-		  </plugin>
+		  </plugin>-->
 		</plugins>
   	</build>
 		<profiles>
