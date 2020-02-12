@@ -1,12 +1,14 @@
 <project name="releaseAnt">
 	
-	<property name="release.version" value="2.3-Sel-3.141.59"/>
-	<property name="new.dev.version" value="2.3-Sel-3.141.59"/>
-	<property name="plugin.version.rel" value="2.3.0"/>
-	<property name="plugin.version.dev" value="2.3.0"/>
+	<property name="release.version" value="2.3-Sel-3.141.59"/> <!-- prefix of the release version "-timestamp" will be added -->
+	<property name="new.dev.version" value="2.3-Sel-3.141.59"/> <!-- prefix of the new development version "-SNAPSHOT" will be added -->
+	<property name="plugin.version.rel" value="2.3.0"/> <!-- prefix of the release version for eclipse plugin ".timestamp" will be added -->
+	<property name="plugin.version.dev" value="2.3.0"/> <!-- prefix of the new development version for eclipse plugin ".qualifier" or "-SNAPSHOT" will be added -->
 	<property name="git.username" value=""/>
 	<property name="git.password" value=""/>
 	
+	
+	<!-- properties should be generated from parent project as this release build depends on parent project to be released first -->
 	<target name="releaseProperties">
 		<tstamp>
 			<format property="time.stamp" pattern="yyyyMMddHHmmss"/>
@@ -41,10 +43,11 @@
 		</exec>
 	</target>
 
+	<!-- full release process with given properties file in project dir -->
 	<target name="releaseAll" depends="antPrepare, releasePrepare, antComplete, releasePerform">
 	</target>
 
-	
+	<!-- configurated preparation step from the maven-release-plugin -->
 	<target name="releasePrepare">
 		<property file="antrelease.properties"/>
 		<echo> Preparing release with version: ${timestamped.version}</echo>
@@ -53,6 +56,7 @@
 		</antcall>
 	</target>
 	
+	<!-- configurated perform step from the maven-release-plugin -->	
 	<target name="releasePerform">
 		<property file="antrelease.properties"/>
 		<echo> Performing release with version: ${timestamped.version}</echo>
@@ -61,18 +65,19 @@
 		</antcall>
 	</target>
 	
-	
+	<!-- additional preparation running all release.xml files ("rel" target) in modules and commiting to scm via maven-scm-plugin configurated in pom -->
 	<target name="antPrepare">
 		<property file="antrelease.properties"/>
 		<antcall target="run-mvn-goals">
-			<param name="p_goals" value=" org.apache.maven.plugins:maven-antrun-plugin:1.8:run@set-rel -B -Declipse.rel=${plugin.version.rel}.${timestamp} -Declipse.dev=${plugin.version.dev} -DdevelopmentVersion=${new.dev.version}-SNAPSHOT -DreleaseVersion=${timestamped.version} org.apache.maven.plugins:maven-scm-plugin:1.9.5:add org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin"/>
+			<param name="p_goals" value=" org.apache.maven.plugins:maven-antrun-plugin:1.8:run@release-run -B -Dtarget=rel -Declipse.rel=${plugin.version.rel}.${timestamp} -Declipse.dev=${plugin.version.dev} -DdevelopmentVersion=${new.dev.version}-SNAPSHOT -DreleaseVersion=${timestamped.version} org.apache.maven.plugins:maven-scm-plugin:1.9.5:add org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin"/>
 		</antcall>
 	</target>
 	
+	<!-- additional completion running all release.xml files ("dev" target) in modules and commiting to scm via maven-scm-plugin configurated in pom -->
 	<target name="antComplete">
 		<property file="antrelease.properties"/>
 		<antcall target="run-mvn-goals">
-			<param name="p_goals" value=" org.apache.maven.plugins:maven-antrun-plugin:1.8:run@set-dev -B -Declipse.rel=${plugin.version.rel}.${timestamp} -Declipse.dev=${plugin.version.dev} -DdevelopmentVersion=${new.dev.version}-SNAPSHOT -DreleaseVersion=${timestamped.version} org.apache.maven.plugins:maven-scm-plugin:1.9.5:add org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin"/>
+			<param name="p_goals" value=" org.apache.maven.plugins:maven-antrun-plugin:1.8:run@release-run -B -Dtarget=dev -Declipse.rel=${plugin.version.rel}.${timestamp} -Declipse.dev=${plugin.version.dev} -DdevelopmentVersion=${new.dev.version}-SNAPSHOT -DreleaseVersion=${timestamped.version} org.apache.maven.plugins:maven-scm-plugin:1.9.5:add org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin"/>
 		</antcall>
 	</target>
 

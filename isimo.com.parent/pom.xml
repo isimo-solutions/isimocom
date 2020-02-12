@@ -118,30 +118,7 @@
 			<artifactId>maven-antrun-plugin</artifactId>
 			<executions>
 			  <execution>
-			  <id>set-rel</id>
-			  <goals>
-				  <goal>run</goal>
-			  </goals>
-				<configuration>
-				  <target>
-					<property name="mvn.test.classpath" refid="maven.test.classpath"/>
-					<property name="mvn.runtime.classpath" refid="maven.runtime.classpath"/>
-					<path id="project.classpath">
-						<pathelement path="${mvn.test.classpath}"/>
-					</path>
-					<echo message="${releaseVersion}"/>
-					<taskdef classpathref="project.classpath" resource="net/sf/antcontrib/antlib.xml"/>
-					<if>
-						<available file="./release.xml"/>
-						<then>
-							<ant antfile="release.xml" target="rel"/>
-						</then>
-					</if>
-				  </target>
-				</configuration>
-			  </execution>
-			   <execution>
-			  <id>set-dev</id>
+			  <id>release-run</id>
 			  <goals>
 				  <goal>run</goal>
 			  </goals>
@@ -153,11 +130,10 @@
 						<pathelement path="${mvn.test.classpath}"/>
 					</path>
 					<taskdef classpathref="project.classpath" resource="net/sf/antcontrib/antlib.xml"/>
-					
 					<if>
 						<available file="./release.xml"/>
 						<then>
-							<ant antfile="release.xml" target="dev"/>
+							<ant antfile="release.xml" target="${target}"/>
 						</then>
 					</if>
 				  </target>
