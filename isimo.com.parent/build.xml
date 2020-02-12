@@ -72,14 +72,7 @@
 	<target name="antComplete">
 		<property file="antrelease.properties"/>
 		<antcall target="run-mvn-goals">
-			<param name="p_goals" value=" org.apache.maven.plugins:maven-antrun-plugin:1.8:run@set-dev -B -Declipse.rel=${plugin.version.rel}.${timestamp} -Declipse.dev=${plugin.version.dev} -DdevelopmentVersion=${new.dev.version}-SNAPSHOT -DreleaseVersion=${timestamped.version}"/>
-		</antcall>
-		<antcall target="scmAddCheckin"/>
-	</target>
-	
-	<target name="scmAddCheckin">
-		<antcall target="run-mvn-goals">
-				<param name="p_goals" value=""/>
+			<param name="p_goals" value=" org.apache.maven.plugins:maven-antrun-plugin:1.8:run@set-dev -B -Declipse.rel=${plugin.version.rel}.${timestamp} -Declipse.dev=${plugin.version.dev} -DdevelopmentVersion=${new.dev.version}-SNAPSHOT -DreleaseVersion=${timestamped.version} org.apache.maven.plugins:maven-scm-plugin:1.9.5:add org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin"/>
 		</antcall>
 	</target>
 
