@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.isimo</groupId>
 		<artifactId>isimo.parent</artifactId>
-		<version>2.3-Sel-3.141.59-20200211130033</version>
+		<version>2.3-Sel-3.141.59-SNAPSHOT</version>
 	</parent>
   <artifactId>isimo.com.parent</artifactId>
   <version>2.3-Sel-3.141.59-SNAPSHOT</version>
@@ -75,7 +75,7 @@
 				   <configuration>
 					 <pushChanges>false</pushChanges>
 					 <includes>**/pom.xml,**/META-INF/MANIFEST.MF,**/feature.xml,**/*.product,**/category.xml</includes>
-					 <excludes>**/isimo.test.debug/**,**/target/**, **/bin/**</excludes>
+					 <excludes>**/target/**, **/bin/**</excludes>
 				   <message>Changing the version to reflect the pom versions for the release</message>
 				   </configuration>
 				 </execution>
