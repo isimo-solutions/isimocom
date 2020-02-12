@@ -75,7 +75,7 @@
 				   <configuration>
 					 <pushChanges>false</pushChanges>
 					 <includes>**/pom.xml,**/META-INF/MANIFEST.MF,**/feature.xml,**/*.product,**/category.xml</includes>
-					 <excludes>**/target/**, **/bin/**</excludes>
+					 <excludes>**/isimo.test.debug/**,**/target/**, **/bin/**</excludes>
 				   <message>Changing the version to reflect the pom versions for the release</message>
 				   </configuration>
 				 </execution>
