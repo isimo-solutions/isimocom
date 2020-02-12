@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.isimo</groupId>
 		<artifactId>isimo.parent</artifactId>
-		<version>2.3-Sel-3.141.59-20200212153254</version>
+		<version>2.3-Sel-3.141.59-SNAPSHOT</version>
 	</parent>
   <artifactId>isimo.com.parent</artifactId>
   <version>2.3-Sel-3.141.59-SNAPSHOT</version>
@@ -52,12 +52,9 @@
 				<artifactId>maven-release-plugin</artifactId>
 				<version>3.0.0-M1</version>
 				<configuration>
-					<pushChanges>false</pushChanges>
 					<autoVersionSubmodules>true</autoVersionSubmodules>
-					<preparationGoals>
-<!--org.apache.maven.plugins:maven-antrun-plugin:1.8:run@set-rel--> org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-rel org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin</preparationGoals>
-					<completionGoals>
-<!--org.apache.maven.plugins:maven-antrun-plugin:1.8:run@set-dev--> org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-dev org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-qual org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin</completionGoals>
+					<preparationGoals>org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-rel org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin</preparationGoals>
+					<completionGoals>org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-dev org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:set-version@set-qual org.eclipse.tycho:tycho-versions-plugin:${tycho.version}:update-eclipse-metadata org.apache.maven.plugins:maven-scm-plugin:1.9.5:add org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin</completionGoals>
 					<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
 					<tagNameFormat>@{project.version}</tagNameFormat>
 				</configuration>
@@ -73,7 +70,6 @@
 					 <goal>checkin</goal>
 				   </goals>
 				   <configuration>
-					 <pushChanges>false</pushChanges>
 					 <includes>**/pom.xml,**/META-INF/MANIFEST.MF,**/feature.xml,**/*.product,**/category.xml</includes>
 					 <excludes>**/isimo.test.debug/**,**/target/**, **/bin/**</excludes>
 				   <message>Changing the version to reflect the pom versions for the release</message>
@@ -128,17 +124,17 @@
 			  </goals>
 				<configuration>
 				  <target>
-					<property name="mvn.test.classpath" refid="maven.test.classpath" />
-					<property name="mvn.runtime.classpath" refid="maven.runtime.classpath" />
+					<property name="mvn.test.classpath" refid="maven.test.classpath"/>
+					<property name="mvn.runtime.classpath" refid="maven.runtime.classpath"/>
 					<path id="project.classpath">
-						<pathelement path="${mvn.test.classpath}" />
+						<pathelement path="${mvn.test.classpath}"/>
 					</path>
-					<echo message="${releaseVersion}" />
-					<taskdef classpathref="project.classpath" resource="net/sf/antcontrib/antlib.xml" />
+					<echo message="${releaseVersion}"/>
+					<taskdef classpathref="project.classpath" resource="net/sf/antcontrib/antlib.xml"/>
 					<if>
-						<available file="./release.xml" />
+						<available file="./release.xml"/>
 						<then>
-							<ant antfile="release.xml" target="rel" />
+							<ant antfile="release.xml" target="rel"/>
 						</then>
 					</if>
 				  </target>
@@ -151,17 +147,17 @@
 			  </goals>
 				<configuration>
 				  <target>
-					<property name="mvn.test.classpath" refid="maven.test.classpath" />
-					<property name="mvn.runtime.classpath" refid="maven.runtime.classpath" />
+					<property name="mvn.test.classpath" refid="maven.test.classpath"/>
+					<property name="mvn.runtime.classpath" refid="maven.runtime.classpath"/>
 					<path id="project.classpath">
-						<pathelement path="${mvn.test.classpath}" />
+						<pathelement path="${mvn.test.classpath}"/>
 					</path>
-					<taskdef classpathref="project.classpath" resource="net/sf/antcontrib/antlib.xml" />
+					<taskdef classpathref="project.classpath" resource="net/sf/antcontrib/antlib.xml"/>
 					
 					<if>
-						<available file="./release.xml" />
+						<available file="./release.xml"/>
 						<then>
-							<ant antfile="release.xml" target="dev" />
+							<ant antfile="release.xml" target="dev"/>
 						</then>
 					</if>
 				  </target>
