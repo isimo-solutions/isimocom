@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="isimo Workbench" uid="isimo-workbench" id="isimo.eclipse.plugin.workbench" application="org.eclipse.ui.ide.workbench" version="2.3.0.20200214141123" useFeatures="false" includeLaunchers="true">
+<product name="isimo Workbench" uid="isimo-workbench" id="isimo.eclipse.plugin.workbench" application="org.eclipse.ui.ide.workbench" version="2.3.0.qualifier" useFeatures="false" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/isimo.eclipse.plugin/icons/isimo_logo.png"/>
