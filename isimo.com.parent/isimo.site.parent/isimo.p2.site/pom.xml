@@ -47,7 +47,7 @@
 						<configuration>
 							<artifacts>
 								<artifact>
-									<id>com.isimo:isimo.eclipse.bundle:2.3.0.20200213184032</id>
+									<id>com.isimo:isimo.eclipse.bundle:2.3.0.qualifier</id>
 									<transitive>false</transitive>
 								</artifact>
 							</artifacts>
