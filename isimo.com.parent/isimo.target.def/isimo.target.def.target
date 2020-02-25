@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="Isimo Target" sequenceNumber="1579188774">
+<target name="Isimo Target" sequenceNumber="1582633403">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="ch.ethz.iks.slp" version="1.2.0.v20181107-1631"/>
@@ -299,8 +299,8 @@
       <repository location="http://download.eclipse.org/eclipse/updates/4.12"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.egit" version="5.6.0.201912101111-r"/>
-      <unit id="org.eclipse.jgit" version="5.6.0.201912101111-r"/>
+      <unit id="org.eclipse.egit" version="5.6.1.202002131546-r"/>
+      <unit id="org.eclipse.jgit" version="5.6.1.202002131546-r"/>
       <unit id="org.bouncycastle.bcpg" version="1.64.0.v20191109-0815"/>
       <unit id="org.bouncycastle.bcpkix" version="1.64.0.v20191109-0815"/>
       <unit id="org.bouncycastle.bcprov" version="1.64.0.v20191109-0815"/>
