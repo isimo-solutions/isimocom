@@ -47,7 +47,7 @@
 						<configuration>
 							<artifacts>
 								<artifact>
-									<id>com.isimo:isimo.eclipse.bundle:2.3.0.20210602152515</id>
+									<id>com.isimo:isimo.eclipse.bundle:2.3.0.qualifier</id>
 									<transitive>false</transitive>
 								</artifact>
 							</artifacts>
@@ -66,20 +66,20 @@
 						<phase>install</phase>
 						<configuration>
 							<target>
-								<exec executable="hostname" outputproperty="hostname" />
+								<exec executable="hostname" outputproperty="hostname"/>
 								<echo>ANTRUNPLUGIN ${hostname}</echo>
 								<path id="p.classpath">
-									<pathelement path="${mvn.test.classpath}" />
+									<pathelement path="${mvn.test.classpath}"/>
 								</path>
-								<taskdef classpathref="p.classpath" resource="net/sf/antcontrib/antlib.xml" />
+								<taskdef classpathref="p.classpath" resource="net/sf/antcontrib/antlib.xml"/>
 								<if>
-									<equals arg1="${hostname}" arg2="smartweb.nazwa.pl" />
+									<equals arg1="${hostname}" arg2="smartweb.nazwa.pl"/>
 									<then>
-										<property name="isimo.target.repo" value="/var/www/html/jenkins/isimo.p2" />
-										<delete dir="${isimo.target.repo}" />
-										<mkdir dir="${isimo.target.repo}" />
+										<property name="isimo.target.repo" value="/var/www/html/jenkins/isimo.p2"/>
+										<delete dir="${isimo.target.repo}"/>
+										<mkdir dir="${isimo.target.repo}"/>
 										<copy todir="${isimo.target.repo}">
-											<fileset dir="${project.build.directory}/repository" />
+											<fileset dir="${project.build.directory}/repository"/>
 										</copy>
 									</then>
 								</if>
