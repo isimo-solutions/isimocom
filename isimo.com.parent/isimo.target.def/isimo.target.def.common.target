@@ -301,16 +301,10 @@
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.egit" version="5.11.1.202105131744-r"/>
       <unit id="org.eclipse.jgit" version="5.11.1.202105131744-r"/>
-<!--      <unit id="org.bouncycastle.bcpg" version="1.64.0.v20191109-0815"/>
-      <unit id="org.bouncycastle.bcpkix" version="1.64.0.v20191109-0815"/>
-      <unit id="org.bouncycastle.bcprov" version="1.64.0.v20191109-0815"/>-->
-      <repository id="egit" location="http://download.eclipse.org/egit/updates"/>
-    </location>
-	<location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-     <unit id="org.bouncycastle.bcpg" version="1.64.0.v20191109-0815"/>
+      <unit id="org.bouncycastle.bcpg" version="1.64.0.v20191109-0815"/>
       <unit id="org.bouncycastle.bcpkix" version="1.64.0.v20191109-0815"/>
       <unit id="org.bouncycastle.bcprov" version="1.64.0.v20191109-0815"/>
-      <repository id="orbitI20191115195054" location="https://download.eclipse.org/oomph/archive/reports-orbit/download.eclipse.org/tools/orbit/downloads/drops/I20191115195054/repository"/>
+      <repository id="egit" location="https://archive.eclipse.org/egit/all/"/>
     </location>
 
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
