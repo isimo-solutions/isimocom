@@ -338,8 +338,8 @@
       <repository id="m2e" location="https://download.eclipse.org/technology/m2e/releases/1.11"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.cbi.targetplatform-feature.feature.group" version="3.0.0.201902111444"/>
-      <unit id="org.eclipse.cbi.targetplatform-feature.feature.jar" version="3.0.0.201902111444"/>
+      <unit id="org.eclipse.cbi.targetplatform-feature.feature.group" version="3.0.0.202005061025"/>
+      <unit id="org.eclipse.cbi.targetplatform-feature.feature.jar" version="3.0.0.202005061025"/>
       <repository id="tpd" location="https://download.eclipse.org/cbi/tpd/3.0.0-SNAPSHOT"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
