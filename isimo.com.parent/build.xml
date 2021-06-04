@@ -85,10 +85,10 @@
 	</target>
 	
 	<target name="zipproductrepo">
-	    <mkdir dir="${releases.dir}/${timestamped.version}"/>
-	    <zip destfile="${releases.dir}/${timestamped.version}/isimo-maven-repository-${timestamped.version}.zip">
+	    <mkdir dir="${releases.dir}/${timestamp}"/>
+	    <zip destfile="${releases.dir}/${timestamp}/isimo-maven-repository-${timestamp}.zip">
 			<fileset dir="/var/lib/jenkins/.m2/repository">
-			    <include name="com/isimo/**/*${timestamped.version}*"/>
+			    <include name="com/isimo/**/*${timestamp}*"/>
 			</fileset>
 		</zip>
 	</target>
