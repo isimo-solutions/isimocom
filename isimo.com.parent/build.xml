@@ -7,6 +7,7 @@
 	<property name="plugin.version.dev" value="2.3.0"/> <!-- prefix of the new development version for eclipse plugin ".qualifier" or "-SNAPSHOT" will be added -->
 	<property name="git.username" value=""/>
 	<property name="git.password" value=""/>
+	<property name="releases.dir" value="/var/www/downloads/isimo"/>
 	
 	
 	<!-- properties should be generated from parent project as this release build depends on parent project to be released first -->
@@ -81,6 +82,15 @@
 		<antcall target="run-mvn-goals">
 			<param name="p_goals" value=" org.apache.maven.plugins:maven-antrun-plugin:1.8:run@release-run -B -Dtarget=dev -Declipse.rel=${plugin.version.rel}.${timestamp} -Declipse.dev=${plugin.version.dev} -DdevelopmentVersion=${new.dev.version}-SNAPSHOT -DreleaseVersion=${timestamped.version} org.apache.maven.plugins:maven-scm-plugin:1.9.5:add org.apache.maven.plugins:maven-scm-plugin:1.9.5:checkin"/>
 		</antcall>
+	</target>
+	
+	<target name="zipproductrepo">
+	    <mkdir dir="${releases.dir}"/>
+	    <zip dest="${releases.dir}/${timestamped.version}/isimo-maven-repository-${timestamped.version}.zip">
+			<fileset dir="/var/lib/jenkins/.m2/repository">
+			    <include name="com/isimo/**/*${timestamped.version}*"/>
+			</fileset>
+		</zip>
 	</target>
 
 </project>
