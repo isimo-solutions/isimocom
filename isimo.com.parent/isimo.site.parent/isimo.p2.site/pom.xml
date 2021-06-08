@@ -3,7 +3,7 @@
   <parent>
 	<groupId>com.isimo</groupId>
 	<artifactId>isimo.site.parent</artifactId>
-	<version>2.3-Sel-3.141.59-SNAPSHOT</version>
+	<version>2.3-Sel-3.141.59-20210608101456</version>
 </parent>
 	<groupId>com.isimo</groupId>
 	<artifactId>isimo.p2.site</artifactId>
@@ -66,20 +66,20 @@
 						<phase>install</phase>
 						<configuration>
 							<target>
-								<exec executable="hostname" outputproperty="hostname"/>
+								<exec executable="hostname" outputproperty="hostname" />
 								<echo>ANTRUNPLUGIN ${hostname}</echo>
 								<path id="p.classpath">
-									<pathelement path="${mvn.test.classpath}"/>
+									<pathelement path="${mvn.test.classpath}" />
 								</path>
-								<taskdef classpathref="p.classpath" resource="net/sf/antcontrib/antlib.xml"/>
+								<taskdef classpathref="p.classpath" resource="net/sf/antcontrib/antlib.xml" />
 								<if>
-									<equals arg1="${hostname}" arg2="smartweb.nazwa.pl"/>
+									<equals arg1="${hostname}" arg2="smartweb.nazwa.pl" />
 									<then>
-										<property name="isimo.target.repo" value="/var/www/html/jenkins/isimo.p2"/>
-										<delete dir="${isimo.target.repo}"/>
-										<mkdir dir="${isimo.target.repo}"/>
+										<property name="isimo.target.repo" value="/var/www/html/jenkins/isimo.p2" />
+										<delete dir="${isimo.target.repo}" />
+										<mkdir dir="${isimo.target.repo}" />
 										<copy todir="${isimo.target.repo}">
-											<fileset dir="${project.build.directory}/repository"/>
+											<fileset dir="${project.build.directory}/repository" />
 										</copy>
 									</then>
 								</if>
