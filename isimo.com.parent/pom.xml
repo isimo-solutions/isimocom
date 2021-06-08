@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.isimo</groupId>
 		<artifactId>isimo.parent</artifactId>
-		<version>2.3-Sel-3.141.59-20210608101456</version>
+		<version>2.3-Sel-3.141.59-SNAPSHOT</version>
 	</parent>
   <artifactId>isimo.com.parent</artifactId>
   <version>2.3-Sel-3.141.59-SNAPSHOT</version>
@@ -124,16 +124,16 @@
 			  </goals>
 				<configuration>
 				  <target>
-					<property name="mvn.test.classpath" refid="maven.test.classpath" />
-					<property name="mvn.runtime.classpath" refid="maven.runtime.classpath" />
+					<property name="mvn.test.classpath" refid="maven.test.classpath"/>
+					<property name="mvn.runtime.classpath" refid="maven.runtime.classpath"/>
 					<path id="project.classpath">
-						<pathelement path="${mvn.test.classpath}" />
+						<pathelement path="${mvn.test.classpath}"/>
 					</path>
-					<taskdef classpathref="project.classpath" resource="net/sf/antcontrib/antlib.xml" />
+					<taskdef classpathref="project.classpath" resource="net/sf/antcontrib/antlib.xml"/>
 					<if>
-						<available file="./release.xml" />
+						<available file="./release.xml"/>
 						<then>
-							<ant antfile="release.xml" target="${target}" />
+							<ant antfile="release.xml" target="${target}"/>
 						</then>
 					</if>
 				  </target>
