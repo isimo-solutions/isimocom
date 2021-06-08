@@ -75,12 +75,17 @@
 								<if>
 									<equals arg1="${hostname}" arg2="smartweb.nazwa.pl"/>
 									<then>
+										<property file="/var/lib/jenkins/workspace/isimo-generate-tag-properties/isimo.parent/antrelease.properties"/>
 										<property name="isimo.target.repo" value="/var/www/html/jenkins/isimo.p2"/>
 										<delete dir="${isimo.target.repo}"/>
 										<mkdir dir="${isimo.target.repo}"/>
 										<copy todir="${isimo.target.repo}">
 											<fileset dir="${project.build.directory}/repository"/>
 										</copy>
+										<mkdir dir="/var/www/downloads/isimo/${timestamp}"/>
+										<zip destfile="/var/www/downloads/isimo/${timestamp}/isimo-eclipse-site-${timestamp}.zip">
+										    <fileset dir="${project.build.directory}/repository"/>
+										</zip>
 									</then>
 								</if>
 							</target>
