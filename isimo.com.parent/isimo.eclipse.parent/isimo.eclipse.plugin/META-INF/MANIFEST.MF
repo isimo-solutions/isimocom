@@ -81,5 +81,5 @@ Require-Bundle: org.eclipse.swt,
  org.eclipse.m2e.core;bundle-version="1.11.0"
 Bundle-ClassPath: .
 Bundle-ActivationPolicy: lazy
-Bundle-Version: 2.3.0.20210608101456
+Bundle-Version: 2.3.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
