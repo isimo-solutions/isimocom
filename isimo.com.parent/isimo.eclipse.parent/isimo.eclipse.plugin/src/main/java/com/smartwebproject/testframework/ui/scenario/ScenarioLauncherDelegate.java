@@ -19,6 +19,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.QualifiedName;
@@ -126,6 +127,8 @@ public class ScenarioLauncherDelegate extends JUnitLaunchConfigurationDelegate {
 		} catch(IOException e) {
 			throw new RuntimeException(e);
 		}
+
+		/*
 		InvocationRequest ir = new DefaultInvocationRequest();
 		ir.setPomFile(new File(getProject(pConfiguration).getLocation().toFile()+File.separator+"pom.xml"));
 		ir.setProperties(props);
@@ -136,7 +139,12 @@ public class ScenarioLauncherDelegate extends JUnitLaunchConfigurationDelegate {
 			invoker.execute(ir);
 		} catch(MavenInvocationException e) {
 			throw new RuntimeException(e);
-		}
+		}*/
+		IProject project = getProject(pConfiguration);
+		PomExecutor pe = new PomExecutor(project);
+		pe.exec("install", new NullProgressMonitor());
+		
+		
 		/*
 		PropertiesGenerator gen = new PropertiesGenerator();
 		gen.setResultProperties(resultProperties);
