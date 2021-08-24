@@ -220,13 +220,13 @@ table th {
 <th><span id="tablethBrowserSpan">Browser</span></th>
 <th><span id="tablethEnviromentSpan">Environment</span></th>
 <th><span id="tablethModuleSpan">Module</span></th>
-<th><span id="tablethSuccesSpan">Succes</span></th>
+<th><span id="tablethSuccesSpan">Success</span></th>
 <th><span id="failureSpan">Failure</span></th>
 <th><span id="errorSpan">Error</span></th>
 <th><span id="tableSumSpan">Sum</span></th>
 </tr>
 <xsl:for-each select="/summaryall/summary">
-<xsl:variable name="href"><xsl:value-of select="@concatDir"/>/summary.html</xsl:variable>
+<xsl:variable name="href"><xsl:value-of select="@concatDir"/>/summary_<xsl:value-of select="suiteproperties/module"/>.html</xsl:variable>
 <tr>
 <td><a href="{$href}"><xsl:value-of select="./suiteproperties/browser"/></a></td>
 <td><a href="{$href}"><xsl:value-of select="./suiteproperties/environment"/></a></td>

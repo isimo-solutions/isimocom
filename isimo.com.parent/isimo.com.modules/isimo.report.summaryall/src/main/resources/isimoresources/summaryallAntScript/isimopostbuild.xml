@@ -33,8 +33,12 @@
 		
 		<reportconcat out="${summaryall.dir}/summaryall.xml" rootElement="summaryall">
 			<fileset dir="${project.build.directory}">
-				<include name="/summary.xml"/>
-				<include name="/**/summary.xml"/>
+				<include name="summary*.xml"/>
+				<include name="**/summary*.xml"/>
+				<exclude name="summary*concat.xml"/>
+				<exclude name="**/summary*concat.xml"/>
+				<exclude name="summaryall.xml"/>
+				<exclude name="**/summaryall.xml"/>
 			</fileset>
 		</reportconcat>
 		
