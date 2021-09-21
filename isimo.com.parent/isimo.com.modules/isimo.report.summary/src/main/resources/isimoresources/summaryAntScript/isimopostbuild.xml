@@ -44,6 +44,7 @@
 				
 				<var unset="true" name="xmlreport"/>
 				<var unset="true" name="testdir"/>
+				<var unset="true" name="testsdir"/>
 				<var unset="true" name="txtreportfile"/>
 				<var unset="true" name="sname"/>
 				<var unset="true" name="testdirname"/>
@@ -64,10 +65,10 @@
 				<echo file="${summaryconcat}" message="${xmlreportnoheader}" append="true"/>
 				
 				
-				<echo file="${summaryconcat}" message="&lt;xmllog&gt;${testsdirname}/${testdirname}/scenariolog.xml&lt;/xmllog&gt;" append="true"/>
-				<echo file="${summaryconcat}" message="&lt;htmllog&gt;${testsdirname}/${testdirname}/scenariolog.html&lt;/htmllog&gt;" append="true"/>
-				<echo file="${summaryconcat}" message="&lt;detailreport&gt;${testsdirname}/${testdirname}/${sname}.xml&lt;/detailreport&gt;" append="true"/>
-				<echo file="${summaryconcat}" message="&lt;detailreporttxt&gt;${testsdirname}/${testdirname}/${sname}.txt&lt;/detailreporttxt&gt;" append="true"/>				
+				<echo file="${summaryconcat}" message="&lt;xmllog&gt;tests/${testsdirname}/${testdirname}/scenariolog.xml&lt;/xmllog&gt;" append="true"/>
+				<echo file="${summaryconcat}" message="&lt;htmllog&gt;tests/${testsdirname}/${testdirname}/scenariolog.html&lt;/htmllog&gt;" append="true"/>
+				<echo file="${summaryconcat}" message="&lt;detailreport&gt;tests/${testsdirname}/${testdirname}/${sname}.xml&lt;/detailreport&gt;" append="true"/>
+				<echo file="${summaryconcat}" message="&lt;detailreporttxt&gt;tests/${testsdirname}/${testdirname}/${sname}.txt&lt;/detailreporttxt&gt;" append="true"/>				
 				<if>
 					<available file="${testdir}/errorScreenshot.png"/>
 					<then>
