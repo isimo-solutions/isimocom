@@ -79,6 +79,7 @@ public class IssuesCleanup {
 			}
 		}
 		ia.occs = new ArrayList<Occurrence>(ht.values());
+		ia.issuesnumber = ht.size();
 		Collections.sort(ia.occs);
 		ia.output();
 	}

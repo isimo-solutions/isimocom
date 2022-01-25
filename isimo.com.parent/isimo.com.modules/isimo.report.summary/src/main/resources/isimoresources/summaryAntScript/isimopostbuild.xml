@@ -32,8 +32,7 @@
 				<xslt in="@{scenariolog}" out="${scenariodir}/scenariolog.html" style="${isimoresources.dir}/xsl/testcaselog.xsl" force="true" />
 			</sequential>
 		</for>
-		<mkdir dir="${project.build.directory}/summary_${module}"/>
-		<var name="summaryconcat" value="${project.build.directory}/summary_${module}_concat.xml"/>
+		<var name="summaryconcat" value="${project.build.directory}/tests/${module}/summary_${module}_concat.xml"/>
 		<delete file="${summaryconcat}"/>
 		<echo file="${summaryconcat}" append="true" message="&lt;summary&gt;"/>
 		<for param="logJunit">
@@ -65,14 +64,14 @@
 				<echo file="${summaryconcat}" message="${xmlreportnoheader}" append="true"/>
 				
 				
-				<echo file="${summaryconcat}" message="&lt;xmllog&gt;tests/${testsdirname}/${testdirname}/scenariolog.xml&lt;/xmllog&gt;" append="true"/>
-				<echo file="${summaryconcat}" message="&lt;htmllog&gt;tests/${testsdirname}/${testdirname}/scenariolog.html&lt;/htmllog&gt;" append="true"/>
-				<echo file="${summaryconcat}" message="&lt;detailreport&gt;tests/${testsdirname}/${testdirname}/${sname}.xml&lt;/detailreport&gt;" append="true"/>
-				<echo file="${summaryconcat}" message="&lt;detailreporttxt&gt;tests/${testsdirname}/${testdirname}/${sname}.txt&lt;/detailreporttxt&gt;" append="true"/>				
+				<echo file="${summaryconcat}" message="&lt;xmllog&gt;${testdirname}/scenariolog.xml&lt;/xmllog&gt;" append="true"/>
+				<echo file="${summaryconcat}" message="&lt;htmllog&gt;${testdirname}/scenariolog.html&lt;/htmllog&gt;" append="true"/>
+				<echo file="${summaryconcat}" message="&lt;detailreport&gt;${testdirname}/${sname}.xml&lt;/detailreport&gt;" append="true"/>
+				<echo file="${summaryconcat}" message="&lt;detailreporttxt&gt;${testdirname}/${sname}.txt&lt;/detailreporttxt&gt;" append="true"/>				
 				<if>
-					<available file="${testdir}/errorScreenshot.png"/>
+					<available file="${testdir}/screenshots/errorScreenshot.png"/>
 					<then>
-						<echo file="${summaryconcat}" message="&lt;errorscreenshot&gt;${testsdirname}/${testdirname}/errorScreenshot.png&lt;/errorscreenshot&gt;" append="true"/>
+						<echo file="${summaryconcat}" message="&lt;errorscreenshot&gt;${testdirname}/screenshots/errorScreenshot.png&lt;/errorscreenshot&gt;" append="true"/>
 					</then>
 				</if>
 				
@@ -81,9 +80,9 @@
 		</for>
 		<echo file="${summaryconcat}" message="&lt;/summary&gt;" append="true"/>
 		
-		<xslt in="${summaryconcat}" out="${project.build.directory}/summary_${module}.xml" style="${isimoresources.dir}/xsl/summarymetadata.xsl"/>
+		<xslt in="${summaryconcat}" out="${project.build.directory}/tests/${module}/summary_${module}.xml" style="${isimoresources.dir}/xsl/summarymetadata.xsl"/>
 		
-		<replace file="${project.build.directory}/summary_${module}.xml">
+		<replace file="${project.build.directory}/tests/${module}/summary_${module}.xml">
 			<replacefilter>
 				<replacetoken>ERROR-START(</replacetoken>
 				<replacevalue>&#60;failure&#62;</replacevalue>
@@ -101,13 +100,13 @@
 				<replacevalue>&#60;/issue&#62;</replacevalue>
 			</replacefilter>
 		</replace>
-		<xslt in="${project.build.directory}/summary_${module}.xml" out="${project.build.directory}/summary_${module}.html.xml" style="${isimoresources.dir}/xsl/summary.xsl" classpathref="project.classpath">
+		<xslt in="${project.build.directory}/tests/${module}/summary_${module}.xml" out="${project.build.directory}/tests/${module}/summary_${module}.html.xml" style="${isimoresources.dir}/xsl/summary.xsl" classpathref="project.classpath">
 			<param name="name" expression="${module}"/>
 			<param name="jira.url" expression="${jira.url}"/>
 		</xslt>
 		
 		<available file="${isimoresources.dir}/xsl/language/summaryLanguage.xml" property="translate"/>
-		<xslt in="${project.build.directory}/summary_${module}.html.xml" out="${project.build.directory}/summary_${module}.html" style="${isimoresources.dir}/xsl/translateSummary.xsl" force="true">
+		<xslt in="${project.build.directory}/tests/${module}/summary_${module}.html.xml" out="${project.build.directory}/tests/${module}/summary_${module}.html" style="${isimoresources.dir}/xsl/translateSummary.xsl" force="true">
 			<param name="translate" expression="${translate}" />
 		</xslt>
 		

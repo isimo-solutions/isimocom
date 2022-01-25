@@ -251,7 +251,7 @@ table th {
 	<a href="coverageall_out.html"><span id="coverageReportLinkSpan">Coverage report</span></a>
 </xsl:if>
 <p><i><b><span id="errorSpan">Error</span></b> - <span id="errorParagraphSpan">is an execution of the test scenario that ends with an unexpected event (termination or an unexpected failed condition). In most cases, the screenshots with the latest browser status and the detailed stack traces with exception details are also available.</span></i></p> 
-<p><i><b><span id="failureSpan">Failure</span></b> - <span id="failureParagraphSpan">is an execution of the test scenario that ends with an expected problem / event - the problems are recorded in Jira as tickets. Multiple failures may be reported while executing a test scenario.</span></i></p>
+<p><i><b><span id="failureSpan">Failure</span></b> - <span id="failureParagraphSpan">is an execution of the test scenario that ends with an expected problem / event - the problems should be recorded as tickets in chosen issue tracker software. Multiple failures may be reported while executing a test scenario.</span></i></p>
 <xsl:if test="$generate.issuescleanup = 'true'">
 	<p><span id="issuesCleanupTextSpan">The list of issues without test failure (candidates for manual cleanup) is here</span>: <a href="issuesall.html"><span id="issuesCleanupLinkSpan">Issues status report</span></a></p>
 </xsl:if>

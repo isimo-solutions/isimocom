@@ -93,7 +93,7 @@ td {
 </style>
 </head>
 <body>
-<h2><span id="headerSpan">Executed actions with JIRA issue without failure</span>:</h2>
+<h2><span id="headerSpan">Executed actions with issue attribute without failure</span>:</h2>
 <table style="border-width: 1px; table-layout:fixed;">
 <tr>
 	<td><span id="resolvedSpan">Resolved</span>: </td>
@@ -119,7 +119,7 @@ td {
 <table id="td2">
 <tr>
 <th style="min-width: 70%;"><span id="issuesTableScenarioSpan">Scenario</span></th>
-<th><div><span id="issuesTableIdSpan">Jira-Id</span></div><select id="selectJiraNr" onchange="Filter()"/></th>
+<th><div><span id="issuesTableIdSpan">issue-Id</span></div><select id="selectJiraNr" onchange="Filter()"/></th>
 <th><span id="issuesTableLineNummerSpan">Line Number</span></th>
 <th><div><span id="issuesTableStatusSpan">Status</span></div><select id="selectStatus" onchange="Filter()"/></th>
 </tr>
