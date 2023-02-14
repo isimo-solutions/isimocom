@@ -38,6 +38,8 @@ public class ScenarioLogExecutionListener implements ExecutionListener<Event> {
 		} else if(event.getEventType()==EventType.StopAction) {
 			if(event.getCurrentAction() instanceof CompoundAction)
 				stack.pop();
+		} else if(event.getEventType()==EventType.Comment) {
+			addCommentToLog(event.getMetadata().get("comment"));
 		}
 		flushXmlLog();
 	}
@@ -66,6 +68,10 @@ public class ScenarioLogExecutionListener implements ExecutionListener<Event> {
 			action.getLog().setParent(null);
 			getCurrentParent().add(action.getLog().addAttribute("linenumber", linenumber + ""));
 		}
+	}
+	
+	void addCommentToLog(String comment) {
+		getCurrentParent().addComment(comment);
 	}
 	
 	public void saveTestResultFile(String filename, String content) {

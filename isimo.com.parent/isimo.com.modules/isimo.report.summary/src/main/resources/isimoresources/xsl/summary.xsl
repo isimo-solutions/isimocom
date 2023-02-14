@@ -2,6 +2,7 @@
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:param name="name" />
+	<xsl:param name="testcasesroot" />
 	<xsl:param name="jira.url"/>
 	<xsl:variable name="firsttestsuite"
 		select="/summary/testcase[1]/testsuite" />
@@ -41,8 +42,8 @@ window.onload=function() {
 	if(selectErrType.options.length == 0)selectErrType.appendChild(new Option('all','all'));
 	for (i = 1; i < table.rows.length; i++) {
 		var tr = table.rows[i];
-		var tdResult = tr.cells[1];
-		var tdErrType = tr.cells[6];
+		var tdResult = tr.cells[2];
+		var tdErrType = tr.cells[7];
 		if(tdResult){
 			if(!OptionExist(selectResult, tdResult.innerText)){ 
 			selectResult.appendChild(new Option(tdResult.innerText,tdResult.innerText));
@@ -53,7 +54,7 @@ window.onload=function() {
 				selectErrType.appendChild(new Option(tdErrType.innerText,tdErrType.innerText));
 			}
 		}
-		var trErrNum = tr.cells[7].getElementsByTagName('table');
+		var trErrNum = tr.cells[8].getElementsByTagName('table');
 		if(trErrNum.length > 0 && trErrNum[0].rows.length > 0){
 		trErrNum = trErrNum[0].rows;
 			for(j=0; j < trErrNum.length; j++){
@@ -233,6 +234,7 @@ float: right;
 					class="results">
 					<tr>
 						<th><span id="scenarioNameResultsSpan">Scenario name</span></th>
+						<th><span id="descriptionResultsSpan">Description</span></th>
 						<th><span id="resultResultsSpan">Result</span><br/><select id="selectResult" onchange="Filter()"/></th>
 						<th><span id="timeResultsSpan">Time</span></th>
 						<th><span id="detailsResultsSpan">Details</span></th>
@@ -255,6 +257,13 @@ float: right;
 					<div class="testnamediv">
 						<xsl:apply-templates
 							select=".//property[@name='scenarioname']/@value" />
+					</div>
+				</div>
+			</td>
+			<td>
+				<div class="testdesctd">
+					<div class="testdescdiv">
+						<xsl:value-of select="description"/>
 					</div>
 				</div>
 			</td>

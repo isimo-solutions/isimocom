@@ -3,12 +3,12 @@
   <parent>
     <groupId>com.isimo</groupId>
     <artifactId>isimo.com.modules</artifactId>
-    <version>2.3-Sel-3.141.59-SNAPSHOT</version>
+    <version>2.3-Sel-4.8.0-SNAPSHOT</version>
   </parent>
   <artifactId>isimo.debug.test</artifactId>
   <packaging>jar</packaging>
   	<properties>
-		<testframework.version>2.3-Sel-3.141.59-SNAPSHOT</testframework.version>
+		<testframework.version>2.3-Sel-4.0.8-SNAPSHOT</testframework.version>
 		<isimo.execution.phases>preparation,moduletest,postprocess</isimo.execution.phases> 
 		<!-- <isimo.execution.phases>postprocess</isimo.execution.phases>-->
 		<module>Faktury/scenarios</module>

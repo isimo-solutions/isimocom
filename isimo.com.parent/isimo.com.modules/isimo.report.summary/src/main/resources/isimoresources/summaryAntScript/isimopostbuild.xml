@@ -6,7 +6,8 @@
 		<pathelement path="${mvn.runtime.classpath}"/>
 	</path>
 	<taskdef classpathref="project.classpath" resource="net/sf/antcontrib/antlib.xml" />
-		
+	<taskdef classpathref="project.classpath" name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask"/>
+	
 	<property name="project.build.directory" value="../../"/>
 	<property name="isimoresources.dir" value="${project.build.directory}/isimoresources"/>
 	<property name="jira.url" value=""/>
@@ -64,6 +65,14 @@
 				<echo file="${summaryconcat}" message="${xmlreportnoheader}" append="true"/>
 				
 				
+				<var name="description" unset="true"/>
+				<xmltask source="${project.build.directory}/tests/${module}/${testdirname}/scenariolog.xml">
+					<copy path="/testcase/comment()[1]" property="description" />
+				</xmltask>
+				<property name="description" value=""/>
+				<echo>Scenariolog=${project.build.directory}/tests/${module}/${testdirname}/scenariolog.xml; description=${description}</echo>
+					
+				<echo file="${summaryconcat}" message="&lt;description&gt;${description}&lt;/description&gt;" append="true"/>
 				<echo file="${summaryconcat}" message="&lt;xmllog&gt;${testdirname}/scenariolog.xml&lt;/xmllog&gt;" append="true"/>
 				<echo file="${summaryconcat}" message="&lt;htmllog&gt;${testdirname}/scenariolog.html&lt;/htmllog&gt;" append="true"/>
 				<echo file="${summaryconcat}" message="&lt;detailreport&gt;${testdirname}/${sname}.xml&lt;/detailreport&gt;" append="true"/>
@@ -74,7 +83,6 @@
 						<echo file="${summaryconcat}" message="&lt;errorscreenshot&gt;${testdirname}/screenshots/errorScreenshot.png&lt;/errorscreenshot&gt;" append="true"/>
 					</then>
 				</if>
-				
 				<echo file="${summaryconcat}" append="true" message="&lt;/testcase&gt;"/>
 			</sequential>
 		</for>
